@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMSU Rankings Monitoring Board</title>
+<style>
+  :root {
+    --page:           #f9f9f7;
+    --surface-1:      #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --delta-good:     #006300;
+    --greenmetric:    #008300;
+    --the:            #2a78d6;
+    --wuri:           #4a3aa7;
+    --qs:             #eda100;
+    --seq-450:        #2a78d6;
+    --track:          #efeee9;
+    --tooltip-bg:     #0b0b0b;
+    --tooltip-ink:    #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page:           #0d0d0d;
+      --surface-1:      #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --delta-good:     #0ca30c;
+      --greenmetric:    #008300;
+      --the:            #3987e5;
+      --wuri:           #9085e9;
+      --qs:             #c98500;
+      --seq-450:        #3987e5;
+      --track:          #262624;
+      --tooltip-bg:     #fcfcfb;
+      --tooltip-ink:    #0b0b0b;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.45;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 48px; }
+
+  header.masthead { margin-bottom: 24px; }
+  .masthead h1 { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.01em; }
+  .masthead .sub { color: var(--text-secondary); font-size: 0.92rem; margin-top: 4px; max-width: 720px; }
+  .masthead .asof { color: var(--text-muted); font-size: 0.8rem; margin-top: 6px; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .tile {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px 12px; position: relative; overflow: hidden;
+  }
+  .tile::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent, var(--grid)); }
+  .tile .sys { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+  .tile .val { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0 0; }
+  .tile .val small { font-size: 0.95rem; font-weight: 500; color: var(--text-secondary); }
+  .tile .delta { font-size: 0.8rem; color: var(--delta-good); font-weight: 600; }
+  .tile .delta.neutral { color: var(--text-muted); font-weight: 500; }
+  .tile .note { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+
+  section.panel {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 20px 16px; margin-bottom: 20px;
+  }
+  .panel-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 2px; }
+  .panel-head .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; align-self: center; }
+  .panel-head h2 { font-size: 1.05rem; font-weight: 700; }
+  .panel-head .tag { font-size: 0.75rem; color: var(--text-muted); }
+  .panel .desc { color: var(--text-secondary); font-size: 0.85rem; margin: 2px 0 14px; max-width: 760px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+  .chip {
+    font-size: 0.76rem; color: var(--text-secondary); border: 1px solid var(--border);
+    border-radius: 999px; padding: 3px 10px; background: transparent;
+  }
+  .chip b { color: var(--text-primary); font-weight: 650; }
+
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 780px) { .duo { grid-template-columns: 1fr; } }
+  .chart-block h3 { font-size: 0.86rem; font-weight: 650; margin-bottom: 2px; }
+  .chart-block .axis-note { font-size: 0.74rem; color: var(--text-muted); margin-bottom: 6px; }
+  .chart-scroller { overflow-x: auto; }
+  figure.viz { margin: 0; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .tick-label { font-size: 11px; fill: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .cat-label  { font-size: 12px; fill: var(--text-secondary); }
+  .val-label  { font-size: 11.5px; font-weight: 600; fill: var(--text-primary); font-variant-numeric: tabular-nums; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .baseline { stroke: var(--baseline); stroke-width: 1; }
+
+  details.tbl { margin-top: 10px; }
+  details.tbl summary { font-size: 0.78rem; color: var(--text-muted); cursor: pointer; user-select: none; }
+  details.tbl summary:hover { color: var(--text-secondary); }
+  table.data { border-collapse: collapse; margin-top: 8px; font-size: 0.82rem; min-width: 320px; }
+  table.data th, table.data td { text-align: left; padding: 5px 14px 5px 0; border-bottom: 1px solid var(--grid); }
+  table.data th { color: var(--text-muted); font-weight: 600; font-size: 0.76rem; }
+  table.data td.num { font-variant-numeric: tabular-nums; }
+
+  table.ranks { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+  table.ranks th, table.ranks td { text-align: left; padding: 7px 12px 7px 0; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  table.ranks th { color: var(--text-muted); font-weight: 600; font-size: 0.76rem; letter-spacing: 0.03em; text-transform: uppercase; }
+  table.ranks td.num { font-variant-numeric: tabular-nums; font-weight: 650; white-space: nowrap; }
+  table.ranks td .ph { display: block; font-size: 0.76rem; color: var(--text-muted); font-weight: 400; }
+
+  .stars { font-size: 1.5rem; letter-spacing: 2px; color: var(--qs); }
+  .stars .off { color: var(--baseline); }
+
+  #tooltip {
+    position: fixed; pointer-events: none; z-index: 50; display: none;
+    background: var(--tooltip-bg); color: var(--tooltip-ink);
+    border-radius: 6px; padding: 6px 9px; font-size: 0.76rem; line-height: 1.35;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25); max-width: 260px;
+  }
+  #tooltip b { font-weight: 650; }
+
+  footer.src { color: var(--text-muted); font-size: 0.76rem; margin-top: 28px; }
+  footer.src a { color: var(--text-secondary); }
+  footer.src ul { margin: 6px 0 0 18px; }
+  footer.src li { margin-bottom: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <h1>Mariano Marcos State University — Rankings Monitoring Board</h1>
+    <div class="sub">University performance across the UI GreenMetric World University Rankings, the World’s Universities with Real Impact (WURI) rankings, the Times Higher Education (THE) Impact Rankings, and Quacquarelli Symonds (QS) rankings.</div>
+    <div class="asof" id="asof"></div>
+  </header>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <!-- ══════════════ UI GreenMetric ══════════════ -->
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot" style="background:var(--greenmetric)"></span>
+      <h2>UI GreenMetric World University Rankings</h2>
+      <span class="tag">Campus sustainability · Universitas Indonesia</span>
+    </div>
+    <p class="desc">Measures campus sustainability across six indicators: Setting &amp; Infrastructure, Energy &amp; Climate Change, Waste, Water, Transportation, and Education &amp; Research (10,000 points total). Lower rank is better.</p>
+    <div class="duo">
+      <div class="chart-block">
+        <h3>Global rank by year</h3>
+        <div class="axis-note">Rank axis inverted — a rising line means an improving rank</div>
+        <div class="chart-scroller"><figure class="viz" id="gmTrend"></figure></div>
+        <details class="tbl"><summary>View data table</summary><div id="gmTrendTbl"></div></details>
+      </div>
+      <div class="chart-block">
+        <h3 id="gmCatTitle">Indicator scores</h3>
+        <div class="axis-note">Score earned vs. maximum points per indicator</div>
+        <div class="chart-scroller"><figure class="viz" id="gmCats"></figure></div>
+        <details class="tbl"><summary>View data table</summary><div id="gmCatsTbl"></div></details>
+      </div>
+    </div>
+    <div class="chips" id="gmChips"></div>
+  </section>
+
+  <!-- ══════════════ WURI ══════════════ -->
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot" style="background:var(--wuri)"></span>
+      <h2>WURI — World’s Universities with Real Impact</h2>
+      <span class="tag">Innovation ranking · Global Top 400</span>
+    </div>
+    <p class="desc">Ranks universities on innovative contributions to industry and society rather than traditional research metrics. Lower rank is better.</p>
+    <div class="duo">
+      <div class="chart-block">
+        <h3>Global rank by year</h3>
+        <div class="axis-note">Rank axis inverted — a rising line means an improving rank</div>
+        <div class="chart-scroller"><figure class="viz" id="wuriTrend"></figure></div>
+        <details class="tbl"><summary>View data table</summary><div id="wuriTrendTbl"></div></details>
+      </div>
+      <div class="chart-block">
+        <h3>Category standings</h3>
+        <div class="axis-note">MMSU’s ranked WURI categories, by edition</div>
+        <div class="chart-scroller"><table class="ranks" id="wuriCats"></table></div>
+      </div>
+    </div>
+    <div class="chips" id="wuriChips"></div>
+  </section>
+
+  <!-- ══════════════ THE Impact ══════════════ -->
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot" style="background:var(--the)"></span>
+      <h2>THE Impact Rankings</h2>
+      <span class="tag">UN Sustainable Development Goals · Times Higher Education</span>
+    </div>
+    <p class="desc">Assesses universities against the United Nations Sustainable Development Goals. Results are published as rank brackets. Lower bracket is better.</p>
+    <div class="duo">
+      <div class="chart-block">
+        <h3>Global rank bracket by year</h3>
+        <div class="axis-note">Rank axis inverted — higher bar position means a better bracket</div>
+        <div class="chart-scroller"><figure class="viz" id="theTrend"></figure></div>
+        <details class="tbl"><summary>View data table</summary><div id="theTrendTbl"></div></details>
+      </div>
+      <div class="chart-block">
+        <h3 id="theSdgTitle">Scores by SDG</h3>
+        <div class="axis-note">Score out of 100, latest published SDG-level breakdown</div>
+        <div class="chart-scroller"><figure class="viz" id="theSdgs"></figure></div>
+        <details class="tbl"><summary>View data table</summary><div id="theSdgsTbl"></div></details>
+      </div>
+    </div>
+    <div class="chips" id="theChips"></div>
+  </section>
+
+  <!-- ══════════════ QS ══════════════ -->
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot" style="background:var(--qs)"></span>
+      <h2>QS Rankings &amp; Ratings</h2>
+      <span class="tag">Quacquarelli Symonds</span>
+    </div>
+    <p class="desc">MMSU’s standing in the QS Asia University Rankings and the QS Stars institutional rating system.</p>
+    <div class="duo">
+      <div class="chart-block">
+        <h3>QS Asia University Rankings</h3>
+        <div class="kpi-row" style="margin:8px 0 0" id="qsTiles"></div>
+      </div>
+      <div class="chart-block">
+        <h3>QS Stars rating</h3>
+        <div id="qsStars" style="margin-top:8px"></div>
+      </div>
+    </div>
+    <div class="chips" id="qsChips"></div>
+  </section>
+
+  <footer class="src" id="sources"></footer>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   DATA — edit this block when new ranking results are released.
+   Ranks are global positions unless noted. Brackets use {lo, hi}.
+   ════════════════════════════════════════════════════════════════════════ */
+const DATA = {
+  asOf: "July 2026",
+
+  greenMetric: {
+    // Global rank per edition (lower is better)
+    trend: [
+      { year: 2022, rank: 356 },
+      { year: 2023, rank: 251 },
+      { year: 2024, rank: 231 },
+      { year: 2025, rank: 200 },
+    ],
+    // Latest edition's indicator scores (max = official indicator maxima, 10,000 total)
+    categoryYear: 2025,
+    categories: [
+      { name: "Setting & Infrastructure", score: 1275,   max: 1500 },
+      { name: "Energy & Climate Change",  score: 1825,   max: 2100 },
+      { name: "Waste",                    score: 1075,   max: 1800 },
+      { name: "Water",                    score: 837.5,  max: 1000 },
+      { name: "Transportation",           score: 1550,   max: 1800 },
+      { name: "Education & Research",     score: 1587.5, max: 1800 },
+    ],
+    totalScore: 8150,
+    highlights: [
+      "<b>1st</b> among Philippine SUCs (2024)",
+      "<b>2nd</b> among all Philippine HEIs (2024)",
+      "<b>PH #1</b> in Energy & Climate Change (2024)",
+      "<b>PH #2</b> in Education & Research (2024)",
+    ],
+  },
+
+  wuri: {
+    trend: [
+      { year: 2024, rank: 107 },
+      { year: 2025, rank: 89 },
+    ],
+    categories: [
+      { year: 2025, name: "Empowerment-Based Management (B2)", rank: 5,  ph: "2nd in PH" },
+      { year: 2025, name: "Technology Development (A7)",       rank: 15, ph: "2nd in PH" },
+      { year: 2025, name: "Visionary Leadership (B1)",         rank: 15, ph: "4th in PH" },
+      { year: 2024, name: "Generative AI Application",         rank: 2,  ph: "1st in PH" },
+      { year: 2024, name: "Support for Global Resilience",     rank: 4,  ph: "1st in PH" },
+      { year: 2024, name: "Industrial Application",            rank: 8,  ph: "2nd in PH" },
+    ],
+    highlights: [
+      "Broke into the <b>Global Top 100</b> innovative universities (2025)",
+      "<b>1st</b> among Region I SUCs (2025)",
+      "<b>2nd in the world</b> for Generative AI Application (2024)",
+    ],
+  },
+
+  theImpact: {
+    // Published rank brackets per edition (lower is better)
+    trend: [
+      { year: 2022, lo: 401, hi: 600 },
+      { year: 2023, lo: 601, hi: 800 },
+      { year: 2024, lo: 601, hi: 800 },
+      { year: 2025, lo: 601, hi: 800 },
+    ],
+    // Latest published SDG-level score breakdown (2022 edition, overall 66.9)
+    sdgYear: 2022,
+    overallScore: 66.9,
+    sdgs: [
+      { sdg: "SDG 7 · Affordable & Clean Energy",      score: 67.7 },
+      { sdg: "SDG 5 · Gender Equality",                score: 62.0 },
+      { sdg: "SDG 17 · Partnership for the Goals",     score: 58.4 },
+      { sdg: "SDG 1 · No Poverty",                     score: 56.9 },
+      { sdg: "SDG 4 · Quality Education",              score: 51.1 },
+      { sdg: "SDG 3 · Good Health & Well-Being",       score: 49.4 },
+      { sdg: "SDG 16 · Peace, Justice & Institutions", score: 43.1 },
+    ],
+    highlights: [
+      "<b>PH #1</b> for SDG 8: Decent Work & Economic Growth (2023 & 2024)",
+      "Highest THE Impact rank ever attained by a PH state university — <b>401–600</b>, 2nd in PH (2022)",
+      "One of <b>121 PH HEIs</b> ranked in 2025, holding the 601–800 bracket",
+    ],
+  },
+
+  qs: {
+    asia: { edition: 2026, bracket: "1401–1500", note: "New entry" },
+    stars: { current: 4, outOf: 5, year: 2024, history: "3★ in 2019 → 4★ in 2024" },
+    highlights: [
+      "First Philippine SUC rated in the <b>QS Stars</b> system",
+      "New entrant to the <b>QS Asia University Rankings 2026</b>",
+    ],
+  },
+
+  sources: [
+    { label: "MMSU: 1st among PH SUCs in UI GreenMetric 2024", url: "https://www.mmsu.edu.ph/news/mmsu-ranks-1st-among-ph-sucs-anew-in-ui-greenmetric-world-university-rankings-2024" },
+    { label: "UI GreenMetric — MMSU university profile (2025 scores)", url: "https://uigreenmetric.com/university/mmsu.edu.ph" },
+    { label: "MMSU ranks 107th in WURI 2024 global rankings", url: "https://www.mmsu.edu.ph/news/mmsu-ranks-107th-in-wuri-2024-global-rankings" },
+    { label: "MMSU breaks into WURI Global Top 100 (2025)", url: "https://www.mmsu.edu.ph/news/mmsu-breaks-into-wuri-global-top-100-universities" },
+    { label: "MMSU ranked 401st–600th in THE Impact Rankings 2022", url: "https://www.mmsu.edu.ph/news/as-phs-top-state-university-mmsu-is-ranked-401st-600th-in-worlds-the-impact" },
+    { label: "THE Impact Rankings 2024: MMSU leads PH for SDG 8", url: "https://www.mmsu.edu.ph/news/the-impact-rankings-2024-mmsu-continues-to-lead-in-ph-for-decent-work-and-economic-growth" },
+    { label: "CHED Region 1 — 2025 THE Impact Rankings", url: "https://region1.ched.gov.ph/2025-times-higher-education-the-impact-rankings/" },
+    { label: "QS — Mariano Marcos State University profile", url: "https://www.topuniversities.com/universities/mariano-marcos-state-university" },
+  ],
+};
+/* ═══════════════════════════ END OF DATA BLOCK ═══════════════════════════ */
+
+const NS = "http://www.w3.org/2000/svg";
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById("tooltip");
+function bindTip(el, html) {
+  el.addEventListener("pointerenter", () => { tip.innerHTML = html; tip.style.display = "block"; });
+  el.addEventListener("pointermove", (e) => {
+    const pad = 12, w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + pad, y = e.clientY - h - pad;
+    if (x + w > innerWidth - 8) x = e.clientX - w - pad;
+    if (y < 8) y = e.clientY + pad;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  el.addEventListener("pointerleave", () => { tip.style.display = "none"; });
+}
+
+/* ---------- svg helpers ---------- */
+function svgEl(tag, attrs) {
+  const el = document.createElementNS(NS, tag);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+function makeSvg(mount, w, h, label) {
+  const svg = svgEl("svg", { viewBox: `0 0 ${w} ${h}`, width: "100%", role: "img", "aria-label": label });
+  svg.style.maxWidth = w + "px";
+  svg.style.display = "block";
+  document.getElementById(mount).appendChild(svg);
+  return svg;
+}
+// Bar with 4px rounded corners at the data end only, square at the baseline.
+function endRoundedBar(x, y, w, h, horizontal) {
+  const r = Math.min(4, horizontal ? w : h);
+  if (horizontal) {
+    return `M${x},${y} h${w - r} a${r},${r} 0 0 1 ${r},${r} v${h - 2 * r} a${r},${r} 0 0 1 ${-r},${r} h${-(w - r)} Z`;
+  }
+  return `M${x},${y + r} a${r},${r} 0 0 1 ${r},${-r} h${w - 2 * r} a${r},${r} 0 0 1 ${r},${r} v${h - r} h${-w} Z`;
+}
+function niceTicks(min, max, count) {
+  const span = max - min, step0 = span / Math.max(1, count - 1);
+  const mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => span / s <= count) || 10 * mag;
+  const ticks = [];
+  for (let v = Math.ceil(min / step) * step; v <= max + 1e-9; v += step) ticks.push(Math.round(v * 100) / 100);
+  return ticks;
+}
+
+/* ---------- rank trend line chart (inverted y: lower rank = higher) ---------- */
+function rankTrend(mount, tableMount, points, color, systemName) {
+  const W = 460, H = 240, M = { t: 16, r: 24, b: 30, l: 46 };
+  const svg = makeSvg(mount, W, H, `${systemName} global rank by year`);
+  const ranks = points.map(p => p.rank);
+  const lo = Math.min(...ranks), hi = Math.max(...ranks);
+  const pad = Math.max(10, (hi - lo) * 0.18);
+  const yMin = Math.max(1, lo - pad), yMax = hi + pad;
+  const x = (i) => points.length === 1 ? (M.l + W - M.r) / 2
+    : M.l + (i / (points.length - 1)) * (W - M.l - M.r);
+  const y = (r) => M.t + ((r - yMin) / (yMax - yMin)) * (H - M.t - M.b); // inverted: small rank → top
+
+  for (const t of niceTicks(yMin, yMax, 5)) {
+    const ty = y(t);
+    svg.appendChild(svgEl("line", { x1: M.l, x2: W - M.r, y1: ty, y2: ty, class: "gridline" }));
+    const lbl = svgEl("text", { x: M.l - 8, y: ty + 3.5, "text-anchor": "end", class: "tick-label" });
+    lbl.textContent = "#" + t;
+    svg.appendChild(lbl);
+  }
+  points.forEach((p, i) => {
+    const lbl = svgEl("text", { x: x(i), y: H - 8, "text-anchor": "middle", class: "tick-label" });
+    lbl.textContent = p.year;
+    svg.appendChild(lbl);
+  });
+
+  const path = points.map((p, i) => `${i ? "L" : "M"}${x(i)},${y(p.rank)}`).join(" ");
+  svg.appendChild(svgEl("path", { d: path, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+  points.forEach((p, i) => {
+    svg.appendChild(svgEl("circle", { cx: x(i), cy: y(p.rank), r: 4.5, fill: color, stroke: css("--surface-1"), "stroke-width": 2 }));
+    const lbl = svgEl("text", { x: x(i), y: y(p.rank) - 10, "text-anchor": "middle", class: "val-label" });
+    lbl.textContent = "#" + p.rank;
+    svg.appendChild(lbl);
+    const hit = svgEl("circle", { cx: x(i), cy: y(p.rank), r: 16, fill: "transparent" });
+    const prev = i > 0 ? points[i - 1].rank : null;
+    const delta = prev === null ? "" : `<br>${prev - p.rank >= 0 ? "▲ improved" : "▼ dropped"} ${Math.abs(prev - p.rank)} places vs ${points[i - 1].year}`;
+    bindTip(hit, `<b>${systemName} ${p.year}</b><br>Global rank #${p.rank}${delta}`);
+    svg.appendChild(hit);
+  });
+
+  if (tableMount) {
+    document.getElementById(tableMount).innerHTML =
+      `<table class="data"><tr><th>Edition</th><th>Global rank</th></tr>` +
+      points.map(p => `<tr><td>${p.year}</td><td class="num">#${p.rank}</td></tr>`).join("") + `</table>`;
+  }
+}
+
+/* ---------- GreenMetric indicator bars (score vs max) ---------- */
+function gmCategoryBars() {
+  const g = DATA.greenMetric;
+  document.getElementById("gmCatTitle").textContent = `Indicator scores — ${g.categoryYear} edition`;
+  const rowH = 32, labelW = 168, W = 460, M = { t: 6, r: 52, b: 6 };
+  const H = M.t + g.categories.length * rowH + M.b;
+  const svg = makeSvg("gmCats", W, H, `UI GreenMetric ${g.categoryYear} indicator scores`);
+  const maxAll = Math.max(...g.categories.map(c => c.max));
+  const xw = (v) => (v / maxAll) * (W - labelW - M.r);
+
+  g.categories.forEach((c, i) => {
+    const yTop = M.t + i * rowH, barH = 14, yBar = yTop + (rowH - barH) / 2;
+    const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label" });
+    lbl.textContent = c.name;
+    svg.appendChild(lbl);
+    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(c.max), height: barH, rx: 4, fill: css("--track") }));
+    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(c.score), barH, true), fill: css("--greenmetric") }));
+    const val = svgEl("text", { x: labelW + xw(c.max) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
+    val.textContent = Math.round((c.score / c.max) * 100) + "%";
+    svg.appendChild(val);
+    const hit = svgEl("rect", { x: labelW, y: yTop, width: W - labelW - M.r + 46, height: rowH, fill: "transparent" });
+    bindTip(hit, `<b>${c.name}</b><br>${c.score.toLocaleString()} of ${c.max.toLocaleString()} points (${Math.round((c.score / c.max) * 100)}%)`);
+    svg.appendChild(hit);
+  });
+
+  document.getElementById("gmCatsTbl").innerHTML =
+    `<table class="data"><tr><th>Indicator</th><th>Score</th><th>Max</th></tr>` +
+    g.categories.map(c => `<tr><td>${c.name}</td><td class="num">${c.score.toLocaleString()}</td><td class="num">${c.max.toLocaleString()}</td></tr>`).join("") +
+    `<tr><td><b>Total</b></td><td class="num"><b>${g.totalScore.toLocaleString()}</b></td><td class="num">10,000</td></tr></table>`;
+}
+
+/* ---------- THE bracket range chart ---------- */
+function theBracketChart() {
+  const t = DATA.theImpact;
+  const W = 460, H = 240, M = { t: 16, r: 24, b: 30, l: 46 };
+  const svg = makeSvg("theTrend", W, H, "THE Impact Rankings bracket by year");
+  const lo = Math.min(...t.trend.map(d => d.lo)), hi = Math.max(...t.trend.map(d => d.hi));
+  const yMin = Math.max(1, lo - 100), yMax = hi + 100;
+  const y = (r) => M.t + ((r - yMin) / (yMax - yMin)) * (H - M.t - M.b);
+  const n = t.trend.length, slot = (W - M.l - M.r) / n, barW = Math.min(34, slot * 0.4);
+
+  for (const g of niceTicks(yMin, yMax, 5)) {
+    const gy = y(g);
+    svg.appendChild(svgEl("line", { x1: M.l, x2: W - M.r, y1: gy, y2: gy, class: "gridline" }));
+    const lbl = svgEl("text", { x: M.l - 8, y: gy + 3.5, "text-anchor": "end", class: "tick-label" });
+    lbl.textContent = "#" + g;
+    svg.appendChild(lbl);
+  }
+
+  t.trend.forEach((d, i) => {
+    const cx = M.l + slot * (i + 0.5);
+    const yTop = y(d.lo), yBot = y(d.hi);
+    svg.appendChild(svgEl("rect", { x: cx - barW / 2, y: yTop, width: barW, height: yBot - yTop, rx: 4, fill: css("--the"), "fill-opacity": 0.85 }));
+    const lbl = svgEl("text", { x: cx, y: yTop - 8, "text-anchor": "middle", class: "val-label" });
+    lbl.textContent = `${d.lo}–${d.hi}`;
+    svg.appendChild(lbl);
+    const yr = svgEl("text", { x: cx, y: H - 8, "text-anchor": "middle", class: "tick-label" });
+    yr.textContent = d.year;
+    svg.appendChild(yr);
+    const hit = svgEl("rect", { x: cx - slot / 2, y: M.t, width: slot, height: H - M.t - M.b, fill: "transparent" });
+    bindTip(hit, `<b>THE Impact ${d.year}</b><br>Global bracket ${d.lo}–${d.hi}`);
+    svg.appendChild(hit);
+  });
+
+  document.getElementById("theTrendTbl").innerHTML =
+    `<table class="data"><tr><th>Edition</th><th>Global bracket</th></tr>` +
+    t.trend.map(d => `<tr><td>${d.year}</td><td class="num">${d.lo}–${d.hi}</td></tr>`).join("") + `</table>`;
+}
+
+/* ---------- THE SDG score bars ---------- */
+function theSdgBars() {
+  const t = DATA.theImpact;
+  document.getElementById("theSdgTitle").textContent = `Scores by SDG — ${t.sdgYear} edition (overall ${t.overallScore})`;
+  const rowH = 28, labelW = 244, W = 508, M = { t: 6, r: 44, b: 6 };
+  const H = M.t + t.sdgs.length * rowH + M.b;
+  const svg = makeSvg("theSdgs", W, H, `THE Impact ${t.sdgYear} scores by SDG`);
+  const xw = (v) => (v / 100) * (W - labelW - M.r);
+
+  t.sdgs.forEach((s, i) => {
+    const yTop = M.t + i * rowH, barH = 13, yBar = yTop + (rowH - barH) / 2;
+    const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label" });
+    lbl.textContent = s.sdg;
+    svg.appendChild(lbl);
+    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(100), height: barH, rx: 4, fill: css("--track") }));
+    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(s.score), barH, true), fill: css("--seq-450") }));
+    const val = svgEl("text", { x: labelW + xw(100) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
+    val.textContent = s.score.toFixed(1);
+    svg.appendChild(val);
+    const hit = svgEl("rect", { x: 0, y: yTop, width: W, height: rowH, fill: "transparent" });
+    bindTip(hit, `<b>${s.sdg}</b><br>Score ${s.score.toFixed(1)} / 100 (${t.sdgYear} edition)`);
+    svg.appendChild(hit);
+  });
+
+  document.getElementById("theSdgsTbl").innerHTML =
+    `<table class="data"><tr><th>SDG</th><th>Score /100</th></tr>` +
+    t.sdgs.map(s => `<tr><td>${s.sdg}</td><td class="num">${s.score.toFixed(1)}</td></tr>`).join("") + `</table>`;
+}
+
+/* ---------- assemble page ---------- */
+function fmtDelta(prev, cur) {
+  const d = prev - cur; // positive = improved (rank went down)
+  return d > 0 ? `▲ up ${d} places` : d < 0 ? `▼ down ${-d} places` : "— steady";
+}
+function kpis() {
+  const g = DATA.greenMetric.trend, w = DATA.wuri.trend, t = DATA.theImpact.trend;
+  const gl = g[g.length - 1], gp = g[g.length - 2];
+  const wl = w[w.length - 1], wp = w[w.length - 2];
+  const tl = t[t.length - 1];
+  const tiles = [
+    { sys: `UI GreenMetric ${gl.year}`, val: `#${gl.rank}`, sub: "global", delta: gp ? fmtDelta(gp.rank, gl.rank) + ` vs ${gp.year}` : "", note: "1st among PH SUCs", accent: "var(--greenmetric)", good: gp && gp.rank > gl.rank },
+    { sys: `WURI ${wl.year}`, val: `#${wl.rank}`, sub: "global", delta: wp ? fmtDelta(wp.rank, wl.rank) + ` vs ${wp.year}` : "", note: "Top 100 innovative universities", accent: "var(--wuri)", good: wp && wp.rank > wl.rank },
+    { sys: `THE Impact ${tl.year}`, val: `${tl.lo}–${tl.hi}`, sub: "bracket", delta: "— steady since 2023", note: "PH #1 for SDG 8 (2023 & 2024)", accent: "var(--the)", good: false },
+    { sys: `QS Asia ${DATA.qs.asia.edition}`, val: DATA.qs.asia.bracket, sub: "bracket", delta: "★ " + DATA.qs.asia.note, note: `${DATA.qs.stars.current}★ QS Stars (${DATA.qs.stars.year})`, accent: "var(--qs)", good: true },
+  ];
+  document.getElementById("kpiRow").innerHTML = tiles.map(t => `
+    <div class="tile" style="--accent:${t.accent}">
+      <div class="sys">${t.sys}</div>
+      <div class="val">${t.val} <small>${t.sub}</small></div>
+      <div class="delta${t.good ? "" : " neutral"}">${t.delta}</div>
+      <div class="note">${t.note}</div>
+    </div>`).join("");
+}
+function chips(mount, items) {
+  document.getElementById(mount).innerHTML = items.map(h => `<span class="chip">${h}</span>`).join("");
+}
+function wuriTable() {
+  const rows = DATA.wuri.categories.map(c => `
+    <tr><td class="num">${c.year}</td><td>${c.name}</td>
+    <td class="num">#${c.rank} <span class="ph">${c.ph}</span></td></tr>`).join("");
+  document.getElementById("wuriCats").innerHTML =
+    `<tr><th>Edition</th><th>Category</th><th>Global rank</th></tr>` + rows;
+}
+function qsSection() {
+  const q = DATA.qs;
+  document.getElementById("qsTiles").innerHTML = `
+    <div class="tile" style="--accent:var(--qs)">
+      <div class="sys">Asia · ${q.asia.edition} edition</div>
+      <div class="val">${q.asia.bracket} <small>bracket</small></div>
+      <div class="delta">★ ${q.asia.note}</div>
+      <div class="note">First appearance in the QS Asia University Rankings</div>
+    </div>`;
+  const on = "★".repeat(q.stars.current), off = "☆".repeat(q.stars.outOf - q.stars.current);
+  document.getElementById("qsStars").innerHTML = `
+    <div class="stars" role="img" aria-label="${q.stars.current} of ${q.stars.outOf} QS Stars">${on}<span class="off">${off}</span></div>
+    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px">
+      Rated <b style="color:var(--text-primary)">${q.stars.current} Stars</b> in ${q.stars.year} — ${q.stars.history}</div>`;
+}
+function footer() {
+  document.getElementById("asof").textContent = `Data compiled as of ${DATA.asOf} · edit the DATA block in this file to update`;
+  document.getElementById("sources").innerHTML = `<b>Sources</b><ul>` +
+    DATA.sources.map(s => `<li><a href="${s.url}" target="_blank" rel="noopener">${s.label}</a></li>`).join("") + `</ul>`;
+}
+
+kpis();
+rankTrend("gmTrend", "gmTrendTbl", DATA.greenMetric.trend, css("--greenmetric"), "UI GreenMetric");
+gmCategoryBars();
+chips("gmChips", DATA.greenMetric.highlights);
+rankTrend("wuriTrend", "wuriTrendTbl", DATA.wuri.trend, css("--wuri"), "WURI");
+wuriTable();
+chips("wuriChips", DATA.wuri.highlights);
+theBracketChart();
+theSdgBars();
+chips("theChips", DATA.theImpact.highlights);
+qsSection();
+chips("qsChips", DATA.qs.highlights);
+footer();
+
+// Re-render charts if the OS theme flips, so SVG fills tracked via css() stay in sync.
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => location.reload());
+</script>
+</body>
+</html>
