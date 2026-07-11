@@ -45,6 +45,45 @@
       --tooltip-ink:    #0b0b0b;
     }
   }
+  /* Explicit theme stamp (e.g. a host page's toggle) wins over the OS preference. */
+  :root[data-theme="dark"] {
+    --page:           #0d0d0d;
+    --surface-1:      #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --delta-good:     #0ca30c;
+    --greenmetric:    #008300;
+    --the:            #3987e5;
+    --wuri:           #9085e9;
+    --qs:             #c98500;
+    --seq-450:        #3987e5;
+    --track:          #262624;
+    --tooltip-bg:     #fcfcfb;
+    --tooltip-ink:    #0b0b0b;
+  }
+  :root[data-theme="light"] {
+    --page:           #f9f9f7;
+    --surface-1:      #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --delta-good:     #006300;
+    --greenmetric:    #008300;
+    --the:            #2a78d6;
+    --wuri:           #4a3aa7;
+    --qs:             #eda100;
+    --seq-450:        #2a78d6;
+    --track:          #efeee9;
+    --tooltip-bg:     #0b0b0b;
+    --tooltip-ink:    #ffffff;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--page);
@@ -349,7 +388,6 @@ const DATA = {
 /* ═══════════════════════════ END OF DATA BLOCK ═══════════════════════════ */
 
 const NS = "http://www.w3.org/2000/svg";
-const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
 /* ---------- tooltip ---------- */
 const tip = document.getElementById("tooltip");
@@ -421,10 +459,10 @@ function rankTrend(mount, tableMount, points, color, systemName) {
   });
 
   const path = points.map((p, i) => `${i ? "L" : "M"}${x(i)},${y(p.rank)}`).join(" ");
-  svg.appendChild(svgEl("path", { d: path, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+  svg.appendChild(svgEl("path", { d: path, style: `fill:none;stroke:${color}`, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
 
   points.forEach((p, i) => {
-    svg.appendChild(svgEl("circle", { cx: x(i), cy: y(p.rank), r: 4.5, fill: color, stroke: css("--surface-1"), "stroke-width": 2 }));
+    svg.appendChild(svgEl("circle", { cx: x(i), cy: y(p.rank), r: 4.5, style: `fill:${color};stroke:var(--surface-1)`, "stroke-width": 2 }));
     const lbl = svgEl("text", { x: x(i), y: y(p.rank) - 10, "text-anchor": "middle", class: "val-label" });
     lbl.textContent = "#" + p.rank;
     svg.appendChild(lbl);
@@ -457,8 +495,8 @@ function gmCategoryBars() {
     const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label" });
     lbl.textContent = c.name;
     svg.appendChild(lbl);
-    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(c.max), height: barH, rx: 4, fill: css("--track") }));
-    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(c.score), barH, true), fill: css("--greenmetric") }));
+    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(c.max), height: barH, rx: 4, style: "fill:var(--track)" }));
+    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(c.score), barH, true), style: "fill:var(--greenmetric)" }));
     const val = svgEl("text", { x: labelW + xw(c.max) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
     val.textContent = Math.round((c.score / c.max) * 100) + "%";
     svg.appendChild(val);
@@ -494,7 +532,7 @@ function theBracketChart() {
   t.trend.forEach((d, i) => {
     const cx = M.l + slot * (i + 0.5);
     const yTop = y(d.lo), yBot = y(d.hi);
-    svg.appendChild(svgEl("rect", { x: cx - barW / 2, y: yTop, width: barW, height: yBot - yTop, rx: 4, fill: css("--the"), "fill-opacity": 0.85 }));
+    svg.appendChild(svgEl("rect", { x: cx - barW / 2, y: yTop, width: barW, height: yBot - yTop, rx: 4, style: "fill:var(--the);fill-opacity:0.85" }));
     const lbl = svgEl("text", { x: cx, y: yTop - 8, "text-anchor": "middle", class: "val-label" });
     lbl.textContent = `${d.lo}–${d.hi}`;
     svg.appendChild(lbl);
@@ -525,8 +563,8 @@ function theSdgBars() {
     const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label" });
     lbl.textContent = s.sdg;
     svg.appendChild(lbl);
-    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(100), height: barH, rx: 4, fill: css("--track") }));
-    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(s.score), barH, true), fill: css("--seq-450") }));
+    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(100), height: barH, rx: 4, style: "fill:var(--track)" }));
+    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(s.score), barH, true), style: "fill:var(--seq-450)" }));
     const val = svgEl("text", { x: labelW + xw(100) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
     val.textContent = s.score.toFixed(1);
     svg.appendChild(val);
@@ -596,10 +634,10 @@ function footer() {
 }
 
 kpis();
-rankTrend("gmTrend", "gmTrendTbl", DATA.greenMetric.trend, css("--greenmetric"), "UI GreenMetric");
+rankTrend("gmTrend", "gmTrendTbl", DATA.greenMetric.trend, "var(--greenmetric)", "UI GreenMetric");
 gmCategoryBars();
 chips("gmChips", DATA.greenMetric.highlights);
-rankTrend("wuriTrend", "wuriTrendTbl", DATA.wuri.trend, css("--wuri"), "WURI");
+rankTrend("wuriTrend", "wuriTrendTbl", DATA.wuri.trend, "var(--wuri)", "WURI");
 wuriTable();
 chips("wuriChips", DATA.wuri.highlights);
 theBracketChart();
@@ -609,8 +647,6 @@ qsSection();
 chips("qsChips", DATA.qs.highlights);
 footer();
 
-// Re-render charts if the OS theme flips, so SVG fills tracked via css() stay in sync.
-matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => location.reload());
 </script>
 </body>
 </html>
