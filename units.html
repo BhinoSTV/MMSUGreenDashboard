@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMSU Colleges &amp; Units Scoreboard</title>
+<style>
+  :root {
+    --page:           #f9f9f7;
+    --surface-1:      #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --greenmetric:    #008300;
+    --track:          #efeee9;
+    --tooltip-bg:     #0b0b0b;
+    --tooltip-ink:    #ffffff;
+    --warn-ink:       #7a5200;
+    --warn-bg:        #fdf6e3;
+    --warn-border:    #eda100;
+    --hm-0: #cde2fb; --hm-1: #9ec5f4; --hm-2: #6da7ec; --hm-3: #3987e5;
+    --hm-4: #256abf; --hm-5: #184f95; --hm-6: #0d366b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page:           #0d0d0d;
+      --surface-1:      #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --greenmetric:    #008300;
+      --track:          #262624;
+      --tooltip-bg:     #fcfcfb;
+      --tooltip-ink:    #0b0b0b;
+      --warn-ink:       #fab219;
+      --warn-bg:        #26200f;
+      --warn-border:    #7a5200;
+      --hm-0: #0d366b; --hm-1: #184f95; --hm-2: #256abf; --hm-3: #3987e5;
+      --hm-4: #6da7ec; --hm-5: #9ec5f4; --hm-6: #cde2fb;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page:           #0d0d0d;
+    --surface-1:      #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --greenmetric:    #008300;
+    --track:          #262624;
+    --tooltip-bg:     #fcfcfb;
+    --tooltip-ink:    #0b0b0b;
+    --warn-ink:       #fab219;
+    --warn-bg:        #26200f;
+    --warn-border:    #7a5200;
+    --hm-0: #0d366b; --hm-1: #184f95; --hm-2: #256abf; --hm-3: #3987e5;
+    --hm-4: #6da7ec; --hm-5: #9ec5f4; --hm-6: #cde2fb;
+  }
+  :root[data-theme="light"] {
+    --page:           #f9f9f7;
+    --surface-1:      #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --greenmetric:    #008300;
+    --track:          #efeee9;
+    --tooltip-bg:     #0b0b0b;
+    --tooltip-ink:    #ffffff;
+    --warn-ink:       #7a5200;
+    --warn-bg:        #fdf6e3;
+    --warn-border:    #eda100;
+    --hm-0: #cde2fb; --hm-1: #9ec5f4; --hm-2: #6da7ec; --hm-3: #3987e5;
+    --hm-4: #256abf; --hm-5: #184f95; --hm-6: #0d366b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--page); color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.45;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 48px; }
+
+  nav.crumbs { font-size: 0.82rem; margin-bottom: 14px; }
+  nav.crumbs a { color: var(--text-secondary); text-decoration: none; }
+  nav.crumbs a:hover { color: var(--text-primary); text-decoration: underline; }
+
+  header.masthead { margin-bottom: 18px; }
+  .masthead h1 { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.01em; }
+  .masthead .sub { color: var(--text-secondary); font-size: 0.92rem; margin-top: 4px; max-width: 760px; }
+
+  .banner {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 10px;
+    color: var(--warn-ink); font-size: 0.83rem; padding: 10px 14px; margin-bottom: 20px;
+  }
+  .banner b { font-weight: 700; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .tile {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px 12px; position: relative; overflow: hidden;
+  }
+  .tile::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent, var(--grid)); }
+  .tile .sys { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+  .tile .val { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0 0; }
+  .tile .val small { font-size: 0.95rem; font-weight: 500; color: var(--text-secondary); }
+  .tile .note { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+
+  section.panel {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 20px 16px; margin-bottom: 20px;
+  }
+  .panel-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 2px; }
+  .panel-head .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; align-self: center; background: var(--greenmetric); }
+  .panel-head h2 { font-size: 1.05rem; font-weight: 700; }
+  .panel-head .tag { font-size: 0.75rem; color: var(--text-muted); }
+  .panel .desc { color: var(--text-secondary); font-size: 0.85rem; margin: 2px 0 14px; max-width: 780px; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+  .fbtn {
+    font: inherit; font-size: 0.8rem; color: var(--text-secondary);
+    background: transparent; border: 1px solid var(--border); border-radius: 999px;
+    padding: 4px 12px; cursor: pointer;
+  }
+  .fbtn:hover { color: var(--text-primary); border-color: var(--baseline); }
+  .fbtn[aria-pressed="true"] { color: var(--text-primary); font-weight: 650; border-color: var(--greenmetric); box-shadow: inset 0 0 0 1px var(--greenmetric); }
+  .fbtn:focus-visible, select:focus-visible { outline: 2px solid var(--greenmetric); outline-offset: 2px; }
+
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 820px) { .duo { grid-template-columns: 1fr; } }
+  .chart-block h3 { font-size: 0.86rem; font-weight: 650; margin-bottom: 2px; }
+  .chart-block .axis-note { font-size: 0.74rem; color: var(--text-muted); margin-bottom: 8px; }
+  .chart-scroller { overflow-x: auto; }
+  figure.viz { margin: 0; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .cat-label  { font-size: 12px; fill: var(--text-secondary); }
+  .val-label  { font-size: 11.5px; font-weight: 600; fill: var(--text-primary); font-variant-numeric: tabular-nums; }
+  .tick-label { font-size: 11px; fill: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  /* heatmap */
+  .hm { display: grid; gap: 2px; font-variant-numeric: tabular-nums; }
+  .hm .hd { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); text-align: center; padding-bottom: 4px; align-self: end; }
+  .hm .rowlbl { font-size: 0.78rem; color: var(--text-secondary); padding-right: 8px; display: flex; align-items: center; justify-content: flex-end; white-space: nowrap; }
+  .hm .cell { height: 26px; border-radius: 4px; cursor: default; }
+  .hm .cell:hover { outline: 2px solid var(--text-primary); outline-offset: -2px; }
+  .hm-legend { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 0.72rem; color: var(--text-muted); }
+  .hm-legend .swatches { display: flex; gap: 2px; }
+  .hm-legend .swatches span { width: 22px; height: 10px; border-radius: 2px; display: block; }
+
+  details.tbl { margin-top: 10px; }
+  details.tbl summary { font-size: 0.78rem; color: var(--text-muted); cursor: pointer; user-select: none; }
+  details.tbl summary:hover { color: var(--text-secondary); }
+  table.data { border-collapse: collapse; margin-top: 8px; font-size: 0.8rem; }
+  table.data th, table.data td { text-align: left; padding: 5px 12px 5px 0; border-bottom: 1px solid var(--grid); }
+  table.data th { color: var(--text-muted); font-weight: 600; font-size: 0.74rem; }
+  table.data td.num { font-variant-numeric: tabular-nums; text-align: right; padding-right: 16px; }
+
+  .detail-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .detail-head select {
+    font: inherit; font-size: 0.85rem; color: var(--text-primary);
+    background: var(--surface-1); border: 1px solid var(--baseline); border-radius: 8px; padding: 6px 10px;
+  }
+  .legend { display: flex; gap: 16px; font-size: 0.76rem; color: var(--text-secondary); align-items: center; }
+  .legend .key { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .sw { width: 14px; height: 10px; border-radius: 3px; background: var(--greenmetric); display: inline-block; }
+  .legend .avg { width: 3px; height: 14px; background: var(--text-muted); border-radius: 1px; display: inline-block; }
+  .unit-facts { font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px; }
+  .unit-facts b { color: var(--text-primary); }
+
+  .campus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .campus {
+    border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;
+  }
+  .campus h3 { font-size: 0.88rem; font-weight: 700; }
+  .campus .loc { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 8px; }
+  .campus ul { list-style: none; }
+  .campus li { font-size: 0.82rem; padding: 4px 0; border-top: 1px solid var(--grid); }
+  .campus li b { font-weight: 650; }
+  .campus li span { color: var(--text-muted); font-size: 0.76rem; }
+  .campus .none { color: var(--text-muted); font-style: italic; font-size: 0.8rem; padding: 4px 0; border-top: 1px solid var(--grid); }
+
+  #tooltip {
+    position: fixed; pointer-events: none; z-index: 50; display: none;
+    background: var(--tooltip-bg); color: var(--tooltip-ink);
+    border-radius: 6px; padding: 6px 9px; font-size: 0.76rem; line-height: 1.35;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25); max-width: 280px;
+  }
+  #tooltip b { font-weight: 650; }
+
+  footer.src { color: var(--text-muted); font-size: 0.76rem; margin-top: 28px; }
+  footer.src a { color: var(--text-secondary); }
+  footer.src ul { margin: 6px 0 0 18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="crumbs" id="crumbs"><a href="index.html">← University rankings board</a></nav>
+
+  <header class="masthead">
+    <h1>MMSU Colleges &amp; Units — Green Scoreboard</h1>
+    <div class="sub">Per-unit monitoring across Mariano Marcos State University’s <b>11 recognized academic units</b> on <b>6 campuses</b>, scored against the six UI GreenMetric indicator areas so every college can see its contribution to the university’s standing.</div>
+  </header>
+
+  <div class="banner">⚠️<div><b>Sample scores for demonstration.</b> The unit roster, campuses, and locations are official MMSU data; the per-unit indicator scores are placeholders illustrating the scoreboard. Replace them in the DATA block with each unit’s actual self-assessment or audit results.</div></div>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot"></span>
+      <h2>Unit green scoreboard</h2>
+      <span class="tag">Scored 0–100 per UI GreenMetric indicator area, weighted like the official ranking</span>
+    </div>
+    <p class="desc">Composite = Setting &amp; Infrastructure 15% · Energy &amp; Climate Change 21% · Waste 18% · Water 10% · Transportation 18% · Education &amp; Research 18%. Click a bar or heatmap row to open the unit’s detail below.</p>
+
+    <div class="filters" id="campusFilters" role="group" aria-label="Filter by campus"></div>
+
+    <div class="duo">
+      <div class="chart-block">
+        <h3>Composite score by unit</h3>
+        <div class="axis-note">Weighted mean of the six indicator scores — higher is better</div>
+        <div class="chart-scroller"><figure class="viz" id="compBars"></figure></div>
+      </div>
+      <div class="chart-block">
+        <h3>Indicator heatmap</h3>
+        <div class="axis-note">Units × GreenMetric indicator areas — darker means stronger (hover for values)</div>
+        <div class="chart-scroller"><div class="hm" id="heatmap" role="img" aria-label="Heatmap of unit scores per indicator"></div></div>
+        <div class="hm-legend" id="hmLegend"></div>
+      </div>
+    </div>
+    <details class="tbl"><summary>View data table (all units, all indicators)</summary><div class="chart-scroller" id="allTbl"></div></details>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot"></span>
+      <h2>Unit detail</h2>
+      <span class="tag">One unit vs. the university average</span>
+    </div>
+    <div class="detail-head">
+      <label for="unitSel" style="font-size:0.82rem;color:var(--text-secondary)">Unit:</label>
+      <select id="unitSel"></select>
+      <div class="legend">
+        <span class="key"><span class="sw"></span> unit score</span>
+        <span class="key"><span class="avg"></span> university average</span>
+      </div>
+    </div>
+    <div class="unit-facts" id="unitFacts"></div>
+    <div class="chart-scroller"><figure class="viz" id="detailBars"></figure></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="dot"></span>
+      <h2>Recognized units by campus</h2>
+      <span class="tag">Official roster — 11 academic units, 6 campuses</span>
+    </div>
+    <div class="campus-grid" id="campusGrid"></div>
+  </section>
+
+  <footer class="src" id="sources"></footer>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   DATA — the unit roster and campuses are official MMSU information.
+   The per-unit `scores` are SAMPLE values for demonstration only:
+   replace them with each unit's actual assessment results (0–100 per
+   indicator), then remove the banner in the HTML above if desired.
+   Indicator keys: si = Setting & Infrastructure, ec = Energy & Climate
+   Change, ws = Waste, wr = Water, tr = Transportation, ed = Education
+   & Research. Weights mirror the official UI GreenMetric weighting.
+   ════════════════════════════════════════════════════════════════════════ */
+const DATA = {
+  weights: { si: 0.15, ec: 0.21, ws: 0.18, wr: 0.10, tr: 0.18, ed: 0.18 },
+  indicators: [
+    { key: "si", short: "SI", name: "Setting & Infrastructure" },
+    { key: "ec", short: "EC", name: "Energy & Climate Change" },
+    { key: "ws", short: "WS", name: "Waste" },
+    { key: "wr", short: "WR", name: "Water" },
+    { key: "tr", short: "TR", name: "Transportation" },
+    { key: "ed", short: "ED", name: "Education & Research" },
+  ],
+  campuses: [
+    { id: "batac",    name: "Main Campus — Batac",   loc: "City of Batac · ~300 ha" },
+    { id: "laoag2",   name: "Campus 2 — Laoag",      loc: "Laoag City · 7.79 ha" },
+    { id: "laoag3",   name: "Campus 3 — Laoag",      loc: "Laoag City · 2.18 ha" },
+    { id: "currimao", name: "Campus 4 — Currimao",   loc: "Currimao, Ilocos Norte" },
+    { id: "dingras",  name: "Campus 5 — Dingras",    loc: "Dingras, Ilocos Norte", empty: true },
+    { id: "paoay",    name: "Campus 6 — Paoay",      loc: "Paoay, Ilocos Norte",   empty: true },
+  ],
+  units: [
+    { code: "CAFSD", name: "College of Agriculture, Food and Sustainable Development", campus: "batac",
+      scores: { si: 82, ec: 78, ws: 74, wr: 80, tr: 70, ed: 88 } },
+    { code: "CAS",   name: "College of Arts and Sciences", campus: "batac",
+      scores: { si: 68, ec: 66, ws: 70, wr: 64, tr: 72, ed: 78 } },
+    { code: "CBEA",  name: "College of Business, Economics and Accountancy", campus: "batac",
+      scores: { si: 64, ec: 62, ws: 66, wr: 60, tr: 68, ed: 70 } },
+    { code: "COE",   name: "College of Engineering", campus: "batac",
+      scores: { si: 70, ec: 85, ws: 72, wr: 68, tr: 75, ed: 80 } },
+    { code: "CHS",   name: "College of Health Sciences", campus: "batac",
+      scores: { si: 66, ec: 64, ws: 82, wr: 70, tr: 66, ed: 74 } },
+    { code: "COM",   name: "College of Medicine", campus: "batac",
+      scores: { si: 62, ec: 60, ws: 78, wr: 66, tr: 62, ed: 72 } },
+    { code: "COL",   name: "College of Law", campus: "batac",
+      scores: { si: 60, ec: 58, ws: 62, wr: 56, tr: 64, ed: 66 } },
+    { code: "CTE",   name: "College of Teacher Education", campus: "laoag2",
+      scores: { si: 65, ec: 63, ws: 68, wr: 62, tr: 70, ed: 82 } },
+    { code: "GS",    name: "Graduate School", campus: "laoag2",
+      scores: { si: 58, ec: 60, ws: 64, wr: 58, tr: 66, ed: 90 } },
+    { code: "CIT",   name: "College of Industrial Technology", campus: "laoag3",
+      scores: { si: 63, ec: 72, ws: 70, wr: 60, tr: 68, ed: 71 } },
+    { code: "CASAT", name: "College of Aquatic Sciences and Applied Technology", campus: "currimao",
+      scores: { si: 67, ec: 61, ws: 69, wr: 85, tr: 63, ed: 73 } },
+  ],
+  sources: [
+    { label: "SEARCA UC — MMSU institutional profile (11 academic units, 6 campuses)", url: "https://uc.searca.org/members/mariano-marcos-state-university" },
+    { label: "MMSU — official website", url: "https://www.mmsu.edu.ph/" },
+    { label: "UI GreenMetric — indicator areas & weights", url: "https://greenmetric.ui.ac.id/about/methodology" },
+  ],
+};
+/* ═══════════════════════════ END OF DATA BLOCK ═══════════════════════════ */
+
+const NS = "http://www.w3.org/2000/svg";
+const composite = (u) => DATA.indicators.reduce((s, ind) => s + u.scores[ind.key] * DATA.weights[ind.key], 0);
+const avgScore = (key, units) => units.reduce((s, u) => s + u.scores[key], 0) / units.length;
+
+const state = { campus: "all", unit: DATA.units[0].code };
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById("tooltip");
+function bindTip(el, htmlFn) {
+  el.addEventListener("pointerenter", () => { tip.innerHTML = typeof htmlFn === "function" ? htmlFn() : htmlFn; tip.style.display = "block"; });
+  el.addEventListener("pointermove", (e) => {
+    const pad = 12, w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + pad, y = e.clientY - h - pad;
+    if (x + w > innerWidth - 8) x = e.clientX - w - pad;
+    if (y < 8) y = e.clientY + pad;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  el.addEventListener("pointerleave", () => { tip.style.display = "none"; });
+}
+function svgEl(tag, attrs) {
+  const el = document.createElementNS(NS, tag);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+function endRoundedBarH(x, y, w, h) {
+  const r = Math.min(4, w);
+  return `M${x},${y} h${w - r} a${r},${r} 0 0 1 ${r},${r} v${h - 2 * r} a${r},${r} 0 0 1 ${-r},${r} h${-(w - r)} Z`;
+}
+const visibleUnits = () => DATA.units.filter(u => state.campus === "all" || u.campus === state.campus);
+
+/* ---------- KPI tiles ---------- */
+function kpis() {
+  const comps = DATA.units.map(u => ({ u, c: composite(u) })).sort((a, b) => b.c - a.c);
+  const avg = comps.reduce((s, x) => s + x.c, 0) / comps.length;
+  const withUnits = DATA.campuses.filter(c => !c.empty).length;
+  document.getElementById("kpiRow").innerHTML = `
+    <div class="tile" style="--accent:var(--greenmetric)">
+      <div class="sys">Academic units</div><div class="val">11</div>
+      <div class="note">recognized colleges &amp; the Graduate School</div></div>
+    <div class="tile" style="--accent:var(--greenmetric)">
+      <div class="sys">Campuses</div><div class="val">6</div>
+      <div class="note">${withUnits} host academic units — Batac (main), Laoag ×2, Currimao</div></div>
+    <div class="tile" style="--accent:var(--greenmetric)">
+      <div class="sys">University average</div><div class="val">${avg.toFixed(1)} <small>/100</small></div>
+      <div class="note">weighted composite, sample scores</div></div>
+    <div class="tile" style="--accent:var(--greenmetric)">
+      <div class="sys">Leading unit</div><div class="val">${comps[0].u.code}</div>
+      <div class="note">${comps[0].u.name} — ${comps[0].c.toFixed(1)}/100 (sample)</div></div>`;
+}
+
+/* ---------- campus filter ---------- */
+function filters() {
+  const opts = [{ id: "all", name: "All campuses" }, ...DATA.campuses.filter(c => !c.empty)];
+  const host = document.getElementById("campusFilters");
+  host.innerHTML = "";
+  opts.forEach(o => {
+    const b = document.createElement("button");
+    b.className = "fbtn"; b.textContent = o.name;
+    b.setAttribute("aria-pressed", String(state.campus === o.id));
+    b.onclick = () => { state.campus = o.id; render(); };
+    host.appendChild(b);
+  });
+}
+
+/* ---------- composite bars ---------- */
+function compBars() {
+  const units = visibleUnits().map(u => ({ u, c: composite(u) })).sort((a, b) => b.c - a.c);
+  const rowH = 30, labelW = 64, W = 470, M = { r: 46 };
+  const H = units.length * rowH + 6;
+  const mount = document.getElementById("compBars");
+  mount.innerHTML = "";
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", role: "img", "aria-label": "Composite green score by unit" });
+  svg.style.maxWidth = W + "px"; svg.style.display = "block";
+  mount.appendChild(svg);
+  const xw = (v) => (v / 100) * (W - labelW - M.r);
+
+  units.forEach((row, i) => {
+    const yTop = 3 + i * rowH, barH = 14, yBar = yTop + (rowH - barH) / 2;
+    const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label", style: "font-weight:600" });
+    lbl.textContent = row.u.code;
+    svg.appendChild(lbl);
+    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(100), height: barH, rx: 4, style: "fill:var(--track)" }));
+    svg.appendChild(svgEl("path", { d: endRoundedBarH(labelW, yBar, xw(row.c), barH), style: "fill:var(--greenmetric)" }));
+    const val = svgEl("text", { x: labelW + xw(100) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
+    val.textContent = row.c.toFixed(1);
+    svg.appendChild(val);
+    const hit = svgEl("rect", { x: 0, y: yTop, width: W, height: rowH, fill: "transparent", style: "cursor:pointer" });
+    bindTip(hit, `<b>${row.u.code} — ${row.u.name}</b><br>Composite ${row.c.toFixed(1)}/100 · click for detail`);
+    hit.addEventListener("click", () => { state.unit = row.u.code; renderDetail(); document.getElementById("unitSel").value = row.u.code; });
+    svg.appendChild(hit);
+  });
+}
+
+/* ---------- heatmap ---------- */
+const step = (v) => Math.max(0, Math.min(6, Math.round((v - 50) / 45 * 6)));
+function heatmap() {
+  const units = visibleUnits().map(u => ({ u, c: composite(u) })).sort((a, b) => b.c - a.c);
+  const hm = document.getElementById("heatmap");
+  hm.innerHTML = "";
+  hm.style.gridTemplateColumns = `minmax(56px,auto) repeat(${DATA.indicators.length}, minmax(34px,1fr))`;
+  hm.appendChild(document.createElement("div"));
+  DATA.indicators.forEach(ind => {
+    const h = document.createElement("div");
+    h.className = "hd"; h.textContent = ind.short; h.title = ind.name;
+    hm.appendChild(h);
+  });
+  units.forEach(({ u }) => {
+    const r = document.createElement("div");
+    r.className = "rowlbl"; r.textContent = u.code;
+    hm.appendChild(r);
+    DATA.indicators.forEach(ind => {
+      const v = u.scores[ind.key];
+      const c = document.createElement("div");
+      c.className = "cell"; c.style.background = `var(--hm-${step(v)})`;
+      bindTip(c, `<b>${u.code}</b> · ${ind.name}<br>Score ${v}/100`);
+      c.addEventListener("click", () => { state.unit = u.code; renderDetail(); document.getElementById("unitSel").value = u.code; });
+      hm.appendChild(c);
+    });
+  });
+  document.getElementById("hmLegend").innerHTML =
+    `<span>lower</span><div class="swatches">${[0,1,2,3,4,5,6].map(i => `<span style="background:var(--hm-${i})"></span>`).join("")}</div><span>higher</span>`;
+}
+
+/* ---------- full data table ---------- */
+function allTable() {
+  const units = DATA.units.map(u => ({ u, c: composite(u) })).sort((a, b) => b.c - a.c);
+  document.getElementById("allTbl").innerHTML =
+    `<table class="data"><tr><th>Unit</th>${DATA.indicators.map(i => `<th title="${i.name}">${i.short}</th>`).join("")}<th>Composite</th></tr>` +
+    units.map(({ u, c }) =>
+      `<tr><td>${u.code} — ${u.name}</td>${DATA.indicators.map(i => `<td class="num">${u.scores[i.key]}</td>`).join("")}<td class="num"><b>${c.toFixed(1)}</b></td></tr>`
+    ).join("") + `</table>`;
+}
+
+/* ---------- unit detail: bullet bars vs university average ---------- */
+function renderDetail() {
+  const u = DATA.units.find(x => x.code === state.unit);
+  const facts = DATA.campuses.find(c => c.id === u.campus);
+  document.getElementById("unitFacts").innerHTML =
+    `<b>${u.name}</b> · ${facts.name} (${facts.loc}) · composite <b>${composite(u).toFixed(1)}/100</b> <span style="color:var(--text-muted)">(sample)</span>`;
+
+  const rowH = 34, labelW = 178, W = 640, M = { r: 46 };
+  const H = DATA.indicators.length * rowH + 8;
+  const mount = document.getElementById("detailBars");
+  mount.innerHTML = "";
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", role: "img", "aria-label": `${u.code} indicator scores vs university average` });
+  svg.style.maxWidth = W + "px"; svg.style.display = "block";
+  mount.appendChild(svg);
+  const xw = (v) => (v / 100) * (W - labelW - M.r);
+
+  DATA.indicators.forEach((ind, i) => {
+    const yTop = 4 + i * rowH, barH = 15, yBar = yTop + (rowH - barH) / 2;
+    const v = u.scores[ind.key], a = avgScore(ind.key, DATA.units);
+    const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label" });
+    lbl.textContent = ind.name;
+    svg.appendChild(lbl);
+    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(100), height: barH, rx: 4, style: "fill:var(--track)" }));
+    svg.appendChild(svgEl("path", { d: endRoundedBarH(labelW, yBar, xw(v), barH), style: "fill:var(--greenmetric)" }));
+    svg.appendChild(svgEl("rect", { x: labelW + xw(a) - 1.5, y: yBar - 3, width: 3, height: barH + 6, rx: 1, style: "fill:var(--text-muted)" }));
+    const val = svgEl("text", { x: labelW + xw(100) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
+    val.textContent = v;
+    svg.appendChild(val);
+    const hit = svgEl("rect", { x: 0, y: yTop, width: W, height: rowH, fill: "transparent" });
+    bindTip(hit, `<b>${ind.name}</b><br>${u.code}: ${v}/100 · university average: ${a.toFixed(1)}`);
+    svg.appendChild(hit);
+  });
+}
+function unitSelect() {
+  const sel = document.getElementById("unitSel");
+  sel.innerHTML = DATA.units.map(u => `<option value="${u.code}">${u.code} — ${u.name}</option>`).join("");
+  sel.value = state.unit;
+  sel.onchange = () => { state.unit = sel.value; renderDetail(); };
+}
+
+/* ---------- roster by campus ---------- */
+function roster() {
+  document.getElementById("campusGrid").innerHTML = DATA.campuses.map(c => {
+    const units = DATA.units.filter(u => u.campus === c.id);
+    const items = units.length
+      ? units.map(u => `<li><b>${u.code}</b> — ${u.name}</li>`).join("")
+      : `<div class="none">No resident academic unit</div>`;
+    return `<div class="campus"><h3>${c.name}</h3><div class="loc">${c.loc}</div><ul>${items}</ul></div>`;
+  }).join("");
+}
+
+function footer() {
+  document.getElementById("sources").innerHTML = `<b>Sources</b><ul>` +
+    DATA.sources.map(s => `<li><a href="${s.url}" target="_blank" rel="noopener">${s.label}</a></li>`).join("") + `</ul>`;
+}
+
+function render() { filters(); compBars(); heatmap(); }
+kpis(); render(); allTable(); unitSelect(); renderDetail(); roster(); footer();
+</script>
+</body>
+</html>

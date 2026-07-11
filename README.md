@@ -10,6 +10,21 @@ four international ranking systems:
 | [THE Impact Rankings](https://www.timeshighereducation.com/impactrankings) | Contributions to the UN SDGs | **601–800 bracket** (2025), PH #1 for SDG 8 (2023–2024) |
 | [QS](https://www.topuniversities.com/universities/mariano-marcos-state-university) | Asia University Rankings & QS Stars rating | **1401–1500** Asia bracket (2026, new entry), **4★** QS Stars (2024) |
 
+## Pages
+
+- `index.html` — university-level rankings monitoring board (the table above).
+- `units.html` — **Colleges & Units green scoreboard**: MMSU's 11 recognized
+  academic units (CAFSD, CAS, CBEA, COE, CHS, COM, COL, CTE, GS, CIT, CASAT)
+  across its 6 campuses, each scored against the six UI GreenMetric indicator
+  areas with the official weighting. Includes a campus filter, composite
+  ranking, unit × indicator heatmap, and a per-unit detail view against the
+  university average.
+
+  > ⚠️ The unit roster, campuses, and locations on that page are official MMSU
+  > data; the per-unit indicator **scores are sample values** for demonstration.
+  > Replace them in the `DATA` block of `units.html` with each unit's actual
+  > self-assessment or audit results.
+
 ## Viewing
 
 The whole dashboard is one dependency-free file — open `index.html` in any browser,
