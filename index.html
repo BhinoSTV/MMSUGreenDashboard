@@ -23,6 +23,12 @@
     --track:          #efeee9;
     --tooltip-bg:     #0b0b0b;
     --tooltip-ink:    #ffffff;
+    --gm-si:  #1f8a5f;
+    --gm-ec:  #2a78d6;
+    --gm-ws:  #c9432c;
+    --gm-wr:  #0e9aa7;
+    --gm-tr:  #eda100;
+    --gm-ed:  #7a52d6;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -43,6 +49,12 @@
       --track:          #262624;
       --tooltip-bg:     #fcfcfb;
       --tooltip-ink:    #0b0b0b;
+      --gm-si:  #25a173;
+      --gm-ec:  #3987e5;
+      --gm-ws:  #e2664a;
+      --gm-wr:  #22a0ab;
+      --gm-tr:  #c98500;
+      --gm-ed:  #9a7ae8;
     }
   }
   /* Explicit theme stamp (e.g. a host page's toggle) wins over the OS preference. */
@@ -64,6 +76,12 @@
     --track:          #262624;
     --tooltip-bg:     #fcfcfb;
     --tooltip-ink:    #0b0b0b;
+    --gm-si:  #25a173;
+    --gm-ec:  #3987e5;
+    --gm-ws:  #e2664a;
+    --gm-wr:  #22a0ab;
+    --gm-tr:  #c98500;
+    --gm-ed:  #9a7ae8;
   }
   :root[data-theme="light"] {
     --page:           #f9f9f7;
@@ -83,6 +101,12 @@
     --track:          #efeee9;
     --tooltip-bg:     #0b0b0b;
     --tooltip-ink:    #ffffff;
+    --gm-si:  #1f8a5f;
+    --gm-ec:  #2a78d6;
+    --gm-ws:  #c9432c;
+    --gm-wr:  #0e9aa7;
+    --gm-tr:  #eda100;
+    --gm-ed:  #7a52d6;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -170,6 +194,12 @@
   footer.src a { color: var(--text-secondary); }
   footer.src ul { margin: 6px 0 0 18px; }
   footer.src li { margin-bottom: 2px; }
+
+  .pie-legend { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+  .pie-legend .row { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-secondary); }
+  .pie-legend .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+  .pie-legend .name { flex: 1; }
+  .pie-legend .pct { font-variant-numeric: tabular-nums; font-weight: 650; color: var(--text-primary); min-width: 3.6em; text-align: right; }
 </style>
 </head>
 <body>
@@ -201,8 +231,9 @@
       </div>
       <div class="chart-block">
         <h3 id="gmCatTitle">Indicator scores</h3>
-        <div class="axis-note">Score earned vs. maximum points per indicator</div>
+        <div class="axis-note">Each indicator’s share of the total earned score</div>
         <div class="chart-scroller"><figure class="viz" id="gmCats"></figure></div>
+        <div class="pie-legend" id="gmCatsLegend"></div>
         <details class="tbl"><summary>View data table</summary><div id="gmCatsTbl"></div></details>
       </div>
     </div>
@@ -303,12 +334,12 @@ const DATA = {
     // Latest edition's indicator scores (max = official indicator maxima, 10,000 total)
     categoryYear: 2025,
     categories: [
-      { name: "Setting & Infrastructure", score: 1275,   max: 1500 },
-      { name: "Energy & Climate Change",  score: 1825,   max: 2100 },
-      { name: "Waste",                    score: 1075,   max: 1800 },
-      { name: "Water",                    score: 837.5,  max: 1000 },
-      { name: "Transportation",           score: 1550,   max: 1800 },
-      { name: "Education & Research",     score: 1587.5, max: 1800 },
+      { name: "Setting & Infrastructure", score: 1275,   max: 1500, color: "--gm-si" },
+      { name: "Energy & Climate Change",  score: 1825,   max: 2100, color: "--gm-ec" },
+      { name: "Waste",                    score: 1075,   max: 1800, color: "--gm-ws" },
+      { name: "Water",                    score: 837.5,  max: 1000, color: "--gm-wr" },
+      { name: "Transportation",           score: 1550,   max: 1800, color: "--gm-tr" },
+      { name: "Education & Research",     score: 1587.5, max: 1800, color: "--gm-ed" },
     ],
     totalScore: 8150,
     highlights: [
@@ -425,6 +456,16 @@ function endRoundedBar(x, y, w, h, horizontal) {
   }
   return `M${x},${y + r} a${r},${r} 0 0 1 ${r},${-r} h${w - 2 * r} a${r},${r} 0 0 1 ${r},${r} v${h - r} h${-w} Z`;
 }
+function polarPoint(cx, cy, r, deg) {
+  const rad = (deg - 90) * Math.PI / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+function donutSlicePath(cx, cy, rOuter, rInner, startDeg, endDeg) {
+  const large = endDeg - startDeg > 180 ? 1 : 0;
+  const o1 = polarPoint(cx, cy, rOuter, startDeg), o2 = polarPoint(cx, cy, rOuter, endDeg);
+  const i1 = polarPoint(cx, cy, rInner, endDeg), i2 = polarPoint(cx, cy, rInner, startDeg);
+  return `M${o1.x},${o1.y} A${rOuter},${rOuter} 0 ${large} 1 ${o2.x},${o2.y} L${i1.x},${i1.y} A${rInner},${rInner} 0 ${large} 0 ${i2.x},${i2.y} Z`;
+}
 function niceTicks(min, max, count) {
   const span = max - min, step0 = span / Math.max(1, count - 1);
   const mag = Math.pow(10, Math.floor(Math.log10(step0)));
@@ -481,35 +522,58 @@ function rankTrend(mount, tableMount, points, color, systemName) {
   }
 }
 
-/* ---------- GreenMetric indicator bars (score vs max) ---------- */
+/* ---------- GreenMetric indicator donut (share of total earned score) ---------- */
 function gmCategoryBars() {
   const g = DATA.greenMetric;
   document.getElementById("gmCatTitle").textContent = `Indicator scores — ${g.categoryYear} edition`;
-  const rowH = 32, labelW = 168, W = 460, M = { t: 6, r: 52, b: 6 };
-  const H = M.t + g.categories.length * rowH + M.b;
-  const svg = makeSvg("gmCats", W, H, `UI GreenMetric ${g.categoryYear} indicator scores`);
-  const maxAll = Math.max(...g.categories.map(c => c.max));
-  const xw = (v) => (v / maxAll) * (W - labelW - M.r);
+  const total = g.categories.reduce((s, c) => s + c.score, 0);
 
-  g.categories.forEach((c, i) => {
-    const yTop = M.t + i * rowH, barH = 14, yBar = yTop + (rowH - barH) / 2;
-    const lbl = svgEl("text", { x: labelW - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "cat-label" });
-    lbl.textContent = c.name;
-    svg.appendChild(lbl);
-    svg.appendChild(svgEl("rect", { x: labelW, y: yBar, width: xw(c.max), height: barH, rx: 4, style: "fill:var(--track)" }));
-    svg.appendChild(svgEl("path", { d: endRoundedBar(labelW, yBar, xw(c.score), barH, true), style: "fill:var(--greenmetric)" }));
-    const val = svgEl("text", { x: labelW + xw(c.max) + 6, y: yBar + barH / 2 + 4, class: "val-label" });
-    val.textContent = Math.round((c.score / c.max) * 100) + "%";
-    svg.appendChild(val);
-    const hit = svgEl("rect", { x: labelW, y: yTop, width: W - labelW - M.r + 46, height: rowH, fill: "transparent" });
-    bindTip(hit, `<b>${c.name}</b><br>${c.score.toLocaleString()} of ${c.max.toLocaleString()} points (${Math.round((c.score / c.max) * 100)}%)`);
+  const W = 300, H = 244, cx = 150, cy = 118, rOuter = 96, rInner = 58, gapDeg = 1.4;
+  const mount = document.getElementById("gmCats");
+  mount.innerHTML = "";
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", role: "img", "aria-label": `UI GreenMetric ${g.categoryYear} indicator scores, share of ${total.toLocaleString()} total points` });
+  svg.style.maxWidth = "300px"; svg.style.display = "block"; svg.style.margin = "0 auto";
+  mount.appendChild(svg);
+
+  let cursor = 0;
+  const withPct = g.categories.map(c => {
+    const pct = c.score / total;
+    const slice = { ...c, pct, startDeg: cursor * 360, endDeg: (cursor + pct) * 360 };
+    cursor += pct;
+    return slice;
+  });
+  // Label directly only the top three slices by share; the rest identify via the legend + tooltip.
+  const labelSet = new Set([...withPct].sort((a, b) => b.pct - a.pct).slice(0, 3).map(c => c.name));
+
+  withPct.forEach(c => {
+    const s = c.startDeg + gapDeg / 2, e = c.endDeg - gapDeg / 2;
+    const path = svgEl("path", { d: donutSlicePath(cx, cy, rOuter, rInner, s, e), style: `fill:var(${c.color})` });
+    svg.appendChild(path);
+    const hit = svgEl("path", { d: donutSlicePath(cx, cy, rOuter, rInner, s, e), fill: "transparent", style: "cursor:default" });
+    bindTip(hit, `<b>${c.name}</b><br>${c.score.toLocaleString()} of ${c.max.toLocaleString()} indicator points<br>${Math.round(c.pct * 100)}% of total earned score`);
     svg.appendChild(hit);
+    if (labelSet.has(c.name)) {
+      const mid = (s + e) / 2, p = polarPoint(cx, cy, (rOuter + rInner) / 2, mid);
+      const lbl = svgEl("text", { x: p.x, y: p.y + 4, "text-anchor": "middle", class: "val-label", style: "fill:#fff;paint-order:stroke;stroke:rgba(0,0,0,0.35);stroke-width:3px" });
+      lbl.textContent = Math.round(c.pct * 100) + "%";
+      svg.appendChild(lbl);
+    }
   });
 
+  const c1 = svgEl("text", { x: cx, y: cy - 4, "text-anchor": "middle", class: "val-label", style: "font-size:19px" });
+  c1.textContent = total.toLocaleString();
+  const c2 = svgEl("text", { x: cx, y: cy + 15, "text-anchor": "middle", class: "tick-label" });
+  c2.textContent = `of 10,000 pts`;
+  svg.appendChild(c1); svg.appendChild(c2);
+
+  document.getElementById("gmCatsLegend").innerHTML = withPct.map(c => `
+    <div class="row"><span class="dot" style="background:var(${c.color})"></span>
+      <span class="name">${c.name}</span><span class="pct">${Math.round(c.pct * 100)}%</span></div>`).join("");
+
   document.getElementById("gmCatsTbl").innerHTML =
-    `<table class="data"><tr><th>Indicator</th><th>Score</th><th>Max</th></tr>` +
-    g.categories.map(c => `<tr><td>${c.name}</td><td class="num">${c.score.toLocaleString()}</td><td class="num">${c.max.toLocaleString()}</td></tr>`).join("") +
-    `<tr><td><b>Total</b></td><td class="num"><b>${g.totalScore.toLocaleString()}</b></td><td class="num">10,000</td></tr></table>`;
+    `<table class="data"><tr><th>Indicator</th><th>Score</th><th>Max</th><th>Share</th></tr>` +
+    withPct.map(c => `<tr><td>${c.name}</td><td class="num">${c.score.toLocaleString()}</td><td class="num">${c.max.toLocaleString()}</td><td class="num">${Math.round(c.pct * 100)}%</td></tr>`).join("") +
+    `<tr><td><b>Total</b></td><td class="num"><b>${g.totalScore.toLocaleString()}</b></td><td class="num">10,000</td><td class="num">100%</td></tr></table>`;
 }
 
 /* ---------- THE bracket range chart ---------- */
