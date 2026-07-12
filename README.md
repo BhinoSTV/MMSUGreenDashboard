@@ -27,9 +27,28 @@ four international ranking systems:
 
 ## Viewing
 
-The whole dashboard is one dependency-free file — open `index.html` in any browser,
-or serve it with GitHub Pages (Settings → Pages → deploy from branch, root folder).
-It adapts automatically to light and dark mode.
+Each page is one dependency-free file — open `index.html` or `units.html` in any
+browser, or serve them with GitHub Pages (Settings → Pages → deploy from branch,
+root folder). Everything, including the official MMSU seal and display typeface,
+is inlined as data URIs, so the pages work offline with no external requests.
+Both adapt automatically to light and dark mode.
+
+## Branding
+
+The masthead on both pages uses MMSU's actual visual identity, sourced from
+[mmsu.edu.ph](https://www.mmsu.edu.ph/):
+
+- **Seal** — the official university seal (`/images/mmsuTransLogo.png` on the
+  live site), embedded as a compressed data URI.
+- **Color** — deep forest green (`#0c4b05`) and gold (`#ffb800`), sampled from
+  the seal itself; this matches the green→gold gradient MMSU uses for its own
+  hero headings. Chart/data colors are unchanged and still pass the
+  colorblind-safety validator — brand color is used only for identity chrome
+  (headings, eyebrow label, accent bar, footer mark), never for data series.
+- **Type** — EB Garamond (open-source, embedded as a variable-weight woff2 data
+  URI) for page headings, echoing the `font-garamond` / `font-garamond-pro`
+  display treatment used on the official site; body copy stays on the existing
+  system-ui sans for dashboard legibility.
 
 ## Updating the data
 
