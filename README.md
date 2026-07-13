@@ -35,20 +35,33 @@ Both adapt automatically to light and dark mode.
 
 ## Branding
 
-The masthead on both pages uses MMSU's actual visual identity, sourced from
-[mmsu.edu.ph](https://www.mmsu.edu.ph/):
+Both pages implement the **MMSU Design System** (a Claude Design project built
+from the official *MMSU Brand Standards Manual 2024* cover plate plus the live
+mmsu.edu.ph site), imported via the `claude_design` MCP:
 
-- **Seal** — the official university seal (`/images/mmsuTransLogo.png` on the
-  live site), embedded as a compressed data URI.
-- **Color** — deep forest green (`#0c4b05`) and gold (`#ffb800`), sampled from
-  the seal itself; this matches the green→gold gradient MMSU uses for its own
-  hero headings. Chart/data colors are unchanged and still pass the
-  colorblind-safety validator — brand color is used only for identity chrome
-  (headings, eyebrow label, accent bar, footer mark), never for data series.
-- **Type** — EB Garamond (open-source, embedded as a variable-weight woff2 data
-  URI) for page headings, echoing the `font-garamond` / `font-garamond-pro`
-  display treatment used on the official site; body copy stays on the existing
-  system-ui sans for dashboard legibility.
+- **Seal** — the official university seal, embedded as a compressed data URI.
+- **Color** — the design system's official ramp: primary green `#0B4A16`
+  (`--green-700`) and accent gold `#EFA900` (`--gold-500`), used only as
+  identity chrome (headings, eyebrow label, accent bar, buttons, badges,
+  footer mark) — never as a gradient blend, per the source manual's flat,
+  print-derived visual language (the accent bar is a hard two-tone split, not
+  a blend). Neutrals follow the system's `ink`/`line`/`surface` scale, with a
+  few values (e.g. the eyebrow-label gold, dark-mode green) deliberately
+  darkened or brightened past the source spec where needed to clear WCAG AA
+  text contrast — the manual's own tokens target a light-only print product,
+  not an accessible two-theme dashboard. Chart/data colors are **untouched**
+  and still pass the colorblind-safety validator; brand color never touches a
+  data series.
+- **Type** — the system's three-typeface stack, self-hosted as variable-weight
+  woff2 data URIs: **Noto Serif** for the masthead (its stand-in for the
+  manual's formal wordmark serif), **Montserrat** for section headings,
+  eyebrow labels, buttons, and stat numbers (its stand-in for the manual's
+  geometric bold sans), and **Work Sans** for body copy and chart labels.
+- **Components** — the campus filter chips (`units.html`) follow the design
+  system's Button spec (outline, filling solid green when active/pressed);
+  the sample-data notice follows its Alert spec (flat gold-tinted panel, bold
+  colored title, no border); the highlight chips follow its Badge "outline"
+  variant (green border, transparent fill).
 
 ## Updating the data
 
