@@ -39,7 +39,7 @@ Rules source: THE Sustainability Impact Ratings Methodology 2026 v1.0, SDG 15
 | 15.3.2 | Policy: IUCN Red List and national-list species | 4 | **Gap** | none (only 2000s research) | No policy found |
 | 15.3.3 | Local biodiversity in planning and development | 3 | Partial | BCLC native-species design; mini-forest | Need a planning or project document |
 | 15.3.4 | Policy: alien species impact | 4 | **Gap** | none | No policy found |
-| 15.3.5 | Collaboration on shared ecosystems | 3 | Strong | IEG with Tanggol Kalikasan and 10 LGUs (2021); Pasuquin tripartite MOA | Need a 2024-window record |
+| 15.3.5 | Collaboration on shared ecosystems | 3 | Strong | MMSU–DENR Region 1 MOU (signed Oct 2024); IFP Program foodscapes with Vintar LGU; IEG (2021); Pasuquin MOA | Obtain the signed MOU |
 | 15.4.1 | Water discharge standards and guidelines | 3 | **Gap** | none | No wastewater standard found |
 | 15.4.2 | Policy: plastic waste reduction | 4 | Partial | CAFSD plastic-bottle ban (15 Oct 2024); IPWMP | Need a university-level dated policy |
 | 15.4.3 | Policy: hazardous waste disposal | 4 | Partial | IPWMP (BOR-approved 2009; revised version cited) | Revised text not read |
@@ -89,3 +89,32 @@ Times, PNA and Toyota Motor Philippines (TMP) Foundation. Absence of a document 
 this search", not "does not exist". Page summaries were produced by a fetch tool and
 sometimes misattributed the university; every fact used here was checked against the
 page text it quotes, but re-verify against the originals before submission.
+
+## Items from MMSU's SDG 15 report (six stories, 2025)
+
+Source: MMSU SDG 15 "Life on Land" report pages supplied by the project lead. It is a
+news-style compilation, not a THE score report, so it contains no per-question scores or
+THE feedback. Years are missing on three stories; the report's context (an October 2024
+MOU described as past, 2025 awards, President Manzano) suggests 2025. `[CONFIRM each date]`.
+
+| Story | Date shown | Use for | Verdict |
+|---|---|---|---|
+| MMSU–DENR Region 1 mangrove dialogue; DOST-PCAARRD project "Nature-based Solutions for Mangrove Management and Resilient Coastal Communities through Innovative Green Engineering Approach" (lead: Dr. Arlene Gonzales); **MOU with DENR signed Oct 2024** | 7 April (year not shown); MOU Oct 2024 | 15.3.5, 15.2.3 | **Keep.** The Oct 2024 MOU is the one dated, signed document inside a 2024 window. Obtain the signed MOU. |
+| Indigenous Food Plants Program: Community Foodscapes and Seedbanks, second batch of partner sites, Eladio V. Barangan Memorial Elementary School, San Nicolas, with Vintar Municipal Agriculture Office; crops kapaskapas, alokon, pako, dalayap, wild singkamas, roselle | World Food Day (year not shown) | 15.2.3, 15.2.4, 15.3.5 | **Keep.** Seedbanks and learning gardens with LGUs and schools. Confirm year, number of sites and free access. |
+| 2025 International Day for Biological Diversity wildlife photo contest (deadline 30 May 2025; winner announced by Dr. Arlene L. Gonzales, Chief of Sustainability and Futures Thinking) | 2025 | 15.2.1 | **Use with caution.** Biodiversity awareness event, but aimed at the campus community and general. |
+| SUC-ACAP 2025: two Best Paper Awards (Indigenous Food Plants Program study; School-on-the-Air on sustainable goat production) | 27–29 Aug 2025 | supporting only | **Do not submit alone.** An award is not indicator evidence. It corroborates that the IFP Program exists. The goat programme is livestock, only tangential to 15.2.5. |
+| MMSU–PhilFIDA meeting on campus land use and expansion (President Manzano) | 5 June (year not shown) | none | **Drop for now.** It records a land request and a statement about land-use planning. It is not biodiversity in planning (15.3.3) or a policy. |
+| "Sheena's Catvocacy" (alumna's stray-cat rescue page) | none | none | **Drop.** An alumna's personal advocacy, not a university action, and unrelated to land ecosystems. A reviewer would likely score it not relevant. |
+
+What this changes:
+- **15.3.5 and 15.2.3 are now the best-supported questions** (signed Oct 2024 MOU; IFP Program).
+- **No new policy evidence.** The gaps at 15.2.2, 15.3.1, 15.3.2, 15.3.4, 15.4.1 remain, and
+  nothing in the report addresses plastic or hazardous waste (15.4.2, 15.4.3).
+- **The report cannot be uploaded as evidence.** THE takes one self-contained item per
+  indicator. Split it into one-page, dated documents per question (three of these stories
+  have no year on them).
+- **Likely contact:** Dr. Arlene L. Gonzales, Chief of Sustainability and Futures Thinking,
+  appears in two stories and leads the mangrove project. Use her office as the SDG 15
+  coordinator `[CONFIRM]`; the drafts name "Planning and Strategic Foresight" and should be corrected.
+- **Data year:** these are 2025 items. The 2026 edition used 2024, so the 2027 edition
+  probably uses 2025, but the 2027 methodology must confirm this.
