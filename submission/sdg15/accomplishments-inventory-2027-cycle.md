@@ -95,3 +95,49 @@ Keep these for the following cycle.
    that is useful evidence about how THE's portal asked for dates.
 2. Can anyone with MMSU site access fetch the dated pages above? Every MMSU-hosted page
    returned HTTP 503 to this session's tools.
+
+## Sweep 2 (2026-10-13): more dated items
+
+These rows add to, and where noted supersede, the tables above. "V" means the date was read
+from the article page itself.
+
+### Inside the likely window (2025)
+
+| Accomplishment | Date | Conf. | Questions | Source |
+|---|---|---|---|---|
+| **Mangrove propagation seminar-workshop** for representatives of Currimao, Pasuquin, Badoc and Burgos, with DENR-PENRO officials attending. Topics: mangrove ecosystems, nature-based solutions, legal frameworks, academe and LGU roles in community-based management, nursery management and propagation of *Avicennia*, *Sonneratia* and other local species. Venue: Center for Flexible Learning. Project leader Dr. Arlene Gonzales; DOST-PCAARRD funded | 27–28 Oct 2025 (published 5 Nov 2025) | V | 15.2.4, 15.3.5 | https://www.mmsu.edu.ph/article/news/2670/mmsu-trains-ilocos-norte-coastal-towns-on-mangrove-propagation-and-management |
+| **Bamboo training in Pinili** (supersedes item 6's inferred date): 46 farmers, local leaders and community members on propagation, nursery establishment and plantation management; participants helped establish a **new bambusetum in Brgy. Aglipay**. MMSU Extension Directorate and CAFSD with Brgy. Aglipay; ILAARRDEC support | Published 3 Sep 2025 (two-day event, dates not given) | V | 15.2.5, 15.2.3, 15.3.5 | https://www.mmsu.edu.ph/news/sustainable-livelihood-mmsu-ilaarrdec-hold-bamboo-training-in-pinili |
+| **IFP Community Foodscapes and Seedbanks, World Food Day** (supersedes item 4's unknown year): second batch of partner sites; officials of Brgy. 1 (San Roque) and Brgy. 6 (Parut), Vintar, school leaders and agricultural extension workers; held at Eladio V. Barangan Memorial Elementary School, San Nicolas | Article dated 21 Oct 2025 | S (MMSU Extension page returned 503) | 15.2.3, 15.2.4, 15.3.5 | https://extension.mmsu.edu.ph/news/show/389/mmsu-expands-indigenous-food-plant-seedbanks-and-foodscapes-in-lgus |
+| **Memorandum of commitment for the DENR-EMB Region I Regional Ecology Center** (supersedes item 2's instrument details): signed by VP for Planning and Strategic Foresight Mee Jay Domingo with Campus Sustainability Chief Ronnel Pagurayan; scope covers solid waste management, RA 9003 and RA 11898 (Extended Producer Responsibility); MMSU's role is education, information campaigns and materials | Signed 1 Jul 2025, Bauang, La Union (published 2 Jul 2025) | V | Context for 15.4.2; no campus measures stated | https://www.mmsu.edu.ph/news/mmsu-commits-to-ecological-solid-waste-management-in-region-i |
+| School-on-the-Air on Sustainable Goat Production: Best Paper Award (Socioeconomics), 62nd Scientific Meeting and Annual Convention | Oct 2025 | S | Supporting only (livestock) | MMSU Extension site (per search) |
+
+### Fallback window (2024)
+
+| Accomplishment | Date | Conf. | Questions | Source |
+|---|---|---|---|---|
+| BS Forestry graduating class pre-graduation planting at Salinged Park (Department of Forestry and Junior Forester Association, led by OIC-Dean Charlie Batin): *Podocarpus costalis* (igem-dagat), *Cynometra ramiflora* (balitbitan), *Calophyllum inophyllum* (bitaog), *Cassia javanica*, *Lagerstroemia speciosa* (banaba) | 9 Jul 2024 (published 11 Jul 2024) | V | 15.2.1, 15.2.3 | https://www.mmsu.edu.ph/article/news/2065/bs-forestry-seniors-leave-green-footprints-with-pre-graduation-tree-planting |
+| International Coastal Cleanup, Currimao (CASAT with LGU, Coast Guard, police): 58 bags | 21 Sep 2024 | S | SDG 14; plastic activity only | https://www.mmsu.edu.ph/article/news/2141/mmsu-casat-leads-annual-international-coastal-cleanup-in-currimao |
+
+The graduation planting now has a three-year record: Jul 2024 (Salinged Park), Jul 2025 (Forest
+Reserves, Payao and Mabaleng) and Jun 2026 (Forest Reserve, Payao). That supports describing it
+as a standing programme.
+
+### Excluded: outside the window
+
+- 30 Sep 2026: MMSU Dingras bambusetum launch (Bamboo Month). https://www.mmsu.edu.ph/article/news/3206/mmsu-cafsd-dingras-launches-bambusetum-to-advance-bamboo-research-and-education
+- 1–3 May 2026: bamboo propagules showcased at Batac's 17th Farmers' Festival.
+- May 2026: training on bamboo supply and watershed rehabilitation, Batac (per search).
+- Oct 2026: forage planting materials to School-on-the-Air graduates.
+- 10 Oct 2023: bambusetum with the Schools Division of the City of Batac, Brgy. Sumader (too old).
+
+### Updated coverage by question (2025 window)
+
+| Q | Verified 2025 candidates | Still needed |
+|---|---|---|
+| 15.2.1 | Forest-reserve planting (2 Jul 2025); IDBD photo contest | Attendance and photos |
+| 15.2.3 | Forest-reserve enrichment planting; Aglipay bambusetum; IFP seedbanks; mangrove NbS project | Forest Reserve area, species list, survival |
+| 15.2.4 | **Mangrove seminar (27–28 Oct 2025)**; IFP learning gardens | Free-access statement, attendance |
+| 15.2.5 | **Pinili bamboo training (Sep 2025)** | Free-access statement; frame as land and plantation management |
+| 15.3.5 | Mangrove seminar with four LGUs and DENR-PENRO; IFP with Vintar barangays; Aglipay bambusetum with the barangay; mangrove NbS project | Signed agreements or accomplishment reports |
+| 15.4.2 | Regional Ecology Center commitment (context only) | Campus plastic policy |
+| 15.2.2, 15.2.6, 15.3.1–15.3.4, 15.4.1, 15.4.3 | none found | Policies, standards or programmes from internal records |

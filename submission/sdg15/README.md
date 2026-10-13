@@ -115,7 +115,9 @@ What this changes:
   have no year on them).
 - **Likely contact:** Dr. Arlene L. Gonzales, Chief of Sustainability and Futures Thinking,
   appears in two stories and leads the mangrove project. Use her office as the SDG 15
-  coordinator `[CONFIRM]`; the drafts name "Planning and Strategic Foresight" and should be corrected.
+  coordinator `[CONFIRM]`. MMSU also has a Vice President for Planning and Strategic Foresight
+  (Mee Jay Domingo) and a Campus Sustainability Chief (Ronnel Pagurayan), per a July 2025
+  MMSU article, so the drafts' references to Planning and Strategic Foresight stand.
 - **Data year:** these are 2025 items. The 2026 edition used 2024, so the 2027 edition
   probably uses 2025, but the 2027 methodology must confirm this.
 
