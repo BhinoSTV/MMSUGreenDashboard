@@ -125,3 +125,10 @@ What this changes:
 
 See `accomplishments-inventory-2027-cycle.md` for the dated list of public MMSU SDG 15 items,
 tagged by date confidence against the likely 2025 window, with items dated 2026 excluded.
+
+## Evidence documents (2025 evidence year)
+
+`evidence-docs/pdf/` holds the formatted evidence PDFs in the style of MMSU's 2025 SDG 15 report:
+one per indicator (15.2.1, 15.2.3, 15.2.4, 15.2.5, 15.3.5) plus a compendium. Build with
+`evidence-docs/build.py`; open items (photos to add, facts to confirm) are in
+`evidence-docs/checklist.md`.
