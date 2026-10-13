@@ -118,3 +118,8 @@ What this changes:
   coordinator `[CONFIRM]`; the drafts name "Planning and Strategic Foresight" and should be corrected.
 - **Data year:** these are 2025 items. The 2026 edition used 2024, so the 2027 edition
   probably uses 2025, but the 2027 methodology must confirm this.
+
+## 2027-cycle accomplishments sweep
+
+See `accomplishments-inventory-2027-cycle.md` for the dated list of public MMSU SDG 15 items,
+tagged by date confidence against the likely 2025 window, with items dated 2026 excluded.
