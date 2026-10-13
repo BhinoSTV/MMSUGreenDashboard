@@ -1,7 +1,9 @@
 # SDG 15 evidence documents — what to finish before upload
 
-Documents: `pdf/` (one PDF per THE indicator, plus `SDG15_Evidence_Compendium_2025.pdf`).
-Rebuild after any change: `python3 build.py` (or `python3 build.py --no-urls` for upload copies).
+Documents: `pdf/` (one PDF per THE indicator, plus `SDG15_Evidence_Compendium_2025.pdf`) and the
+Word version `MMSU_SDG15_Life_on_Land_Evidence_2025.docx`.
+Rebuild after any change: `python3 build.py && node build_docx.js` (or `python3 build.py --no-urls`
+for upload PDFs).
 
 ## 1. Photos still to add
 
@@ -14,6 +16,9 @@ dashed "PHOTO TO INSERT" frame.
 | `mangrove_seminar_2025.jpg` | Mangrove propagation seminar-workshop, 27–28 Oct 2025 (15.2.4) | MMSU News article 2670 (5 Nov 2025), or the NbS mangrove project team |
 | `pinili_bamboo_2025.jpg` | Pinili bamboo training and Aglipay bambusetum, 2025 (15.2.3, 15.2.5, 15.3.5) | MMSU News, 3 Sep 2025, or the Extension Directorate |
 | `alukon_training_2025.jpg` | Alukon propagation training, Sarrat, 2 May 2025 (15.2.4, 15.2.5) | MMSU News, 9 May 2025, or the Research Directorate |
+| `soa_regenerative_2025.jpg` | School-on-the-Air regenerative vegetable farming, Jun–Dec 2025 (15.2.5) | MMSU News, 26 Jun 2025, or the Extension Directorate |
+| `presidents_farm_field_day_2025.jpg` | President's Farm Field Day, 28 Oct 2025 (15.2.1, 15.2.5) | MMSU News article 2665, or the Extension Directorate |
+| `sirmata2040_plan.jpg` | Sirmata 2040 land use map (15.3.3) | Sirmata 2040 LUDIP document |
 | `pasuquin_mangrove_2025.jpg` | Pasuquin mangrove planting and tripartite agreement, late 2025 (15.3.5) | MMSU College of Industrial Technology. News photos belong to TMP Foundation; use them only with permission |
 
 Photos already embedded: DOST-PCAARRD project photos (credited TTPD, DOST-PCAARRD, from the
@@ -37,6 +42,9 @@ for better resolution.
   the number of entries if known.
 - [ ] **Pinili training dates** (the article gives none) and the **number of participants** at the
   mangrove seminar.
+- [ ] **Sirmata 2040:** quote the plan's provisions on the forest reserves, green spaces or biodiversity,
+  and add its approval date. Without them 15.3.3 shows planning but not biodiversity inclusion.
+- [ ] **School-on-the-Air:** free enrolment, number of completers, and the lesson list.
 - [ ] **Attendance sheets and programmes** for each 2025 event, to keep on file.
 - [ ] **15.2.1 mentions the June 2026 planting** to show the tradition continues. Remove that
   clause if the reviewers want only 2025 activity in the text.

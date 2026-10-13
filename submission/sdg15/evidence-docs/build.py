@@ -47,6 +47,9 @@ PHOTOS = {
     "idbd_awarding.jpg": "Winner Chris Jeremiah C. Antonio receives his certificate from Dr. Arlene L. Gonzales, Chief of Sustainability and Futures Thinking.",
     "idbd_dove.jpg": "Photograph featured with the contest results.",
     "idbd_dragonfly.jpg": "Photograph featured with the contest results.",
+    "soa_regenerative_2025.jpg": "MMSU School-on-the-Air season on regenerative vegetable farming, launched 24–25 June 2025.",
+    "presidents_farm_field_day_2025.jpg": "President’s Farm Field Day: A Technology Showcase, in front of CAFSD, 28 October 2025.",
+    "sirmata2040_plan.jpg": "Sirmata 2040 land use map of the MMSU campuses and reserve areas.",
 }
 
 # Where a missing photo can be obtained (shown on the placeholder).
@@ -56,6 +59,9 @@ PHOTO_SOURCE = {
     "pinili_bamboo_2025.jpg": "MMSU News, 3 Sep 2025, or the Extension Directorate",
     "alukon_training_2025.jpg": "MMSU News, 9 May 2025, or the Research Directorate",
     "pasuquin_mangrove_2025.jpg": "MMSU College of Industrial Technology files (third-party news photos need TMP Foundation permission)",
+    "soa_regenerative_2025.jpg": "MMSU News, 26 Jun 2025, or the Extension Directorate",
+    "presidents_farm_field_day_2025.jpg": "MMSU News article 2665 (4 Nov 2025), or the Extension Directorate",
+    "sirmata2040_plan.jpg": "Sirmata 2040 LUDIP document (Office of Planning and Strategic Foresight)",
 }
 
 # ---------------------------------------------------------------- sources
@@ -81,6 +87,14 @@ SRC = {
     "report2025": ("MMSU SDG 15 Life on Land report (2025), Office of Sustainability and Futures Thinking", None),
     "pasuquin": ("The Manila Times, “TMP Foundation adopts mangrove forest for climate mitigation,” 10 December 2025",
                  "https://www.manilatimes.net/2025/12/10/tmt-newswire/tmp-foundation-adopts-mangrove-forest-for-climate-mitigation/2239598"),
+    "soa": ("MMSU News, “MMSU draws 1K enrollees for SOA program on sustainable vegetable farming,” 26 June 2025",
+            "https://www.mmsu.edu.ph/news/mmsu-draws-1k-enrollees-for-soa-program-on-sustainable-vegetable-farming"),
+    "fieldday": ("MMSU News, “MMSU President’s Farm showcases 8 rice varieties,” 4 November 2025",
+                 "https://www.mmsu.edu.ph/article/news/2665/mmsu-presidents-farm-showcases-8-rice-varieties"),
+    "sirmata": ("MMSU News, “CHED TWG OKs MMSU Sirmata 2040”",
+                "https://www.mmsu.edu.ph/news/ched-twg-oks-mmsu-sirmata-2040"),
+    "ludip_fund": ("MMSU News, “MMSU gets Php 2 M for LUDIP project”",
+                   "https://www.mmsu.edu.ph/news/mmsu-gets-php-2-m-for-ludip-project"),
     "rec": ("MMSU News, “MMSU commits to ecological solid waste management in Region I,” 2 July 2025",
             "https://www.mmsu.edu.ph/news/mmsu-commits-to-ecological-solid-waste-management-in-region-i"),
 }
@@ -229,12 +243,42 @@ S["rec"] = dict(
     sources=["rec"],
 )
 
+S["soa"] = dict(
+    title="School-on-the-Air Brings Regenerative Vegetable Farming to 1,000 Ilocanos",
+    photos=["soa_regenerative_2025.jpg"],
+    paras=[
+        "A new season of the MMSU School-on-the-Air (SOA), the university’s radio-based educational program, opened on June 24 and 25, 2025 with 1,000 enrollees from the 22 municipalities and cities of Ilocos Norte. The season focused on regenerative vegetable farming for enhanced and sustainable production, with lessons on climate-smart practices and off-season vegetable seeding.",
+        "Vegetable growers, rural improvement club members, agricultural extension workers and students followed the lessons, broadcast from June to December 2025 over DWFB Radyo Pilipinas Laoag, DWCI Radyo Adjo Piddig and DWNI Radyo Karruba Burgos. MMSU ran the program with the Provincial Government of Ilocos Norte, the Office of the Provincial Agriculturist, local government units, the Ilocos Agriculture, Aquatic and Natural Resources Research and Development Consortium, and the High-Value Crops Division of Ilocos Norte.",
+    ],
+    sources=["soa"],
+)
+
+S["fieldday"] = dict(
+    title="President’s Farm Field Day Showcases Climate-Resilient Rice Varieties",
+    photos=["presidents_farm_field_day_2025.jpg"],
+    paras=[
+        "On October 28, 2025, the MMSU Extension Directorate, with the Philippine Rice Research Institute (PhilRice) Batac Branch, held the President’s Farm Field Day: A Technology Showcase in front of the College of Agriculture, Food and Sustainable Development. Farmers and farmer-leaders, agricultural technicians from Ilocos Norte local government units, BS Agriculture students, and MMSU and PhilRice rice specialists viewed eight rice varieties grown under wet-season conditions.",
+        "The varieties included four newly released by PhilRice, two public hybrids, and two suited to saline and rainfed conditions, among them NSIC Rc 686 (Salinas 39) and NSIC Rc 650 (Sahod Ulan 36), giving farmers options for saline-affected and rainfed fields. Speakers included MMSU President Dr. Virgilio Julius P. Manzano Jr., Extension Director Dr. Marlowe Aquino, and former MMSU President and PhilRice Executive Director Dr. Santiago R. Obien.",
+    ],
+    sources=["fieldday"],
+)
+
+S["sirmata"] = dict(
+    title="Sirmata 2040: Planning MMSU’s Campuses and Reserve Lands for Two Decades",
+    photos=["sirmata2040_plan.jpg"],
+    paras=[
+        "Sirmata 2040, MMSU’s Land Use Development and Infrastructure Plan (LUDIP), is the university’s 20-year guide for managing its land resources and infrastructure. Prepared under Republic Act 11396, which requires state universities and colleges to have a LUDIP, and supported by a Php 2 million grant from the Commission on Higher Education (CHED), the plan covers the future land use of the MMSU campuses and the university’s reserve areas in Nagbacsan, Payao, Lubbot and Sarnap, City of Batac, including the forest reserves where MMSU’s forestry and agroforestry research is set up.",
+        "The plan was developed through stakeholder consultations, sectoral studies and campus planning workshops, and was endorsed by the CHED Technical Working Group after validation visits to the campuses.",
+    ],
+    sources=["sirmata", "ludip_fund", "station"],
+)
+
 # ---------------------------------------------------------------- documents
 DOCS = [
     dict(code="15.2.1", file="SDG15_15.2.1_Events_on_sustainable_land_use",
          title="Events about sustainable use of land",
          question="Support or organise events aimed to promote conservation and sustainable utilisation of the land, including forests and wild land.",
-         stories=["forest_planting", "idbd_contest"]),
+         stories=["forest_planting", "fieldday", "idbd_contest"]),
     dict(code="15.2.3", file="SDG15_15.2.3_Maintain_and_extend_biodiversity",
          title="Maintain and extend current ecosystems’ biodiversity",
          question="Work directly to maintain and extend existing ecosystems and their biodiversity, of both plants and animals, especially ecosystems under threat.",
@@ -246,7 +290,11 @@ DOCS = [
     dict(code="15.2.5", file="SDG15_15.2.5_Sustainable_land_management_for_agriculture",
          title="Sustainable management of land for agriculture (educational outreach)",
          question="Offer educational programme/outreach for local or national communities on sustainable management of land for agriculture.",
-         stories=["pinili", "alukon"]),
+         stories=["soa", "pinili", "fieldday", "alukon"]),
+    dict(code="15.3.3", file="SDG15_15.3.3_Local_biodiversity_in_planning",
+         title="Local biodiversity included in planning and development",
+         question="Include local biodiversity into any planning and development process (e.g. construction of new buildings).",
+         stories=["sirmata"]),
     dict(code="15.3.5", file="SDG15_15.3.5_Collaboration_for_shared_land_ecosystems",
          title="Collaboration for shared land ecosystems",
          question="Collaborate with the local community to maintain shared land ecosystems.",
@@ -412,7 +460,18 @@ def render_pdf(html_path, pdf_path):
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
+def export_json():
+    import json
+    from PIL import Image
+    dims = {n: Image.open(os.path.join(ASSETS, n)).size for n in PHOTOS if os.path.exists(os.path.join(ASSETS, n))}
+    data = dict(dims=dims, commitment=COMMITMENT, evidence_year=EVIDENCE_YEAR, docs=DOCS, supporting=SUPPORTING,
+                stories=S, photos=PHOTOS, photo_source=PHOTO_SOURCE,
+                sources={k: {"label": v[0], "url": v[1]} for k, v in SRC.items()})
+    json.dump(data, open(os.path.join(HERE, "content.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
 def main():
+    export_json()
     os.makedirs(os.path.join(HERE, "html"), exist_ok=True)
     os.makedirs(os.path.join(HERE, "pdf"), exist_ok=True)
     jobs = [(d["file"], build_doc(d)) for d in DOCS]

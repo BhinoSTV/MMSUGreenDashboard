@@ -179,3 +179,22 @@ as a standing programme.
 | 15.2.5 | Pinili bamboo training (Sep); alukon training |
 | 15.3.5 | Pasuquin tripartite MOA (Dec); mangrove seminar with four LGUs and DENR-PENRO; IFP with Vintar barangays; Aglipay bambusetum |
 | Others | None found online; internal records needed |
+
+## Sweep 4 (2026-10-13): guided by peer universities' SDG 15 evidence
+
+Peer pages reviewed: Caraga State University (SDG 15, 2024, organised by indicator), Visayas State
+University (91st of 658 in SDG 15, 2026), Eastern Visayas State University (SDG 15 portal). Their
+evidence types (field days, radio/farmer schools, land-use plans, dated memoranda, water-body
+commitments) were then searched for MMSU.
+
+| Accomplishment | Date | Conf. | Questions | Source |
+|---|---|---|---|---|
+| **School-on-the-Air on regenerative vegetable farming**: 1,000 enrollees from the 22 municipalities and cities of Ilocos Norte; climate-smart practices and off-season vegetable seeding; aired June–December 2025 on three stations; with the provincial government, OPAg, LGUs, ILAARRDEC and the High-Value Crops Division | Launched 24–25 Jun 2025 (published 26 Jun 2025) | V | 15.2.5 | https://www.mmsu.edu.ph/news/mmsu-draws-1k-enrollees-for-soa-program-on-sustainable-vegetable-farming |
+| **President's Farm Field Day: A Technology Showcase** (Extension Directorate with PhilRice Batac): farmers, farmer-leaders, LGU agricultural technicians, students; eight rice varieties including Salinas 39 (saline) and Sahod Ulan 36 (rainfed) | 28 Oct 2025 (published 4 Nov 2025) | V | 15.2.5, 15.2.1 | https://www.mmsu.edu.ph/article/news/2665/mmsu-presidents-farm-showcases-8-rice-varieties |
+| **Sirmata 2040 Land Use Development and Infrastructure Plan**: 20-year plan under RA 11396 with a Php 2 million CHED grant; covers the campuses and reserve areas in Nagbacsan, Payao, Lubbot and Sarnap; endorsed by the CHED Technical Working Group | 2021 (per Springer citation) | S | 15.3.3 (needs quoted biodiversity provisions) | https://www.mmsu.edu.ph/news/ched-twg-oks-mmsu-sirmata-2040 |
+| GICE Expo (Grassroots Innovation and Circular Economy), National Science and Technology Week | 21 Nov 2025 | S | Supporting only | https://www.mmsu.edu.ph/article/news/2793/mmsu-hosts-gice-expo-2025 |
+| MMSU "Life on Land" SDG page (lists the university's SDG 15 material, including the land use plan) | Undated | U (HTTP 503) | Lead: retrieve its policy list | https://www.mmsu.edu.ph/page/284/6/life-on-land |
+
+Not found despite targeted search: an MMSU Adopt-an-Estero or water-body commitment, a 2025
+EMB seminar on RA 9003 or RA 6969, a 2025 biodiversity survey, a herbarium or museum, and
+dated plastic or hazardous-waste memoranda.
