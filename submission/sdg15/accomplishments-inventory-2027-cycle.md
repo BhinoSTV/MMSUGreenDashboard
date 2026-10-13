@@ -141,3 +141,41 @@ as a standing programme.
 | 15.3.5 | Mangrove seminar with four LGUs and DENR-PENRO; IFP with Vintar barangays; Aglipay bambusetum with the barangay; mangrove NbS project | Signed agreements or accomplishment reports |
 | 15.4.2 | Regional Ecology Center commitment (context only) | Campus plastic policy |
 | 15.2.2, 15.2.6, 15.3.1–15.3.4, 15.4.1, 15.4.3 | none found | Policies, standards or programmes from internal records |
+
+## Sweep 3 (2026-10-13): more dated items
+
+### Inside the likely window (2025)
+
+| Accomplishment | Date | Conf. | Questions | Source |
+|---|---|---|---|---|
+| **Alukon (himbabao) propagation training**, Brgy. 11 Sta. Rosa, Sarrat: 64 farmers plus barangay officials, Task Force Dagger Special Operations Foundation members and LGU representatives; Research and Extension Directorates (speakers Dr. Menisa Antonio, Engr. Josefa Pugat, Mr. Jayson Rasay); held in response to community requests. Alukon is a wild-growing indigenous tree, so this is community education on propagating a wild species | 2 May 2025 (published 9 May 2025) | V | 15.2.4, 15.2.3 (circa situ conservation), 15.2.5 | https://www.mmsu.edu.ph/news/mmsu-trains-sarrat-farmers-on-alukon-propagation |
+| **Pasuquin coastal forest conservation project**: adoption of a degraded 2-ha National Greening Program mangrove site in Brgy. Davila; tripartite memorandum of agreement among the Pasuquin municipal government, MMSU and TMP Foundation; about 110 volunteers including MMSU College of Industrial Technology, DENR-CENRO Bangui, MENRO and residents planted 1,750 seedlings toward a two-year target of 3,500 native lapis-lapis and arinaya | Late Nov/early Dec 2025 (Context.ph 4 Dec 2025; Manila Times 10 Dec 2025) | V (publication date); event day not stated | 15.3.5, 15.2.3 (coastal, may be weighed under SDG 14) | https://www.manilatimes.net/2025/12/10/tmt-newswire/tmp-foundation-adopts-mangrove-forest-for-climate-mitigation/2239598 |
+| **Tree Care Management**: visit to trees planted in MMSU tree-planting activities, part of MMSU@46; a coastal clean-up was scheduled the same day | 23 Jul 2025 (academic calendar) | S | 15.2.3 (maintenance of plantings), 15.2.1 | https://www.mmsu.edu.ph/academic-calendar |
+| 2025 Agency In-House Research Review: 25 papers in Cluster 1 (Agriculture, Forestry, Natural Resources, Environment, Fisheries); best paper "Mainstreaming the Sustainable Conservation and Utilization of Iloco Crop Genetic Diversity" (Dr. Menisa A. Antonio) | 4–6 Aug 2025 | S (page returned 503) | Supporting only (research is scored from Scopus) | https://research.mmsu.edu.ph/news/details/mmsu-concludes-2025-in-house-research-review-best-papers-named |
+| Bamboost app (USTP with MMSU) connecting Ilocos Norte bamboo producers to markets | 24 Jul 2025 | S | Weak for SDG 15 (market access) | https://www.manilatimes.net/2025/07/24/business/agribusiness/ilocos-norte-bamboo-industry-gets-app/2154862 |
+
+### Context facts (undated pages, usable in evidence text)
+
+- **Forest Reserve Areas in Lubbot and Payao, City of Batac: 1,068.13 ha**, where forestry and
+  agroforestry research is set up (MMSU Research Directorate station profile, read directly).
+  https://research.mmsu.edu.ph/about/station-profile
+- Tuklas Lunas Development Center (DOST-PCHRD): phytochemical screening of 46 indigenous Ilocos
+  species. This is drug-discovery research, not conservation. https://research.mmsu.edu.ph/centers/tldc
+- Massive Moringa Seedling Production (DA): 40,000-seedling target with LGU and farmer partners.
+  Distribution dates conflict across sources. `[CONFIRM]`
+
+### Excluded
+
+- 27 Jul 2026: MMSU–Bella Aurora Bamboo Innovations three-year iron-bamboo partnership (out of window).
+- Aug 2025 Paoay Lake Protected Landscape (RA 12230) and the DENR 5,000-tree plan: MMSU is not named.
+
+### Running total of verified 2025 evidence by question
+
+| Q | 2025 items |
+|---|---|
+| 15.2.1 | Forest-reserve planting (2 Jul); IDBD photo contest; Tree Care visit (calendar) |
+| 15.2.3 | Forest-reserve planting; Aglipay bambusetum; IFP seedbanks; alukon circa situ propagation; mangrove NbS project; Pasuquin mangrove site |
+| 15.2.4 | Mangrove seminar (27–28 Oct); alukon training (2 May); IFP learning gardens |
+| 15.2.5 | Pinili bamboo training (Sep); alukon training |
+| 15.3.5 | Pasuquin tripartite MOA (Dec); mangrove seminar with four LGUs and DENR-PENRO; IFP with Vintar barangays; Aglipay bambusetum |
+| Others | None found online; internal records needed |
