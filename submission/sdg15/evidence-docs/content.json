@@ -1,4 +1,51 @@
 {
+ "annex": [
+  {
+   "code": "15.3.1",
+   "file": "ANNEX_15.3.1",
+   "title": "Sustainable use, conservation and restoration of land (policy, 2021)",
+   "question": "Pre-2025 policy in force; reference only.",
+   "stories": [
+    "landuse_policy"
+   ]
+  },
+  {
+   "code": "15.3.3",
+   "file": "ANNEX_15.3.3",
+   "title": "Local biodiversity included in planning (Sirmata 2040, 2021)",
+   "question": "Pre-2025 plan in force; reference only.",
+   "stories": [
+    "sirmata"
+   ]
+  },
+  {
+   "code": "15.4.2",
+   "file": "ANNEX_15.4.2",
+   "title": "Plastic waste reduction policies (2009–2023)",
+   "question": "Pre-2025 policies in force; reference only.",
+   "stories": [
+    "plastic"
+   ]
+  },
+  {
+   "code": "15.4.3",
+   "file": "ANNEX_15.4.3",
+   "title": "Hazardous waste disposal (IPWMP, revised 2020)",
+   "question": "Pre-2025 policy in force; reference only.",
+   "stories": [
+    "hazardous"
+   ]
+  },
+  {
+   "code": "15.3.5",
+   "file": "ANNEX_15.3.5",
+   "title": "Kalbario-Patapat Natural Park TWG (2023)",
+   "question": "Pre-2025 appointment; reference only.",
+   "stories": [
+    "kpnp"
+   ]
+  }
+ ],
  "dims": {
   "forest_reserve_planting_2025.jpg": [
    1600,
@@ -111,6 +158,66 @@
   "doc_kpnp_special_order.jpg": [
    934,
    1432
+  ],
+  "wed_mangrove_2025.jpg": [
+   1600,
+   1067
+  ],
+  "wed_mangrove2_2025.jpg": [
+   1600,
+   1067
+  ],
+  "pasuquin_mou_2025.jpg": [
+   1600,
+   1200
+  ],
+  "pasuquin_planting_2025.jpg": [
+   1600,
+   1200
+  ],
+  "badoc_mangrove_2025.jpg": [
+   1600,
+   719
+  ],
+  "badoc_mangrove2_2025.jpg": [
+   1600,
+   900
+  ],
+  "coconut_greenwall_2025.jpg": [
+   912,
+   504
+  ],
+  "vermicast_2025.jpg": [
+   1600,
+   973
+  ],
+  "onion_training_2025.jpg": [
+   1600,
+   1200
+  ],
+  "soil_health_2025.jpg": [
+   1600,
+   1007
+  ],
+  "regen_forum_2025.jpg": [
+   1600,
+   1067
+  ],
+  "pshs_visit_2025.jpg": [
+   1600,
+   1067
+  ],
+  "vintar_caravan_2025.jpg": [
+   1600,
+   1200
+  ],
+  "cleanup_2025.jpg": [
+   1600,
+   1200
+  ],
+  "mangrove_seminar_field_2025.jpg": [
+   1600,
+   900
   ]
  },
  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation.",
@@ -123,6 +230,9 @@
    "question": "Support or organise events aimed to promote conservation and sustainable utilisation of the land, including forests and wild land.",
    "stories": [
     "forest_planting",
+    "wed_mangrove",
+    "coconut_greenwall",
+    "regen_forum",
     "fieldday",
     "idbd_contest"
    ]
@@ -135,8 +245,9 @@
    "stories": [
     "forest_reserve",
     "ifp_conservation",
-    "pinili_short",
-    "mangrove_nbs"
+    "mangrove_nbs",
+    "badoc_mangrove",
+    "pinili_short"
    ]
   },
   {
@@ -147,6 +258,7 @@
    "stories": [
     "mangrove_seminar",
     "alukon",
+    "vintar_caravan",
     "ifp_learning"
    ]
   },
@@ -158,26 +270,11 @@
    "stories": [
     "soa",
     "pinili",
+    "vermicast",
+    "onion_training",
     "fieldday",
-    "alukon"
-   ]
-  },
-  {
-   "code": "15.3.1",
-   "file": "SDG15_15.3.1_Policy_on_sustainable_use_of_land",
-   "title": "Sustainable use, conservation and restoration of land (policy)",
-   "question": "Have a policy to ensure the conservation, restoration and sustainable use of terrestrial ecosystems associated with the university, in particular forests, mountains and drylands.",
-   "stories": [
-    "landuse_policy"
-   ]
-  },
-  {
-   "code": "15.3.3",
-   "file": "SDG15_15.3.3_Local_biodiversity_in_planning",
-   "title": "Local biodiversity included in planning and development",
-   "question": "Include local biodiversity into any planning and development process (e.g. construction of new buildings).",
-   "stories": [
-    "sirmata"
+    "pshs_visit",
+    "soil_health"
    ]
   },
   {
@@ -187,8 +284,9 @@
    "question": "Collaborate with the local community to maintain shared land ecosystems.",
    "stories": [
     "pasuquin",
+    "badoc_mangrove",
+    "wed_mangrove",
     "denr_partnership",
-    "kpnp",
     "ifp_partners",
     "pinili_short"
    ]
@@ -208,16 +306,8 @@
    "title": "Policy on plastic waste reduction",
    "question": "Have a policy on reducing plastic waste on campus.",
    "stories": [
-    "plastic"
-   ]
-  },
-  {
-   "code": "15.4.3",
-   "file": "SDG15_15.4.3_Policy_on_hazardous_waste_disposal",
-   "title": "Policy on hazardous waste disposal",
-   "question": "Have a policy, process or practice on waste disposal covering hazardous materials.",
-   "stories": [
-    "hazardous"
+    "rec",
+    "cleanup"
    ]
   }
  ],
@@ -231,7 +321,7 @@
    ],
    "paras": [
     "Some 230 graduating students of the College of Agriculture, Food and Sustainable Development (CAFSD) of Mariano Marcos State University (MMSU) planted trees and bamboo in the University Forest Reserves in Barangays Payao and Mabaleng, City of Batac, on July 2, 2025. The activity was led by CAFSD OIC-Dean Charlie Batin and the 2025 CAFSD Graduating Class Student Council, with Dr. Joselito Rosario, Director for Agribusiness, and Mr. Bonne Jovie Orteza of the MMSU Bamboo Research and Development Center. MMSU President Virgilio Julius P. Manzano Jr. commended the class for leaving a lasting green footprint that will further preserve the forest areas managed by the university, and Mr. Hashler Garalde, a CAFSD alumnus representing the Provincial Government of Ilocos Norte, supported the college’s sustainability efforts.",
-    "The graduands planted 120 seedlings of guijo and yakal, native dipterocarp timber species raised at the MMSU Central Nursery, in the Payao Forest Reserve, and 130 propagules of kawayan tinik, machiku and giant bamboo from the MMSU Bamboo Nursery in Mabaleng. The planting continues CAFSD’s pre-graduation tree-planting tradition, held in July 2024 by the BS Forestry graduates at Salinged Park, the university’s ecological park, and repeated by the CAFSD Class of 2026 at the Payao Forest Reserve in June 2026."
+    "The graduands planted 120 seedlings of guijo and yakal, native dipterocarp timber species raised at the MMSU Central Nursery, in the Payao Forest Reserve, and 130 propagules of kawayan tinik, machiku and giant bamboo from the MMSU Bamboo Nursery in Mabaleng."
    ],
    "sources": [
     "forest2025",
@@ -269,17 +359,17 @@
    ]
   },
   "mangrove_nbs": {
-   "title": "Nature-based Solutions to Restore Mangrove Ecosystems in Badoc and Currimao",
+   "title": "Nature-based Solutions for Mangrove Ecosystems in Badoc and Currimao",
    "photos": [
-    "pcaarrd_mangrove_site_badoc.jpg",
-    "pcaarrd_launch_gonzales.jpg"
+    "mangrove_seminar_field_2025.jpg",
+    "denr_dialogue_speaker.jpg"
    ],
    "paras": [
-    "MMSU leads the DOST-PCAARRD-funded project “Nature-based Solutions (NbS) for Sustainable Mangrove Management and Resilient Coastal Communities Through Innovative Green Engineering Approach,” implemented from May 1, 2024 to April 30, 2026 under Project Leader Dr. Arlene L. Gonzales. Launched on June 27, 2024 at the MMSU Review Center, the project works in Badoc and Currimao, Ilocos Norte, with DENR-PENRO Ilocos Norte, the Provincial Government of Ilocos Norte, the LGUs of Badoc and Currimao, and local communities.",
-    "The project addresses the poor hydrological conditions that keep young mangrove propagules from surviving, using technology-assisted plantations and locally available, ecologically friendly materials, including bamboo-engineered structures that protect young mangroves and improve their survival. In 2025 MMSU and DENR Region 1 met at ILAARRDEC to advance the work; DENR officials pledged technical support and active participation in restoration, monitoring and evaluation, building on a memorandum of understanding signed in October 2024."
+    "Throughout 2025, MMSU implemented the DOST-PCAARRD-funded project “Nature-based Solutions (NbS) for Sustainable Mangrove Management and Resilient Coastal Communities Through Innovative Green Engineering Approach,” led by Dr. Arlene L. Gonzales, in Badoc and Currimao, Ilocos Norte, with DENR-PENRO Ilocos Norte, the Provincial Government of Ilocos Norte and the LGUs of Badoc and Currimao. The project uses green engineering and locally available, ecologically friendly materials, including bamboo-engineered structures that protect young mangroves and improve their survival.",
+    "In 2025, MMSU and DENR Region 1 met at ILAARRDEC to advance the work, with DENR pledging technical support and active participation in restoration, monitoring and evaluation, and the project trained representatives of Currimao, Pasuquin, Badoc and Burgos in mangrove propagation, management and conservation on October 27–28, 2025."
    ],
    "sources": [
-    "pcaarrd",
+    "mangroveseminar",
     "report2025"
    ]
   },
@@ -364,15 +454,17 @@
    ]
   },
   "pasuquin": {
-   "title": "MMSU, Pasuquin LGU and TMP Foundation Join to Restore a Mangrove Forest",
+   "title": "MMSU, TMP Foundation, DENR and Pasuquin LGU Sign Agreement to Conserve a Coastal Forest",
    "photos": [
-    "pasuquin_mangrove_2025.jpg"
+    "pasuquin_mou_2025.jpg",
+    "pasuquin_planting_2025.jpg"
    ],
    "paras": [
-    "In late 2025, Mariano Marcos State University entered into a tripartite agreement with the Municipal Government of Pasuquin, Ilocos Norte, and the Toyota Motor Philippines (TMP) Foundation for the conservation of a degraded two-hectare mangrove forest, a National Greening Program site in Barangay Davila, Pasuquin.",
-    "The agreement was signed at the close of a planting activity in which about 110 volunteers, including members of the MMSU College of Industrial Technology, DENR-CENRO Bangui, the Municipal Environment and Natural Resources Office and residents of Barangay Davila, planted 1,750 mangrove seedlings. Over two years, the partners will plant 3,500 seedlings of the native mangrove species lapis-lapis and arinaya to strengthen the community’s natural defense against climate-related impacts and enhance biodiversity."
+    "On November 29, 2025, Mariano Marcos State University, the Toyota Motor Philippines Foundation (TMPF), the Department of Environment and Natural Resources and the Local Government Unit of Pasuquin formalized through a memorandum of agreement a partnership to strengthen coastal forest conservation in Barangay Davila, Pasuquin, Ilocos Norte. The agreement was signed by MMSU President Virgilio Julius P. Manzano Jr. with TMPF leadership, Toyota Motor Philippines and Toyota Ilocos Norte executives, DENR-CENRO Bangui Ecosystem Management Specialist Justine Rose Teneza, and Sangguniang Bayan Member Romel Ranay for LGU-Pasuquin.",
+    "A mangrove planting followed the signing, with 1,750 propagules planted and another 1,750 planned for the following year. TMPF President Jose Maria Aligada described the partnership as shared stewardship to restore native mangrove species, rehabilitate coastal systems and boost community resilience to climate-related hazards. Former MMSU College of Industrial Technology Dean Cesario Pacis was recognized as one of the initiators of the MMSU–Toyota partnership."
    ],
    "sources": [
+    "pasuquin_mmsu",
     "pasuquin"
    ]
   },
@@ -384,7 +476,7 @@
    ],
    "paras": [
     "MMSU, in partnership with the Department of Environment and Natural Resources (DENR) Region 1, convened a dialogue at ILAARRDEC to advance mangrove conservation and coastal resilience in the Ilocos Region through science-based and community-centered approaches. Central to the dialogue was the DOST-PCAARRD-funded nature-based solutions mangrove project led by Dr. Arlene Gonzales.",
-    "DENR officials pledged technical support and active participation in restoration, monitoring and evaluation activities, solidifying the partnership formalized through a memorandum of understanding signed in October 2024. The same project brought representatives of Currimao, Pasuquin, Badoc and Burgos, with DENR-PENRO, to MMSU’s mangrove propagation seminar-workshop on October 27–28, 2025."
+    "DENR officials pledged technical support and active participation in restoration, monitoring and evaluation activities. The same project brought representatives of Currimao, Pasuquin, Badoc and Burgos, with DENR-PENRO, to MMSU’s mangrove propagation seminar-workshop on October 27–28, 2025."
    ],
    "sources": [
     "report2025",
@@ -489,20 +581,15 @@
    ]
   },
   "water": {
-   "title": "Water Policy and Groundwater Quality Monitoring at the MMSU Farm",
+   "title": "Groundwater Quality Monitoring at the MMSU Farm",
    "photos": [
-    "doc_water_policy.jpg",
     "doc_groundwater_ph_map.jpg"
    ],
    "paras": [
-    "MMSU’s Water Policy under Sirmata 2040, based on the Water Code of the Philippines and its 2005 implementing rules, requires that “all water and related resources of the university, ground and surface, shall be shielded from any kind of pollution” (Policy 2.9) and that the rehabilitation of polluted resources be immediate, giving importance to water impoundments, catch basins and water treatment facilities (Policy 2.8). The university’s Integrated Pollution and Waste Management Program also provides for registration as a hazardous waste generator for wastewater discharge from agro-industrial facilities such as the piggery, in compliance with Republic Act 9275, the Philippine Clean Water Act.",
-    "MMSU monitors the groundwater under its farm. From February 2024 to June 2025, 17 groundwater monitoring wells on the MMSU Farm were measured monthly for pH, total dissolved solids, electrical conductivity, chloride and nitrate-nitrogen, and the results were compared with the Philippine National Standards for Drinking Water (2017). Mean pH from February to December 2024 ranged from 6.75 to 7.69, within the 6.5–8.5 guideline, while wells with persistently high dissolved solids were flagged for continued monitoring to guide water resource management. Small campus reservoirs also collect rainwater, reduce flooding and recharge groundwater."
+    "Through June 2025, MMSU continued monthly monitoring of 17 groundwater wells on the MMSU Farm, measuring pH, total dissolved solids, electrical conductivity, chloride and nitrate-nitrogen and comparing the results with the Philippine National Standards for Drinking Water (2017). The assessment, covering February 2024 to June 2025, flags wells with persistently high dissolved solids, which rose again from January to May 2025, for continued monitoring to guide water resource management and prevent further degradation of groundwater quality."
    ],
    "sources": [
-    "landuse_doc",
-    "ipwmp_doc",
-    "groundwater_doc",
-    "water_doc"
+    "groundwater_doc"
    ]
   },
   "plastic": {
@@ -536,6 +623,136 @@
     "hazardous_doc",
     "ipwmp_doc"
    ]
+  },
+  "wed_mangrove": {
+   "title": "MMSU Plants 250 Mangrove Propagules in Currimao on World Environment Day",
+   "photos": [
+    "wed_mangrove_2025.jpg",
+    "wed_mangrove2_2025.jpg"
+   ],
+   "paras": [
+    "In June 2025, in celebration of World Environment Day, Mariano Marcos State University planted 250 mangrove propagules along the coastal area of Barangay Maglaoi, Currimao, Ilocos Norte, to restore degraded shorelines, enhance climate resilience and promote sustainable coastal resource management. The activity was spearheaded by the MMSU Sustainability and Futures Thinking (SFT) Office with the Local Government Unit of Currimao and led by Dr. Mee Jay Domingo, Vice President for Planning and Strategic Foresight.",
+    "MMSU faculty, education support personnel and students joined representatives of the Department of Environment and Natural Resources, barangay officials, members of local fisherfolk organizations and community members. SFT Director Dr. Arlene Gonzales explained that mangroves were chosen because they act as natural filters that intercept plastic waste from land before it reaches the sea, while absorbing carbon, protecting shorelines from erosion and providing habitat for marine life."
+   ],
+   "sources": [
+    "wed"
+   ]
+  },
+  "badoc_mangrove": {
+   "title": "MMSU, Rotary Club and Badoc LGU Restore a Typhoon-Damaged Mangrove Stand",
+   "photos": [
+    "badoc_mangrove_2025.jpg",
+    "badoc_mangrove2_2025.jpg"
+   ],
+   "paras": [
+    "On December 6, 2025, Mariano Marcos State University, the Rotary Club of Laoag Sunshine and the Local Government Unit of Badoc planted 280 mangrove propagules in Barangay Pagsanahan, Badoc, Ilocos Norte, to restore a mangrove stand extensively damaged by past typhoons and to ensure the continuity of ecological succession at the site.",
+    "The activity was led by MMSU President Virgilio Julius P. Manzano Jr., with the LGU of Badoc headed by Hon. Virgilio M. Calajate and the Rotary Club of Laoag Sunshine under Atty. Zsa Zsa Raval. MMSU’s Vice President for Resource Generation and its Directors for Extension, Curriculum Development and Innovative Learning, and Student Affairs and Development also took part."
+   ],
+   "sources": [
+    "badoc"
+   ]
+  },
+  "coconut_greenwall": {
+   "title": "Green Wall Program: Coconut Seedlings for the Currimao Coastline",
+   "photos": [
+    "coconut_greenwall_2025.jpg"
+   ],
+   "paras": [
+    "On July 24, 2025, MMSU planted coconut seedlings along the Currimao beachfront under its Green Wall Program, with 1,000 seedlings donated by the Philippine Coconut Authority (PCA), to promote environmental sustainability and coastal resilience amid growing climate threats. The activity was held in celebration of the birthday of CHED Chairperson Shirley C. Agrupis, Chair of the MMSU Board of Regents.",
+    "MMSU President Virgilio Julius P. Manzano Jr., PCA Ilocos Norte Agriculturist and In-Charge Rose Ann Cabaloan, and university officials and employees took part. CASAT OIC-Dean Pilar Carolyn Pascual highlighted the university’s commitment to protecting coastal ecosystems through the Green Wall project."
+   ],
+   "sources": [
+    "coconut"
+   ]
+  },
+  "vermicast": {
+   "title": "Vermicast Facility Helps Pasuquin Onion Farmers Restore Degraded Soils",
+   "photos": [
+    "vermicast_2025.jpg"
+   ],
+   "paras": [
+    "In 2025, white onion farmer-leaders Mr. Marcos Palacay and Mr. Markflor Valdez of the Ayat ti Pasuquin Farmer and Irrigators Association established a pilot vermicomposting facility in Pasuquin, Ilocos Norte, under the Agri-Tech Facilitator Program of the Farmers Entrepreneurship Program of MMSU and the Jollibee Group Foundation. The facility uses African night crawlers (Eudrilus eugeniae) to convert biodegradable farm waste into vermicast, an organic fertilizer that improves soil structure, stimulates microbial activity and reduces the need for chemical inputs.",
+    "The project responds to soil degradation from prolonged reliance on chemical fertilizers, which the farmers linked to poor soil conditions and low seedling survival, and promotes sustainable solutions for white onion farming in the area."
+   ],
+   "sources": [
+    "vermicast"
+   ]
+  },
+  "onion_training": {
+   "title": "Pasuquin Onion Farmers Trained on Good Agricultural Practices",
+   "photos": [
+    "onion_training_2025.jpg"
+   ],
+   "paras": [
+    "On November 12, 2025, the Municipality of Pasuquin, MMSU and the Jollibee Group Foundation conducted a Pre-Dispersal Training on White Onion Production at the Pasuquin Municipal Hall for farmer beneficiaries of the San Juan Icas Manuel Farmers’ Association. The training covered white onion production technology, good agricultural practices (GAP) and proper farm recording for sustainable and profitable farming.",
+    "Farmer participation in the project has doubled from 15 to 30 beneficiaries, with a collective production target of 200 tons of white onion for 2025. The Office of the Provincial Agriculturist provides seeds and planting materials, complementing MMSU’s technical support and capacity development."
+   ],
+   "sources": [
+    "onion"
+   ]
+  },
+  "soil_health": {
+   "title": "MMSU Leads Soil Health Research for Rice-Based Cropping Systems",
+   "photos": [
+    "soil_health_2025.jpg"
+   ],
+   "paras": [
+    "In 2025, MMSU became a key partner in a five-year research program led by Griffith University in Australia and funded by the Australian Centre for International Agricultural Research (ACIAR) and DOST-PCAARRD to develop soil knowledge, information and capacity for more productive and sustainable cropping systems in the Philippines (Project SLaM 2023/146). MMSU President Virgilio Julius P. Manzano Jr. pledged the university’s commitment at the inception meeting held March 24–26, 2025 in Balanga City, Bataan.",
+    "MMSU leads the project on enhancing the productivity of rice-based cropping systems in Ilocos Norte, Tarlac and Bataan through soil health management. Led by Dr. Janet Villamor, it evaluates nutrient management practices and develops yield-calibrated soil health indices for rice-garlic, rice-rice and rice-onion systems. The kick-off meeting on June 16, 2025 at the MMSU Center for Flexible Learning brought together Griffith University, the country project manager and the provincial agriculturists of Ilocos Norte, Bataan and Tarlac, with visits to project sites in Batac, Vintar and Pasuquin."
+   ],
+   "sources": [
+    "soil1",
+    "soil2"
+   ]
+  },
+  "regen_forum": {
+   "title": "MMSU Promotes Regenerative Farming at the 2025 NSTW Forum",
+   "photos": [
+    "regen_forum_2025.jpg"
+   ],
+   "paras": [
+    "On November 19, 2025, MMSU Research Director Dr. Dionisio Bucao served as a resource speaker at the forum series of the 2025 National Science and Technology Week held at Northwestern University, Laoag City. He presented regenerative farming approaches that restore soil health, biodiversity and ecosystem function, and emphasized carbon sequestration, improved soil fertility, water conservation and climate resilience through natural processes, as well as how regenerative farming differs from conventional practice."
+   ],
+   "sources": [
+    "regen"
+   ]
+  },
+  "pshs_visit": {
+   "title": "Science High School Students Learn Sustainable Farming at MMSU’s Demonstration Farm",
+   "photos": [
+    "pshs_visit_2025.jpg"
+   ],
+   "paras": [
+    "On September 19, 2025, 59 Grade 11 and 12 students of the Philippine Science High School–Ilocos Region Campus visited MMSU’s Technology Demonstration Farm in Sta. Magdalena, Sarrat, as part of their community immersion program “The Science of Survival: A Community-Based Exploration,” held during National Biotechnology Week. After an orientation at the ILAARRDEC One-Stop Information Shop at MMSU, Extension Director Dr. Marlowe Aquino discussed the role of biotechnology in agriculture and MMSU’s hybrid off-season tomato varieties, and the students observed sustainable farming practices on site."
+   ],
+   "sources": [
+    "pshs"
+   ]
+  },
+  "vintar_caravan": {
+   "title": "MMSU Brings Bamboo and Alukon Propagation to the 2025 Siwawer Farmers’ Festival",
+   "photos": [
+    "vintar_caravan_2025.jpg"
+   ],
+   "paras": [
+    "Through its Information and Technology Caravan, MMSU’s Research and Extension Directorates joined the 2025 Siwawer Farmers’ Festival and Agro-Trade Fair at the Vintar Public Auditorium on December 3–4, 2025, with an exhibit of university technologies and a series of expert lectures for farmers.",
+    "Forester Shena Rose Garcia introduced sustainable bamboo production using MMSU’s one-node cutting technology, and the second day featured a demonstration on the propagation of alukon, an indigenous vegetable tree, facilitated by Ms. Josefa Pugat. Other lectures covered high-yielding glutinous corn varieties, garlic disease management and black garlic."
+   ],
+   "sources": [
+    "vintar"
+   ]
+  },
+  "cleanup": {
+   "title": "Student Advocates Hold Monthly Clean-Up Drive on Campus",
+   "photos": [
+    "cleanup_2025.jpg"
+   ],
+   "paras": [
+    "On October 24, 2025, the MMSU Advocates for Cultural Development (MACD), an organization representing students from indigenous peoples’ communities, held its monthly clean-up drive, “iPaglilinis,” around the university grounds, the Student Center and parts of the University Lagoon. About 30 bags of waste were collected and segregated into plastic, paper and tin materials."
+   ],
+   "sources": [
+    "cleanup"
+   ]
   }
  },
  "photos": {
@@ -563,11 +780,26 @@
   "doc_landuse_policy_p1.jpg": "Document: MMSU Land Use, Zoning, Water and Energy Policies (Sirmata 2040 LUDIP, 2021), Land Use Policy, page 1.",
   "doc_zoning_protected_land.jpg": "Document: MMSU Zoning Policy, Protected Land (Principle 9, Policy 9.1), Sirmata 2040 LUDIP.",
   "doc_water_policy.jpg": "Document: MMSU Water Policy, control, conservation and protection of waters (Policies 2.6–2.9), Sirmata 2040 LUDIP.",
-  "doc_groundwater_ph_map.jpg": "Document: Groundwater Quality Assessment of the MMSU Farm, spatial variation of pH (monitoring February 2024 – June 2025).",
+  "doc_groundwater_ph_map.jpg": "Document: Groundwater Quality Assessment of the MMSU Farm, spatial variation of pH (monitoring through June 2025).",
   "doc_memo_22-148A.jpg": "Document: Office of the President Memorandum No. 22-148A, “No Bottled Water” Policy, 24 April 2022.",
   "doc_memo_23-189.jpg": "Document: Office of the President Memorandum No. 23-189, “No Bottled Water” Policy, 24 April 2023.",
   "doc_ipwmp_hazardous.jpg": "Document: Revised Integrated Pollution and Waste Management Program of MMSU, provisions on PCB and hazardous waste storage and registration.",
-  "doc_kpnp_special_order.jpg": "Document: DENR-PENRO Ilocos Norte Special Order No. 2023-024 (29 March 2023) naming Dr. Arlene L. Gonzales of MMSU to the KPNP Technical Working Group."
+  "doc_kpnp_special_order.jpg": "Document: DENR-PENRO Ilocos Norte Special Order No. 2023-024 (29 March 2023) naming Dr. Arlene L. Gonzales of MMSU to the KPNP Technical Working Group.",
+  "wed_mangrove_2025.jpg": "Mangrove planting for World Environment Day, Brgy. Maglaoi, Currimao, June 2025. (Photo: MMSU STRATCOM)",
+  "wed_mangrove2_2025.jpg": "MMSU, LGU Currimao, DENR and fisherfolk volunteers at the planting site, June 2025. (Photo: MMSU STRATCOM)",
+  "pasuquin_mou_2025.jpg": "Signing of the memorandum of agreement among MMSU, TMP Foundation, DENR and LGU-Pasuquin, 29 November 2025. (Photo: MMSU STRATCOM)",
+  "pasuquin_planting_2025.jpg": "MMSU, TMP Foundation, DENR and LGU-Pasuquin officials at the agreement signing, 29 November 2025. (Photo: MMSU STRATCOM)",
+  "badoc_mangrove_2025.jpg": "MMSU, Rotary Club of Laoag Sunshine and LGU-Badoc plant mangrove propagules in Brgy. Pagsanahan, Badoc, 6 December 2025. (Photo: MMSU)",
+  "badoc_mangrove2_2025.jpg": "Participants of the mangrove enhancement and growing activity in Badoc, 6 December 2025. (Photo: MMSU)",
+  "coconut_greenwall_2025.jpg": "Coconut seedling planting along the Currimao beachfront under the MMSU Green Wall Program, 24 July 2025. (Photo: MMSU)",
+  "vermicast_2025.jpg": "Pilot vermicomposting facility of Pasuquin white onion farmers, 2025. (Photo: MMSU STRATCOM)",
+  "onion_training_2025.jpg": "Pre-Dispersal Training on White Onion Production, Pasuquin Municipal Hall, 12 November 2025. (Photo: MMSU STRATCOM)",
+  "soil_health_2025.jpg": "Kick-off meeting of the soil health management project with Griffith University and provincial agriculturists, 16 June 2025. (Photo: MMSU STRATCOM)",
+  "regen_forum_2025.jpg": "Forum series of the 2025 National Science and Technology Week, Northwestern University, Laoag City, 19 November 2025. (Photo: MMSU)",
+  "pshs_visit_2025.jpg": "PSHS-Ilocos Region Campus students at the MMSU Technology Demonstration Farm, Sarrat, 19 September 2025. (Photo: MMSU STRATCOM)",
+  "vintar_caravan_2025.jpg": "MMSU Information and Technology Caravan at the 2025 Siwawer Farmers’ Festival, Vintar, 3–4 December 2025. (Photo: MMSU STRATCOM)",
+  "cleanup_2025.jpg": "MMSU Advocates for Cultural Development clean-up drive on campus, 24 October 2025. (Photo: MMSU)",
+  "mangrove_seminar_field_2025.jpg": "Mangrove site, from the gallery of the October 2025 seminar-workshop of the NbS mangrove project. (Photo: MMSU)"
  },
  "photo_source": {
   "forest_reserve_planting_2025.jpg": "MMSU News, 4 Jul 2025 (article 2468) or MMSU Public Affairs / CAFSD files",
@@ -683,6 +915,54 @@
   "cafsd_waste": {
    "label": "MMSU News, “MMSU CAFSD rolls out waste and pollution management program,” 15 October 2024",
    "url": "https://www.mmsu.edu.ph/news/mmsu-cafsd-rolls-out-waste-and-pollution-management-program"
+  },
+  "wed": {
+   "label": "MMSU News, “MMSU plants 250 mangrove propagules in Currimao,” 11 June 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-plants-250-mangrove-propagules-in-currimao"
+  },
+  "pasuquin_mmsu": {
+   "label": "MMSU News, “MMSU ties up with Toyota and DENR for coastal preservation in Pasuquin town,” 4 December 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-ties-up-with-toyota-and-denr-for-coastal-preservation-in-pasuquin-town"
+  },
+  "badoc": {
+   "label": "MMSU News, “MMSU ties up with Rotary Club of Laoag Sunshine for mangrove planting in Badoc town,” 11 December 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-ties-up-with-rotary-club-of-laoag-sunshine-for-mangrove-planting-in-badoc-town"
+  },
+  "coconut": {
+   "label": "MMSU News, “MMSU celebrates CHED Chair Agrupis’ birthday with coconut planting activity,” 28 July 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-celebrates-ched-chair-agrupis-birthday-with-coconut-planting-activity"
+  },
+  "vermicast": {
+   "label": "MMSU News, “Vermicast facility established in Pasuquin as MMSU, Jollibee Group aid onion farmers,” 1 August 2025",
+   "url": "https://www.mmsu.edu.ph/news/vermicast-facility-established-in-pasuquin-as-mmsu-jollibee-group-aid-onion-farmers"
+  },
+  "onion": {
+   "label": "MMSU News, “Pasuquin onion farmers trained by MMSU and Jollibee Group Foundation,” 18 November 2025",
+   "url": "https://www.mmsu.edu.ph/news/pasuquin-onion-farmers-trained-by-mmsu-and-jollibee-group-foundation"
+  },
+  "soil1": {
+   "label": "MMSU News, “MMSU tapped as key partner in enhancing PH cropping systems through soil health management,” 31 March 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-tapped-as-key-partner-in-enhancing-ph-cropping-systems-through-soil-health-management"
+  },
+  "soil2": {
+   "label": "MMSU News, “Griffith University, MMSU launch cropping system research in Luzon,” 3 July 2025",
+   "url": "https://www.mmsu.edu.ph/news/griffith-university-mmsu-launch-cropping-system-research-in-luzon"
+  },
+  "regen": {
+   "label": "MMSU News, “MMSU researchers share expertise on smart agriculture in NSTW forum,” 20 November 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-researchers-share-expertise-on-smart-agriculture-in-nstw-forum"
+  },
+  "pshs": {
+   "label": "MMSU News, “PSHS-IRC students visit MMSU demo farm for sustainable farming practices,” 3 October 2025",
+   "url": "https://www.mmsu.edu.ph/news/pshs-irc-students-visit-mmsu-demo-farm-for-sustainable-farming-practices"
+  },
+  "vintar": {
+   "label": "MMSU News, “MMSU IT caravan goes to Vintar,” 15 December 2025",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-it-caravan-goes-to-vintar"
+  },
+  "cleanup": {
+   "label": "MMSU News, “MACD leads clean-up drive in MMSU,” 29 October 2025",
+   "url": "https://www.mmsu.edu.ph/news/macd-leads-clean-up-drive-in-mmsu"
   }
  }
 }

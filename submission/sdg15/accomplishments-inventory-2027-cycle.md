@@ -228,3 +228,27 @@ A browser-based capture reached mmsu.edu.ph. Results:
 
 Evidence documents now cover 10 of the 14 SDG 15 questions. Remaining gaps: 15.2.2, 15.2.6,
 15.3.2, 15.3.4.
+
+## Sweep 6 (2026-10-13): MMSU 2025 news archive, 2025-only evidence set
+
+Read all 425 MMSU news articles dated 2025 (5 Jan – 23 Dec 2025) from the university's
+article feed and filtered them for SDG 15 topics. New verified 2025 items added to the documents:
+
+| Date | Item | Indicator |
+|---|---|---|
+| Jun 2025 (World Environment Day) | 250 mangrove propagules, Brgy. Maglaoi, Currimao (SFT Office, LGU Currimao, DENR, fisherfolk) | 15.2.1, 15.3.5 |
+| 24 Jul 2025 | Green Wall Program coconut planting, Currimao beachfront (1,000 seedlings from PCA) | 15.2.1 |
+| 1 Aug 2025 | Vermicast facility for Pasuquin onion farmers (MMSU–Jollibee Group Foundation) | 15.2.5 |
+| Mar–Jun 2025 | Soil health management project for rice-based systems (Griffith University, ACIAR, PCAARRD) | 15.2.5 |
+| 19 Sep 2025 | PSHS-IRC students at the MMSU Technology Demonstration Farm | 15.2.5 |
+| 24 Oct 2025 | MACD monthly campus clean-up, 30 bags segregated | 15.4.2 |
+| 12 Nov 2025 | White onion GAP pre-dispersal training, Pasuquin | 15.2.5 |
+| 19 Nov 2025 | Regenerative farming lecture, 2025 NSTW forum | 15.2.1 |
+| 29 Nov 2025 | Pasuquin MOA (MMSU, TMPF, DENR, LGU) signed by the MMSU President; 1,750 propagules | 15.3.5 |
+| 3–4 Dec 2025 | Siwawer Farmers' Festival, Vintar: bamboo one-node cutting and alukon propagation | 15.2.4, 15.2.5 |
+| 6 Dec 2025 | 280 mangrove propagules, Brgy. Pagsanahan, Badoc (Rotary Club, LGU Badoc) | 15.2.3, 15.3.5 |
+
+Removed from the main documents (not 2025): Sirmata 2040 policies (2021), IPWMP (2020),
+No Bottled Water memoranda (2022, 2023), CAFSD bottled-water ban (Oct 2024), KPNP TWG (2023),
+MMSU–DENR MOU (Oct 2024), 2024 launch photos. They are kept in
+`evidence-docs/pdf/ANNEX_SDG15_Policies_before_2025.pdf` for reference.

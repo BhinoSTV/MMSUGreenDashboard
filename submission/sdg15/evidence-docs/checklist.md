@@ -5,6 +5,13 @@ Word version `MMSU_SDG15_Life_on_Land_Evidence_2025.docx`.
 Rebuild after any change: `python3 build.py && node build_docx.js` (or `python3 build.py --no-urls`
 for upload PDFs).
 
+## 0. Scope
+
+The documents retain only 2025 accomplishments. Pre-2025 policies (land use 2021, IPWMP 2020,
+No Bottled Water memoranda 2022–2023, KPNP appointment 2023) are in
+`pdf/ANNEX_SDG15_Policies_before_2025.pdf`. THE accepts policies already in place, so you may
+add them back for the policy questions if the team decides to.
+
 ## 1. Photos and document images
 
 All photo frames are filled (13 October 2026). Photos for the 2025 MMSU events were captured
