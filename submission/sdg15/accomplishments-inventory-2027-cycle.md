@@ -33,6 +33,7 @@ session, so most MMSU-hosted dates are S, I or U.
 | 6 | MMSU Extension and ILAARRDEC bamboo training in Pinili: 46 farmers, local leaders and community members on propagation, nursery and plantation management | About Sep 2025 (from article age) | I | A (if confirmed) | 15.2.5, 15.2.3 (bamboo agroforestry) | https://www.mmsu.edu.ph/news/sustainable-livelihood-mmsu-ilaarrdec-hold-bamboo-training-in-pinili |
 | 7 | International Day for Biological Diversity wildlife photo contest (deadline 30 May 2025) | 2025 | V (in your report) | A, B | 15.2.1 (general) | Report pages you supplied |
 | 8 | MMSU–PhilFIDA meeting on campus land use (5 June) | Year U | U | `[CONFIRM]` | none | Report pages |
+| 9 | **CAFSD Graduating Class 2025 tree and bamboo planting, University Forest Reserves.** 230 graduating students; 120 guijo and yakal seedlings (MMSU Central Nursery) in Brgy. Payao and 130 bamboo propagules (kawayan tinik, machiku, giant bamboo; MMSU Bamboo Nursery) in Brgy. Mabaleng, City of Batac; led by CAFSD OIC-Dean Charlie Batin and the class Student Council, with the Bamboo R&D Center | 2 Jul 2025 (published 4 Jul 2025) | V | A (B if MMSU's AY 2024–25 runs to July) | 15.2.3, 15.2.1 | https://www.mmsu.edu.ph/article/news/2468/cafsd-graduands-plant-trees-bamboos-in-batac-forest-reserves |
 
 ## Items with real activity but no usable date
 
@@ -55,6 +56,7 @@ session, so most MMSU-hosted dates are S, I or U.
 
 ## Excluded: dated 2026 (outside all windows)
 
+- 1 Jun 2026 CAFSD Graduating Class 2026 planting at the MMSU Forest Reserve, Payao: 100 trees (50 banaba, 30 yakal saplungan, 20 guijo) hardened in the MMSU Forest Tree Nursery (published 5 Jun 2026; https://www.mmsu.edu.ph/article/news/3035/cafsd-graduands-grow-native-trees-at-mmsu-forest-reserve). Outside the window, but it shows the graduation planting recurs every year (2025, 2026), which supports describing it as a continuing programme.
 - 10 Oct 2026 MMSU–EMB Region I memorandum of agreement signing (scope not found).
 - Apr 2026 DENR-EMB solid-waste information campaign for MMSU Environmental Science students.
 - Aug 2026 Fulbright alumni agoho tree-growing drive, Bangui (80 trees).
@@ -71,9 +73,9 @@ Keep these for the following cycle.
 
 | Q | Best candidate | Gap |
 |---|---|---|
-| 15.2.1 Events | IDBD photo contest (2025) | A 2025 land or forest conservation event |
+| 15.2.1 Events | CAFSD Class 2025 forest-reserve planting (2 Jul 2025); IDBD photo contest (2025) | Attendance list and photos in the PDF |
 | 15.2.2 Food policy | none | Policy |
-| 15.2.3 Biodiversity | IFP triad conservation; mangrove NbS project | Primary documents with 2025 data |
+| 15.2.3 Biodiversity | Forest-reserve enrichment planting (2 Jul 2025); IFP triad conservation; mangrove NbS project | Forest Reserve area, species list, survival data |
 | 15.2.4 Ecosystem education | IFP foodscapes; mangrove seminar | Dates, attendance, free-access statement; wild flora/fauna fit |
 | 15.2.5 Agriculture outreach | Bamboo training Pinili; CARES | Confirm 2025 date, free access, land-management content |
 | 15.2.6 Tourism outreach | none | Programme |
