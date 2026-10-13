@@ -1,5 +1,25 @@
 {
  "dims": {
+  "forest_reserve_planting_2025.jpg": [
+   1600,
+   1067
+  ],
+  "mangrove_seminar_2025.jpg": [
+   1600,
+   900
+  ],
+  "pinili_bamboo_2025.jpg": [
+   1600,
+   969
+  ],
+  "alukon_training_2025.jpg": [
+   1600,
+   673
+  ],
+  "pasuquin_mangrove_2025.jpg": [
+   908,
+   1600
+  ],
   "ifp_foodscape.jpg": [
    678,
    465
@@ -39,6 +59,58 @@
   "idbd_dragonfly.jpg": [
    312,
    415
+  ],
+  "soa_regenerative_2025.jpg": [
+   1600,
+   991
+  ],
+  "presidents_farm_field_day_2025.jpg": [
+   1600,
+   1067
+  ],
+  "forest_reserve_bamboo_site_2025.jpg": [
+   1600,
+   1067
+  ],
+  "mangrove_seminar_handson_2025.jpg": [
+   1600,
+   1200
+  ],
+  "presidents_farm_audience_2025.jpg": [
+   1600,
+   1067
+  ],
+  "doc_landuse_policy_p1.jpg": [
+   910,
+   1287
+  ],
+  "doc_zoning_protected_land.jpg": [
+   910,
+   1287
+  ],
+  "doc_water_policy.jpg": [
+   910,
+   1287
+  ],
+  "doc_groundwater_ph_map.jpg": [
+   935,
+   1210
+  ],
+  "doc_memo_22-148A.jpg": [
+   935,
+   1210
+  ],
+  "doc_memo_23-189.jpg": [
+   910,
+   1316
+  ],
+  "doc_ipwmp_hazardous.jpg": [
+   910,
+   1286
+  ],
+  "doc_kpnp_special_order.jpg": [
+   934,
+   1432
   ]
  },
  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation.",
@@ -91,6 +163,15 @@
    ]
   },
   {
+   "code": "15.3.1",
+   "file": "SDG15_15.3.1_Policy_on_sustainable_use_of_land",
+   "title": "Sustainable use, conservation and restoration of land (policy)",
+   "question": "Have a policy to ensure the conservation, restoration and sustainable use of terrestrial ecosystems associated with the university, in particular forests, mountains and drylands.",
+   "stories": [
+    "landuse_policy"
+   ]
+  },
+  {
    "code": "15.3.3",
    "file": "SDG15_15.3.3_Local_biodiversity_in_planning",
    "title": "Local biodiversity included in planning and development",
@@ -107,27 +188,49 @@
    "stories": [
     "pasuquin",
     "denr_partnership",
+    "kpnp",
     "ifp_partners",
     "pinili_short"
    ]
+  },
+  {
+   "code": "15.4.1",
+   "file": "SDG15_15.4.1_Water_discharge_guidelines_and_standards",
+   "title": "Water discharge guidelines and standards",
+   "question": "Have water quality standards and guidelines for water discharges (to uphold water quality in order to protect ecosystems, wildlife, and human health and welfare).",
+   "stories": [
+    "water"
+   ]
+  },
+  {
+   "code": "15.4.2",
+   "file": "SDG15_15.4.2_Policy_on_plastic_waste_reduction",
+   "title": "Policy on plastic waste reduction",
+   "question": "Have a policy on reducing plastic waste on campus.",
+   "stories": [
+    "plastic"
+   ]
+  },
+  {
+   "code": "15.4.3",
+   "file": "SDG15_15.4.3_Policy_on_hazardous_waste_disposal",
+   "title": "Policy on hazardous waste disposal",
+   "question": "Have a policy, process or practice on waste disposal covering hazardous materials.",
+   "stories": [
+    "hazardous"
+   ]
   }
  ],
- "supporting": {
-  "code": "15.4",
-  "title": "Land-sensitive waste disposal (supporting context)",
-  "question": "Not a policy document; recorded as supporting context for 15.4.2.",
-  "stories": [
-   "rec"
-  ]
- },
+ "supporting": null,
  "stories": {
   "forest_planting": {
    "title": "CAFSD Graduands Plant Native Trees and Bamboo in the University Forest Reserves",
    "photos": [
-    "forest_reserve_planting_2025.jpg"
+    "forest_reserve_planting_2025.jpg",
+    "forest_reserve_bamboo_site_2025.jpg"
    ],
    "paras": [
-    "Some 230 graduating students of the College of Agriculture, Food and Sustainable Development (CAFSD) of Mariano Marcos State University (MMSU) planted trees and bamboo in the University Forest Reserves in Barangays Payao and Mabaleng, City of Batac, on July 2, 2025. The activity was led by CAFSD OIC-Dean Charlie Batin and the 2025 CAFSD Graduating Class Student Council, with Dr. Joselito Rosario, Director for Agribusiness, and Mr. Bonne Jovie Orteza of the MMSU Bamboo Research and Development Center.",
+    "Some 230 graduating students of the College of Agriculture, Food and Sustainable Development (CAFSD) of Mariano Marcos State University (MMSU) planted trees and bamboo in the University Forest Reserves in Barangays Payao and Mabaleng, City of Batac, on July 2, 2025. The activity was led by CAFSD OIC-Dean Charlie Batin and the 2025 CAFSD Graduating Class Student Council, with Dr. Joselito Rosario, Director for Agribusiness, and Mr. Bonne Jovie Orteza of the MMSU Bamboo Research and Development Center. MMSU President Virgilio Julius P. Manzano Jr. commended the class for leaving a lasting green footprint that will further preserve the forest areas managed by the university, and Mr. Hashler Garalde, a CAFSD alumnus representing the Provincial Government of Ilocos Norte, supported the college’s sustainability efforts.",
     "The graduands planted 120 seedlings of guijo and yakal, native dipterocarp timber species raised at the MMSU Central Nursery, in the Payao Forest Reserve, and 130 propagules of kawayan tinik, machiku and giant bamboo from the MMSU Bamboo Nursery in Mabaleng. The planting continues CAFSD’s pre-graduation tree-planting tradition, held in July 2024 by the BS Forestry graduates at Salinged Park, the university’s ecological park, and repeated by the CAFSD Class of 2026 at the Payao Forest Reserve in June 2026."
    ],
    "sources": [
@@ -138,7 +241,7 @@
   "forest_reserve": {
    "title": "Enriching MMSU’s 1,068-Hectare Forest Reserves with Native Species",
    "photos": [
-    "forest_reserve_planting_2025.jpg"
+    "forest_reserve_bamboo_site_2025.jpg"
    ],
    "paras": [
     "MMSU manages Forest Reserve Areas in Barangays Lubbot and Payao, City of Batac, covering a total of 1,068.13 hectares, where the university’s forestry and agroforestry research is set up. The university maintains and extends these ecosystems with planting stock raised in its own nurseries, the MMSU Central Nursery and the MMSU Bamboo Nursery.",
@@ -155,8 +258,8 @@
     "ifp_foodscape.jpg"
    ],
    "paras": [
-    "Through its Indigenous Food Plants (IFP) Program, MMSU conserves the wild and neglected food plants of Ilocos Norte, 46 of which were documented by the program in seven towns of the province. The program follows a triad of conservation approaches: an IFP Botanical Garden for ex situ conservation, a himbabao (alukon) genebank at the MMSU Forest Reserve, circa situ cultivation of wild yams, and the integration of IFPs into community foodscapes.",
-    "In October 2025, in celebration of World Food Day, the MMSU Extension and Research Directorates established the second batch of Community Foodscapes and Seedbanks for Indigenous Food Plants with local government units and schools, at Eladio V. Barangan Memorial Elementary School in San Nicolas, Ilocos Norte. The foodscape sites serve as seedbanks and learning gardens, and partner communities receive planting materials and technical assistance to cultivate kapaskapas, alokon, pako, dalayap, wild singkamas and roselle.",
+    "Through its Indigenous Food Plants (IFP) Program, MMSU conserves the wild and neglected food plants of Ilocos Norte, 46 of which were documented by the program in seven towns of the province. The program follows a triad of conservation approaches: an IFP Botanical Garden for ex situ conservation, a himbabao (alukon) genebank at the MMSU Forest Reserve, circa situ cultivation of the wild yams kamangeg and dolian, and the integration of IFPs into community foodscapes.",
+    "In October 2025, in celebration of World Food Day, the MMSU Extension and Research Directorates established the second batch of Community Foodscapes and Seedbanks for Indigenous Food Plants with local government units and schools, at Eladio V. Barangan Memorial Elementary School in San Nicolas, Ilocos Norte. The foodscape sites serve as seedbanks and learning gardens, and partner communities receive planting materials and technical assistance to cultivate kapaskapas, alokon, pako, dalayap, wild singkamas and roselle. The new partners join existing foodscape sites in Sarrat and Batac.",
     "The IFP Program was adopted by the Regional Development Council of Region 1 as its first research and development initiative, and a study on the program by Dr. Menisa A. Antonio and co-authors won Best Paper in the Sustainable and Smart Agri-Aquaculture and Climate Resilience category of the SUC-ACAP 2025 Biennial Conference, held August 27–29, 2025, in Tagbilaran City, Bohol."
    ],
    "sources": [
@@ -197,11 +300,12 @@
   "mangrove_seminar": {
    "title": "MMSU Trains Coastal Towns on Mangrove Propagation, Management and Conservation",
    "photos": [
-    "mangrove_seminar_2025.jpg"
+    "mangrove_seminar_2025.jpg",
+    "mangrove_seminar_handson_2025.jpg"
    ],
    "paras": [
     "MMSU conducted a two-day Seminar-Workshop on Mangrove Propagation on October 27–28, 2025 at its Center for Flexible Learning for representatives of the coastal municipalities of Currimao, Pasuquin, Badoc and Burgos, Ilocos Norte, with officials of DENR-PENRO in attendance. The training was organized under the DOST-PCAARRD-funded nature-based solutions mangrove project led by Dr. Arlene Gonzales.",
-    "Sessions covered the importance of mangrove ecosystems, nature-based solutions for conservation, legal frameworks for mangrove protection, and the roles of the academe and local government units in community-based mangrove management. Participants were also trained in nursery management and advanced propagation techniques for Avicennia and Sonneratia species and other local mangrove varieties."
+    "Sessions covered the importance of mangrove ecosystems, nature-based solutions for conservation, legal frameworks for mangrove protection, and the roles of the academe and local government units in community-based mangrove management. Participants were also trained in nursery management and advanced propagation techniques for Avicennia and Sonneratia species and other local mangrove varieties. The Pedada People’s Organization shared its experience in establishing community-based mangrove conservation."
    ],
    "sources": [
     "mangroveseminar"
@@ -241,7 +345,7 @@
    ],
    "paras": [
     "The MMSU Extension Directorate and the College of Agriculture, Food and Sustainable Development, in partnership with Barangay Aglipay, Pinili, Ilocos Norte, and with the support of the Ilocos Agriculture, Aquatic and Natural Resources Research and Development Consortium (ILAARRDEC), conducted a two-day training on bamboo production in 2025.",
-    "The training equipped 46 farmers, local leaders and community members with practical skills in bamboo propagation, nursery establishment and plantation management. Lectures covered the prospects of the bamboo industry and MMSU’s propagation methods, and participants helped establish a new bambusetum, a collection of bamboo species, in Barangay Aglipay."
+    "The training equipped 46 farmers, local leaders and community members with practical skills in bamboo propagation, nursery establishment and plantation management. Lectures covered the prospects of the bamboo industry and MMSU’s propagation methods, and participants helped establish a new bambusetum, a collection of bamboo species, in Barangay Aglipay. Lectures and demonstrations were given by bamboo experts Mr. Charlie Maine Cacactin of CAFSD and Mr. Bonne Jovie Orteza of MMSU. Pinili Municipal Agriculturist Philip Galang, representing Mayor Rommel T. Labasan, thanked MMSU and ILAARRDEC, and the project was championed in the community by Pinili’s Magsasaka Siyentista, Mr. Reynaldo Antalan."
    ],
    "sources": [
     "pinili"
@@ -294,7 +398,7 @@
    ],
    "paras": [
     "In October 2025, the MMSU Extension and Research Directorates partnered with local government units and schools to establish Community Foodscapes and Seedbanks for Indigenous Food Plants. Held at Eladio V. Barangan Memorial Elementary School in San Nicolas, Ilocos Norte, the activity brought together officials of Barangays San Roque and Parut, Vintar, the Municipal Agriculture Office of Vintar, agricultural extension workers, school leaders and community representatives as the second batch of partner sites.",
-    "The partner communities maintain the foodscapes as shared seedbanks and learning gardens, with planting materials and technical assistance from MMSU, to conserve indigenous food resources such as kapaskapas, alokon, pako, dalayap, wild singkamas and roselle."
+    "The partner communities maintain the foodscapes as shared seedbanks and learning gardens, with planting materials and technical assistance from MMSU, to conserve indigenous food resources such as kapaskapas, alokon, pako, dalayap, wild singkamas and roselle. They join existing foodscape sites in Sarrat and Batac."
    ],
    "sources": [
     "ifp_seedbank",
@@ -328,7 +432,8 @@
   "fieldday": {
    "title": "President’s Farm Field Day Showcases Climate-Resilient Rice Varieties",
    "photos": [
-    "presidents_farm_field_day_2025.jpg"
+    "presidents_farm_field_day_2025.jpg",
+    "presidents_farm_audience_2025.jpg"
    ],
    "paras": [
     "On October 28, 2025, the MMSU Extension Directorate, with the Philippine Rice Research Institute (PhilRice) Batac Branch, held the President’s Farm Field Day: A Technology Showcase in front of the College of Agriculture, Food and Sustainable Development. Farmers and farmer-leaders, agricultural technicians from Ilocos Norte local government units, BS Agriculture students, and MMSU and PhilRice rice specialists viewed eight rice varieties grown under wet-season conditions.",
@@ -341,25 +446,104 @@
   "sirmata": {
    "title": "Sirmata 2040: Planning MMSU’s Campuses and Reserve Lands for Two Decades",
    "photos": [
-    "sirmata2040_plan.jpg"
+    "doc_zoning_protected_land.jpg"
    ],
    "paras": [
     "Sirmata 2040, MMSU’s Land Use Development and Infrastructure Plan (LUDIP), is the university’s 20-year guide for managing its land resources and infrastructure. Prepared under Republic Act 11396, which requires state universities and colleges to have a LUDIP, and supported by a Php 2 million grant from the Commission on Higher Education (CHED), the plan covers the future land use of the MMSU campuses and the university’s reserve areas in Nagbacsan, Payao, Lubbot and Sarnap, City of Batac, including the forest reserves where MMSU’s forestry and agroforestry research is set up.",
+    "Local biodiversity is built into the plan’s development rules. The zoning plan sets aside Protected Land, which “shall be conserved, preserved and to be excluded from any form of alteration except as may be permitted by operation of law” (Policy 9.1), and the MMSU Forest Reserve is kept as a no-build zone. Before any land is altered or converted, the plan requires a science-based assessment of its natural suitability and carrying capacity (Policies 7.1, 10.1 and 11.1).",
     "The plan was developed through stakeholder consultations, sectoral studies and campus planning workshops, and was endorsed by the CHED Technical Working Group after validation visits to the campuses."
    ],
    "sources": [
+    "landuse_doc",
+    "planning_doc",
     "sirmata",
-    "ludip_fund",
-    "station"
+    "ludip_fund"
+   ]
+  },
+  "landuse_policy": {
+   "title": "MMSU Land Use Policy Commits the University to Conserve and Restore Its Lands",
+   "photos": [
+    "doc_landuse_policy_p1.jpg"
+   ],
+   "paras": [
+    "MMSU’s Land Use, Zoning, Water and Energy Policies, adopted as part of Sirmata 2040, the university’s Land Use Development and Infrastructure Plan prepared in 2021 under Republic Act 11396, govern the conservation, restoration and sustainable use of all university lands across its campuses.",
+    "Under Policy 1.3, the allocation and use of university lands “shall aim to maintain, protect, conserve, restore, and enhance the integrity of the land itself, the environment and ecological balance in all its campuses.” Policy 7.1 requires decisions to be based on valid and reliable science, especially for any intent to alter or convert the natural state of any piece of university land, and Policy 10.2 gives fragile lands and protected areas special management “to protect, conserve, enrich, rehabilitate, and or sustain them.”",
+    "The zoning policy sets aside Protected Land as a distinct zone; under Policy 9.1, “protected landholdings of the university shall be conserved, preserved and to be excluded from any form of alteration except as may be permitted by operation of law.” The MMSU Forest Reserve is maintained as a no-build zone, and Policy 4.3 requires the university to regularly review, update and promptly communicate its land-use policies."
+   ],
+   "sources": [
+    "landuse_doc",
+    "planning_doc"
+   ]
+  },
+  "kpnp": {
+   "title": "MMSU Expert Serves on the Kalbario-Patapat Natural Park Technical Working Group",
+   "photos": [
+    "doc_kpnp_special_order.jpg"
+   ],
+   "paras": [
+    "Through DENR-PENRO Ilocos Norte Special Order No. 2023-024, dated March 29, 2023, Dr. Arlene L. Gonzales of MMSU was named a member of the Technical Working Group that prepares the Communication Plan of the Kalbario-Patapat Natural Park (KPNP), a protected area in Ilocos Norte. The group, led by the KPNP Protected Area Superintendent, brings together DENR offices, the Provincial Government of Ilocos Norte, the LGUs of Pagudpud and Adams in Ilocos Norte and Sta. Praxedes in Cagayan, barangay officials and Northwestern University.",
+    "The Communication Plan supports the goal of the KPNP Protected Area Management Plan to adopt and carry out effective information and education campaigns for biological diversity conservation and for the promotion of the protected area as a major ecotourism destination."
+   ],
+   "sources": [
+    "kpnp_doc"
+   ]
+  },
+  "water": {
+   "title": "Water Policy and Groundwater Quality Monitoring at the MMSU Farm",
+   "photos": [
+    "doc_water_policy.jpg",
+    "doc_groundwater_ph_map.jpg"
+   ],
+   "paras": [
+    "MMSU’s Water Policy under Sirmata 2040, based on the Water Code of the Philippines and its 2005 implementing rules, requires that “all water and related resources of the university, ground and surface, shall be shielded from any kind of pollution” (Policy 2.9) and that the rehabilitation of polluted resources be immediate, giving importance to water impoundments, catch basins and water treatment facilities (Policy 2.8). The university’s Integrated Pollution and Waste Management Program also provides for registration as a hazardous waste generator for wastewater discharge from agro-industrial facilities such as the piggery, in compliance with Republic Act 9275, the Philippine Clean Water Act.",
+    "MMSU monitors the groundwater under its farm. From February 2024 to June 2025, 17 groundwater monitoring wells on the MMSU Farm were measured monthly for pH, total dissolved solids, electrical conductivity, chloride and nitrate-nitrogen, and the results were compared with the Philippine National Standards for Drinking Water (2017). Mean pH from February to December 2024 ranged from 6.75 to 7.69, within the 6.5–8.5 guideline, while wells with persistently high dissolved solids were flagged for continued monitoring to guide water resource management. Small campus reservoirs also collect rainwater, reduce flooding and recharge groundwater."
+   ],
+   "sources": [
+    "landuse_doc",
+    "ipwmp_doc",
+    "groundwater_doc",
+    "water_doc"
+   ]
+  },
+  "plastic": {
+   "title": "MMSU Policies Eliminate Styrofoam and Reduce Plastic Waste on Campus",
+   "photos": [
+    "doc_memo_22-148A.jpg",
+    "doc_memo_23-189.jpg"
+   ],
+   "paras": [
+    "MMSU reduces plastic waste under its Integrated Waste Management Program, approved by the Board of Regents in 2009 and amended in 2015, and its revised Integrated Pollution and Waste Management Program. The program prohibits Styrofoam for serving or packing food in the university Food Service Unit and limits the use of plastics, and a policy promulgated on February 11, 2016 eliminates Styrofoam and plastic as secondary packaging materials in favour of paper bags, cartons, eco-bags and reusable containers. The University Waste Management Committee develops, reviews and monitors these rules, and the food service unit requires customers dining out to bring their own food containers.",
+    "The Office of the President reissues the “No Bottled Water” Policy each year: Memorandum No. 22-148A of April 24, 2022 and Memorandum No. 23-189 of April 24, 2023 stop the serving of bottled water at Administrative Council meetings, ask members to bring their own water containers, and encourage all offices to adopt the same policy. In October 2024 the College of Agriculture, Food and Sustainable Development banned plastic bottled water in its auxiliary buildings, and on July 1, 2025 MMSU signed a memorandum of commitment with DENR-EMB Region I for the Regional Ecology Center to support solid waste management under Republic Act 9003 and the Extended Producer Responsibility Act (Republic Act 11898)."
+   ],
+   "sources": [
+    "plastic_doc",
+    "ipwmp_doc",
+    "memos_doc",
+    "cafsd_waste",
+    "rec"
+   ]
+  },
+  "hazardous": {
+   "title": "Hazardous Waste Disposal under MMSU’s Integrated Pollution and Waste Management Program",
+   "photos": [
+    "doc_ipwmp_hazardous.jpg"
+   ],
+   "paras": [
+    "MMSU’s Integrated Waste Management Program was revised in 2020 into the Integrated Pollution and Waste Management Program (IPWMP), implemented by the Pollution Control Unit and the General Services directorate, to cover hazardous materials. The IPWMP assigns focal persons for hazardous wastes (chemical and related wastes), air and water pollution, solid wastes, and PCBs and related industrial wastes, and requires the waste coordinators of every unit to store and label generated hazardous wastes properly before collection.",
+    "The program establishes centralized, separate storage facilities for polychlorinated biphenyls (PCBs) and other hazardous or toxic wastes collected from the campuses, where the wastes are kept for up to one year before disposal through a DENR-accredited transport, storage and disposal facility, in compliance with Republic Act 6969 and its storage guidelines. Units that generate hazardous waste are registered as hazardous waste generators, and the university coordinates with the Environmental Management Bureau of DENR for final collection and disposal."
+   ],
+   "sources": [
+    "hazardous_doc",
+    "ipwmp_doc"
    ]
   }
  },
  "photos": {
-  "forest_reserve_planting_2025.jpg": "CAFSD graduands planting native trees and bamboo in the University Forest Reserves, Payao and Mabaleng, City of Batac, 2 July 2025.",
-  "mangrove_seminar_2025.jpg": "Seminar-workshop on mangrove propagation and management for coastal municipalities, Center for Flexible Learning, 27–28 October 2025.",
-  "pinili_bamboo_2025.jpg": "Bamboo propagation, nursery and plantation management training and bambusetum establishment, Barangay Aglipay, Pinili, 2025.",
-  "alukon_training_2025.jpg": "Training on alukon (himbabao) propagation for farmers, Barangay 11 Sta. Rosa, Sarrat, 2 May 2025.",
-  "pasuquin_mangrove_2025.jpg": "Mangrove planting and tripartite agreement signing at the National Greening Program site, Barangay Davila, Pasuquin, 2025.",
+  "forest_reserve_planting_2025.jpg": "CAFSD Graduating Class 2025 “Bamboo and Tree Planting Activity,” University Forest Reserves, City of Batac, 2 July 2025. (Photo: MMSU STRATCOM)",
+  "mangrove_seminar_2025.jpg": "Representatives of Currimao, Pasuquin, Badoc and Burgos at the Seminar-Workshop on Mangrove Propagation, 27–28 October 2025. (Photo: MMSU)",
+  "pinili_bamboo_2025.jpg": "Participants of the bamboo propagation, nursery and plantation management training, Brgy. Aglipay, Pinili, 2025. (Photo: MMSU)",
+  "alukon_training_2025.jpg": "Farmers and local officials trained on alukon (himbabao) propagation, Brgy. 11 Sta. Rosa, Sarrat, 2 May 2025. (Photo: MMSU)",
+  "pasuquin_mangrove_2025.jpg": "Capture of The Manila Times report of 10 December 2025 on the Pasuquin mangrove planting and agreement (photo in article: TMP Foundation).",
   "ifp_foodscape.jpg": "Partners receive indigenous food plant planting materials for the Community Foodscapes and Seedbanks, World Food Day 2025.",
   "pcaarrd_mangrove_site_badoc.jpg": "Project site in Badoc, Ilocos Norte. (Image credit: TTPD, DOST-PCAARRD)",
   "pcaarrd_launch_gonzales.jpg": "Project Leader Dr. Arlene L. Gonzales presents the project at its launch, MMSU Review Center, 27 June 2024. (Image credit: TTPD, DOST-PCAARRD)",
@@ -370,9 +554,20 @@
   "idbd_awarding.jpg": "Winner Chris Jeremiah C. Antonio receives his certificate from Dr. Arlene L. Gonzales, Chief of Sustainability and Futures Thinking.",
   "idbd_dove.jpg": "Photograph featured with the contest results.",
   "idbd_dragonfly.jpg": "Photograph featured with the contest results.",
-  "soa_regenerative_2025.jpg": "MMSU School-on-the-Air season on regenerative vegetable farming, launched 24–25 June 2025.",
-  "presidents_farm_field_day_2025.jpg": "President’s Farm Field Day: A Technology Showcase, in front of CAFSD, 28 October 2025.",
-  "sirmata2040_plan.jpg": "Sirmata 2040 land use map of the MMSU campuses and reserve areas."
+  "soa_regenerative_2025.jpg": "MMSU School-on-the-Air (Eskuela iti Tangatang) season on regenerative vegetable farming, June–December 2025. (Image: MMSU)",
+  "presidents_farm_field_day_2025.jpg": "President’s Farm technology demonstration of inbred and hybrid rice varieties, 28 October 2025. (Photo: MMSU)",
+  "sirmata2040_plan.jpg": "Sirmata 2040 land use map of the MMSU campuses and reserve areas.",
+  "forest_reserve_bamboo_site_2025.jpg": "Bamboo planting site in the University Forest Reserve, Brgy. Mabaleng, 2 July 2025. (Photo: MMSU STRATCOM)",
+  "mangrove_seminar_handson_2025.jpg": "Hands-on mangrove nursery and propagation practice during the seminar-workshop. (Photo: MMSU)",
+  "presidents_farm_audience_2025.jpg": "Farmers, LGU technicians and students at the President’s Farm Field Day, in front of CAFSD. (Photo: MMSU)",
+  "doc_landuse_policy_p1.jpg": "Document: MMSU Land Use, Zoning, Water and Energy Policies (Sirmata 2040 LUDIP, 2021), Land Use Policy, page 1.",
+  "doc_zoning_protected_land.jpg": "Document: MMSU Zoning Policy, Protected Land (Principle 9, Policy 9.1), Sirmata 2040 LUDIP.",
+  "doc_water_policy.jpg": "Document: MMSU Water Policy, control, conservation and protection of waters (Policies 2.6–2.9), Sirmata 2040 LUDIP.",
+  "doc_groundwater_ph_map.jpg": "Document: Groundwater Quality Assessment of the MMSU Farm, spatial variation of pH (monitoring February 2024 – June 2025).",
+  "doc_memo_22-148A.jpg": "Document: Office of the President Memorandum No. 22-148A, “No Bottled Water” Policy, 24 April 2022.",
+  "doc_memo_23-189.jpg": "Document: Office of the President Memorandum No. 23-189, “No Bottled Water” Policy, 24 April 2023.",
+  "doc_ipwmp_hazardous.jpg": "Document: Revised Integrated Pollution and Waste Management Program of MMSU, provisions on PCB and hazardous waste storage and registration.",
+  "doc_kpnp_special_order.jpg": "Document: DENR-PENRO Ilocos Norte Special Order No. 2023-024 (29 March 2023) naming Dr. Arlene L. Gonzales of MMSU to the KPNP Technical Working Group."
  },
  "photo_source": {
   "forest_reserve_planting_2025.jpg": "MMSU News, 4 Jul 2025 (article 2468) or MMSU Public Affairs / CAFSD files",
@@ -448,6 +643,46 @@
   "rec": {
    "label": "MMSU News, “MMSU commits to ecological solid waste management in Region I,” 2 July 2025",
    "url": "https://www.mmsu.edu.ph/news/mmsu-commits-to-ecological-solid-waste-management-in-region-i"
+  },
+  "landuse_doc": {
+   "label": "MMSU, Land Use, Zoning, Water and Energy Policies (Sirmata 2040 LUDIP, 2021)",
+   "url": "https://www.mmsu.edu.ph/resources/19uycXrgcO_iXPdPpMQwdCRxmoD1U5i60/view"
+  },
+  "planning_doc": {
+   "label": "MMSU, Planning and Development on Local Biodiversity (SDG 15 evidence page)",
+   "url": "https://www.mmsu.edu.ph/resources/1tbtCaZa6Uh7ieu4epmz35VJ9jrRQGlPi/data"
+  },
+  "kpnp_doc": {
+   "label": "DENR-PENRO Ilocos Norte Special Order No. 2023-024, 29 March 2023 (MMSU SDG 15 page)",
+   "url": "https://www.mmsu.edu.ph/resources/1TCpM-DxbkgfOh4QGwlfVr8QavCchKWKu/data"
+  },
+  "groundwater_doc": {
+   "label": "MMSU, Groundwater Quality Assessment of the MMSU Farm (monitoring February 2024 – June 2025)",
+   "url": "https://www.mmsu.edu.ph/resources/15g9Xtys7q3Rujd0-CZvPH4OHTdJ1__Z8/data"
+  },
+  "water_doc": {
+   "label": "MMSU, Water Discharge Management (SDG 15 evidence page)",
+   "url": "https://www.mmsu.edu.ph/resources/1l8foDfenNc7xpKp8wM8XShfZT58YyjSH/data"
+  },
+  "ipwmp_doc": {
+   "label": "MMSU, Revised Integrated Pollution and Waste Management Program",
+   "url": "https://www.mmsu.edu.ph/resources/1fNUCZwyOozOKO27L2Bm6pNN-P_cJNpLd/view"
+  },
+  "plastic_doc": {
+   "label": "MMSU, Plastic Waste Management (SDG 15 evidence page)",
+   "url": "https://www.mmsu.edu.ph/resources/1NU-Qda9KG0J-PIOgKZwPKC4h_TU05zcm/data"
+  },
+  "memos_doc": {
+   "label": "MMSU Office of the President, “No Bottled Water” Policy, Memorandum No. 22-148A (2022) and No. 23-189 (2023)",
+   "url": "https://www.mmsu.edu.ph/resources/1LbnK8yYkg-47ChbXyT0r8VQ9eBGuMxRx/data"
+  },
+  "hazardous_doc": {
+   "label": "MMSU, Hazardous Waste Disposal (SDG 15 evidence page)",
+   "url": "https://www.mmsu.edu.ph/resources/1jo6-3cVqxRAIllIxEhnSCgyT5ef5LGOW/data"
+  },
+  "cafsd_waste": {
+   "label": "MMSU News, “MMSU CAFSD rolls out waste and pollution management program,” 15 October 2024",
+   "url": "https://www.mmsu.edu.ph/news/mmsu-cafsd-rolls-out-waste-and-pollution-management-program"
   }
  }
 }

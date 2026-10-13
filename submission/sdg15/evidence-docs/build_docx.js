@@ -175,7 +175,7 @@ const body = (t, o = {}) => para(run(t, { size: 20, ...o }), { alignment: Alignm
 const bullet = (t) => para(run(t, { size: 20 }), { numbering: { reference: "bul", level: 0 }, spacing: { after: 60 } });
 
 // ---------------------------------------------------------------- front matter
-const allDocs = [...C.docs, C.supporting];
+const allDocs = [...C.docs, C.supporting].filter(Boolean);
 const cover = [
   para(new ImageRun({ type: "png", data: fs.readFileSync(path.join(ASSETS, "_sdg15_tile.png")),
     transformation: { width: 1.6 * EMU_IN, height: 1.6 * EMU_IN }, altText: { title: "SDG 15", description: "SDG 15 Life on Land", name: "sdg15" } }),
@@ -197,10 +197,10 @@ const contents = [
 
 const lessons = [
   h1("What top-rated universities submit for SDG 15"),
-  body("Evidence pages of Philippine universities that score well on SDG 15 were reviewed to see what kinds of accomplishments they claim for each indicator. MMSU’s search was then repeated for the same kinds of evidence; the additions in this edition (School-on-the-Air, the President’s Farm Field Day and the Sirmata 2040 land use plan) came from that step."),
+  body("Evidence pages of Philippine universities that score well on SDG 15 were reviewed to see what kinds of accomplishments they claim for each indicator. MMSU’s search was then repeated for the same kinds of evidence, including MMSU’s own SDG 15 page and policy documents; the additions in this edition (School-on-the-Air, the President’s Farm Field Day, the Sirmata 2040 land use and water policies, the plastic and hazardous waste policies, the groundwater monitoring report and the Kalbario-Patapat appointment) came from that step."),
   simpleTable(["University", "What it submits for SDG 15", "Applied to MMSU"], [
-    ["Visayas State University (VSU)", "91st of 658 universities in SDG 15 (2026) and the top-rated state university in the Philippines overall (301–400). Evidence includes a Board-approved Policy on Tree Management (BOR Resolution No. 146, s. 2025), forest landscape restoration with ACIAR and DENR, rainforestation training, a forester capacity-building partnership (Project CAPABUILD), and a Technical Working Group led by its International Affairs and Relations Office that compiles evidence for all 17 SDGs.", "A Board-approved policy for the University Forest Reserves and campus trees would answer 15.3.1. A standing SDG working group with unit focal persons would keep 2026 evidence flowing."],
-    ["Caraga State University (CarSU)", "An SDG 15 page organised indicator by indicator: forums, a natural science museum launch and an agroforestry field day (15.2.1); a sustainably managed campus farm (15.2.2); biodiversity surveys and a biodiversity-corridor workshop (15.2.3); farmer trainings and seedling distribution (15.2.5); campus planning that consults biodiversity data (15.3.3); agreements with DENR and barangays (15.3.5); an Adopt-an-Estero commitment (15.4.1); and dated memoranda on plastic waste (Memo No. 33, s. 2024) and hazardous waste (Memo No. 50, s. 2024) with EMB seminars (15.4.2, 15.4.3).", "Field day and School-on-the-Air added for 15.2.1 and 15.2.5; Sirmata 2040 added for 15.3.3. MMSU still needs dated memoranda for 15.4.2 and 15.4.3, a water-body commitment or discharge standard for 15.4.1, and a campus-farm statement for 15.2.2."],
+    ["Visayas State University (VSU)", "91st of 658 universities in SDG 15 (2026) and the top-rated state university in the Philippines overall (301–400). Evidence includes a Board-approved Policy on Tree Management (BOR Resolution No. 146, s. 2025), forest landscape restoration with ACIAR and DENR, rainforestation training, a forester capacity-building partnership (Project CAPABUILD), and a Technical Working Group led by its International Affairs and Relations Office that compiles evidence for all 17 SDGs.", "MMSU’s Sirmata 2040 Land Use Policy now answers 15.3.1. A Board resolution adopting it, and a standing SDG working group with unit focal persons, would strengthen the next cycle."],
+    ["Caraga State University (CarSU)", "An SDG 15 page organised indicator by indicator: forums, a natural science museum launch and an agroforestry field day (15.2.1); a sustainably managed campus farm (15.2.2); biodiversity surveys and a biodiversity-corridor workshop (15.2.3); farmer trainings and seedling distribution (15.2.5); campus planning that consults biodiversity data (15.3.3); agreements with DENR and barangays (15.3.5); an Adopt-an-Estero commitment (15.4.1); and dated memoranda on plastic waste (Memo No. 33, s. 2024) and hazardous waste (Memo No. 50, s. 2024) with EMB seminars (15.4.2, 15.4.3).", "Field day and School-on-the-Air added for 15.2.1 and 15.2.5; Sirmata 2040 for 15.3.1 and 15.3.3; the No Bottled Water memoranda (2022, 2023) and IPWMP for 15.4.2 and 15.4.3; the water policy and groundwater monitoring for 15.4.1. A campus-farm statement for 15.2.2 is still needed."],
     ["Eastern Visayas State University (EVSU)", "Lists its Board-approved Land Use Development and Infrastructure Plan and an arboretum among its SDG 15 evidence.", "MMSU’s Sirmata 2040 LUDIP is now presented under 15.3.3; quote its forest-reserve and green-space provisions in the final version."],
     ["University of Manchester", "Ranked first in the world for SDG 15 in 2026 (658 universities ranked) and first overall.", "Shows the weight of documented policies and campus biodiversity management alongside research."],
   ], [2000, 4700, CONTENT - 6700]),
@@ -211,25 +211,19 @@ const lessons = [
 const gaps = [
   para(new PageBreak()),
   h1("Indicators still without public evidence"),
-  body("The following SDG 15 questions had no public MMSU evidence online. Peer universities answer them with dated policies, memoranda or programmes; MMSU should retrieve or issue the equivalent documents."),
+  body("The following SDG 15 questions still have no MMSU evidence online. Peer universities answer them with dated policies or programmes; MMSU should retrieve or issue the equivalent documents. MMSU’s SDG 15 page also lists “Number of Seedlings Planted from 2018 to 2024,” “Summary of Tree Inventory for Payao and Dingras, October–December 2023” and “Sustainable Use of Land,” but no file is attached to those links; adding them would strengthen 15.2.3, 15.3.1 and 15.3.2."),
   simpleTable(["Indicator", "What peers submit", "What MMSU should produce"], [
-    ["15.2.2 Sustainably farmed food on campus", "Campus farm statement or food sourcing policy", "Policy or memorandum on sourcing campus food from MMSU farms and local sustainable growers"],
+    ["15.2.2 Sustainably farmed food on campus", "Campus farm statement or food sourcing policy (CarSU Ka-Agri Farm)", "Policy or memorandum on sourcing campus food from MMSU farms (CARES, CAFSD) and local sustainable growers"],
     ["15.2.6 Tourism land-management outreach", "Training for tourism operators or eco-park stewards", "Community programme linked to the Biodiversity Conservation Learning Center or campus eco-sites"],
-    ["15.3.1 Land and forest conservation policy", "Board-approved tree or forest management policy (VSU, 2025)", "Board-approved policy for the University Forest Reserves and campus trees, dated"],
-    ["15.3.2 IUCN and national-list species policy", "Species monitoring policy", "Policy plus a species register for the forest reserves"],
+    ["15.3.2 IUCN and national-list species policy", "Species monitoring policy with a species register", "Policy plus a register for the forest reserves, using the 2023 Payao and Dingras tree inventory listed on MMSU’s SDG 15 page"],
     ["15.3.4 Alien species policy", "Alien species policy", "Native-species planting and invasive-species control policy"],
-    ["15.4.1 Water discharge standards", "Adopt-an-Estero commitment; discharge guidelines", "Discharge standard from the Pollution Control Unit, or a water-body commitment (e.g. Quiaoit River)"],
-    ["15.4.2 Plastic waste policy", "Dated memorandum (CarSU Memo No. 33, s. 2024)", "University-wide plastic reduction memorandum; CAFSD’s 2024 bottled-water ban as supporting"],
-    ["15.4.3 Hazardous waste policy", "Dated memorandum and EMB seminar (CarSU Memo No. 50, s. 2024)", "Hazardous waste section of the Revised Integrated Pollution and Waste Management Program, dated"],
-  ], [2600, 3200, CONTENT - 5800]),
+], [2600, 3200, CONTENT - 5800]),
   para(run(""), { spacing: { after: 120 } }),
   h1("To complete before submission"),
   bullet("Free access: state that the 2025 mangrove seminar, alukon training, Pinili bamboo training and School-on-the-Air were free of charge, if true. THE gives full credit only to free programmes (15.2.4, 15.2.5)."),
-  bullet("Photos still to insert: " + Object.keys(C.photos).filter((n) => !fs.existsSync(path.join(ASSETS, n))).join(", ") + "."),
-  bullet("Pasuquin agreement: exact signing date and a copy of the signed tripartite memorandum of agreement."),
-  bullet("MMSU–DENR Region 1 memorandum of understanding (October 2024) and the 2025 ILAARRDEC dialogue date."),
-  bullet("Indigenous food plant foodscapes: confirm the October 2025 article date; Biodiversity Day photo contest: add the official announcement link."),
-  bullet("Sirmata 2040: quote the plan’s provisions on forest reserves, green spaces or biodiversity, and add its approval date. Without them, 15.3.3 shows planning but not biodiversity inclusion."),
+  bullet("Policies: attach the Board of Regents resolution or approval page for Sirmata 2040 and for the revised Integrated Pollution and Waste Management Program, so 15.3.1, 15.3.3, 15.4.2 and 15.4.3 show a visible approval date within 2020–2025."),
+  bullet("Pasuquin agreement: exact signing date and a copy of the signed tripartite memorandum of agreement; replace the news capture with MMSU’s own photo if available."),
+  bullet("MMSU–DENR Region 1 memorandum of understanding (October 2024) and the 2025 ILAARRDEC dialogue date; Biodiversity Day photo contest announcement link."),
   bullet("Confirm the 2027 data year with THE before upload, and upload one file per indicator rather than this compendium. THE rejects evidence that is mainly a list of links."),
 ];
 

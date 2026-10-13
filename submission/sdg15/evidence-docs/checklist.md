@@ -5,26 +5,16 @@ Word version `MMSU_SDG15_Life_on_Land_Evidence_2025.docx`.
 Rebuild after any change: `python3 build.py && node build_docx.js` (or `python3 build.py --no-urls`
 for upload PDFs).
 
-## 1. Photos still to add
+## 1. Photos and document images
 
-Save each photo in `assets/` under the exact filename, then rebuild. Until then the PDF shows a
-dashed "PHOTO TO INSERT" frame.
-
-| File | Story | Where to get it |
-|---|---|---|
-| `forest_reserve_planting_2025.jpg` | CAFSD graduands' forest-reserve planting, 2 Jul 2025 (15.2.1, 15.2.3) | MMSU News article 2468 (4 Jul 2025), or MMSU Public Affairs / CAFSD |
-| `mangrove_seminar_2025.jpg` | Mangrove propagation seminar-workshop, 27–28 Oct 2025 (15.2.4) | MMSU News article 2670 (5 Nov 2025), or the NbS mangrove project team |
-| `pinili_bamboo_2025.jpg` | Pinili bamboo training and Aglipay bambusetum, 2025 (15.2.3, 15.2.5, 15.3.5) | MMSU News, 3 Sep 2025, or the Extension Directorate |
-| `alukon_training_2025.jpg` | Alukon propagation training, Sarrat, 2 May 2025 (15.2.4, 15.2.5) | MMSU News, 9 May 2025, or the Research Directorate |
-| `soa_regenerative_2025.jpg` | School-on-the-Air regenerative vegetable farming, Jun–Dec 2025 (15.2.5) | MMSU News, 26 Jun 2025, or the Extension Directorate |
-| `presidents_farm_field_day_2025.jpg` | President's Farm Field Day, 28 Oct 2025 (15.2.1, 15.2.5) | MMSU News article 2665, or the Extension Directorate |
-| `sirmata2040_plan.jpg` | Sirmata 2040 land use map (15.3.3) | Sirmata 2040 LUDIP document |
-| `pasuquin_mangrove_2025.jpg` | Pasuquin mangrove planting and tripartite agreement, late 2025 (15.3.5) | MMSU College of Industrial Technology. News photos belong to TMP Foundation; use them only with permission |
-
-Photos already embedded: DOST-PCAARRD project photos (credited TTPD, DOST-PCAARRD, from the
-agency's 7 Aug 2024 article), and photos cropped from MMSU's 2025 SDG 15 report (DENR dialogue,
-IFP foodscape, Biodiversity Day contest). Replace the report crops with the original files
-for better resolution.
+All photo frames are filled (13 October 2026). Photos for the 2025 MMSU events were captured
+from the original MMSU news articles (MMSU STRATCOM / MMSU photos); the Pasuquin item uses a
+capture of The Manila Times report (its photo belongs to TMP Foundation, so replace it with an
+MMSU photo if one exists). Policy sections show page images of MMSU's own documents: the
+Sirmata 2040 land use, zoning and water policies, the revised IPWMP, the 2022 and 2023
+No Bottled Water memoranda, the groundwater quality report and DENR-PENRO Special Order
+No. 2023-024. Replace any image with a better original by saving it in `assets/` under the
+same filename and rebuilding.
 
 ## 2. Facts to confirm (affect points)
 
@@ -36,14 +26,13 @@ for better resolution.
 - [ ] **MMSU–DENR Region 1 MOU (Oct 2024)** and the ILAARRDEC dialogue date. Both come from
   MMSU's 2025 report; no independent record was found. The 15.2.3 text says the dialogue was in
   2025 and does not give the day.
-- [ ] **IFP World Food Day activity:** the documents say October 2025. The date comes from a search
-  summary because the Extension page did not load. Check the article date.
 - [ ] **Biodiversity Day photo contest:** add the official announcement or results post URL, and
   the number of entries if known.
 - [ ] **Pinili training dates** (the article gives none) and the **number of participants** at the
   mangrove seminar.
-- [ ] **Sirmata 2040:** quote the plan's provisions on the forest reserves, green spaces or biodiversity,
-  and add its approval date. Without them 15.3.3 shows planning but not biodiversity inclusion.
+- [ ] **Approval pages:** attach the Board of Regents resolution or approval page for Sirmata 2040
+  (land use, zoning and water policies) and for the revised IPWMP, so 15.3.1, 15.3.3, 15.4.2 and
+  15.4.3 show an approval date within 2020–2025. The documents quoted are MMSU's published versions.
 - [ ] **School-on-the-Air:** free enrolment, number of completers, and the lesson list.
 - [ ] **Attendance sheets and programmes** for each 2025 event, to keep on file.
 - [ ] **15.2.1 mentions the June 2026 planting** to show the tradition continues. Remove that

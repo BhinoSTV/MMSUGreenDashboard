@@ -304,6 +304,155 @@ SUPPORTING = dict(code="15.4", title="Land-sensitive waste disposal (supporting 
                   question="Not a policy document; recorded as supporting context for 15.4.2.",
                   stories=["rec"])
 
+
+# ---------------------------------------------------------------- update 2026-10-13: captured photos and MMSU documents
+PHOTOS.update({
+    "forest_reserve_planting_2025.jpg": "CAFSD Graduating Class 2025 “Bamboo and Tree Planting Activity,” University Forest Reserves, City of Batac, 2 July 2025. (Photo: MMSU STRATCOM)",
+    "forest_reserve_bamboo_site_2025.jpg": "Bamboo planting site in the University Forest Reserve, Brgy. Mabaleng, 2 July 2025. (Photo: MMSU STRATCOM)",
+    "mangrove_seminar_2025.jpg": "Representatives of Currimao, Pasuquin, Badoc and Burgos at the Seminar-Workshop on Mangrove Propagation, 27–28 October 2025. (Photo: MMSU)",
+    "mangrove_seminar_handson_2025.jpg": "Hands-on mangrove nursery and propagation practice during the seminar-workshop. (Photo: MMSU)",
+    "pinili_bamboo_2025.jpg": "Participants of the bamboo propagation, nursery and plantation management training, Brgy. Aglipay, Pinili, 2025. (Photo: MMSU)",
+    "alukon_training_2025.jpg": "Farmers and local officials trained on alukon (himbabao) propagation, Brgy. 11 Sta. Rosa, Sarrat, 2 May 2025. (Photo: MMSU)",
+    "soa_regenerative_2025.jpg": "MMSU School-on-the-Air (Eskuela iti Tangatang) season on regenerative vegetable farming, June–December 2025. (Image: MMSU)",
+    "presidents_farm_field_day_2025.jpg": "President’s Farm technology demonstration of inbred and hybrid rice varieties, 28 October 2025. (Photo: MMSU)",
+    "presidents_farm_audience_2025.jpg": "Farmers, LGU technicians and students at the President’s Farm Field Day, in front of CAFSD. (Photo: MMSU)",
+    "pasuquin_mangrove_2025.jpg": "Capture of The Manila Times report of 10 December 2025 on the Pasuquin mangrove planting and agreement (photo in article: TMP Foundation).",
+    "doc_landuse_policy_p1.jpg": "Document: MMSU Land Use, Zoning, Water and Energy Policies (Sirmata 2040 LUDIP, 2021), Land Use Policy, page 1.",
+    "doc_zoning_protected_land.jpg": "Document: MMSU Zoning Policy, Protected Land (Principle 9, Policy 9.1), Sirmata 2040 LUDIP.",
+    "doc_water_policy.jpg": "Document: MMSU Water Policy, control, conservation and protection of waters (Policies 2.6–2.9), Sirmata 2040 LUDIP.",
+    "doc_groundwater_ph_map.jpg": "Document: Groundwater Quality Assessment of the MMSU Farm, spatial variation of pH (monitoring February 2024 – June 2025).",
+    "doc_memo_22-148A.jpg": "Document: Office of the President Memorandum No. 22-148A, “No Bottled Water” Policy, 24 April 2022.",
+    "doc_memo_23-189.jpg": "Document: Office of the President Memorandum No. 23-189, “No Bottled Water” Policy, 24 April 2023.",
+    "doc_ipwmp_hazardous.jpg": "Document: Revised Integrated Pollution and Waste Management Program of MMSU, provisions on PCB and hazardous waste storage and registration.",
+    "doc_kpnp_special_order.jpg": "Document: DENR-PENRO Ilocos Norte Special Order No. 2023-024 (29 March 2023) naming Dr. Arlene L. Gonzales of MMSU to the KPNP Technical Working Group.",
+})
+
+SRC.update({
+    "landuse_doc": ("MMSU, Land Use, Zoning, Water and Energy Policies (Sirmata 2040 LUDIP, 2021)",
+                    "https://www.mmsu.edu.ph/resources/19uycXrgcO_iXPdPpMQwdCRxmoD1U5i60/view"),
+    "planning_doc": ("MMSU, Planning and Development on Local Biodiversity (SDG 15 evidence page)",
+                     "https://www.mmsu.edu.ph/resources/1tbtCaZa6Uh7ieu4epmz35VJ9jrRQGlPi/data"),
+    "kpnp_doc": ("DENR-PENRO Ilocos Norte Special Order No. 2023-024, 29 March 2023 (MMSU SDG 15 page)",
+                 "https://www.mmsu.edu.ph/resources/1TCpM-DxbkgfOh4QGwlfVr8QavCchKWKu/data"),
+    "groundwater_doc": ("MMSU, Groundwater Quality Assessment of the MMSU Farm (monitoring February 2024 – June 2025)",
+                        "https://www.mmsu.edu.ph/resources/15g9Xtys7q3Rujd0-CZvPH4OHTdJ1__Z8/data"),
+    "water_doc": ("MMSU, Water Discharge Management (SDG 15 evidence page)",
+                  "https://www.mmsu.edu.ph/resources/1l8foDfenNc7xpKp8wM8XShfZT58YyjSH/data"),
+    "ipwmp_doc": ("MMSU, Revised Integrated Pollution and Waste Management Program",
+                  "https://www.mmsu.edu.ph/resources/1fNUCZwyOozOKO27L2Bm6pNN-P_cJNpLd/view"),
+    "plastic_doc": ("MMSU, Plastic Waste Management (SDG 15 evidence page)",
+                    "https://www.mmsu.edu.ph/resources/1NU-Qda9KG0J-PIOgKZwPKC4h_TU05zcm/data"),
+    "memos_doc": ("MMSU Office of the President, “No Bottled Water” Policy, Memorandum No. 22-148A (2022) and No. 23-189 (2023)",
+                  "https://www.mmsu.edu.ph/resources/1LbnK8yYkg-47ChbXyT0r8VQ9eBGuMxRx/data"),
+    "hazardous_doc": ("MMSU, Hazardous Waste Disposal (SDG 15 evidence page)",
+                      "https://www.mmsu.edu.ph/resources/1jo6-3cVqxRAIllIxEhnSCgyT5ef5LGOW/data"),
+    "cafsd_waste": ("MMSU News, “MMSU CAFSD rolls out waste and pollution management program,” 15 October 2024",
+                    "https://www.mmsu.edu.ph/news/mmsu-cafsd-rolls-out-waste-and-pollution-management-program"),
+})
+
+S["forest_planting"]["photos"] = ["forest_reserve_planting_2025.jpg", "forest_reserve_bamboo_site_2025.jpg"]
+S["forest_planting"]["paras"][0] += " MMSU President Virgilio Julius P. Manzano Jr. commended the class for leaving a lasting green footprint that will further preserve the forest areas managed by the university, and Mr. Hashler Garalde, a CAFSD alumnus representing the Provincial Government of Ilocos Norte, supported the college’s sustainability efforts."
+S["forest_reserve"]["photos"] = ["forest_reserve_bamboo_site_2025.jpg"]
+S["mangrove_seminar"]["photos"] = ["mangrove_seminar_2025.jpg", "mangrove_seminar_handson_2025.jpg"]
+S["mangrove_seminar"]["paras"][1] += " The Pedada People’s Organization shared its experience in establishing community-based mangrove conservation."
+S["pinili"]["paras"][1] += " Lectures and demonstrations were given by bamboo experts Mr. Charlie Maine Cacactin of CAFSD and Mr. Bonne Jovie Orteza of MMSU. Pinili Municipal Agriculturist Philip Galang, representing Mayor Rommel T. Labasan, thanked MMSU and ILAARRDEC, and the project was championed in the community by Pinili’s Magsasaka Siyentista, Mr. Reynaldo Antalan."
+S["ifp_conservation"]["paras"][0] = S["ifp_conservation"]["paras"][0].replace("circa situ cultivation of wild yams", "circa situ cultivation of the wild yams kamangeg and dolian")
+S["ifp_conservation"]["paras"][1] += " The new partners join existing foodscape sites in Sarrat and Batac."
+S["ifp_partners"]["paras"][1] += " They join existing foodscape sites in Sarrat and Batac."
+S["fieldday"]["photos"] = ["presidents_farm_field_day_2025.jpg", "presidents_farm_audience_2025.jpg"]
+
+S["landuse_policy"] = dict(
+    title="MMSU Land Use Policy Commits the University to Conserve and Restore Its Lands",
+    photos=["doc_landuse_policy_p1.jpg"],
+    paras=[
+        "MMSU’s Land Use, Zoning, Water and Energy Policies, adopted as part of Sirmata 2040, the university’s Land Use Development and Infrastructure Plan prepared in 2021 under Republic Act 11396, govern the conservation, restoration and sustainable use of all university lands across its campuses.",
+        "Under Policy 1.3, the allocation and use of university lands “shall aim to maintain, protect, conserve, restore, and enhance the integrity of the land itself, the environment and ecological balance in all its campuses.” Policy 7.1 requires decisions to be based on valid and reliable science, especially for any intent to alter or convert the natural state of any piece of university land, and Policy 10.2 gives fragile lands and protected areas special management “to protect, conserve, enrich, rehabilitate, and or sustain them.”",
+        "The zoning policy sets aside Protected Land as a distinct zone; under Policy 9.1, “protected landholdings of the university shall be conserved, preserved and to be excluded from any form of alteration except as may be permitted by operation of law.” The MMSU Forest Reserve is maintained as a no-build zone, and Policy 4.3 requires the university to regularly review, update and promptly communicate its land-use policies.",
+    ],
+    sources=["landuse_doc", "planning_doc"],
+)
+
+S["sirmata"]["photos"] = ["doc_zoning_protected_land.jpg"]
+S["sirmata"]["paras"] = [
+    S["sirmata"]["paras"][0],
+    "Local biodiversity is built into the plan’s development rules. The zoning plan sets aside Protected Land, which “shall be conserved, preserved and to be excluded from any form of alteration except as may be permitted by operation of law” (Policy 9.1), and the MMSU Forest Reserve is kept as a no-build zone. Before any land is altered or converted, the plan requires a science-based assessment of its natural suitability and carrying capacity (Policies 7.1, 10.1 and 11.1).",
+    S["sirmata"]["paras"][1],
+]
+S["sirmata"]["sources"] = ["landuse_doc", "planning_doc", "sirmata", "ludip_fund"]
+
+S["kpnp"] = dict(
+    title="MMSU Expert Serves on the Kalbario-Patapat Natural Park Technical Working Group",
+    photos=["doc_kpnp_special_order.jpg"],
+    paras=[
+        "Through DENR-PENRO Ilocos Norte Special Order No. 2023-024, dated March 29, 2023, Dr. Arlene L. Gonzales of MMSU was named a member of the Technical Working Group that prepares the Communication Plan of the Kalbario-Patapat Natural Park (KPNP), a protected area in Ilocos Norte. The group, led by the KPNP Protected Area Superintendent, brings together DENR offices, the Provincial Government of Ilocos Norte, the LGUs of Pagudpud and Adams in Ilocos Norte and Sta. Praxedes in Cagayan, barangay officials and Northwestern University.",
+        "The Communication Plan supports the goal of the KPNP Protected Area Management Plan to adopt and carry out effective information and education campaigns for biological diversity conservation and for the promotion of the protected area as a major ecotourism destination.",
+    ],
+    sources=["kpnp_doc"],
+)
+
+S["water"] = dict(
+    title="Water Policy and Groundwater Quality Monitoring at the MMSU Farm",
+    photos=["doc_water_policy.jpg", "doc_groundwater_ph_map.jpg"],
+    paras=[
+        "MMSU’s Water Policy under Sirmata 2040, based on the Water Code of the Philippines and its 2005 implementing rules, requires that “all water and related resources of the university, ground and surface, shall be shielded from any kind of pollution” (Policy 2.9) and that the rehabilitation of polluted resources be immediate, giving importance to water impoundments, catch basins and water treatment facilities (Policy 2.8). The university’s Integrated Pollution and Waste Management Program also provides for registration as a hazardous waste generator for wastewater discharge from agro-industrial facilities such as the piggery, in compliance with Republic Act 9275, the Philippine Clean Water Act.",
+        "MMSU monitors the groundwater under its farm. From February 2024 to June 2025, 17 groundwater monitoring wells on the MMSU Farm were measured monthly for pH, total dissolved solids, electrical conductivity, chloride and nitrate-nitrogen, and the results were compared with the Philippine National Standards for Drinking Water (2017). Mean pH from February to December 2024 ranged from 6.75 to 7.69, within the 6.5–8.5 guideline, while wells with persistently high dissolved solids were flagged for continued monitoring to guide water resource management. Small campus reservoirs also collect rainwater, reduce flooding and recharge groundwater.",
+    ],
+    sources=["landuse_doc", "ipwmp_doc", "groundwater_doc", "water_doc"],
+)
+
+S["plastic"] = dict(
+    title="MMSU Policies Eliminate Styrofoam and Reduce Plastic Waste on Campus",
+    photos=["doc_memo_22-148A.jpg", "doc_memo_23-189.jpg"],
+    paras=[
+        "MMSU reduces plastic waste under its Integrated Waste Management Program, approved by the Board of Regents in 2009 and amended in 2015, and its revised Integrated Pollution and Waste Management Program. The program prohibits Styrofoam for serving or packing food in the university Food Service Unit and limits the use of plastics, and a policy promulgated on February 11, 2016 eliminates Styrofoam and plastic as secondary packaging materials in favour of paper bags, cartons, eco-bags and reusable containers. The University Waste Management Committee develops, reviews and monitors these rules, and the food service unit requires customers dining out to bring their own food containers.",
+        "The Office of the President reissues the “No Bottled Water” Policy each year: Memorandum No. 22-148A of April 24, 2022 and Memorandum No. 23-189 of April 24, 2023 stop the serving of bottled water at Administrative Council meetings, ask members to bring their own water containers, and encourage all offices to adopt the same policy. In October 2024 the College of Agriculture, Food and Sustainable Development banned plastic bottled water in its auxiliary buildings, and on July 1, 2025 MMSU signed a memorandum of commitment with DENR-EMB Region I for the Regional Ecology Center to support solid waste management under Republic Act 9003 and the Extended Producer Responsibility Act (Republic Act 11898).",
+    ],
+    sources=["plastic_doc", "ipwmp_doc", "memos_doc", "cafsd_waste", "rec"],
+)
+
+S["hazardous"] = dict(
+    title="Hazardous Waste Disposal under MMSU’s Integrated Pollution and Waste Management Program",
+    photos=["doc_ipwmp_hazardous.jpg"],
+    paras=[
+        "MMSU’s Integrated Waste Management Program was revised in 2020 into the Integrated Pollution and Waste Management Program (IPWMP), implemented by the Pollution Control Unit and the General Services directorate, to cover hazardous materials. The IPWMP assigns focal persons for hazardous wastes (chemical and related wastes), air and water pollution, solid wastes, and PCBs and related industrial wastes, and requires the waste coordinators of every unit to store and label generated hazardous wastes properly before collection.",
+        "The program establishes centralized, separate storage facilities for polychlorinated biphenyls (PCBs) and other hazardous or toxic wastes collected from the campuses, where the wastes are kept for up to one year before disposal through a DENR-accredited transport, storage and disposal facility, in compliance with Republic Act 6969 and its storage guidelines. Units that generate hazardous waste are registered as hazardous waste generators, and the university coordinates with the Environmental Management Bureau of DENR for final collection and disposal.",
+    ],
+    sources=["hazardous_doc", "ipwmp_doc"],
+)
+
+DOCS[:] = [d for d in DOCS if d["code"] not in ("15.3.3",)]
+for d in DOCS:
+    if d["code"] == "15.3.5":
+        d["stories"] = ["pasuquin", "denr_partnership", "kpnp", "ifp_partners", "pinili_short"]
+_new = [
+    dict(code="15.3.1", file="SDG15_15.3.1_Policy_on_sustainable_use_of_land",
+         title="Sustainable use, conservation and restoration of land (policy)",
+         question="Have a policy to ensure the conservation, restoration and sustainable use of terrestrial ecosystems associated with the university, in particular forests, mountains and drylands.",
+         stories=["landuse_policy"]),
+    dict(code="15.3.3", file="SDG15_15.3.3_Local_biodiversity_in_planning",
+         title="Local biodiversity included in planning and development",
+         question="Include local biodiversity into any planning and development process (e.g. construction of new buildings).",
+         stories=["sirmata"]),
+]
+_tail = [
+    dict(code="15.4.1", file="SDG15_15.4.1_Water_discharge_guidelines_and_standards",
+         title="Water discharge guidelines and standards",
+         question="Have water quality standards and guidelines for water discharges (to uphold water quality in order to protect ecosystems, wildlife, and human health and welfare).",
+         stories=["water"]),
+    dict(code="15.4.2", file="SDG15_15.4.2_Policy_on_plastic_waste_reduction",
+         title="Policy on plastic waste reduction",
+         question="Have a policy on reducing plastic waste on campus.",
+         stories=["plastic"]),
+    dict(code="15.4.3", file="SDG15_15.4.3_Policy_on_hazardous_waste_disposal",
+         title="Policy on hazardous waste disposal",
+         question="Have a policy, process or practice on waste disposal covering hazardous materials.",
+         stories=["hazardous"]),
+]
+_idx = next(i for i, d in enumerate(DOCS) if d["code"] == "15.3.5")
+DOCS[_idx:_idx] = _new
+DOCS.extend(_tail)
+SUPPORTING = None
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""
@@ -442,14 +591,14 @@ def build_compendium():
     rows = "".join(
         f'<tr><td><b>{esc(d["code"])}</b></td><td>{esc(d["title"])}</td><td>'
         + "<br>".join(esc(S[k]["title"]) for k in d["stories"]) + "</td></tr>"
-        for d in DOCS + [SUPPORTING])
+        for d in DOCS + ([SUPPORTING] if SUPPORTING else []))
     cover = (f'<div class="cover">{SDG_TILE}<div class="big">SDG 15 Life on Land<br>Evidence Compendium 2025</div>'
              f'<div class="sub">Mariano Marcos State University · THE Sustainability Impact Ratings 2027</div>'
              f'<div class="note">Compiled from MMSU, DOST-PCAARRD and news sources for the 2027 data submission '
              f'(due 9 November 2026). Each section corresponds to one THE SDG 15 indicator. Evidence year: 2025.</div></div>')
     index = f'<h2 style="font-family:Montserrat;color:#0b4a16;">Contents by indicator</h2><table class="idx"><tr><th>Indicator</th><th>Question</th><th>Evidence</th></tr>{rows}</table>'
     sections = ""
-    for d in DOCS + [SUPPORTING]:
+    for d in DOCS + ([SUPPORTING] if SUPPORTING else []):
         sections += f'<div class="secthead">{header_html(d)}</div>' + "".join(story_html(k) for k in d["stories"])
     return page_shell("MMSU SDG 15 Evidence Compendium 2025", cover + index + sections)
 

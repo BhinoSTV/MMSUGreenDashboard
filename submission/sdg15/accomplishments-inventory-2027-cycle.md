@@ -198,3 +198,33 @@ commitments) were then searched for MMSU.
 Not found despite targeted search: an MMSU Adopt-an-Estero or water-body commitment, a 2025
 EMB seminar on RA 9003 or RA 6969, a 2025 biodiversity survey, a herbarium or museum, and
 dated plastic or hazardous-waste memoranda.
+
+## Sweep 5 (2026-10-13): captured from MMSU's own site
+
+A browser-based capture reached mmsu.edu.ph. Results:
+
+- **Photos** downloaded from the original MMSU articles for the forest-reserve planting (2 Jul 2025),
+  mangrove seminar (27–28 Oct 2025), Pinili bamboo training, alukon training, School-on-the-Air and
+  President's Farm Field Day. The IFP seedbank article date is now read directly: 21 October 2025.
+- **MMSU's SDG 15 page** (https://www.mmsu.edu.ph/page/284/6/life-on-land) links MMSU's existing
+  evidence files. Downloaded and read:
+  - Land Use, Zoning, Water and Energy Policies (Sirmata 2040 LUDIP, 2021): Policy 1.3 (maintain,
+    protect, conserve, restore land), 7.1 (science-based decisions before altering natural land),
+    9.1 (Protected Land excluded from alteration), 10.2 (fragile lands and protected areas), 4.3
+    (regular review); Water Policy 2.8–2.9 (pollution protection, treatment facilities) → 15.3.1,
+    15.3.3, 15.4.1.
+  - Planning and Development on Local Biodiversity: Forest Reserve kept as a no-build zone → 15.3.3.
+  - Groundwater Quality Assessment of the MMSU Farm: 17 wells, monthly, Feb 2024 – Jun 2025, against
+    PNSDW 2017 → 15.4.1.
+  - Revised Integrated Pollution and Waste Management Program (revised 2020): Styrofoam ban, 2016
+    policy eliminating Styrofoam and plastic secondary packaging, PCB and hazardous-waste storage,
+    hazardous-waste generator registration, RA 6969 and RA 9275 compliance → 15.4.2, 15.4.3, 15.4.1.
+  - OP Memorandum No. 22-148A (24 Apr 2022) and No. 23-189 (24 Apr 2023), "No Bottled Water" Policy → 15.4.2.
+  - DENR-PENRO Ilocos Norte Special Order No. 2023-024 (29 Mar 2023): Dr. Arlene L. Gonzales on the
+    Kalbario-Patapat Natural Park Communication Plan TWG → 15.3.5 (continuing role).
+- Listed on MMSU's page but with **no file attached**: "Number of Seedlings Planted from 2018 to
+  2024", "Summary of Tree Inventory for Payao and Dingras, October–December 2023", "Sustainable Use
+  of Land". Ask the owning unit for these.
+
+Evidence documents now cover 10 of the 14 SDG 15 questions. Remaining gaps: 15.2.2, 15.2.6,
+15.3.2, 15.3.4.
