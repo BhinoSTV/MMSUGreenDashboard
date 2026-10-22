@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMSU Network Speedometer</title>
+<style>
+  :root {
+    --brand-green:     #0B4A16;
+    --brand-gold:      #EFA900;
+    --brand-gold-ink:  #7a5200;
+    --font-sans-heading: 'Montserrat', 'Work Sans', Arial, sans-serif;
+    --font-sans-body: 'Work Sans', 'Montserrat', Arial, sans-serif;
+    --page:           #F7F9F7;
+    --surface-1:      #FFFFFF;
+    --text-primary:   #101614;
+    --text-secondary: #35403C;
+    --text-muted:     #64716C;
+    --grid:           #DDE3DF;
+    --border:         rgba(16,22,20,0.10);
+    --track:          #F1F4F1;
+    --down:           #2a78d6;
+    --up:             #1f8a5f;
+    --bad:            #c9432c;
+    --on-brand:       #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --brand-green:     #2fae6c;
+      --brand-gold-ink:  #EFA900;
+      --page:           #0D0F0E;
+      --surface-1:      #171A18;
+      --text-primary:   #F3F5F3;
+      --text-secondary: #C7D0CA;
+      --text-muted:     #8B968F;
+      --grid:           #2c2c2a;
+      --border:         rgba(243,245,243,0.10);
+      --track:          #262624;
+      --down:           #3987e5;
+      --up:             #25a173;
+      --bad:            #e2664a;
+      --on-brand:       #0D0F0E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --brand-green:     #2fae6c;
+    --brand-gold-ink:  #EFA900;
+    --page:           #0D0F0E;
+    --surface-1:      #171A18;
+    --text-primary:   #F3F5F3;
+    --text-secondary: #C7D0CA;
+    --text-muted:     #8B968F;
+    --grid:           #2c2c2a;
+    --border:         rgba(243,245,243,0.10);
+    --track:          #262624;
+    --down:           #3987e5;
+    --up:             #25a173;
+    --bad:            #e2664a;
+    --on-brand:       #0D0F0E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: var(--font-sans-body);
+    line-height: 1.45;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+
+  .masthead .eyebrow { font-family: var(--font-sans-heading); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--brand-gold-ink); }
+  .masthead h1 { font-family: var(--font-sans-heading); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; color: var(--brand-green); margin-top: 2px; }
+  .masthead .sub { color: var(--text-secondary); font-size: 0.92rem; margin-top: 4px; max-width: 560px; }
+  .masthead .bar { height: 3px; width: 92px; border-radius: 2px; margin-top: 14px; background: linear-gradient(90deg, var(--brand-green) 50%, var(--brand-gold) 50%); }
+
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px 16px; margin-top: 20px; }
+
+  .gauge { width: 100%; max-width: 520px; margin: 0 auto; }
+  .gauge svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .g-track { fill: none; stroke: var(--track); stroke-width: 18; stroke-linecap: round; }
+  .g-fill  { fill: none; stroke: var(--brand-green); stroke-width: 18; stroke-linecap: round; transition: stroke 0.25s; }
+  .gauge[data-phase="download"] .g-fill { stroke: var(--down); }
+  .gauge[data-phase="upload"]   .g-fill { stroke: var(--up); }
+  .g-tick { stroke: var(--text-muted); stroke-width: 1.5; }
+  .g-label { fill: var(--text-muted); font-size: 11px; text-anchor: middle; font-family: var(--font-sans-body); }
+  .g-needle { fill: var(--text-primary); }
+  .g-hub { fill: var(--surface-1); stroke: var(--text-primary); stroke-width: 3; }
+
+  .readout { text-align: center; margin-top: 4px; }
+  .readout .value { font-family: var(--font-sans-heading); font-weight: 700; font-size: clamp(2.2rem, 9vw, 3.2rem); line-height: 1; font-variant-numeric: tabular-nums; }
+  .readout .unit { color: var(--text-muted); font-size: 0.85rem; margin-top: 2px; }
+  .readout .phase { color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px; min-height: 1.2em; }
+
+  .controls { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 16px; }
+  button.go {
+    font-family: var(--font-sans-heading); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.03em;
+    background: var(--brand-green); color: var(--on-brand); border: 0; border-radius: 999px;
+    padding: 12px 36px; cursor: pointer; min-width: 180px;
+  }
+  button.go:hover { filter: brightness(1.1); }
+  button.go:focus-visible { outline: 3px solid var(--brand-gold); outline-offset: 2px; }
+  button.go:disabled { cursor: default; opacity: 0.75; filter: none; }
+  .status { color: var(--text-muted); font-size: 0.82rem; min-height: 1.3em; text-align: center; }
+  .status.error { color: var(--bad); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 20px; }
+  .stat { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  .stat .k { color: var(--text-muted); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+  .stat .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .stat .v { font-family: var(--font-sans-heading); font-weight: 700; font-size: 1.6rem; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .stat .v small { font-family: var(--font-sans-body); font-weight: 400; font-size: 0.8rem; color: var(--text-muted); margin-left: 4px; }
+
+  .history { margin-top: 20px; }
+  .history h2 { font-family: var(--font-sans-heading); font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--text-muted); font-weight: 600; font-size: 0.75rem; }
+  .empty { color: var(--text-muted); font-size: 0.85rem; }
+
+  .note { color: var(--text-muted); font-size: 0.78rem; margin-top: 20px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">Mariano Marcos State University</div>
+    <h1>Network Speedometer</h1>
+    <p class="sub">Measures this device's live connection to the internet: latency, jitter, download and upload speed.</p>
+    <div class="bar" aria-hidden="true"></div>
+  </header>
+
+  <section class="card" aria-label="Speedometer">
+    <div class="gauge" id="gauge" data-phase="idle">
+      <svg id="gaugeSvg" viewBox="0 0 400 220" role="img" aria-label="Speed gauge in megabits per second"></svg>
+      <div class="readout">
+        <div class="value" id="value">0.0</div>
+        <div class="unit">Mbps</div>
+        <div class="phase" id="phase">Ready</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="go" id="go" type="button">Start test</button>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Results">
+    <div class="stat"><div class="k"><span class="dot" style="background:var(--down)"></span>Download</div><div class="v" id="rDown">&ndash;<small>Mbps</small></div></div>
+    <div class="stat"><div class="k"><span class="dot" style="background:var(--up)"></span>Upload</div><div class="v" id="rUp">&ndash;<small>Mbps</small></div></div>
+    <div class="stat"><div class="k"><span class="dot" style="background:var(--brand-gold)"></span>Latency</div><div class="v" id="rPing">&ndash;<small>ms</small></div></div>
+    <div class="stat"><div class="k"><span class="dot" style="background:var(--text-muted)"></span>Jitter</div><div class="v" id="rJit">&ndash;<small>ms</small></div></div>
+  </section>
+
+  <section class="card history" aria-label="History">
+    <h2>Recent tests</h2>
+    <div id="hist"><p class="empty">No tests yet.</p></div>
+  </section>
+
+  <p class="note" id="note"></p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---- Configuration --------------------------------------------------------
+  // Test server: Cloudflare's public speed-test endpoints (CORS-enabled).
+  // Override with ?server=https://host to point at a self-hosted server that
+  // serves GET /__down?bytes=N and accepts POST /__up.
+  var params = new URLSearchParams(location.search);
+  var SERVER = (params.get('server') || 'https://speed.cloudflare.com').replace(/\/$/, '');
+  var CFG = {
+    pingSamples: 10,
+    dlStreams: 6,
+    dlChunk: [10e6, 50e6], // first / maximum bytes per download request (doubles each round)
+    dlDuration: 10000,   // ms
+    ulStreams: 4,
+    ulChunk: [2e6, 24e6],   // first / maximum bytes per upload request (doubles each round)
+    ulDuration: 8000,    // ms
+    warmup: 1500,        // ms excluded from the final average (TCP slow start)
+    windowMs: 1000       // sliding window for the live needle
+  };
+  // Piecewise gauge scale: equal arc length per tick, so slow links stay readable.
+  var SCALE = [0, 5, 10, 25, 50, 100, 250, 500, 1000];
+
+  // ---- Gauge ----------------------------------------------------------------
+  var NS = 'http://www.w3.org/2000/svg';
+  var CX = 200, CY = 200, R = 150;
+  var A0 = 180, A1 = 360;                // degrees, left -> over the top -> right
+  var gauge = document.getElementById('gauge');
+  var svg = document.getElementById('gaugeSvg');
+
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    (parent || svg).appendChild(n);
+    return n;
+  }
+  function pt(deg, r) {
+    var a = deg * Math.PI / 180;
+    return [CX + r * Math.cos(a), CY + r * Math.sin(a)];
+  }
+  function arc(fromDeg, toDeg, r) {
+    var s = pt(fromDeg, r), e = pt(toDeg, r);
+    return 'M' + s[0].toFixed(2) + ' ' + s[1].toFixed(2) +
+           ' A' + r + ' ' + r + ' 0 ' + (toDeg - fromDeg > 180 ? 1 : 0) + ' 1 ' +
+           e[0].toFixed(2) + ' ' + e[1].toFixed(2);
+  }
+  function speedToFrac(mbps) {
+    var last = SCALE.length - 1;
+    if (mbps <= 0) return 0;
+    if (mbps >= SCALE[last]) return 1;
+    for (var i = 1; i <= last; i++) {
+      if (mbps <= SCALE[i]) {
+        return (i - 1 + (mbps - SCALE[i - 1]) / (SCALE[i] - SCALE[i - 1])) / last;
+      }
+    }
+    return 1;
+  }
+
+  el('path', { d: arc(A0, A1 - 0.01, R), 'class': 'g-track' });
+  var fill = el('path', { d: arc(A0, A0 + 0.01, R), 'class': 'g-fill' });
+  SCALE.forEach(function (v, i) {
+    var deg = A0 + (A1 - A0) * i / (SCALE.length - 1);
+    var a = pt(deg, R + 16), b = pt(deg, R + 24), t = pt(deg, R + 38);
+    el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], 'class': 'g-tick' });
+    var lbl = el('text', { x: t[0], y: t[1] + 4, 'class': 'g-label' });
+    lbl.textContent = v;
+  });
+  var needle = el('g', {});
+  el('polygon', { points: '196,200 204,200 200,' + (CY - R + 8), 'class': 'g-needle' }, needle);
+  el('circle', { cx: CX, cy: CY, r: 9, 'class': 'g-hub' });
+
+  var shown = 0, target = 0, raf = null;
+  function render(mbps) {
+    var frac = speedToFrac(mbps);
+    var deg = A0 + (A1 - A0) * frac;
+    needle.setAttribute('transform', 'rotate(' + (deg - 270) + ' ' + CX + ' ' + CY + ')');
+    fill.setAttribute('d', arc(A0, Math.max(A0 + 0.01, deg), R));
+    document.getElementById('value').textContent = mbps >= 100 ? mbps.toFixed(0) : mbps.toFixed(1);
+  }
+  function animate() {
+    shown += (target - shown) * 0.12;
+    if (Math.abs(target - shown) < 0.005) shown = target;
+    render(shown);
+    raf = shown === target ? null : requestAnimationFrame(animate);
+  }
+  function setNeedle(mbps) {
+    target = mbps;
+    if (!raf) raf = requestAnimationFrame(animate);
+  }
+  render(0);
+
+  // ---- UI helpers -------------------------------------------------------------
+  var $ = function (id) { return document.getElementById(id); };
+  function setPhase(p, label) {
+    gauge.setAttribute('data-phase', p);
+    $('phase').textContent = label;
+  }
+  function setStatus(msg, isErr) {
+    var s = $('status');
+    s.textContent = msg || '';
+    s.className = 'status' + (isErr ? ' error' : '');
+  }
+  function setResult(id, v, digits) {
+    $(id).innerHTML = (v == null ? '&ndash;' : v.toFixed(digits)) + '<small>' + $(id).querySelector('small').textContent + '</small>';
+  }
+  function mbps(bytes, ms) { return (bytes * 8) / (ms / 1000) / 1e6; }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  // ---- Measurements -----------------------------------------------------------
+  var abort = null;   // set per run: { stopped: bool, controllers: [] }
+
+  function newRun() {
+    abort = { stopped: false, controllers: [], xhrs: [] };
+    return abort;
+  }
+  function stopRun(run) {
+    run.stopped = true;
+    run.controllers.forEach(function (c) { try { c.abort(); } catch (e) {} });
+    run.xhrs.forEach(function (x) { try { x.abort(); } catch (e) {} });
+  }
+  function bust() { return '&t=' + Date.now() + Math.random().toString(36).slice(2, 8); }
+
+  // Latency / jitter: round-trip of zero-byte requests. The first request pays
+  // for DNS + TLS and is discarded; jitter is the mean absolute difference
+  // between consecutive samples (RFC 3550 style).
+  async function measureLatency(run) {
+    var samples = [];
+    for (var i = 0; i <= CFG.pingSamples && !run.stopped; i++) {
+      var t0 = performance.now();
+      var res = await fetch(SERVER + '/__down?bytes=0' + bust(), { cache: 'no-store' });
+      await res.arrayBuffer();
+      var dt = performance.now() - t0;
+      if (i > 0) {
+        samples.push(dt);
+        setNeedle(0);
+        $('value').textContent = dt.toFixed(0);
+      }
+    }
+    if (!samples.length) throw new Error('no latency samples');
+    var sorted = samples.slice().sort(function (a, b) { return a - b; });
+    var j = 0;
+    for (var k = 1; k < samples.length; k++) j += Math.abs(samples[k] - samples[k - 1]);
+    return { ping: sorted[Math.floor(sorted.length / 2)], jitter: samples.length > 1 ? j / (samples.length - 1) : 0 };
+  }
+
+  // Shared throughput sampler: records cumulative bytes over time, reports the
+  // live rate over a sliding window and the final rate excluding warm-up.
+  function Sampler() {
+    this.t0 = performance.now();
+    this.bytes = 0;
+    this.log = [[0, 0]];
+  }
+  Sampler.prototype.add = function (n) {
+    this.bytes += n;
+    this.log.push([performance.now() - this.t0, this.bytes]);
+  };
+  Sampler.prototype.live = function () {
+    var now = performance.now() - this.t0, i = this.log.length - 1;
+    while (i > 0 && now - this.log[i][0] < CFG.windowMs) i--;
+    var dt = now - this.log[i][0];
+    return dt > 200 ? mbps(this.bytes - this.log[i][1], dt) : 0;
+  };
+  Sampler.prototype.final = function () {
+    var now = performance.now() - this.t0;
+    var from = now > CFG.warmup * 2 ? CFG.warmup : 0, i = 0;
+    while (i < this.log.length - 1 && this.log[i][0] < from) i++;
+    return mbps(this.bytes - this.log[i][1], now - this.log[i][0]);
+  };
+
+  async function measureDownload(run) {
+    var s = new Sampler(), end = s.t0 + CFG.dlDuration;
+    var failures = 0, lastErr = null;
+    async function stream() {
+      var size = CFG.dlChunk[0];
+      while (!run.stopped && performance.now() < end) {
+        var c = new AbortController();
+        run.controllers.push(c);
+        try {
+          var res = await fetch(SERVER + '/__down?bytes=' + size + bust(), { cache: 'no-store', signal: c.signal });
+          if (!res.ok) throw new Error('download server returned HTTP ' + res.status);
+          // Fast links finish small requests in milliseconds; grow them to keep the request rate (and server rate limiting) down.
+          size = Math.min(size * 2, CFG.dlChunk[1]);
+          var reader = res.body.getReader();
+          for (;;) {
+            var r = await reader.read();
+            if (r.done) break;
+            s.add(r.value.byteLength);
+            if (performance.now() >= end || run.stopped) { c.abort(); break; }
+          }
+        } catch (e) {
+          if (run.stopped || e.name === 'AbortError') return;
+          // A dropped request is tolerated while the others keep delivering data.
+          lastErr = e;
+          if (++failures > 5) throw e;
+          await sleep(250);
+        }
+      }
+    }
+    var tick = setInterval(function () { setNeedle(s.live()); }, 100);
+    try {
+      var workers = [];
+      for (var i = 0; i < CFG.dlStreams; i++) workers.push(stream());
+      await Promise.all(workers);
+    } finally { clearInterval(tick); }
+    if (run.stopped) throw new Error('stopped');
+    if (!s.bytes) throw lastErr || new Error('no download data received');
+    return s.final();
+  }
+
+  async function measureUpload(run) {
+    var payload = new Uint8Array(CFG.ulChunk[1]);
+    // getRandomValues is capped at 64 KiB per call; incompressible data keeps
+    // transparent compression from inflating the figure.
+    for (var o = 0; o < payload.length; o += 65536) crypto.getRandomValues(payload.subarray(o, Math.min(o + 65536, payload.length)));
+    var blob = new Blob([payload]);
+    var s = new Sampler(), end = s.t0 + CFG.ulDuration;
+
+    function one(size) {
+      return new Promise(function (resolve, reject) {
+        var x = new XMLHttpRequest(), last = 0;
+        run.xhrs.push(x);
+        x.open('POST', SERVER + '/__up?' + bust().slice(1));
+        x.upload.onprogress = function (e) { s.add(e.loaded - last); last = e.loaded; };
+        x.onload = function () { x.status >= 200 && x.status < 300 ? resolve() : reject(new Error('upload server returned HTTP ' + x.status)); };
+        x.onerror = function () { run.stopped ? resolve() : reject(new Error('upload failed (network error)')); };
+        x.onabort = function () { resolve(); };
+        x.send(blob.slice(0, size));
+      });
+    }
+    var failures = 0, lastErr = null;
+    async function stream() {
+      var size = CFG.ulChunk[0];
+      while (!run.stopped && performance.now() < end) {
+        try { await one(size); size = Math.min(size * 2, CFG.ulChunk[1]); } catch (e) {
+          lastErr = e;
+          if (++failures > 5) throw e;
+          await sleep(250);
+        }
+      }
+    }
+    var tick = setInterval(function () { setNeedle(s.live()); }, 100);
+    try {
+      var workers = [];
+      for (var i = 0; i < CFG.ulStreams; i++) workers.push(stream());
+      await Promise.all(workers);
+    } finally { clearInterval(tick); }
+    if (run.stopped) throw new Error('stopped');
+    if (!s.bytes) throw lastErr || new Error('no upload data sent');
+    return s.final();
+  }
+
+  // ---- Orchestration ------------------------------------------------------------
+  var history = [];
+  try { history = JSON.parse(localStorage.getItem('mmsu-speedtest') || '[]'); } catch (e) {}
+
+  function renderHistory() {
+    var h = $('hist');
+    if (!history.length) { h.innerHTML = '<p class="empty">No tests yet.</p>'; return; }
+    var rows = history.map(function (r) {
+      return '<tr><td>' + new Date(r.at).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) +
+        '</td><td>' + r.down.toFixed(1) + '</td><td>' + r.up.toFixed(1) + '</td><td>' + r.ping.toFixed(0) + '</td><td>' + r.jitter.toFixed(1) + '</td></tr>';
+    }).join('');
+    h.innerHTML = '<table><thead><tr><th>When</th><th>Down (Mbps)</th><th>Up (Mbps)</th><th>Ping (ms)</th><th>Jitter (ms)</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  }
+  renderHistory();
+
+  var go = $('go'), running = null;
+  go.addEventListener('click', function () {
+    if (running) { stopRun(running); return; }
+    start();
+  });
+
+  async function start() {
+    var run = running = newRun();
+    go.textContent = 'Stop';
+    ['rDown', 'rUp', 'rPing', 'rJit'].forEach(function (id) { setResult(id, null); });
+    setStatus('Server: ' + SERVER.replace(/^https?:\/\//, ''));
+    var out = {};
+    try {
+      setPhase('latency', 'Latency');
+      var l = await measureLatency(run);
+      out.ping = l.ping; out.jitter = l.jitter;
+      setResult('rPing', l.ping, 0); setResult('rJit', l.jitter, 1);
+
+      setPhase('download', 'Download');
+      shown = target = 0; render(0);
+      out.down = await measureDownload(run);
+      setResult('rDown', out.down, 1);
+      setNeedle(out.down);
+
+      await sleep(700);
+      setPhase('upload', 'Upload');
+      setNeedle(0);
+      out.up = await measureUpload(run);
+      setResult('rUp', out.up, 1);
+      setNeedle(out.up);
+
+      setPhase('done', 'Complete');
+      setStatus('Test complete.');
+      history.unshift({ at: Date.now(), down: out.down, up: out.up, ping: out.ping, jitter: out.jitter });
+      history = history.slice(0, 5);
+      try { localStorage.setItem('mmsu-speedtest', JSON.stringify(history)); } catch (e) {}
+      renderHistory();
+    } catch (err) {
+      setNeedle(0);
+      if (run.stopped) {
+        setPhase('idle', 'Stopped'); setStatus('Test stopped.');
+      } else {
+        setPhase('idle', 'Failed');
+        var msg = err && err.message ? err.message : String(err);
+        if (err instanceof TypeError) msg = 'could not reach the test server (offline, blocked, or rate-limited; wait a minute and retry)';
+        setStatus('Test failed: ' + msg + '.', true);
+      }
+    } finally {
+      running = null;
+      go.textContent = 'Test again';
+    }
+  }
+
+  $('note').textContent = 'Results reflect the path between this device and ' + SERVER.replace(/^https?:\/\//, '') +
+    ' and use several parallel connections; browser, Wi-Fi signal and other traffic on the network affect the numbers. ' +
+    'A full test transfers roughly 100 MB or more on fast links.';
+
+  // Test hook for automated checks.
+  window.__speedtest = { start: start, state: function () { return { history: history }; } };
+  if (params.get('auto') === '1') start();
+})();
+</script>
+</body>
+</html>

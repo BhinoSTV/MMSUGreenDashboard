@@ -25,6 +25,17 @@ four international ranking systems:
   > Replace them in the `DATA` block of `units.html` with each unit's actual
   > self-assessment or audit results.
 
+- `speedtest.html` — **Network speedometer**: an online internet speed test with a
+  live gauge (0–1000 Mbps, piecewise scale so slow links stay readable) and
+  latency, jitter, download and upload results, plus the last five runs kept in
+  the browser's local storage. It needs a network connection: it measures
+  against Cloudflare's public speed-test endpoints (`speed.cloudflare.com`), or
+  any server exposing `GET /__down?bytes=N` and `POST /__up` via
+  `?server=https://host`. Parallel streams are used and the first 1.5 s
+  (TCP slow-start) is excluded from the average; a full test moves roughly
+  100 MB+ on fast links. The shared test server may rate-limit (HTTP 429)
+  after repeated runs from one IP, in which case the page reports it.
+
 ## Viewing
 
 Each page is one dependency-free file — open `index.html` or `units.html` in any
