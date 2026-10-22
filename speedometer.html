@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMSU Vehicle Speedometer</title>
+<style>
+  :root {
+    --brand-green:     #0B4A16;
+    --brand-gold:      #EFA900;
+    --brand-gold-ink:  #7a5200;
+    --font-sans-heading: 'Montserrat', 'Work Sans', Arial, sans-serif;
+    --font-sans-body: 'Work Sans', 'Montserrat', Arial, sans-serif;
+    --page:           #F7F9F7;
+    --surface-1:      #FFFFFF;
+    --text-primary:   #101614;
+    --text-secondary: #35403C;
+    --text-muted:     #64716C;
+    --border:         rgba(16,22,20,0.10);
+    --track:          #F1F4F1;
+    --speed:          #2a78d6;
+    --warn:           #c9432c;
+    --ok:             #146622;
+    --on-brand:       #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --brand-green:     #2fae6c;
+      --brand-gold-ink:  #EFA900;
+      --page:           #0D0F0E;
+      --surface-1:      #171A18;
+      --text-primary:   #F3F5F3;
+      --text-secondary: #C7D0CA;
+      --text-muted:     #8B968F;
+      --border:         rgba(243,245,243,0.10);
+      --track:          #262624;
+      --speed:          #3987e5;
+      --warn:           #e2664a;
+      --ok:             #2FAE6C;
+      --on-brand:       #0D0F0E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --brand-green:     #2fae6c;
+    --brand-gold-ink:  #EFA900;
+    --page:           #0D0F0E;
+    --surface-1:      #171A18;
+    --text-primary:   #F3F5F3;
+    --text-secondary: #C7D0CA;
+    --text-muted:     #8B968F;
+    --border:         rgba(243,245,243,0.10);
+    --track:          #262624;
+    --speed:          #3987e5;
+    --warn:           #e2664a;
+    --ok:             #2FAE6C;
+    --on-brand:       #0D0F0E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--page); color: var(--text-primary); font-family: var(--font-sans-body); line-height: 1.45; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; }
+
+  .masthead .eyebrow { font-family: var(--font-sans-heading); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--brand-gold-ink); }
+  .masthead h1 { font-family: var(--font-sans-heading); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; color: var(--brand-green); margin-top: 2px; }
+  .masthead .bar { height: 3px; width: 92px; border-radius: 2px; margin-top: 12px; background: linear-gradient(90deg, var(--brand-green) 50%, var(--brand-gold) 50%); }
+
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 18px; }
+
+  .gauge { width: 100%; max-width: 520px; margin: 0 auto; }
+  .gauge svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .g-track { fill: none; stroke: var(--track); stroke-width: 18; stroke-linecap: round; }
+  .g-fill  { fill: none; stroke: var(--speed); stroke-width: 18; stroke-linecap: round; transition: stroke 0.25s; }
+  .gauge[data-state="lost"] .g-fill { stroke: var(--warn); }
+  .g-tick { stroke: var(--text-muted); stroke-width: 1.5; }
+  .g-label { fill: var(--text-muted); font-size: 11px; text-anchor: middle; font-family: var(--font-sans-body); }
+  .g-needle { fill: var(--text-primary); }
+  .g-hub { fill: var(--surface-1); stroke: var(--text-primary); stroke-width: 3; }
+
+  .readout { text-align: center; margin-top: 4px; }
+  .readout .value { font-family: var(--font-sans-heading); font-weight: 700; font-size: clamp(3rem, 16vw, 4.6rem); line-height: 1; font-variant-numeric: tabular-nums; }
+  .gauge[data-state="lost"] ~ .readout .value, .readout.lost .value { color: var(--text-muted); }
+  .readout .unit { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; margin-top: 2px; }
+  .readout .state { color: var(--text-secondary); font-size: 0.8rem; margin-top: 6px; min-height: 1.3em; }
+  .readout .state.warn { color: var(--warn); }
+  .readout .state.ok { color: var(--ok); }
+
+  .units { display: flex; justify-content: center; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .units button {
+    font-family: var(--font-sans-heading); font-weight: 600; font-size: 0.8rem; background: transparent; color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; cursor: pointer;
+  }
+  .units button[aria-pressed="true"] { background: var(--brand-green); color: var(--on-brand); border-color: var(--brand-green); }
+  .units button:focus-visible, button.go:focus-visible, button.ghost:focus-visible { outline: 3px solid var(--brand-gold); outline-offset: 2px; }
+
+  .controls { display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  button.go { font-family: var(--font-sans-heading); font-weight: 700; font-size: 0.95rem; background: var(--brand-green); color: var(--on-brand); border: 0; border-radius: 999px; padding: 12px 34px; cursor: pointer; min-width: 170px; }
+  button.go:hover { filter: brightness(1.1); }
+  button.ghost { font-family: var(--font-sans-heading); font-weight: 600; font-size: 0.9rem; background: transparent; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 12px 22px; cursor: pointer; }
+  .msg { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin-top: 10px; min-height: 1.3em; }
+  .msg.error { color: var(--warn); }
+
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 18px; }
+  @media (min-width: 520px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+  .stat { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+  .stat .k { color: var(--text-muted); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  .stat .v { font-family: var(--font-sans-heading); font-weight: 700; font-size: 1.35rem; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .stat .v small { font-family: var(--font-sans-body); font-weight: 400; font-size: 0.78rem; color: var(--text-muted); margin-left: 3px; }
+
+  .note { color: var(--text-muted); font-size: 0.78rem; margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">Mariano Marcos State University</div>
+    <h1>Vehicle Speedometer</h1>
+    <div class="bar" aria-hidden="true"></div>
+  </header>
+
+  <section class="card" aria-label="Speedometer">
+    <div class="gauge" id="gauge" data-state="idle">
+      <svg id="gaugeSvg" viewBox="0 0 400 220" role="img" aria-label="Speed gauge"></svg>
+    </div>
+    <div class="readout" id="readout" aria-live="off">
+      <div class="value" id="value">0</div>
+      <div class="unit" id="unitLabel">km/h</div>
+      <div class="state" id="state">Not tracking</div>
+    </div>
+    <div class="units" role="group" aria-label="Speed unit">
+      <button type="button" data-unit="kmh" aria-pressed="true">km/h</button>
+      <button type="button" data-unit="mph" aria-pressed="false">mph</button>
+      <button type="button" data-unit="kn" aria-pressed="false">knots</button>
+      <button type="button" data-unit="ms" aria-pressed="false">m/s</button>
+    </div>
+    <div class="controls">
+      <button class="go" id="go" type="button">Start tracking</button>
+      <button class="ghost" id="reset" type="button">Reset trip</button>
+    </div>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="stats" aria-label="Trip statistics">
+    <div class="stat"><div class="k">Max speed</div><div class="v" id="sMax">0<small>km/h</small></div></div>
+    <div class="stat"><div class="k">Average (moving)</div><div class="v" id="sAvg">0<small>km/h</small></div></div>
+    <div class="stat"><div class="k">Distance</div><div class="v" id="sDist">0.00<small>km</small></div></div>
+    <div class="stat"><div class="k">Trip time</div><div class="v" id="sTime">0:00</div></div>
+    <div class="stat"><div class="k">Moving time</div><div class="v" id="sMove">0:00</div></div>
+    <div class="stat"><div class="k">GPS accuracy</div><div class="v" id="sAcc">&ndash;<small>m</small></div></div>
+  </section>
+
+  <p class="note">Uses your device's GPS through the browser, so it needs location permission and works best outdoors or
+    near a window. The page must be opened over HTTPS (or localhost). Speed is smoothed and anything under
+    ~2 km/h is shown as stopped to hide GPS drift. Treat it as an estimate, not a calibrated instrument.</p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var params = new URLSearchParams(location.search);
+
+  // ---- Settings ---------------------------------------------------------------
+  var MAX_ACCURACY = 50;      // m: fixes worse than this are ignored for speed/distance
+  var STATIONARY = 0.5;       // m/s (~1.8 km/h): below this the vehicle counts as stopped
+  var MAX_SPEED = 70;         // m/s (~250 km/h): faster is treated as a GPS glitch for a road vehicle
+  var MAX_GAP = 15;           // s: a longer gap between fixes breaks the trip segment
+  var STALE_AFTER = 8000;     // ms without a fix before the signal is declared lost
+  var SMOOTH = 0.5;           // EMA weight for each new fix
+
+  var UNITS = {
+    kmh: { label: 'km/h',  k: 3.6,       max: 140, step: 20, dist: 'km', distK: 1e-3 },
+    mph: { label: 'mph',   k: 2.236936,  max: 90,  step: 10, dist: 'mi', distK: 1 / 1609.344 },
+    kn:  { label: 'knots', k: 1.943844,  max: 80,  step: 10, dist: 'nm', distK: 1 / 1852 },
+    ms:  { label: 'm/s',   k: 1,         max: 40,  step: 5,  dist: 'm',  distK: 1 }
+  };
+  var unit = 'kmh';
+  try { var u = localStorage.getItem('mmsu-speedo-unit'); if (u && UNITS[u]) unit = u; } catch (e) {}
+
+  // ---- Gauge ------------------------------------------------------------------
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = $('gaugeSvg'), gauge = $('gauge');
+  var CX = 200, CY = 200, R = 150, A0 = 180, A1 = 360;
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    (parent || svg).appendChild(n);
+    return n;
+  }
+  function pt(deg, r) { var a = deg * Math.PI / 180; return [CX + r * Math.cos(a), CY + r * Math.sin(a)]; }
+  function arc(a, b, r) {
+    var s = pt(a, r), e = pt(b, r);
+    return 'M' + s[0].toFixed(2) + ' ' + s[1].toFixed(2) + ' A' + r + ' ' + r + ' 0 ' + (b - a > 180 ? 1 : 0) + ' 1 ' + e[0].toFixed(2) + ' ' + e[1].toFixed(2);
+  }
+  el('path', { d: arc(A0, A1 - 0.01, R), 'class': 'g-track' });
+  var fill = el('path', { d: arc(A0, A0 + 0.01, R), 'class': 'g-fill' });
+  var ticks = el('g', {});
+  var needle = el('g', {});
+  el('polygon', { points: '196,200 204,200 200,' + (CY - R + 8), 'class': 'g-needle' }, needle);
+  el('circle', { cx: CX, cy: CY, r: 9, 'class': 'g-hub' });
+
+  function buildTicks() {
+    while (ticks.firstChild) ticks.removeChild(ticks.firstChild);
+    var cfg = UNITS[unit], n = cfg.max / cfg.step;
+    for (var i = 0; i <= n; i++) {
+      var deg = A0 + (A1 - A0) * i / n;
+      var a = pt(deg, R + 16), b = pt(deg, R + 24), t = pt(deg, R + 38);
+      el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], 'class': 'g-tick' }, ticks);
+      el('text', { x: t[0], y: t[1] + 4, 'class': 'g-label' }, ticks).textContent = i * cfg.step;
+    }
+  }
+
+  var shown = 0, target = 0, raf = null;   // shown/target in display units
+  function drawGauge(v) {
+    var frac = Math.max(0, Math.min(1, v / UNITS[unit].max));
+    var deg = A0 + (A1 - A0) * frac;
+    needle.setAttribute('transform', 'rotate(' + (deg - 270) + ' ' + CX + ' ' + CY + ')');
+    fill.setAttribute('d', arc(A0, Math.max(A0 + 0.01, deg), R));
+    $('value').textContent = Math.round(v);
+  }
+  function animate() {
+    shown += (target - shown) * 0.15;
+    if (Math.abs(target - shown) < 0.05) shown = target;
+    drawGauge(shown);
+    raf = shown === target ? null : requestAnimationFrame(animate);
+  }
+  function setNeedle(ms) {
+    target = ms * UNITS[unit].k;
+    if (!raf) raf = requestAnimationFrame(animate);
+  }
+
+  // ---- Trip state -------------------------------------------------------------
+  var trip, streak = 0, watchId = null, last = null, staleTimer = null, lastFixAt = 0, wakeLock = null;
+  function resetTrip() {
+    trip = { elapsed: 0, moving: 0, dist: 0, max: 0, speed: 0, acc: null, source: '' };
+    last = null;
+    streak = 0;
+    renderStats();
+  }
+
+  function fmtTime(s) {
+    s = Math.round(s);
+    var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(sec).padStart(2, '0');
+  }
+  function setStat(id, text, suffix) { $(id).innerHTML = text + (suffix ? '<small>' + suffix + '</small>' : ''); }
+  function renderStats() {
+    var cfg = UNITS[unit];
+    $('unitLabel').textContent = cfg.label;
+    setStat('sMax', Math.round(trip.max * cfg.k), cfg.label);
+    setStat('sAvg', trip.moving > 0 ? Math.round(trip.dist / trip.moving * cfg.k) : 0, cfg.label);
+    var d = trip.dist * cfg.distK;
+    setStat('sDist', cfg.dist === 'm' ? Math.round(d) : d.toFixed(2), cfg.dist);
+    $('sTime').textContent = fmtTime(trip.elapsed);
+    $('sMove').textContent = fmtTime(trip.moving);
+    if (trip.acc == null) setStat('sAcc', '&ndash;', 'm'); else setStat('sAcc', '±' + Math.round(trip.acc), 'm');
+  }
+  function setState(text, cls) {
+    var s = $('state');
+    s.textContent = text;
+    s.className = 'state' + (cls ? ' ' + cls : '');
+  }
+  function setMsg(text, err) { var m = $('msg'); m.textContent = text || ''; m.className = 'msg' + (err ? ' error' : ''); }
+
+  // Haversine distance between two fixes, metres.
+  function distance(a, b) {
+    var R = 6371008.8, rad = Math.PI / 180;
+    var dLat = (b.latitude - a.latitude) * rad, dLon = (b.longitude - a.longitude) * rad;
+    var h = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(a.latitude * rad) * Math.cos(b.latitude * rad) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+
+  // Each fix gives a ground speed in m/s. Prefer the receiver's own Doppler
+  // speed (coords.speed); when the device does not report it, derive speed from
+  // the distance between consecutive good fixes.
+  function onFix(pos) {
+    var c = pos.coords, t = pos.timestamp / 1000;
+    lastFixAt = Date.now();
+    trip.acc = c.accuracy;
+    gauge.setAttribute('data-state', 'ok');
+    $('readout').classList.remove('lost');
+
+    if (c.accuracy > MAX_ACCURACY) {
+      setState('Weak GPS signal (±' + Math.round(c.accuracy) + ' m), waiting for a better fix', 'warn');
+      renderStats();
+      return;
+    }
+
+    var v = null, source = '';
+    var dt = last ? t - last.t : 0;
+    if (c.speed != null && isFinite(c.speed) && c.speed >= 0) {
+      v = c.speed; source = 'GPS Doppler';
+    } else if (last && dt >= 1 && dt <= MAX_GAP) {
+      v = distance(last.c, c) / dt; source = 'from position';
+    } else if (last && dt < 1) {
+      return;   // too soon to derive a speed; keep the previous reference fix
+    }
+
+    if (v == null) {            // first usable fix
+      last = { c: c, t: t };
+      setState('GPS locked, waiting for movement…', 'ok');
+      renderStats();
+      return;
+    }
+    if (v > MAX_SPEED) { last = { c: c, t: t }; return; }
+
+    var moving = v >= STATIONARY;
+    streak = moving ? streak + 1 : 0;
+    // Smooth while moving; decay faster when stopping so the needle settles at zero.
+    trip.speed = moving ? (trip.speed ? trip.speed + (v - trip.speed) * SMOOTH : v * (source === 'GPS Doppler' ? 1 : SMOOTH)) : trip.speed * 0.4;
+    if (trip.speed < STATIONARY) trip.speed = 0;
+
+    if (dt > 0 && dt <= MAX_GAP) {
+      trip.elapsed += dt;
+      if (moving) { trip.moving += dt; trip.dist += v * dt; }
+    }
+    // Max only counts once movement is confirmed over several fixes, so a single noisy first estimate cannot set it.
+    if (streak >= 3 && trip.speed > trip.max) trip.max = trip.speed;
+    trip.source = source;
+    last = { c: c, t: t };
+
+    setNeedle(trip.speed);
+    setState((moving ? 'Moving' : 'Stopped') + ' · ' + source, 'ok');
+    renderStats();
+  }
+
+  function onError(err) {
+    var text = {
+      1: 'Location permission denied. Allow location access for this page in your browser settings, then tap Start again.',
+      2: 'Position unavailable. Check that GPS/location services are on.',
+      3: 'Timed out waiting for GPS. Try near a window or outdoors.'
+    }[err.code] || 'Location error.';
+    if (err.code === 1) { stopTracking(); setMsg(text, true); } else { setMsg(text, true); }
+  }
+
+  // ---- Start / stop ------------------------------------------------------------
+  var go = $('go');
+  function startTracking() {
+    if (!('geolocation' in navigator)) { setMsg('This browser does not support geolocation.', true); return; }
+    if (!window.isSecureContext) { setMsg('Geolocation needs a secure page: open this over HTTPS (or localhost).', true); return; }
+    last = null;
+    streak = 0;
+    lastFixAt = Date.now();
+    setMsg('');
+    setState('Acquiring GPS…');
+    watchId = navigator.geolocation.watchPosition(onFix, onError, { enableHighAccuracy: true, maximumAge: 0, timeout: 20000 });
+    staleTimer = setInterval(checkStale, 1000);
+    go.textContent = 'Stop tracking';
+    requestWakeLock();
+  }
+  function stopTracking() {
+    if (watchId != null) navigator.geolocation.clearWatch(watchId);
+    watchId = null;
+    clearInterval(staleTimer);
+    trip.speed = 0;
+    setNeedle(0);
+    gauge.setAttribute('data-state', 'idle');
+    setState('Not tracking');
+    go.textContent = trip.dist > 0 || trip.elapsed > 0 ? 'Resume tracking' : 'Start tracking';
+    releaseWakeLock();
+  }
+  function checkStale() {
+    if (Date.now() - lastFixAt > STALE_AFTER) {
+      trip.speed = 0;
+      setNeedle(0);
+      gauge.setAttribute('data-state', 'lost');
+      $('readout').classList.add('lost');
+      setState('GPS signal lost: speed unknown', 'warn');
+    }
+  }
+  go.addEventListener('click', function () { watchId == null ? startTracking() : stopTracking(); });
+  $('reset').addEventListener('click', function () {
+    resetTrip();
+    if (watchId == null) go.textContent = 'Start tracking';
+    shown = target = 0; drawGauge(0);
+    setMsg('');
+  });
+
+  // Keep the screen on while tracking (re-requested after the tab regains focus).
+  function requestWakeLock() {
+    if (!('wakeLock' in navigator) || wakeLock) return;
+    navigator.wakeLock.request('screen').then(function (l) {
+      wakeLock = l;
+      l.addEventListener('release', function () { wakeLock = null; });
+    }).catch(function () {});
+  }
+  function releaseWakeLock() {
+    if (wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; }
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && watchId != null) requestWakeLock();
+  });
+
+  // ---- Units ------------------------------------------------------------------
+  function setUnit(u) {
+    unit = u;
+    try { localStorage.setItem('mmsu-speedo-unit', u); } catch (e) {}
+    Array.prototype.forEach.call(document.querySelectorAll('.units button'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-unit') === u));
+    });
+    buildTicks();
+    shown = target = trip.speed * UNITS[u].k;
+    drawGauge(shown);
+    renderStats();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.units button'), function (b) {
+    b.addEventListener('click', function () { setUnit(b.getAttribute('data-unit')); });
+  });
+
+  resetTrip();
+  setUnit(unit);
+  if (!window.isSecureContext) setMsg('Geolocation needs a secure page: open this over HTTPS (or localhost).', true);
+  else if (!('geolocation' in navigator)) setMsg('This browser does not support geolocation.', true);
+
+  window.__speedo = { state: function () { return trip; } };
+})();
+</script>
+</body>
+</html>

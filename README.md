@@ -25,6 +25,15 @@ four international ranking systems:
   > Replace them in the `DATA` block of `units.html` with each unit's actual
   > self-assessment or audit results.
 
+- `speedometer.html` — **Vehicle speedometer** (GPS): live gauge of your ground speed
+  while riding a bus, car, or boat, using the browser Geolocation API. Shows
+  km/h, mph, knots or m/s, plus max speed, moving average, distance, trip and
+  moving time, and GPS accuracy. It uses the receiver's Doppler speed when the
+  device reports it and otherwise derives speed from consecutive position
+  fixes; fixes worse than ±50 m are ignored, speeds under ~2 km/h read as
+  stopped, and a lost signal is flagged rather than showing a stale value. Needs
+  location permission and an HTTPS (or localhost) page; keeps the screen awake
+  while tracking where the browser supports it.
 - `speedtest.html` — **Network speedometer**: an online internet speed test with a
   live gauge (0–1000 Mbps, piecewise scale so slow links stay readable) and
   latency, jitter, download and upload results, plus the last five runs kept in
