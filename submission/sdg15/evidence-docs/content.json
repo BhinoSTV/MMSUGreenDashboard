@@ -1,51 +1,5 @@
 {
- "annex": [
-  {
-   "code": "15.3.1",
-   "file": "ANNEX_15.3.1",
-   "title": "Sustainable use, conservation and restoration of land (policy, 2021)",
-   "question": "Pre-2025 policy in force; reference only.",
-   "stories": [
-    "landuse_policy"
-   ]
-  },
-  {
-   "code": "15.3.3",
-   "file": "ANNEX_15.3.3",
-   "title": "Local biodiversity included in planning (Sirmata 2040, 2021)",
-   "question": "Pre-2025 plan in force; reference only.",
-   "stories": [
-    "sirmata"
-   ]
-  },
-  {
-   "code": "15.4.2",
-   "file": "ANNEX_15.4.2",
-   "title": "Plastic waste reduction policies (2009–2023)",
-   "question": "Pre-2025 policies in force; reference only.",
-   "stories": [
-    "plastic"
-   ]
-  },
-  {
-   "code": "15.4.3",
-   "file": "ANNEX_15.4.3",
-   "title": "Hazardous waste disposal (IPWMP, revised 2020)",
-   "question": "Pre-2025 policy in force; reference only.",
-   "stories": [
-    "hazardous"
-   ]
-  },
-  {
-   "code": "15.3.5",
-   "file": "ANNEX_15.3.5",
-   "title": "Kalbario-Patapat Natural Park TWG (2023)",
-   "question": "Pre-2025 appointment; reference only.",
-   "stories": [
-    "kpnp"
-   ]
-  }
- ],
+ "annex": [],
  "dims": {
   "forest_reserve_planting_2025.jpg": [
    1600,
@@ -218,10 +172,18 @@
   "mangrove_seminar_field_2025.jpg": [
    1600,
    900
+  ],
+  "forest_planting_2026.jpg": [
+   1100,
+   1651
+  ],
+  "dingras_bambusetum_2026.jpg": [
+   1500,
+   1000
   ]
  },
  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation.",
- "evidence_year": "Evidence year: 2025 (calendar year)",
+ "evidence_year": "Evidence year: 2025 (calendar year), with continuing implementation 2024–2026",
  "docs": [
   {
    "code": "15.2.1",
@@ -235,6 +197,9 @@
     "regen_forum",
     "fieldday",
     "idbd_contest"
+   ],
+   "continuing": [
+    "planting_continues"
    ]
   },
   {
@@ -248,6 +213,11 @@
     "mangrove_nbs",
     "badoc_mangrove",
     "pinili_short"
+   ],
+   "continuing": [
+    "nbs_launch",
+    "bambusetum_2026",
+    "hub"
    ]
   },
   {
@@ -260,7 +230,8 @@
     "alukon",
     "vintar_caravan",
     "ifp_learning"
-   ]
+   ],
+   "continuing": []
   },
   {
    "code": "15.2.5",
@@ -275,6 +246,40 @@
     "fieldday",
     "pshs_visit",
     "soil_health"
+   ],
+   "continuing": []
+  },
+  {
+   "code": "15.2.6",
+   "file": "DRAFT_SDG15_15.2.6_Sustainable_land_management_for_tourism",
+   "draft": true,
+   "title": "Sustainable management of land for tourism (educational outreach)",
+   "question": "Offer educational programme/outreach for local or national communities on sustainable management of land for tourism.",
+   "stories": [],
+   "continuing": [
+    "hub",
+    "kpnp"
+   ],
+   "note": "DRAFT. No 2025 community training on sustainable land management for tourism was found. The items below are existing sites and roles that support the question; submit them only if the Extension Directorate confirms a community programme (audience, dates, free access)."
+  },
+  {
+   "code": "15.3.1",
+   "file": "SDG15_15.3.1_Policy_on_sustainable_use_of_land",
+   "title": "Sustainable use, conservation and restoration of land (policy)",
+   "question": "Have a policy to ensure the conservation, restoration and sustainable use of terrestrial ecosystems associated with the university, in particular forests, mountains and drylands.",
+   "stories": [],
+   "continuing": [
+    "landuse_policy"
+   ]
+  },
+  {
+   "code": "15.3.3",
+   "file": "SDG15_15.3.3_Local_biodiversity_in_planning",
+   "title": "Local biodiversity included in planning and development",
+   "question": "Include local biodiversity into any planning and development process (e.g. construction of new buildings).",
+   "stories": [],
+   "continuing": [
+    "sirmata"
    ]
   },
   {
@@ -289,6 +294,10 @@
     "denr_partnership",
     "ifp_partners",
     "pinili_short"
+   ],
+   "continuing": [
+    "nbs_launch",
+    "kpnp"
    ]
   },
   {
@@ -298,6 +307,9 @@
    "question": "Have water quality standards and guidelines for water discharges (to uphold water quality in order to protect ecosystems, wildlife, and human health and welfare).",
    "stories": [
     "water"
+   ],
+   "continuing": [
+    "water_policy"
    ]
   },
   {
@@ -308,6 +320,19 @@
    "stories": [
     "rec",
     "cleanup"
+   ],
+   "continuing": [
+    "plastic"
+   ]
+  },
+  {
+   "code": "15.4.3",
+   "file": "SDG15_15.4.3_Policy_on_hazardous_waste_disposal",
+   "title": "Policy on hazardous waste disposal",
+   "question": "Have a policy, process or practice on waste disposal covering hazardous materials.",
+   "stories": [],
+   "continuing": [
+    "hazardous"
    ]
   }
  ],
@@ -506,7 +531,8 @@
    ],
    "sources": [
     "rec"
-   ]
+   ],
+   "tag": "2025"
   },
   "soa": {
    "title": "School-on-the-Air Brings Regenerative Vegetable Farming to 1,000 Ilocanos",
@@ -550,7 +576,8 @@
     "planning_doc",
     "sirmata",
     "ludip_fund"
-   ]
+   ],
+   "tag": "Plan · Sirmata 2040 LUDIP (2021), a 20-year plan"
   },
   "landuse_policy": {
    "title": "MMSU Land Use Policy Commits the University to Conserve and Restore Its Lands",
@@ -565,7 +592,8 @@
    "sources": [
     "landuse_doc",
     "planning_doc"
-   ]
+   ],
+   "tag": "Policy · Sirmata 2040 LUDIP (2021)"
   },
   "kpnp": {
    "title": "MMSU Expert Serves on the Kalbario-Patapat Natural Park Technical Working Group",
@@ -578,7 +606,8 @@
    ],
    "sources": [
     "kpnp_doc"
-   ]
+   ],
+   "tag": "Continuing role · appointment of 29 March 2023"
   },
   "water": {
    "title": "Groundwater Quality Monitoring at the MMSU Farm",
@@ -590,7 +619,8 @@
    ],
    "sources": [
     "groundwater_doc"
-   ]
+   ],
+   "tag": "2025"
   },
   "plastic": {
    "title": "MMSU Policies Eliminate Styrofoam and Reduce Plastic Waste on Campus",
@@ -608,7 +638,8 @@
     "memos_doc",
     "cafsd_waste",
     "rec"
-   ]
+   ],
+   "tag": "Policies · 2009, 2015, 2016, 2022 and 2023, with 2024 and 2025 actions"
   },
   "hazardous": {
    "title": "Hazardous Waste Disposal under MMSU’s Integrated Pollution and Waste Management Program",
@@ -622,7 +653,8 @@
    "sources": [
     "hazardous_doc",
     "ipwmp_doc"
-   ]
+   ],
+   "tag": "Policy · Integrated Pollution and Waste Management Program (revised 2020)"
   },
   "wed_mangrove": {
    "title": "MMSU Plants 250 Mangrove Propagules in Currimao on World Environment Day",
@@ -753,6 +785,80 @@
    "sources": [
     "cleanup"
    ]
+  },
+  "planting_continues": {
+   "title": "Graduation Tree Planting Is a Standing MMSU Programme, 2024 to 2026",
+   "tag": "Continuing implementation · July 2024, July 2025, June 2026",
+   "photos": [
+    "forest_planting_2026.jpg"
+   ],
+   "paras": [
+    "Graduating classes of the College of Agriculture, Food and Sustainable Development (CAFSD) of Mariano Marcos State University (MMSU) plant trees before they graduate, and the planting has been repeated every year. On July 9, 2024, the BS Forestry graduating class, led by CAFSD OIC-Dean Charlie Batin, enriched the Salinged Park, the university’s ecological park, with igem-dagat, balitbitan, bitaog, Cassia javanica and banaba. On July 2, 2025, 230 CAFSD graduands planted guijo, yakal and bamboo in the University Forest Reserves in Payao and Mabaleng, City of Batac.",
+    "On June 1, 2026, the CAFSD Graduating Class of 2026, led by its Student Council with the chairs and faculty of the Departments of Environmental Science and Forestry, carried out an enrichment planting at the MMSU Forest Reserve in Payao, which the CAFSD Batch 2025 had previously planted with native seedlings. They planted 50 banaba, 30 yakal saplungan and 20 guijo seedlings at the onset of the rainy season, hardened in the MMSU Forest Tree Nursery, species chosen because they improve soil quality, conserve biodiversity and absorb and store carbon dioxide. Dr. Arlene Gonzales, Director of the Sustainability and Futures Thinking Office, represented the University President and commended the college for sustaining the initiative. The activity follows Republic Act 10800, the Graduation Legacy for the Environment Act, which requires students to plant trees before graduation."
+   ],
+   "sources": [
+    "salinged2024",
+    "forest2025",
+    "forest2026"
+   ]
+  },
+  "bambusetum_2026": {
+   "title": "Bambusetums Create Living Collections for Bamboo Conservation and Learning",
+   "tag": "Continuing implementation · September 2025 and September 2026",
+   "photos": [
+    "dingras_bambusetum_2026.jpg"
+   ],
+   "paras": [
+    "In celebration of Bamboo Month, the MMSU Dingras Campus, through CAFSD, launched its bambusetum on September 30, 2026, to advance bamboo research, education and sustainable use. Students, faculty, field workers and stakeholders joined the planting, where For. Charlie Maine Cacactin demonstrated the proper planting of various bamboo species, and members of the Association of Young Agriculturists, Green Triangle Organization, Health and Wellness Club and Junior Foresters’ Association supported the activity. The bambusetum is the second in the university, after the one at the Main Campus.",
+    "The bambusetum will serve as a living collection of bamboo species and a learning site for teaching, research, technology development and community extension, showcasing bamboo’s ecological and socioeconomic benefits for food security, livelihood, environmental conservation and climate resilience. It follows the bambusetum that training participants established in Barangay Aglipay, Pinili, in 2025. CAFSD Dean Charlie Batin said the work responds to environmental problems such as climate change."
+   ],
+   "sources": [
+    "bambusetum2026",
+    "pinili"
+   ]
+  },
+  "hub": {
+   "title": "Biodiversity Conservation Learning Center and Leisure Park Is Enriched with 28 Native Tree Species",
+   "tag": "Continuing implementation · since 2023",
+   "photos": [],
+   "paras": [
+    "On January 13, 2023, MMSU planted 120 more seedlings of 28 native tree species and two bamboo species at the Biodiversity Conservation Learning Center and Leisure Park on the Main Campus, led by then President Shirley C. Agrupis with administrators, faculty, staff and students. The park is used as a field laboratory for classes and was identified for development into a health and wellness tourism hub, a plan endorsed by the provincial government and aligned with the Health and Wellness Complex of the College of Medicine.",
+    "The planting continues a tradition that began in 2017 with the Green Wall project on the Batac campus and extends to the Nagbacsan site and the Currimao, Dingras and Laoag campuses, as the university’s contribution to the provincial “Green Wall of Ilocos Norte” and the National Greening Program of the Department of Environment and Natural Resources."
+   ],
+   "sources": [
+    "healthhub"
+   ]
+  },
+  "nbs_launch": {
+   "title": "Mangrove Nature-based Solutions Project Runs from 2024 to 2026",
+   "tag": "Continuing implementation · 1 May 2024 to 30 April 2026",
+   "photos": [
+    "pcaarrd_launch_gonzales.jpg",
+    "pcaarrd_launch_group.jpg"
+   ],
+   "paras": [
+    "The DOST-PCAARRD-funded project “Nature-based Solutions (NbS) for Sustainable Mangrove Management and Resilient Coastal Communities Through Innovative Green Engineering Approach,” led by Dr. Arlene L. Gonzales of MMSU, was launched at the MMSU Review Center on June 27, 2024, and runs from May 1, 2024 to April 30, 2026 in Badoc and Currimao, Ilocos Norte. DENR-PENRO Ilocos Norte, the Provincial Government of Ilocos Norte and the local government units of Badoc and Currimao support the project.",
+    "The 2025 activities of the project, including the dialogue with DENR Region 1 and the October 2025 mangrove propagation seminar-workshop, are described under Indicators 15.2.3 and 15.2.4."
+   ],
+   "sources": [
+    "pcaarrd"
+   ]
+  },
+  "water_policy": {
+   "title": "MMSU Water Policy Protects University Waters from Pollution",
+   "tag": "Policy · Sirmata 2040 (2021) and Integrated Pollution and Waste Management Program (revised 2020)",
+   "photos": [
+    "doc_water_policy.jpg"
+   ],
+   "paras": [
+    "MMSU’s Water Policy under Sirmata 2040, based on the Water Code of the Philippines and its 2005 implementing rules, requires that “all water and related resources of the university, ground and surface, shall be shielded from any kind of pollution” (Policy 2.9) and that the rehabilitation of polluted resources be immediate, giving importance to water impoundments, catch basins and water treatment facilities (Policy 2.8).",
+    "The university’s Integrated Pollution and Waste Management Program also provides for registration as a hazardous waste generator for wastewater discharge from agro-industrial facilities such as the piggery, in compliance with Republic Act 9275, the Philippine Clean Water Act."
+   ],
+   "sources": [
+    "landuse_doc",
+    "ipwmp_doc",
+    "water_doc"
+   ]
   }
  },
  "photos": {
@@ -799,7 +905,9 @@
   "pshs_visit_2025.jpg": "PSHS-Ilocos Region Campus students at the MMSU Technology Demonstration Farm, Sarrat, 19 September 2025. (Photo: MMSU STRATCOM)",
   "vintar_caravan_2025.jpg": "MMSU Information and Technology Caravan at the 2025 Siwawer Farmers’ Festival, Vintar, 3–4 December 2025. (Photo: MMSU STRATCOM)",
   "cleanup_2025.jpg": "MMSU Advocates for Cultural Development clean-up drive on campus, 24 October 2025. (Photo: MMSU)",
-  "mangrove_seminar_field_2025.jpg": "Mangrove site, from the gallery of the October 2025 seminar-workshop of the NbS mangrove project. (Photo: MMSU)"
+  "mangrove_seminar_field_2025.jpg": "Mangrove site, from the gallery of the October 2025 seminar-workshop of the NbS mangrove project. (Photo: MMSU)",
+  "forest_planting_2026.jpg": "CAFSD Graduating Class 2026 enrichment planting at the MMSU Forest Reserve, Payao, 1 June 2026. (Photo: MMSU STRATCOM)",
+  "dingras_bambusetum_2026.jpg": "Launch of the bambusetum at the MMSU Dingras Campus, 30 September 2026. (Photo: MMSU STRATCOM)"
  },
  "photo_source": {
   "forest_reserve_planting_2025.jpg": "MMSU News, 4 Jul 2025 (article 2468) or MMSU Public Affairs / CAFSD files",
@@ -963,6 +1071,18 @@
   "cleanup": {
    "label": "MMSU News, “MACD leads clean-up drive in MMSU,” 29 October 2025",
    "url": "https://www.mmsu.edu.ph/news/macd-leads-clean-up-drive-in-mmsu"
+  },
+  "forest2026": {
+   "label": "MMSU News, “CAFSD graduands grow native trees at MMSU forest reserve,” 5 June 2026",
+   "url": "https://www.mmsu.edu.ph/news/cafsd-graduands-grow-native-trees-at-mmsu-forest-reserve"
+  },
+  "bambusetum2026": {
+   "label": "MMSU News, “MMSU CAFSD-Dingras launches bambusetum to advance bamboo research and education,” 2 October 2026",
+   "url": "https://www.mmsu.edu.ph/article/news/3206/mmsu-cafsd-dingras-launches-bambusetum-to-advance-bamboo-research-and-education"
+  },
+  "healthhub": {
+   "label": "MMSU News, “More trees planted at MMSU to establish ‘health tourism’ hub,” 13 January 2023",
+   "url": "https://www.mmsu.edu.ph/news/more-trees-planted-at-mmsu-to-establish-health-tourism-hub"
   }
  }
 }

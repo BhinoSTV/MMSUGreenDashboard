@@ -7,10 +7,17 @@ for upload PDFs).
 
 ## 0. Scope
 
-The documents retain only 2025 accomplishments. Pre-2025 policies (land use 2021, IPWMP 2020,
-No Bottled Water memoranda 2022–2023, KPNP appointment 2023) are in
-`pdf/ANNEX_SDG15_Policies_before_2025.pdf`. THE accepts policies already in place, so you may
-add them back for the policy questions if the team decides to.
+Each indicator document lists the **2025 evidence first**, then a **Continuing implementation** section
+with policies and programmes that began earlier and are still in place (land use policy and Sirmata 2040,
+2021; Integrated Pollution and Waste Management Program, revised 2020; No Bottled Water memoranda, 2022
+and 2023; the Kalbario-Patapat TWG appointment, 2023; the mangrove NbS project, 2024–2026; the graduation
+tree planting, 2024–2026; the Dingras bambusetum, Sep 2026). THE accepts policies already in place; a policy
+created or reviewed inside its window earns one more point, so each older policy still needs a 2025 review
+or a confirmed date inside the window.
+
+Peer evidence supports this approach: Visayas State University (91st of 658 in SDG 15, 2026) mixes 2025
+items with older ones (2013 and 2022 memoranda, 2019 and 2023 events) in its evidence files.
+Confirm the window with THE before upload.
 
 ## 1. Photos and document images
 
@@ -42,8 +49,12 @@ same filename and rebuilding.
   15.4.3 show an approval date within 2020–2025. The documents quoted are MMSU's published versions.
 - [ ] **School-on-the-Air:** free enrolment, number of completers, and the lesson list.
 - [ ] **Attendance sheets and programmes** for each 2025 event, to keep on file.
-- [ ] **15.2.1 mentions the June 2026 planting** to show the tradition continues. Remove that
-  clause if the reviewers want only 2025 activity in the text.
+- [ ] **Policies still in force:** confirm that the land use policy, Sirmata 2040, the IPWMP and the
+  No Bottled Water policy have not been repealed or replaced, and whether the 2024 and 2025 editions of the
+  No Bottled Water memorandum exist (only 2022 and 2023 are on file).
+- [ ] **Policy review window:** check whether the 2020 IPWMP revision falls inside THE's 2027 window
+  for the "created or reviewed" point.
+- [ ] **Graduation planting:** photos for the July 2024 Salinged Park planting (not captured).
 
 ## 3. Before uploading to THE
 
@@ -57,10 +68,11 @@ same filename and rebuilding.
 - [ ] Publish the final PDFs on the MMSU evidence portal and keep them online until the next
   data-collection cycle.
 
-## 4. Indicators with no public evidence yet
+## 4. Indicators still without evidence
 
-15.2.2 (sustainable food policy), 15.2.6 (tourism land-management outreach), 15.3.1 (land
-conservation policy), 15.3.2 (IUCN and national-list species policy), 15.3.3 (biodiversity in
-planning), 15.3.4 (alien species policy), 15.4.1 (water discharge standards), 15.4.2 (plastic
-waste policy) and 15.4.3 (hazardous waste policy). These need documents from university records;
-the drafts in the parent folder outline what each should contain.
+- **15.2.2** (sustainably farmed food) asks for a policy. None was found, and MMSU's practices (vermicast,
+  GAP training, indigenous food plant foodscapes) do not replace one, so no section is included.
+- **15.2.6** (tourism land-management outreach) is a draft (`DRAFT_SDG15_15.2.6_…pdf`): it holds only the
+  Biodiversity Conservation Learning Center and the KPNP role. Find a community programme before submitting.
+- **15.3.2** (IUCN and national-list species policy) and **15.3.4** (alien species policy): nothing found.
+- **15.3.1, 15.3.3, 15.4.3** are covered only by pre-2025 policies (continuing) and have no 2025 item.

@@ -665,6 +665,135 @@ DOCS[:] = [
 ]
 SUPPORTING = None
 
+# ---------------------------------------------------------------- update 2026-10-30: continuing implementation
+# Pre-2025 policies and programmes that MMSU keeps implementing, plus 2024 and 2026 items that show
+# the programme continues. Each indicator lists its 2025 evidence first and these second.
+EVIDENCE_YEAR = "Evidence year: 2025 (calendar year), with continuing implementation 2024–2026"
+
+PHOTOS.update({
+    "forest_planting_2026.jpg": "CAFSD Graduating Class 2026 enrichment planting at the MMSU Forest Reserve, Payao, 1 June 2026. (Photo: MMSU STRATCOM)",
+    "dingras_bambusetum_2026.jpg": "Launch of the bambusetum at the MMSU Dingras Campus, 30 September 2026. (Photo: MMSU STRATCOM)",
+})
+
+SRC.update({
+    "forest2026": _mmsu("cafsd-graduands-grow-native-trees-at-mmsu-forest-reserve", "CAFSD graduands grow native trees at MMSU forest reserve", "5 June 2026"),
+    "bambusetum2026": ("MMSU News, “MMSU CAFSD-Dingras launches bambusetum to advance bamboo research and education,” 2 October 2026",
+                       "https://www.mmsu.edu.ph/article/news/3206/mmsu-cafsd-dingras-launches-bambusetum-to-advance-bamboo-research-and-education"),
+    "healthhub": ("MMSU News, “More trees planted at MMSU to establish ‘health tourism’ hub,” 13 January 2023",
+                  "https://www.mmsu.edu.ph/news/more-trees-planted-at-mmsu-to-establish-health-tourism-hub"),
+})
+
+S["planting_continues"] = dict(
+    title="Graduation Tree Planting Is a Standing MMSU Programme, 2024 to 2026",
+    tag="Continuing implementation · July 2024, July 2025, June 2026",
+    photos=["forest_planting_2026.jpg"],
+    paras=[
+        "Graduating classes of the College of Agriculture, Food and Sustainable Development (CAFSD) of Mariano Marcos State University (MMSU) plant trees before they graduate, and the planting has been repeated every year. On July 9, 2024, the BS Forestry graduating class, led by CAFSD OIC-Dean Charlie Batin, enriched the Salinged Park, the university’s ecological park, with igem-dagat, balitbitan, bitaog, Cassia javanica and banaba. On July 2, 2025, 230 CAFSD graduands planted guijo, yakal and bamboo in the University Forest Reserves in Payao and Mabaleng, City of Batac.",
+        "On June 1, 2026, the CAFSD Graduating Class of 2026, led by its Student Council with the chairs and faculty of the Departments of Environmental Science and Forestry, carried out an enrichment planting at the MMSU Forest Reserve in Payao, which the CAFSD Batch 2025 had previously planted with native seedlings. They planted 50 banaba, 30 yakal saplungan and 20 guijo seedlings at the onset of the rainy season, hardened in the MMSU Forest Tree Nursery, species chosen because they improve soil quality, conserve biodiversity and absorb and store carbon dioxide. Dr. Arlene Gonzales, Director of the Sustainability and Futures Thinking Office, represented the University President and commended the college for sustaining the initiative. The activity follows Republic Act 10800, the Graduation Legacy for the Environment Act, which requires students to plant trees before graduation.",
+    ],
+    sources=["salinged2024", "forest2025", "forest2026"],
+)
+
+S["bambusetum_2026"] = dict(
+    title="Bambusetums Create Living Collections for Bamboo Conservation and Learning",
+    tag="Continuing implementation · September 2025 and September 2026",
+    photos=["dingras_bambusetum_2026.jpg"],
+    paras=[
+        "In celebration of Bamboo Month, the MMSU Dingras Campus, through CAFSD, launched its bambusetum on September 30, 2026, to advance bamboo research, education and sustainable use. Students, faculty, field workers and stakeholders joined the planting, where For. Charlie Maine Cacactin demonstrated the proper planting of various bamboo species, and members of the Association of Young Agriculturists, Green Triangle Organization, Health and Wellness Club and Junior Foresters’ Association supported the activity. The bambusetum is the second in the university, after the one at the Main Campus.",
+        "The bambusetum will serve as a living collection of bamboo species and a learning site for teaching, research, technology development and community extension, showcasing bamboo’s ecological and socioeconomic benefits for food security, livelihood, environmental conservation and climate resilience. It follows the bambusetum that training participants established in Barangay Aglipay, Pinili, in 2025. CAFSD Dean Charlie Batin said the work responds to environmental problems such as climate change.",
+    ],
+    sources=["bambusetum2026", "pinili"],
+)
+
+S["hub"] = dict(
+    title="Biodiversity Conservation Learning Center and Leisure Park Is Enriched with 28 Native Tree Species",
+    tag="Continuing implementation · since 2023",
+    photos=[],
+    paras=[
+        "On January 13, 2023, MMSU planted 120 more seedlings of 28 native tree species and two bamboo species at the Biodiversity Conservation Learning Center and Leisure Park on the Main Campus, led by then President Shirley C. Agrupis with administrators, faculty, staff and students. The park is used as a field laboratory for classes and was identified for development into a health and wellness tourism hub, a plan endorsed by the provincial government and aligned with the Health and Wellness Complex of the College of Medicine.",
+        "The planting continues a tradition that began in 2017 with the Green Wall project on the Batac campus and extends to the Nagbacsan site and the Currimao, Dingras and Laoag campuses, as the university’s contribution to the provincial “Green Wall of Ilocos Norte” and the National Greening Program of the Department of Environment and Natural Resources.",
+    ],
+    sources=["healthhub"],
+)
+
+S["nbs_launch"] = dict(
+    title="Mangrove Nature-based Solutions Project Runs from 2024 to 2026",
+    tag="Continuing implementation · 1 May 2024 to 30 April 2026",
+    photos=["pcaarrd_launch_gonzales.jpg", "pcaarrd_launch_group.jpg"],
+    paras=[
+        "The DOST-PCAARRD-funded project “Nature-based Solutions (NbS) for Sustainable Mangrove Management and Resilient Coastal Communities Through Innovative Green Engineering Approach,” led by Dr. Arlene L. Gonzales of MMSU, was launched at the MMSU Review Center on June 27, 2024, and runs from May 1, 2024 to April 30, 2026 in Badoc and Currimao, Ilocos Norte. DENR-PENRO Ilocos Norte, the Provincial Government of Ilocos Norte and the local government units of Badoc and Currimao support the project.",
+        "The 2025 activities of the project, including the dialogue with DENR Region 1 and the October 2025 mangrove propagation seminar-workshop, are described under Indicators 15.2.3 and 15.2.4.",
+    ],
+    sources=["pcaarrd"],
+)
+
+S["water_policy"] = dict(
+    title="MMSU Water Policy Protects University Waters from Pollution",
+    tag="Policy · Sirmata 2040 (2021) and Integrated Pollution and Waste Management Program (revised 2020)",
+    photos=["doc_water_policy.jpg"],
+    paras=[
+        "MMSU’s Water Policy under Sirmata 2040, based on the Water Code of the Philippines and its 2005 implementing rules, requires that “all water and related resources of the university, ground and surface, shall be shielded from any kind of pollution” (Policy 2.9) and that the rehabilitation of polluted resources be immediate, giving importance to water impoundments, catch basins and water treatment facilities (Policy 2.8).",
+        "The university’s Integrated Pollution and Waste Management Program also provides for registration as a hazardous waste generator for wastewater discharge from agro-industrial facilities such as the piggery, in compliance with Republic Act 9275, the Philippine Clean Water Act.",
+    ],
+    sources=["landuse_doc", "ipwmp_doc", "water_doc"],
+)
+
+# tags for the existing pre-2025 policy stories
+S["landuse_policy"]["tag"] = "Policy · Sirmata 2040 LUDIP (2021)"
+S["sirmata"]["tag"] = "Plan · Sirmata 2040 LUDIP (2021), a 20-year plan"
+S["kpnp"]["tag"] = "Continuing role · appointment of 29 March 2023"
+S["plastic"]["tag"] = "Policies · 2009, 2015, 2016, 2022 and 2023, with 2024 and 2025 actions"
+S["hazardous"]["tag"] = "Policy · Integrated Pollution and Waste Management Program (revised 2020)"
+S["rec"]["tag"] = "2025"
+S["water"]["tag"] = "2025"
+
+# Indicator 15.2.6 has no 2025 programme; it is a draft built from the continuing items only.
+DRAFT_NOTE = ("DRAFT. No 2025 community training on sustainable land management for tourism was found. The items below are "
+              "existing sites and roles that support the question; submit them only if the Extension Directorate confirms a "
+              "community programme (audience, dates, free access).")
+
+_cont = {
+    "15.2.1": ["planting_continues"],
+    "15.2.3": ["nbs_launch", "bambusetum_2026", "hub"],
+    "15.3.5": ["nbs_launch", "kpnp"],
+    "15.4.1": ["water_policy"],
+    "15.4.2": ["plastic"],
+}
+for d in DOCS:
+    d["continuing"] = _cont.get(d["code"], [])
+
+def _find(code):
+    return next(i for i, d in enumerate(DOCS) if d["code"] == code)
+
+DOCS.insert(_find("15.2.3") + 0, dict(
+    code="15.2.6", file="DRAFT_SDG15_15.2.6_Sustainable_land_management_for_tourism", draft=True,
+    title="Sustainable management of land for tourism (educational outreach)",
+    question="Offer educational programme/outreach for local or national communities on sustainable management of land for tourism.",
+    stories=[], continuing=["hub", "kpnp"], note=DRAFT_NOTE))
+DOCS.sort(key=lambda d: tuple(int(x) for x in d["code"].split(".")))
+DOCS.append(dict(
+    code="15.3.1", file="SDG15_15.3.1_Policy_on_sustainable_use_of_land",
+    title="Sustainable use, conservation and restoration of land (policy)",
+    question="Have a policy to ensure the conservation, restoration and sustainable use of terrestrial ecosystems associated with the university, in particular forests, mountains and drylands.",
+    stories=[], continuing=["landuse_policy"]))
+DOCS.append(dict(
+    code="15.3.3", file="SDG15_15.3.3_Local_biodiversity_in_planning",
+    title="Local biodiversity included in planning and development",
+    question="Include local biodiversity into any planning and development process (e.g. construction of new buildings).",
+    stories=[], continuing=["sirmata"]))
+DOCS.append(dict(
+    code="15.4.3", file="SDG15_15.4.3_Policy_on_hazardous_waste_disposal",
+    title="Policy on hazardous waste disposal",
+    question="Have a policy, process or practice on waste disposal covering hazardous materials.",
+    stories=[], continuing=["hazardous"]))
+DOCS.sort(key=lambda d: tuple(int(x) for x in d["code"].split(".")))
+ANNEX = []   # the pre-2025 policies now sit in the indicator documents under "Continuing implementation"
+
+
+def all_story_keys(d):
+    return list(d["stories"]) + list(d.get("continuing", []))
+
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""
@@ -719,8 +848,27 @@ def sources_html(keys):
 def story_html(key):
     s = S[key]
     paras = "".join(f"<p>{esc(p)}</p>" for p in s["paras"])
-    return (f'<section class="story"><div class="shead"><h2>{esc(s["title"])}</h2>{photo_html(s["photos"])}</div>'
+    tag = f'<div class="tag">{esc(s["tag"])}</div>' if s.get("tag") and s["tag"] != "2025" else ""
+    return (f'<section class="story"><div class="shead"><h2>{esc(s["title"])}</h2>{tag}{photo_html(s["photos"])}</div>'
             f'{paras}{sources_html(s["sources"])}</section>')
+
+
+CONT_NOTE = ("Policies and programmes that began before 2025 and continue to be implemented, with 2024 and 2026 activities that show "
+             "the programme is ongoing. THE accepts policies that are already in place.")
+
+
+def stories_html(d):
+    """2025 evidence first, then the continuing-implementation items."""
+    out = ""
+    if d["stories"] and d.get("continuing"):
+        out += '<h3 class="era">Evidence from 2025</h3>'
+    out += "".join(story_html(k) for k in d["stories"])
+    if d.get("continuing"):
+        if not d["stories"]:
+            out += '<p class="none">No 2025 item was found for this indicator. The material below predates 2025 and, as far as the public record shows, is still in place.</p>'
+        out += f'<h3 class="era">Continuing implementation</h3><p class="eranote">{esc(CONT_NOTE)}</p>'
+        out += "".join(story_html(k) for k in d["continuing"])
+    return out
 
 
 SDG_TILE = """<div class="tile"><div class="tnum">15</div><div class="tlab">LIFE<br>ON LAND</div>
@@ -778,6 +926,10 @@ table.idx { width:100%; border-collapse:collapse; font-size:9pt; margin:10px 0 1
 table.idx th, table.idx td { border-bottom:1px solid #d5e6cf; padding:6px 6px; text-align:left; vertical-align:top; }
 table.idx th { font-family:'Montserrat',sans-serif; color:var(--gd); }
 .secthead { break-before:page; }
+.tag { text-align:center; font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.6pt; color:var(--gd); background:#e7f3e2; border-radius:20px; padding:3px 12px; margin:-6px auto 12px; width:fit-content; max-width:100%; }
+h3.era { font-family:'Montserrat',sans-serif; font-weight:800; color:var(--gd); font-size:12.5pt; border-bottom:3px solid var(--gl); padding-bottom:3px; margin:22px 0 6px; break-after:avoid; }
+.eranote, .none { font-size:9.2pt; color:var(--mut); font-style:italic; text-align:left; }
+.draft { border:2px dashed #b45309; background:#fff7ed; color:#7c2d12; font-size:9.2pt; padding:8px 12px; margin:0 0 14px; }
 """
 
 
@@ -791,27 +943,31 @@ def page_shell(title, body):
 def header_html(doc):
     return (f'<header class="top">{SDG_TILE}<div class="commit"><h3>MMSU’s Commitment</h3><p>{esc(COMMITMENT)}</p></div></header>'
             f'<div class="meta"><div class="code">SDG {esc(doc["code"])} · {esc(doc["title"])}</div>'
-            f'<div class="q">{esc(doc["question"])}</div><div>{EVIDENCE_YEAR}</div></div>')
+            f'<div class="q">{esc(doc["question"])}</div><div>{EVIDENCE_YEAR}</div></div>'
+            + (f'<div class="draft">{esc(doc["note"])}</div>' if doc.get("note") else ""))
 
 
 def build_doc(doc):
-    body = header_html(doc) + "".join(story_html(k) for k in doc["stories"])
+    body = header_html(doc) + stories_html(doc)
     return page_shell(f'MMSU SDG {doc["code"]}', body)
 
 
 def build_compendium():
     rows = "".join(
         f'<tr><td><b>{esc(d["code"])}</b></td><td>{esc(d["title"])}</td><td>'
-        + "<br>".join(esc(S[k]["title"]) for k in d["stories"]) + "</td></tr>"
+        + "<br>".join(esc(S[k]["title"]) for k in d["stories"])
+        + ("<br><i>Continuing:</i> " + "<br>".join(esc(S[k]["title"]) for k in d["continuing"]) if d.get("continuing") else "")
+        + "</td></tr>"
         for d in DOCS + ([SUPPORTING] if SUPPORTING else []))
     cover = (f'<div class="cover">{SDG_TILE}<div class="big">SDG 15 Life on Land<br>Evidence Compendium 2025</div>'
              f'<div class="sub">Mariano Marcos State University · THE Sustainability Impact Ratings 2027</div>'
              f'<div class="note">Compiled from MMSU, DOST-PCAARRD and news sources for the 2027 data submission '
-             f'(due 9 November 2026). Each section corresponds to one THE SDG 15 indicator. Evidence year: 2025.</div></div>')
+             f'(due 9 November 2026). Each section corresponds to one THE SDG 15 indicator: 2025 evidence first, then policies and programmes '
+             f'that continue from earlier years and into 2026.</div></div>')
     index = f'<h2 style="font-family:Montserrat;color:#0b4a16;">Contents by indicator</h2><table class="idx"><tr><th>Indicator</th><th>Question</th><th>Evidence</th></tr>{rows}</table>'
     sections = ""
     for d in DOCS + ([SUPPORTING] if SUPPORTING else []):
-        sections += f'<div class="secthead">{header_html(d)}</div>' + "".join(story_html(k) for k in d["stories"])
+        sections += f'<div class="secthead">{header_html(d)}</div>' + stories_html(d)
     return page_shell("MMSU SDG 15 Evidence Compendium 2025", cover + index + sections)
 
 
@@ -844,14 +1000,15 @@ def main():
                   'compilation retains only 2025 accomplishments.</div></div>')
     for d in ANNEX:
         annex_body += f'<div class="secthead">{header_html(d)}</div>' + "".join(story_html(k) for k in d["stories"])
-    jobs.append(("ANNEX_SDG15_Policies_before_2025", page_shell("Annex: MMSU SDG 15 policies before 2025", annex_body)))
+    if ANNEX:
+        jobs.append(("ANNEX_SDG15_Policies_before_2025", page_shell("Annex: MMSU SDG 15 policies before 2025", annex_body)))
     for name, page in jobs:
         hp = os.path.join(HERE, "html", name + ".html")
         open(hp, "w", encoding="utf-8").write(page)
         if "--html-only" not in sys.argv:
             render_pdf(hp, os.path.join(HERE, "pdf", name + ".pdf"))
         print("built", name)
-    missing = sorted({p for d in DOCS for k in d["stories"] for p in S[k]["photos"]
+    missing = sorted({p for d in DOCS for k in all_story_keys(d) for p in S[k]["photos"]
                       if not os.path.exists(os.path.join(ASSETS, p))})
     if missing:
         print("photos still to add:", ", ".join(missing))

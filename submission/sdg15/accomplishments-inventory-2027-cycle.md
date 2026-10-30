@@ -252,3 +252,12 @@ Removed from the main documents (not 2025): Sirmata 2040 policies (2021), IPWMP 
 No Bottled Water memoranda (2022, 2023), CAFSD bottled-water ban (Oct 2024), KPNP TWG (2023),
 MMSU–DENR MOU (Oct 2024), 2024 launch photos. They are kept in
 `evidence-docs/pdf/ANNEX_SDG15_Policies_before_2025.pdf` for reference.
+
+## Sweep 7 (2026-10-30): continuing implementation
+
+Following the comparison with VSU, the evidence documents now list 2025 items first and, for each indicator,
+a "Continuing implementation" section: pre-2025 policies still in place (Sirmata 2040 land use and water policies, IPWMP,
+No Bottled Water memoranda, KPNP appointment), the mangrove NbS project (Jun 2024 launch, runs to Apr 2026), the
+graduation tree planting (9 Jul 2024, 2 Jul 2025, 1 Jun 2026; RA 10800), the Dingras bambusetum (30 Sep 2026)
+and the Biodiversity Conservation Learning Center planting (13 Jan 2023). 15.2.6 is a draft; 15.2.2 has no section
+because THE asks for a policy and none was found. The annex PDF was removed.
