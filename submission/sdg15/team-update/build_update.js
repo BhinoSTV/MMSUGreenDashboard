@@ -118,8 +118,56 @@ function card(slide, x, y, w, h, name, fill) {
   });
   s.addNotes("Seven indicators have dated 2025 evidence. Three more (15.3.1, 15.3.3, 15.4.3) are covered only by policies adopted before 2025. 15.2.6 is a draft because no 2025 community programme on land management for tourism was found. 15.2.2, 15.3.2 and 15.3.4 have nothing yet.");
 
+  // ---- Method (2 slides)
+  pres.addSection({ title: "Method" });
+  s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Method" });
+  s.addText("How we built the evidence package", { placeholder: "title" });
+  const steps5 = [
+    ["Read the rules", "THE's SDG 15 questions (14 evidence items, 48 points) and its evidence rules: one self-contained document per indicator; links are not followed."],
+    ["Search public sources", "Seven sweeps of MMSU's news archive (all 425 articles from 2025 read in full), SDG pages, Extension and Research sites, DOST-PCAARRD and news outlets."],
+    ["Benchmark peers", "VSU (all 14 evidence PDFs), Caraga State, Eastern Visayas State and Manchester: what each submits per indicator."],
+    ["Date, tag and map", "Each item dated, tagged verified, summary or inferred, and mapped to one indicator. 2025 first; older policies kept as continuing."],
+    ["Build and flag", "One PDF per indicator in the 2025 report style, a Word compendium, photos from the original MMSU articles, and a checklist of facts to confirm."],
+  ];
+  steps5.forEach((st, i) => {
+    const w = 2.3, x = 0.6 + i * (w + 0.15);
+    card(s, x, 1.6, w, 4.3, "Method card " + st[0]);
+    s.addShape(pres.ShapeType.ellipse, { x: x + 0.2, y: 1.8, w: 0.7, h: 0.7, fill: { color: C.accent1 }, line: { color: C.accent1, width: 0 }, objectName: "Step number " + (i + 1) });
+    txt(s, String(i + 1), { x: x + 0.2, y: 1.8, w: 0.7, h: 0.7, fontSize: 26, bold: true, color: C.background1, align: "center", valign: "middle", fontFace: "+mj-lt" });
+    txt(s, st[0], { x: x + 0.2, y: 2.7, w: w - 0.4, h: 0.8, fontSize: 19, bold: true, color: C.text2 });
+    txt(s, st[1], { x: x + 0.2, y: 3.5, w: w - 0.4, h: 2.3, fontSize: 14, color: C.text1 });
+  });
+  card(s, 0.6, 6.1, 12.1, 0.7, "Principle card", C.text2);
+  txt(s, [{ text: "Principle: ", options: { bold: true, color: C.accent6 } }, { text: "state only what a cited source says, and mark a gap instead of filling it." }], { x: 0.9, y: 6.15, w: 11.5, h: 0.6, fontSize: 17, color: C.background1, valign: "middle" });
+  s.addNotes("Step 2 started as a search for anything public. Step 4 is where the 2025 filter was applied, and later relaxed to add continuing implementation after the VSU comparison. Draft policies for adoption were written but marked not valid until approved. We did not present a practice as a policy: that is why 15.2.2 has no section.");
+
+  s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Method" });
+  s.addText("What the method assumes and cannot tell us", { placeholder: "title" });
+  const colX2 = [0.6, 6.85], colW2 = 5.85;
+  [["Assumptions", I.layer, C.accent4, [
+    ["Data year", "Calendar 2025, because THE has not confirmed it. 2024 and 2026 items appear as continuing."],
+    ["Policies", "Older policies are still in force and inside THE's review window."],
+    ["Scoring", "A policy earns points for existing, having evidence, being public and being reviewed in the window."],
+  ]], ["Limits", I.warn, C.accent3, [
+    ["Sources", "Public only. Nothing is checked against internal records yet."],
+    ["Access", "MMSU's site often failed, so pages were captured in a browser. Facebook posts behind a login could not be read."],
+    ["Peers", "VSU's files show a pattern, not what earned its rank."],
+    ["Dates", "A few are inferred and marked so in the inventory."],
+  ]]].forEach((col, ci) => {
+    const x = colX2[ci];
+    card(s, x, 1.55, colW2, 5.2, col[0] + " card");
+    badge(s, col[1], x + 0.3, 1.8, 0.7, col[0], col[2]);
+    txt(s, col[0], { x: x + 1.2, y: 1.85, w: 3.5, h: 0.6, fontSize: 26, bold: true, color: C.text2, valign: "middle", fontFace: "+mj-lt" });
+    col[3].forEach((r, i) => {
+      const y = 2.7 + i * 1.0;
+      txt(s, r[0], { x: x + 0.3, y, w: 1.5, h: 0.4, fontSize: 17, bold: true, color: col[2] });
+      txt(s, r[1], { x: x + 1.85, y, w: colW2 - 2.15, h: 0.95, fontSize: 15, color: C.text1 });
+    });
+  });
+  s.addNotes("These are the same caveats as in the checklist. The biggest are the unconfirmed data year and the fact that we have only seen what is public.");
+
   // ---- 3. What the package contains
-  s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Status" });
+  s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Method" });
   s.addText("The package lists 2025 first, then what continues", { placeholder: "title" });
   card(s, 0.6, 1.65, 5.7, 1.9, "Tier 1 card", C.accent1);
   txt(s, "1  Evidence from 2025", { x: 0.9, y: 1.85, w: 5.1, h: 0.5, fontSize: 24, bold: true, color: C.background1, fontFace: "+mj-lt" });
