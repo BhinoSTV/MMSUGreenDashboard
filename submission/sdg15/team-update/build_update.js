@@ -124,7 +124,7 @@ function card(slide, x, y, w, h, name, fill) {
   s.addText("How we built the evidence package", { placeholder: "title" });
   const steps5 = [
     ["Read the rules", "THE's SDG 15 questions (14 evidence items, 48 points) and its evidence rules: one self-contained document per indicator; links are not followed."],
-    ["Search public sources", "Seven sweeps of MMSU's news archive (all 425 articles from 2025 read in full), SDG pages, Extension and Research sites, DOST-PCAARRD and news outlets."],
+    ["Search public sources", "Eight sweeps: MMSU's news archive (all 425 articles from 2025 read in full), SDG pages, the focal person's mailbox (memos, special orders), DOST-PCAARRD and news outlets."],
     ["Benchmark peers", "VSU (all 14 evidence PDFs), Caraga State, Eastern Visayas State and Manchester: what each submits per indicator."],
     ["Date, tag and map", "Each item dated, tagged verified, summary or inferred, and mapped to one indicator. 2025 first; older policies kept as continuing."],
     ["Build and flag", "One PDF per indicator in the 2025 report style, a Word compendium, photos from the original MMSU articles, and a checklist of facts to confirm."],
@@ -150,7 +150,7 @@ function card(slide, x, y, w, h, name, fill) {
     ["Scoring", "A policy earns points for existing, having evidence, being public and being reviewed in the window."],
   ]], ["Limits", I.warn, C.accent3, [
     ["Sources", "Public only. Nothing is checked against internal records yet."],
-    ["Access", "MMSU's site often failed, so pages were captured in a browser. Facebook posts behind a login could not be read."],
+    ["Access", "MMSU's site often failed, so pages were captured in a browser. Facebook is behind a login and still has to be searched by a team member."],
     ["Peers", "VSU's files show a pattern, not what earned its rank."],
     ["Dates", "A few are inferred and marked so in the inventory."],
   ]]].forEach((col, ci) => {
@@ -242,7 +242,7 @@ function card(slide, x, y, w, h, name, fill) {
     [cell("15.3.3", { bold: true }), cell("Sirmata 2040: protected land and forest reserve kept no-build"), cell("2021")],
     [cell("15.4.1", { bold: true }), cell("Water policy against pollution; groundwater monitoring of 17 farm wells"), cell("2021; to June 2025")],
     [cell("15.4.2", { bold: true }), cell("Styrofoam and plastic rules; No Bottled Water memoranda"), cell("2009 to 2023")],
-    [cell("15.4.3", { bold: true }), cell("Hazardous waste storage and disposal under the IPWMP"), cell("Revised 2020")],
+    [cell("15.4.3", { bold: true }), cell("Hazardous waste under the IPWMP; PCB procedure under the new compliance program"), cell("2020; Sep 2026")],
     [cell("15.2.1", { bold: true }), cell("Graduation tree planting by CAFSD classes"), cell("2024, 2025, 2026")],
     [cell("15.2.3", { bold: true }), cell("Mangrove nature-based solutions project, Badoc and Currimao"), cell("Jun 2024 to Apr 2026")],
   ];
@@ -307,7 +307,7 @@ function card(slide, x, y, w, h, name, fill) {
     [cell("2", { bold: true }), cell("Screenshot the three Facebook posts; find the 2024 and 2025 bottled-water reiterations and council minutes"), cell("CCIS, BioCircle, University Secretary")],
     [cell("3", { bold: true }), cell("Free-access statements, attendance sheets and the signed Pasuquin agreement"), cell("Extension and Research Directorates")],
     [cell("4", { bold: true }), cell("A 2025 review or reiteration of the land use, water and waste policies"), cell("Planning and General Services")],
-    [cell("5", { bold: true }), cell("A policy or programme for 15.2.2, 15.2.6, 15.3.2 and 15.3.4"), cell("SDG 15 focal persons with CAFSD")],
+    [cell("5", { bold: true }), cell("Search Facebook pages and memos for 15.2.2, 15.2.6, 15.3.2 and 15.3.4; draft a policy if none exists"), cell("SDG 15 focal persons with CAFSD")],
   ];
   s.addTable(arows, { x: 0.6, y: 1.55, w: 12.1, colW: [0.6, 7.4, 4.1], border: { type: "solid", color: "D5E6CF", pt: 0.75 }, fill: { color: C.background1 }, color: C.text1, valign: "middle", margin: [0.06, 0.12, 0.06, 0.12], rowH: [0.55, 0.75, 0.95, 0.9, 0.8, 0.8] });
   txt(s, "Owners are proposals for discussion, not assignments.", { x: 0.6, y: 6.6, w: 12.1, h: 0.35, fontSize: 14, color: C.accent5 });

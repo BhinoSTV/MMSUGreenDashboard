@@ -261,3 +261,10 @@ No Bottled Water memoranda, KPNP appointment), the mangrove NbS project (Jun 202
 graduation tree planting (9 Jul 2024, 2 Jul 2025, 1 Jun 2026; RA 10800), the Dingras bambusetum (30 Sep 2026)
 and the Biodiversity Conservation Learning Center planting (13 Jan 2023). 15.2.6 is a draft; 15.2.2 has no section
 because THE asks for a policy and none was found. The annex PDF was removed.
+
+## Sweep 8 (2026-11-01): focal person mailbox and web
+
+Mailbox (memos, special orders): found OP Memo 26-370 (30 Sep 2026, Environmental Compliance and Pollution Prevention Program
+and PCB equipment procedure) and OP SO 26-257 (29 Jun 2026, Chief for Green Transformation). The 2024 memos 24-075 and 24-088 ask staff to bring
+tumblers. No mailbox record for 15.2.2, 15.2.6, 15.3.2 or 15.3.4. Web: MMSU SDG pages give a local-sourcing statement for food but no dated policy;
+wildlife items are research only (dipterocarp assessments 2012-2023). Facebook posts are login-walled and were not searched.

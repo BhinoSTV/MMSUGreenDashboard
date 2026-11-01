@@ -70,9 +70,21 @@ same filename and rebuilding.
 
 ## 4. Indicators still without evidence
 
-- **15.2.2** (sustainably farmed food) asks for a policy. None was found, and MMSU's practices (vermicast,
-  GAP training, indigenous food plant foodscapes) do not replace one, so no section is included.
-- **15.2.6** (tourism land-management outreach) is a draft (`DRAFT_SDG15_15.2.6_…pdf`): it holds only the
-  Biodiversity Conservation Learning Center and the KPNP role. Find a community programme before submitting.
-- **15.3.2** (IUCN and national-list species policy) and **15.3.4** (alien species policy): nothing found.
-- **15.3.1, 15.3.3, 15.4.3** are covered only by pre-2025 policies (continuing) and have no 2025 item.
+Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebook could not be searched, see below):
+
+- **15.4.3 and 15.4.1** gained **OP Memorandum No. 26-370 (30 Sep 2026)**, which adopts the University Environmental Compliance
+  and Pollution Prevention Program and sets the PCB equipment procedure. Obtain the *full* Environmental Compliance Procedures
+  from the SFT Office: only the PCB procedure was attached, so wastewater discharge standards (15.4.1) are not yet shown.
+- **15.2.2** (sustainably farmed food) asks for a policy. MMSU's SDG page has a "Sustainable Food Purchases" statement (priority to local
+  producers, student practicum and extension clients) but no dated policy, and the Food Services Unit page says nothing on sourcing.
+  Ask the Business Directorate for any sourcing memorandum or concession clause.
+- **15.2.6** (tourism land-management outreach) is a draft (`DRAFT_SDG15_15.2.6_…pdf`): it holds only the Biodiversity Conservation
+  Learning Center and the KPNP role. A February 2026 UP AIT visit named a proposed Batac agritourism trail, which is a plan, not a programme.
+- **15.3.2** (IUCN and national-list species policy): only research was found (dipterocarp resource assessments 2012–2023, a 2003 IUCN-based
+  classification of vanishing Ilocos plants), not a policy. The SDG 15 page lists a tree inventory for Payao and Dingras (Oct–Dec 2023) with no file.
+- **15.3.4** (alien species policy): nothing found.
+- **15.3.1, 15.3.3**: only pre-2025 policies (continuing); no 2025 review found.
+- **Facebook:** posts are behind a login, so they were not searched. Team members with access should check the MMSU, SFT, CAFSD,
+  Extension, CCIS and BioCircle pages for 2025 items on 15.2.2, 15.2.6, 15.3.2 and 15.3.4, and screenshot each post with its date.
+- **Special Order 26-257 (29 Jun 2026)** designates the SDG 15 focal person as Chief for Green Transformation under SFT (to 6 Jul 2028).
+  It shows the office that tracks green initiatives; it does not answer an indicator by itself.

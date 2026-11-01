@@ -794,6 +794,31 @@ def all_story_keys(d):
     return list(d["stories"]) + list(d.get("continuing", []))
 
 
+# ---------------------------------------------------------------- update 2026-11-01: memo found in the focal person's mailbox
+PHOTOS.update({
+    "doc_memo_26-370_p1.jpg": "Document: Office of the President Memorandum No. 26-370, 30 September 2026, adopting the University Environmental Compliance and Pollution Prevention Program.",
+    "doc_pcb_procedure_p2.jpg": "Document: attached procedure for PCB-containing and potentially PCB-containing electrical equipment (purpose, scope and inventory), Memorandum No. 26-370.",
+})
+SRC.update({
+    "memo26370": ("MMSU Office of the President, Memorandum No. 26-370, “Institutionalized PCB-Containing and Potentially PCB-Containing "
+                  "Electrical Equipment Management Procedure,” 30 September 2026", None),
+})
+S["pcb_memo"] = dict(
+    title="Memorandum No. 26-370 Institutionalizes MMSU’s Environmental Compliance and Hazardous Waste Procedures",
+    tag="Continuing implementation · 30 September 2026",
+    photos=["doc_memo_26-370_p1.jpg", "doc_pcb_procedure_p2.jpg"],
+    paras=[
+        "On September 30, 2026, University President Virgilio Julius P. Manzano Jr. issued Memorandum No. 26-370 to all employees, adopting the University Environmental Compliance and Pollution Prevention Program under Republic Act 6969 (Toxic Substances and Hazardous and Nuclear Wastes Control Act), Republic Act 8749 (Clean Air Act), Republic Act 9275 (Clean Water Act), Republic Act 9003 (Ecological Solid Waste Management Act) and Presidential Decree 1586 (Environmental Impact Statement System). The memorandum covers the management of hazardous wastes, wastewater, air emissions, solid wastes and chemicals, together with permits, monitoring, reporting and inspections required by the Department of Environment and Natural Resources – Environmental Management Bureau (DENR-EMB), and directs all offices, colleges, laboratories, research units and auxiliary enterprises to comply with the attached Environmental Compliance Procedures.",
+        "The attached procedure for PCB-containing and potentially PCB-containing electrical equipment, such as transformers, capacitors, voltage regulators, circuit breakers, reclosers and oil-filled switches, requires every unit to inventory its equipment and submit the inventory to the Sustainability and Futures Thinking (SFT) Office. The SFT Office validates the inventory, keeps the university’s central PCB inventory and the DENR-EMB online PCB inventory, ensures labelling, conducts inspections and annual inventory validation, and prepares the reports required by DENR-EMB. No covered equipment may be relocated, transferred, repaired through oil handling, decommissioned, condemned or disposed of without the SFT Office’s written clearance, and PCB wastes and equipment may be disposed of only through DENR-accredited transporters, treaters and disposal facilities. The SFT Office keeps hazardous waste manifests and certificates of treatment or disposal among its records.",
+    ],
+    sources=["memo26370"],
+)
+for _d in DOCS:
+    if _d["code"] == "15.4.3":
+        _d["continuing"] = ["pcb_memo", "hazardous"]
+    if _d["code"] == "15.4.1":
+        _d["continuing"] = ["pcb_memo", "water_policy"]
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""
@@ -865,7 +890,7 @@ def stories_html(d):
     out += "".join(story_html(k) for k in d["stories"])
     if d.get("continuing"):
         if not d["stories"]:
-            out += '<p class="none">No 2025 item was found for this indicator. The material below predates 2025 and, as far as the public record shows, is still in place.</p>'
+            out += '<p class="none">No 2025 item was found for this indicator. The material below is from before 2025 or from 2026 and, as far as the records show, is still in place.</p>'
         out += f'<h3 class="era">Continuing implementation</h3><p class="eranote">{esc(CONT_NOTE)}</p>'
         out += "".join(story_html(k) for k in d["continuing"])
     return out

@@ -159,7 +159,7 @@ function section(doc, first) {
   if (doc.stories.length && cont.length) out.push(eraHead("Evidence from 2025"));
   for (const k of doc.stories) out.push(...story(k));
   if (cont.length) {
-    if (!doc.stories.length) out.push(para(run("No 2025 item was found for this indicator. The material below predates 2025 and, as far as the public record shows, is still in place.", { size: 18, italics: true, color: MUTED }), { spacing: { before: 120 } }));
+    if (!doc.stories.length) out.push(para(run("No 2025 item was found for this indicator. The material below is from before 2025 or from 2026 and, as far as the records show, is still in place.", { size: 18, italics: true, color: MUTED }), { spacing: { before: 120 } }));
     out.push(eraHead("Continuing implementation"));
     out.push(para(run(CONT_NOTE, { size: 17, italics: true, color: MUTED }), { spacing: { after: 80 } }));
     for (const k of cont) out.push(...story(k));

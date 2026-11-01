@@ -180,6 +180,14 @@
   "dingras_bambusetum_2026.jpg": [
    1500,
    1000
+  ],
+  "doc_memo_26-370_p1.jpg": [
+   1020,
+   735
+  ],
+  "doc_pcb_procedure_p2.jpg": [
+   1020,
+   735
   ]
  },
  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation.",
@@ -309,6 +317,7 @@
     "water"
    ],
    "continuing": [
+    "pcb_memo",
     "water_policy"
    ]
   },
@@ -332,6 +341,7 @@
    "question": "Have a policy, process or practice on waste disposal covering hazardous materials.",
    "stories": [],
    "continuing": [
+    "pcb_memo",
     "hazardous"
    ]
   }
@@ -859,6 +869,21 @@
     "ipwmp_doc",
     "water_doc"
    ]
+  },
+  "pcb_memo": {
+   "title": "Memorandum No. 26-370 Institutionalizes MMSU’s Environmental Compliance and Hazardous Waste Procedures",
+   "tag": "Continuing implementation · 30 September 2026",
+   "photos": [
+    "doc_memo_26-370_p1.jpg",
+    "doc_pcb_procedure_p2.jpg"
+   ],
+   "paras": [
+    "On September 30, 2026, University President Virgilio Julius P. Manzano Jr. issued Memorandum No. 26-370 to all employees, adopting the University Environmental Compliance and Pollution Prevention Program under Republic Act 6969 (Toxic Substances and Hazardous and Nuclear Wastes Control Act), Republic Act 8749 (Clean Air Act), Republic Act 9275 (Clean Water Act), Republic Act 9003 (Ecological Solid Waste Management Act) and Presidential Decree 1586 (Environmental Impact Statement System). The memorandum covers the management of hazardous wastes, wastewater, air emissions, solid wastes and chemicals, together with permits, monitoring, reporting and inspections required by the Department of Environment and Natural Resources – Environmental Management Bureau (DENR-EMB), and directs all offices, colleges, laboratories, research units and auxiliary enterprises to comply with the attached Environmental Compliance Procedures.",
+    "The attached procedure for PCB-containing and potentially PCB-containing electrical equipment, such as transformers, capacitors, voltage regulators, circuit breakers, reclosers and oil-filled switches, requires every unit to inventory its equipment and submit the inventory to the Sustainability and Futures Thinking (SFT) Office. The SFT Office validates the inventory, keeps the university’s central PCB inventory and the DENR-EMB online PCB inventory, ensures labelling, conducts inspections and annual inventory validation, and prepares the reports required by DENR-EMB. No covered equipment may be relocated, transferred, repaired through oil handling, decommissioned, condemned or disposed of without the SFT Office’s written clearance, and PCB wastes and equipment may be disposed of only through DENR-accredited transporters, treaters and disposal facilities. The SFT Office keeps hazardous waste manifests and certificates of treatment or disposal among its records."
+   ],
+   "sources": [
+    "memo26370"
+   ]
   }
  },
  "photos": {
@@ -907,7 +932,9 @@
   "cleanup_2025.jpg": "MMSU Advocates for Cultural Development clean-up drive on campus, 24 October 2025. (Photo: MMSU)",
   "mangrove_seminar_field_2025.jpg": "Mangrove site, from the gallery of the October 2025 seminar-workshop of the NbS mangrove project. (Photo: MMSU)",
   "forest_planting_2026.jpg": "CAFSD Graduating Class 2026 enrichment planting at the MMSU Forest Reserve, Payao, 1 June 2026. (Photo: MMSU STRATCOM)",
-  "dingras_bambusetum_2026.jpg": "Launch of the bambusetum at the MMSU Dingras Campus, 30 September 2026. (Photo: MMSU STRATCOM)"
+  "dingras_bambusetum_2026.jpg": "Launch of the bambusetum at the MMSU Dingras Campus, 30 September 2026. (Photo: MMSU STRATCOM)",
+  "doc_memo_26-370_p1.jpg": "Document: Office of the President Memorandum No. 26-370, 30 September 2026, adopting the University Environmental Compliance and Pollution Prevention Program.",
+  "doc_pcb_procedure_p2.jpg": "Document: attached procedure for PCB-containing and potentially PCB-containing electrical equipment (purpose, scope and inventory), Memorandum No. 26-370."
  },
  "photo_source": {
   "forest_reserve_planting_2025.jpg": "MMSU News, 4 Jul 2025 (article 2468) or MMSU Public Affairs / CAFSD files",
@@ -1083,6 +1110,10 @@
   "healthhub": {
    "label": "MMSU News, “More trees planted at MMSU to establish ‘health tourism’ hub,” 13 January 2023",
    "url": "https://www.mmsu.edu.ph/news/more-trees-planted-at-mmsu-to-establish-health-tourism-hub"
+  },
+  "memo26370": {
+   "label": "MMSU Office of the President, Memorandum No. 26-370, “Institutionalized PCB-Containing and Potentially PCB-Containing Electrical Equipment Management Procedure,” 30 September 2026",
+   "url": null
   }
  }
 }
