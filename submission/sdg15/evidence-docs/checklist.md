@@ -90,3 +90,12 @@ Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebo
   Extension, CCIS and BioCircle pages for 2025 items on 15.2.2, 15.2.6, 15.3.2 and 15.3.4, and screenshot each post with its date.
 - **Special Order 26-257 (29 Jun 2026)** designates the SDG 15 focal person as Chief for Green Transformation under SFT (to 6 Jul 2028).
   It shows the office that tracks green initiatives; it does not answer an indicator by itself.
+
+## 5. Links supplied by the SDG 15 team (4 November 2026)
+
+| Link | What it is | Placed under |
+|---|---|---|
+| research.mmsu.edu.ph: RD personnel greenhouse operations training (13 May 2025) | Training of 18 MMSU researchers and farm workers on a new greenhouse | Not used: internal staff training, not community outreach on land. Better for SDG 2 or SDG 9 |
+| Facebook: MMSU, Extension Directorate, Agriculture Currimao and Office of the CHED Chairperson posts on the 2025 rice paddy art | Same event as MMSU News of 8 Jul, 22 Aug and 12 Sep 2025 | **15.2.6** (2025 evidence), cited through the MMSU articles; keep the Facebook screenshots on file |
+| extension.mmsu.edu.ph: “Parambak” caps MMSU@47 (14 Feb 2025) | Extension technology showcase with 37 exhibitors, farmer scientists and LGUs | **15.2.5** (2025 evidence); could also support 15.2.1 |
+| Facebook: Menisa Antonio post thanking Leilanie Gaspar Adriano for awareness of indigenous species | Could not be read (login); no public match found | Pending. Possible 15.2.4 if it is a 2025 public awareness activity on wild or indigenous species; send a screenshot with the date |

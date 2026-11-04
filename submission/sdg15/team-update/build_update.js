@@ -105,7 +105,7 @@ function card(slide, x, y, w, h, name, fill) {
   const rows = [
     ["7", "2025 evidence", "15.2.1, 15.2.3, 15.2.4, 15.2.5, 15.3.5, 15.4.1, 15.4.2", HEX.green],
     ["3", "Pre-2025 policy only", "15.3.1, 15.3.3, 15.4.3", HEX.moss],
-    ["1", "Draft only", "15.2.6: no 2025 programme found", HEX.gold],
+    ["1", "Draft only", "15.2.6: 2025 paddy art; no structured training yet", HEX.gold],
     ["3", "No evidence yet", "15.2.2, 15.3.2, 15.3.4", HEX.amber],
   ];
   rows.forEach((r, i) => {
@@ -116,7 +116,7 @@ function card(slide, x, y, w, h, name, fill) {
     txt(s, r[1], { x: 7.45, y: y + 0.15, w: 5.1, h: 0.4, fontSize: 20, bold: true, color: C.text2 });
     txt(s, r[2], { x: 7.45, y: y + 0.58, w: 5.1, h: 0.45, fontSize: 14, color: C.accent5 });
   });
-  s.addNotes("Seven indicators have dated 2025 evidence. Three more (15.3.1, 15.3.3, 15.4.3) are covered only by policies adopted before 2025. 15.2.6 is a draft because no 2025 community programme on land management for tourism was found. 15.2.2, 15.3.2 and 15.3.4 have nothing yet.");
+  s.addNotes("Seven indicators have dated 2025 evidence. Three more (15.3.1, 15.3.3, 15.4.3) are covered only by policies adopted before 2025. 15.2.6 is a draft: its 2025 evidence is the rice paddy art, a farm-tourism attraction with student guides, but there is no structured community training. 15.2.2, 15.3.2 and 15.3.4 have nothing yet.");
 
   // ---- Method (2 slides)
   pres.addSection({ title: "Method" });
@@ -276,7 +276,7 @@ function card(slide, x, y, w, h, name, fill) {
   const colX = [0.6, 6.85], colW = 5.85;
   [["Gaps", I.search, C.accent3, [
     ["15.2.2", "Needs a policy on sustainably farmed campus food. Our farm practices do not replace it."],
-    ["15.2.6", "Only a planned project: TALON farm tourism, approved January 2026. No community programme yet."],
+    ["15.2.6", "2025 rice paddy art and the TALON project (Jan 2026); no structured community training yet."],
     ["15.3.2", "No threatened-species policy or register."],
     ["15.3.4", "No alien-species policy."],
   ]], ["Risks", I.warn, C.accent4, [

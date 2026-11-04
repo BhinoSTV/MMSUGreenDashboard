@@ -847,6 +847,53 @@ for _d in DOCS:
         _d["continuing"] = ["talon", "hub", "kpnp"]
         _d["note"] = DRAFT_NOTE_2
 
+# ---------------------------------------------------------------- update 2026-11-04: links supplied by the SDG 15 team
+PHOTOS.update({
+    "paddy_art_unveiling_2025.jpg": "Unveiling of the 2025 rice paddy art featuring CHED Chairperson Shirley C. Agrupis and her ACHIEVE agenda, MMSU Extension Demonstration Area, 22 August 2025. (Photo: MMSU STRATCOM)",
+    "paddy_art_transplanting_2025.jpg": "Ceremonial transplanting of the eighth MMSU-PhilRice rice paddy art, Batac campus, 7 July 2025. (Photo: MMSU STRATCOM)",
+    "dingras_paddy_art_2025.jpg": "Rice paddy art featuring Dingras as the Rice Granary of Ilocos Norte, MMSU Dingras Campus, unveiled 9 September 2025. (Photo: MMSU STRATCOM)",
+    "parambak_2025.jpg": "7th Parambak ditoy MMSU, in front of CAFSD, 14 February 2025. (Photo: MMSU STRATCOM)",
+})
+SRC.update({
+    "paddy1": ("MMSU News, “CHED Chairperson Agrupis to be featured in MMSU-PhilRice paddy art,” 8 July 2025",
+               "https://www.mmsu.edu.ph/article/news/2472/ched-chairperson-agrupis-to-be-featured-in-mmsu-philrice-paddy-art"),
+    "paddy2": ("MMSU News, “2025 Rice Paddy art features CHED Chair Agrupis,” 22 August 2025",
+               "https://www.mmsu.edu.ph/article/news/2527/2025-rice-paddy-art-features-ched-chair-agrupis"),
+    "paddy3": ("MMSU News, “Dingras campus launches rice paddy art,” 12 September 2025",
+               "https://www.mmsu.edu.ph/article/news/2560/dingras-campus-launches-rice-paddy-art"),
+    "parambak": ("MMSU Extension Directorate, “‘Parambak’ caps MMSU@47 celebration,” February 2025",
+                 "https://extension.mmsu.edu.ph/news/show/368/parambak-caps-mmsu-at-47-celebration"),
+})
+S["paddy_art_2025"] = dict(
+    title="Rice Paddy Art Brings Visitors to MMSU’s Farm-Tourism Demonstration Fields",
+    tag="2025",
+    photos=["paddy_art_unveiling_2025.jpg", "dingras_paddy_art_2025.jpg"],
+    paras=[
+        "In partnership with the Department of Agriculture–Philippine Rice Research Institute (DA-PhilRice), Mariano Marcos State University held the ceremonial transplanting of its eighth annual rice paddy art on July 7, 2025, at the Extension Demonstration Area near the Twin Gate of the Batac campus, and unveiled it on August 22, 2025. The design, featuring CHED Chairperson Shirley C. Agrupis and her ACHIEVE agenda, was realized with the PalayCheck System, the Carrageenan Plant Growth Regulator, and two rice varieties, purple rice (IR 1552) and green rice (NSIC Rc222). About 50 BS Agriculture students, with MMSU extension and research staff and PhilRice, served as guides and transplanters. MMSU President Virgilio Julius P. Manzano Jr. said the paddy art “attracts visitors, promotes research, and showcases innovation,” and Extension Director Dr. Marilou Lucas described it as a statement of commitment to agri-tourism, research and rice appreciation.",
+        "On September 9, 2025, the MMSU Dingras Campus unveiled its second rice paddy art, featuring Dingras as the Rice Granary of Ilocos Norte, created by MMSU student planters with PhilRice Ilocos Norte and the Local Government Unit of Dingras. Initiated in 2024, the Dingras paddy art is aligned with Republic Act 10816, the Farm Tourism Development Act, and CAFSD Dean Dr. Charlie B. Batin commended it for boosting agro-tourism and enrolment in agriculture programmes.",
+    ],
+    sources=["paddy1", "paddy2", "paddy3"],
+)
+S["parambak_2025"] = dict(
+    title="Parambak ditoy MMSU 2025 Showcases Extension Technologies for Farmers",
+    tag="2025",
+    photos=["parambak_2025.jpg"],
+    paras=[
+        "On February 14, 2025, to close its 47th Foundation Anniversary, MMSU held the 7th Parambak ditoy MMSU in front of the College of Agriculture, Food and Sustainable Development, highlighting the impact of its extension and research programmes on community development and agricultural innovation. Thirty-seven exhibitors took part, including learning sites of the Agricultural Training Institute–Ilocos Region, Magsasaka Siyentista (farmer scientists), Balik-Probinsya beneficiaries and local government units, and the Research Directorate gave a speed talk on MMSU technologies such as off-season tomato and shallot production, Bolinao chicken, indigenous vegetables and black garlic.",
+        "Participants harvested fresh vegetables at the President’s Farm, 17 new partners of the Extension Directorate received certificates of appreciation, and beneficiaries shared how MMSU’s technologies had supported sustainable agriculture. Attendees included the Provincial Government of Ilocos Norte, LGUs, non-government organisations, farmer leaders, entrepreneurs and MMSU-assisted beneficiaries. Incoming President Virgilio Julius P. Manzano Jr. urged the units concerned to sustain sustainable farming practices.",
+    ],
+    sources=["parambak"],
+)
+DRAFT_NOTE_3 = ("DRAFT. The 2025 evidence is MMSU’s rice paddy art, a farm-tourism attraction on university demonstration fields with student "
+                "guides, and the TALON farm tourism project was approved in January 2026. Neither is yet a structured training for communities. "
+                "Add visitor or tour numbers and any briefing given to visitors before submitting.")
+for _d in DOCS:
+    if _d["code"] == "15.2.6":
+        _d["stories"] = ["paddy_art_2025"]
+        _d["note"] = DRAFT_NOTE_3
+    if _d["code"] == "15.2.5" and "parambak_2025" not in _d["stories"]:
+        _d["stories"].insert(1, "parambak_2025")
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""

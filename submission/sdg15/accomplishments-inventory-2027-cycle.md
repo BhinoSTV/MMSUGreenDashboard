@@ -274,3 +274,8 @@ wildlife items are research only (dipterocarp assessments 2012-2023). Facebook p
 Added the TALON farm tourism project (Project 3 under the DOST-PCAARRD and UP-ISSI SciCAT Expansion Program): site visit 15 Jan 2026 at the MMSU Crops Research
 Laboratory, article dated 20 Jan 2026 (https://www.mmsu.edu.ph/article/news/2869/dost-pcaarrd-up-issi-visit-proposed-mmsu-farm-tourism-project-site).
 Approved by the PCAARRD Governing Council; led by Dr. Eva Jean Viernes (CBEA-DTHM). A project plan, so 15.2.6 stays a draft until a community education activity is documented.
+
+## Update (2026-11-04): team-supplied links
+
+Added the 2025 rice paddy art (Batac, 7 Jul and 22 Aug 2025; Dingras, 9 Sep 2025) to 15.2.6 and Parambak ditoy MMSU (14 Feb 2025) to 15.2.5.
+Greenhouse training (13 May 2025) not used for SDG 15. Indigenous-species Facebook post pending a screenshot.
