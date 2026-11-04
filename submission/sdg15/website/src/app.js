@@ -20,6 +20,7 @@
   var byCode = {}; ALL.forEach(function (i) { byCode[i.code] = i; });
   var view = { q: "", type: "All" };
   function hrefSdg(n) { return "#sdg-" + n; }
+  function hrefEntry(code, id) { return "#entry-" + String(code).replace(/\./g, "-") + "-" + id; }
   function hrefInd(code) { return "#ind-" + String(code).replace(/\./g, "-"); }
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -162,6 +163,39 @@
     renderList(code);
   }
 
+  function viewEntry(code, id) {
+    var ind = byCode[code], e = ind && entriesFor(code).filter(function (x) { return x.id === id; })[0];
+    sideSdg(15);
+    main.className = "main with-toc";
+    if (!e) { main.innerHTML = '<div class="empty">Entry not found. <a href="' + hrefInd(code) + '">Back to ' + esc(code) + '</a></div>'; return; }
+    var d = e.detail || {}, url = safeUrl(e.sourceUrl);
+    document.title = e.title + " | MMSU Sustainability";
+    var photos = (d.photos || []).filter(function (p) { return IMG[p.img]; });
+    var related = (d.related || []).map(function (rid) { return entriesFor(code).filter(function (x) { return x.id === rid; })[0]; }).filter(Boolean);
+    var secs = (d.sections || []).map(function (s, k) {
+      var body = "";
+      (s.p || []).forEach(function (t) { body += "<p>" + esc(t) + "</p>"; });
+      if (s.list) body += "<ul>" + s.list.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>";
+      if (s.items) body += s.items.map(function (it) { return '<div class="study"><h4>' + esc(it.title) + "</h4>" + (it.people ? '<div class="meta">' + esc(it.people) + "</div>" : "") + "<p>" + esc(it.text) + "</p></div>"; }).join("");
+      return '<section class="dsec" id="s' + k + '"><h3>' + esc(s.h) + "</h3>" + body + "</section>";
+    }).join("");
+    var srcs = (d.sources && d.sources.length ? d.sources : (url ? [{ label: e.sourceLabel || url, url: url }] : []));
+    var toc = (d.sections || []).map(function (s, k) { return '<li><a href="#" data-scroll="s' + k + '">' + esc(s.h) + "</a></li>"; }).join("");
+    main.innerHTML = '<div class="detail"><div class="crumbs"><a href="#home">Home</a> / <a href="#sdg-15">SDG 15</a> / <a href="' + hrefInd(code) + '">' + esc(code) + "</a> / Entry</div>" +
+      '<div class="dhead" id="top-entry"><div class="tags"><span class="tag">' + esc(e.type) + '</span><span class="tag">' + esc(e.years) + "</span>" +
+      (e.status ? '<span class="tag ' + (/^Verified/.test(e.status) ? "ok" : "warn") + '">' + esc(e.status) + "</span>" : "") + (e.local ? '<span class="tag local">Added locally</span>' : "") + "</div>" +
+      "<h2>" + esc(e.title) + "</h2>" + (e.people ? '<div class="meta">' + esc(e.people) + "</div>" : "") +
+      "<p class=\"lead\">" + esc(d.lead || e.summary || "") + "</p></div>" +
+      (photos.length ? '<div class="gallery">' + photos.map(function (p) { return "<figure><img src=\"" + IMG[p.img] + "\" alt=\"" + esc(p.caption) + "\"><figcaption>" + esc(p.caption) + "</figcaption></figure>"; }).join("") + "</div>" : "") +
+      (d.facts ? '<section class="dsec" id="sf"><h3>Key facts</h3><dl class="facts">' + d.facts.map(function (f) { return "<dt>" + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd>"; }).join("") + "</dl></section>" : (e.summary && d.lead ? '<section class="dsec"><h3>Summary</h3><p>' + esc(e.summary) + "</p></section>" : "")) +
+      secs +
+      (e.note ? '<section class="dsec"><h3>Note</h3><p>' + esc(e.note) + "</p></section>" : "") +
+      (related.length ? '<section class="dsec" id="sr"><h3>Related entries</h3><ul class="rel">' + related.map(function (r) { return '<li><a href="' + (r.detail ? hrefEntry(code, r.id) : hrefInd(code)) + '">' + esc(r.title) + "</a> <span>" + esc(r.years) + " · " + esc(r.type) + "</span></li>"; }).join("") + "</ul></section>" : "") +
+      (srcs.length ? '<section class="dsec" id="ss"><h3>Sources</h3><ul class="srcs">' + srcs.map(function (s) { var u = safeUrl(s.url); return "<li>" + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(s.label) + "</a>" : esc(s.label)) + "</li>"; }).join("") + "</ul></section>" : "") +
+      '<p><a class="btn alt" style="text-decoration:none;display:inline-block" href="' + hrefInd(code) + '">Back to ' + esc(code) + " entries</a></p></div>" +
+      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#" data-scroll="top-entry">Summary</a></li>' + (d.facts ? '<li><a href="#" data-scroll="sf">Key facts</a></li>' : "") + toc + (related.length ? '<li><a href="#" data-scroll="sr">Related entries</a></li>' : "") + (srcs.length ? '<li><a href="#" data-scroll="ss">Sources</a></li>' : "") + "</ul></nav>";
+  }
+
   function renderList(code) {
     var all = entriesFor(code);
     var types = ["All"]; all.forEach(function (e) { if (types.indexOf(e.type) < 0) types.push(e.type); });
@@ -185,15 +219,15 @@
     list.forEach(function (e) {
       var g = groupLabel(e);
       if (g !== last) { html += '<h3 class="yearhead">' + esc(g) + '</h3>'; last = g; }
-      var url = safeUrl(e.sourceUrl);
+      var url = safeUrl(e.sourceUrl), inner = e.detail ? hrefEntry(code, e.id) : "";
       html += '<article class="entry"><div class="yr">' + esc(e.years) + '<small>' + esc(e.type) + '</small></div><div>' +
-        '<h3>' + (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(e.title) + '</a>' : esc(e.title)) + '</h3>' +
+        '<h3>' + (inner ? '<a href="' + inner + '">' + esc(e.title) + '</a>' : url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(e.title) + '</a>' : esc(e.title)) + '</h3>' +
         (e.people ? '<div class="meta">' + esc(e.people) + '</div>' : '') +
         (e.summary ? '<p>' + esc(e.summary) + '</p>' : '') +
         '<div class="tags">' + (e.status ? '<span class="tag ' + (/^Verified/.test(e.status) ? "ok" : "warn") + '">' + esc(e.status) + '</span>' : '') +
         (e.local ? '<span class="tag local">Added locally</span>' : '') +
         (e.note ? '<span class="tag">' + esc(e.note) + '</span>' : '') +
-        (url ? '<span class="src">Source: <a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(e.sourceLabel || url) + '</a></span>' : '') +
+        (inner ? '<a class="more" href="' + inner + '">Read the full entry</a>' : '') + (url ? '<span class="src">Source: <a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(e.sourceLabel || url) + '</a></span>' : '') +
         (e.local ? '<button class="rm" data-id="' + esc(e.id) + '">Remove</button>' : '') + '</div></div></article>';
     });
     host.innerHTML = html;
@@ -266,6 +300,7 @@
     if (timer) { clearInterval(timer); timer = null; }
     var h = (location.hash || "").replace(/^#/, ""), m;
     if ((m = /^sdg-(\d{1,2})$/.exec(h)) && +m[1] >= 1 && +m[1] <= 17) { viewSdg(+m[1]); window.scrollTo(0, 0); return; }
+    if ((m = /^entry-((?:\d+-)+\d+)-([a-z][a-z0-9]*)$/.exec(h))) { viewEntry(m[1].replace(/-/g, "."), m[2]); window.scrollTo(0, 0); return; }
     if ((m = /^ind-(\d+(?:-\d+){1,2})$/.exec(h))) { viewIndicator(m[1].replace(/-/g, ".")); window.scrollTo(0, 0); return; }
     viewHome(); window.scrollTo(0, 0);
   }

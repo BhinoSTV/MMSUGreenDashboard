@@ -129,7 +129,90 @@
     "sourceLabel": "MMSU Research Directorate, 29 August 2025",
     "sourceUrl": "https://research.mmsu.edu.ph/news/details/mmsu-research-on-indigenous-food-plants-wins-best-paper-at-suc-acap-2025-conference",
     "status": "Verified on the source page",
-    "note": "Conference paper; Scopus indexing not checked."
+    "note": "Conference paper; Scopus indexing not checked.",
+    "detail": {
+     "lead": "MMSU's indigenous food plants paper won Best Paper at the 2025 SUC-ACAP conference, ahead of eight other papers in its category.",
+     "photos": [
+      {
+       "img": "ifp",
+       "caption": "Partners receive indigenous food plant planting materials for the Community Foodscapes and Seedbanks, World Food Day 2025. (Photo: MMSU)"
+      },
+      {
+       "img": "alukon",
+       "caption": "Farmers and local officials trained on alukon (himbabao) propagation, Brgy. 11 Sta. Rosa, Sarrat, 2 May 2025. (Photo: MMSU)"
+      }
+     ],
+     "facts": [
+      [
+       "Event",
+       "2025 SUC-ACAP Biennial Conference and General Assembly"
+      ],
+      [
+       "Dates and place",
+       "27 to 29 August 2025, Metro Center Hotel, Tagbilaran City, Bohol"
+      ],
+      [
+       "Category",
+       "Sustainable and smart agri-aquaculture and climate resilience"
+      ],
+      [
+       "Principal author",
+       "Dr. Menisa A. Antonio, senior science research specialist, Research Directorate"
+      ],
+      [
+       "Co-authors",
+       "Ma. Concepcion Birginias, Josefa Pugat, Maingeline Vivit, Ruby Rose Tamayo"
+      ],
+      [
+       "Conference",
+       "Hosted with Bohol Island State University; 42 SUCs took part"
+      ]
+     ],
+     "sections": [
+      {
+       "h": "What the paper covers",
+       "p": [
+        "The paper, \"From wild foods to policy innovation: MMSU's indigenous food plants program as a model for sustainable and inclusive agriculture\", describes the Indigenous Food Plants (IFP) program, which brings together conservation, innovation, policy and education. The program documented IFP species in Ilocos Norte and developed production technologies for crops such as himbabao (alokon), gac (sugodsugod) and latok (kapaskapas).",
+        "Conservation follows a triad of approaches: an IFP Botanical Garden (ex situ), a himbabao genebank at the MMSU Forest Reserve, circa situ cultivation of the wild yams kamangeg and dolian, and the integration of IFPs into community foodscapes. MMSU is also advancing omics-based molecular characterization to support conservation and use.",
+        "The IFP program is the first R&D initiative adopted by the Regional Development Council of Region 1, providing input for policy advocacy."
+       ]
+      },
+      {
+       "h": "Where the work began",
+       "list": [
+        "2003: MMSU researchers surveyed five Ilocos Norte towns for vanishing plants and validated 77 using IUCN criteria.",
+        "2008 to 2010: survey and characterization of indigenous food plants in Ilocos Norte.",
+        "2011: SEARCA Discussion Paper No. 2011-2 documented 46 indigenous food plants from 27 families.",
+        "2019: Best Poster on the phenology of alukon at the Plant Biology Forum, UPLB."
+       ]
+      },
+      {
+       "h": "For the 15.1 record (suggestions)",
+       "list": [
+        "Check whether the conference paper is indexed in Scopus; proceedings are not always indexed.",
+        "If a journal version exists, add it as a separate entry with its DOI."
+       ]
+      }
+     ],
+     "related": [
+      "e11",
+      "e12",
+      "e13",
+      "e07",
+      "e04",
+      "e14"
+     ],
+     "sources": [
+      {
+       "label": "MMSU Research Directorate, 29 August 2025",
+       "url": "https://research.mmsu.edu.ph/news/details/mmsu-research-on-indigenous-food-plants-wins-best-paper-at-suc-acap-2025-conference"
+      },
+      {
+       "label": "Philippine News Agency, Facebook post on the NRCMC botanical garden, 6 June 2026",
+       "url": "https://www.facebook.com/pnagovph/posts/1411199747723142/"
+      }
+     ]
+    }
    },
    {
     "id": "e02",
@@ -291,7 +374,103 @@
     "summary": "MMSU's research hub for the conservation of flora and fauna in the Ilocos Region. It leads R&D on plant genetic resources characterization, conservation of plants, animals and water resources, forest resource conservation and fishery resource management.",
     "sourceLabel": "MMSU Research Directorate, centers",
     "sourceUrl": "https://research.mmsu.edu.ph/centers/nrcmc",
-    "status": "Verified on the source page"
+    "status": "Verified on the source page",
+    "detail": {
+     "lead": "MMSU's research hub for the conservation of flora and fauna in the Ilocos Region, with work on plant genetic resources, forest resources and ecosystem assessment.",
+     "photos": [
+      {
+       "img": "nrcmc",
+       "caption": "Image on the NRCMC page of the MMSU Research Directorate portal."
+      }
+     ],
+     "facts": [
+      [
+       "Type",
+       "Research centre"
+      ],
+      [
+       "Unit",
+       "MMSU Research Directorate"
+      ],
+      [
+       "Center Chief",
+       "Mae Ann R. Batuyong, PhD Biology (Plant Sciences Track)"
+      ],
+      [
+       "Researchers listed",
+       "8, including Menisa A. Antonio (PhD Botany)"
+      ],
+      [
+       "Portal page",
+       "research.mmsu.edu.ph/centers/nrcmc"
+      ]
+     ],
+     "sections": [
+      {
+       "h": "Vision and objective",
+       "p": [
+        "The NRCMC envisions MMSU to become the research, promotion and conservation hub of flora and fauna in the Ilocos Region, working through inter-disciplinary, multi-sectoral and inter-agency collaboration and partnership. It spearheads R&D on plant genetic resources characterization, conservation of plants, animals and water resources, forest resource conservation and fishery resource management.",
+        "Its stated objective is to sustain natural resource health and services, and to establish in situ and ex situ conservation activities for Ilocos flora and fauna."
+       ]
+      },
+      {
+       "h": "Research areas on land ecosystems",
+       "list": [
+        "Plant and animal genetic resources characterization, utilization and management",
+        "Conservation of flora and fauna and water resources",
+        "Forest resource and ecosystem assessment and conservation",
+        "Policy studies for ecosystem services",
+        "Culture protocol and mass propagation of wild mushroom"
+       ]
+      },
+      {
+       "h": "Studies listed on the centre page",
+       "items": [
+        {
+         "title": "Phenological Assessment of Selected Indigenous Timber Species in Ilocos Norte",
+         "people": "Charito Samsam, Joselito Rosario, Sergia Garma, Roseller Ayson",
+         "text": "Develops a seed calendar for planting-stock production in rehabilitating denuded areas. Suggested collection windows: D. dao August to September, V. parviflora September to October, S. supa May to June, I. bijuga October to November, and A. thurifera April to May."
+        },
+        {
+         "title": "Evaluation of Suitable Indigenous Timber Species in Different Site Conditions",
+         "people": "Charito Samsam, Joselito Rosario, Sergia Garma, Roseller Ayson, Bonne Jovi Orteza",
+         "text": "Identifies promising species for rehabilitating denuded hilly areas in Ilocos Norte. Non-dipterocarps such as V. parviflora, W. pubescens, I. bijuga, S. supa and D. dao are recommended for open and degraded areas; dipterocarps such as H. plagata, A. thurifera and S. guiso are promising but need a compatible species mixture in early growth."
+        },
+        {
+         "title": "Fertilizer Management of Different Indigenous Timber Species Under Semi-Arid Hilly Area Condition",
+         "people": "Charito Samsam, Joselito Rosario, Sergia Garma, Roseller Ayson, Bonne Jovi Orteza",
+         "text": "Finds that 50 g of 14-14-14 plus 300 g of organic fertilizer was enough to improve the growth, biomass, vigor and survival of newly planted indigenous timber species on nutrient-poor hilly land."
+        },
+        {
+         "title": "Development of Propagation Management Technology for the Wild Vegetable Alokon (Broussonetia luzonica)",
+         "people": "Maria Concepcion B. Birginias, Menisa A. Antonio, Josefa L. Pugat",
+         "text": "Works out how to propagate alokon by stem cuttings, for domestication and for establishing duplicate mother trees at MMSU. Hormex as rooting hormone and 40 cm cuttings gave the highest survival."
+        }
+       ]
+      },
+      {
+       "h": "For the 15.1 record (suggestions)",
+       "list": [
+        "Ask the centre for its Scopus-indexed outputs on land topics, 2021 to 2025.",
+        "Check that each researcher's Scopus profile lists Mariano Marcos State University as the affiliation.",
+        "Add any 2025 paper or project as its own entry."
+       ]
+      }
+     ],
+     "related": [
+      "e08",
+      "e06",
+      "e09",
+      "e07",
+      "e01"
+     ],
+     "sources": [
+      {
+       "label": "MMSU Research Directorate, Natural Resources Conservation & Management Center",
+       "url": "https://research.mmsu.edu.ph/centers/nrcmc"
+      }
+     ]
+    }
    }
   ]
  }

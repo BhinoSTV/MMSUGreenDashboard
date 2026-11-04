@@ -28,6 +28,11 @@ const b64 = (buf, mime) => `data:${mime};base64,${buf.toString("base64")}`;
     img[k] = b64(await sharp(path.join(ASSETS, f)).resize(1010, 450, { fit: "cover", position: "centre" }).jpeg({ quality: 76 }).toBuffer(), "image/jpeg");
   }
 
+  const photos = { nrcmc: path.join(SRC, "photos", "nrcmc.jpg"), ifp: path.join(ASSETS, "ifp_foodscape.jpg"), alukon: path.join(ASSETS, "alukon_training_2025.jpg") };
+  for (const [k, f] of Object.entries(photos)) {
+    img[k] = b64(await sharp(f).resize(900, 600, { fit: "cover", position: "centre" }).jpeg({ quality: 74 }).toBuffer(), "image/jpeg");
+  }
+
   const iconSet = [fa.FaUsers, fa.FaUtensils, fa.FaHeartbeat, fa.FaBookOpen, fa.FaVenusMars, fa.FaTint, fa.FaSun, fa.FaChartLine, fa.FaIndustry,
     fa.FaEquals, fa.FaCity, fa.FaRecycle, fa.FaGlobeAsia, fa.FaFish, fa.FaTree, fa.FaBalanceScale, fa.FaHandshake];
   const icons = {};
