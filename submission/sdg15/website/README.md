@@ -27,3 +27,7 @@ optional `note`.
   in THE's 2027 methodology.
 * Top-bar, main-menu and footer links open mmsu.edu.ph. Search and the chat buttons from the
   live site are not part of the pilot.
+
+## Hosted copy
+
+`artifact.html` is the same page as a fragment for the claude.ai artifact host (hash routes `#sdg-15`, `#ind-15-1`; the entry export is a copyable text box because the host blocks downloads). Rebuild both files with `node build_site.js`. `index.html` is the standalone version for any static host, such as GitHub Pages or MMSU web hosting.

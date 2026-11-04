@@ -19,6 +19,8 @@
   var ALL = []; D.metrics.forEach(function (m) { m.indicators.forEach(function (i) { i.metric = m; ALL.push(i); }); });
   var byCode = {}; ALL.forEach(function (i) { byCode[i.code] = i; });
   var view = { q: "", type: "All" };
+  function hrefSdg(n) { return "#sdg-" + n; }
+  function hrefInd(code) { return "#ind-" + String(code).replace(/\./g, "-"); }
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
@@ -42,7 +44,7 @@
     '<li><a href="https://www.mmsu.edu.ph" target="_blank" rel="noopener">Citizen\'s Charter</a></li></ul>' +
     '<span style="display:flex;align-items:center;gap:14px"><span class="clock" id="clock"></span>' +
     '<button class="search" aria-label="Search (not active in the pilot)" title="Search (not active in the pilot)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button></span></div></div>' +
-    '<header class="ident"><a href="#/"><img src="' + IMG.logo + '" alt="MMSU seal"><h1>Mariano Marcos<br>State University</h1></a></header>' +
+    '<header class="ident"><a href="#home"><img src="' + IMG.logo + '" alt="MMSU seal"><h1>Mariano Marcos<br>State University</h1></a></header>' +
     '<nav class="mainnav" aria-label="MMSU main"><ul>' +
     ["Home", "University", "Academic", "Research", "Extension", "Global Affairs", "News", "E-Services", "Downloads"].map(function (n) {
       return '<li><a href="https://www.mmsu.edu.ph" target="_blank" rel="noopener">' + n + '</a></li>';
@@ -71,7 +73,7 @@
 
   /* ---------- sidebars ---------- */
   function sideHome() {
-    var items = [["Home", "#/", true], ["Sustainability & Futures Thinking Directorate", "https://www.mmsu.edu.ph", false], ["Roadmap", "https://www.mmsu.edu.ph", false],
+    var items = [["Home", "#home", true], ["Sustainability & Futures Thinking Directorate", "https://www.mmsu.edu.ph", false], ["Roadmap", "https://www.mmsu.edu.ph", false],
       ["Activities", "https://www.mmsu.edu.ph", false], ["Reports", "https://www.mmsu.edu.ph", false], ["ESG Metrics", "https://www.mmsu.edu.ph", false], ["MMSU Facts and Figures", "https://www.mmsu.edu.ph", false]];
     side.innerHTML = '<div class="brand"><img src="' + IMG.wheel + '" alt="Sustainable Development Goals wheel"><h2>MMSU Sustainability</h2></div><ul>' +
       items.map(function (it) {
@@ -80,8 +82,8 @@
       '<div class="contact"><h3>Contact Us</h3><p>Sustainability &amp; Futures Thinking Directorate</p><p>Brgy. 16-S Quiling Sur, City of Batac, Ilocos Norte 2906</p><p>op@mmsu.edu.ph<br>(63)(077) 600 1234</p></div>';
   }
   function sideSdg(active) {
-    var li = '<li><a href="#/">Home</a></li>';
-    for (var n = 1; n <= 17; n++) li += '<li><a href="#/sdg/' + n + '"' + (n === active ? ' aria-current="page"' : "") + '>SDG ' + n + '</a></li>';
+    var li = '<li><a href="#home">Home</a></li>';
+    for (var n = 1; n <= 17; n++) li += '<li><a href="' + hrefSdg(n) + '"' + (n === active ? ' aria-current="page"' : "") + '>SDG ' + n + '</a></li>';
     side.innerHTML = '<div class="brand"><img src="' + IMG.wheel + '" alt="Sustainable Development Goals wheel"><h2>Sustainable Development Goals</h2></div><ul>' + li + '</ul>';
   }
 
@@ -98,7 +100,7 @@
       '<h2 class="goals-title">Sustainable Development Goals</h2><nav class="goals" aria-label="Sustainable Development Goals">' +
       GOALS.map(function (g, i) {
         var n = i + 1, live = n === D.sdg.number;
-        return '<a class="goal' + (live ? " live" : "") + '" href="#/sdg/' + n + '" style="background:' + g[1] + '" aria-label="SDG ' + n + ': ' + esc(g[0]) + (live ? " (pilot)" : "") + '">' +
+        return '<a class="goal' + (live ? " live" : "") + '" href="' + hrefSdg(n) + '" style="background:' + g[1] + '" aria-label="SDG ' + n + ': ' + esc(g[0]) + (live ? " (pilot)" : "") + '">' +
           '<span class="n">' + n + '</span><span class="l' + (n > 9 ? " two" : "") + '">' + esc(g[0]) + '</span>' + (ICONS[n] || "") + '</a>';
       }).join("") + '</nav>';
     var slides = main.querySelectorAll(".slide");
@@ -121,39 +123,39 @@
     if (n !== D.sdg.number) {
       document.title = "SDG " + n + " | MMSU Sustainability";
       main.className = "main";
-      main.innerHTML = '<div class="crumbs"><a href="#/">Home</a> / SDG ' + n + '</div><h2 style="font-family:var(--serif);font-size:32px;color:var(--green);margin:0 0 10px">SDG ' + n + ': ' + esc(GOALS[n - 1][0]) + '</h2><div class="empty">This pilot covers SDG 15 (Life on Land), indicator 15.1 only. <a href="#/sdg/15" style="color:var(--green);font-weight:700">Open SDG 15</a>.</div>';
+      main.innerHTML = '<div class="crumbs"><a href="#home">Home</a> / SDG ' + n + '</div><h2 style="font-family:var(--serif);font-size:32px;color:var(--green);margin:0 0 10px">SDG ' + n + ': ' + esc(GOALS[n - 1][0]) + '</h2><div class="empty">This pilot covers SDG 15 (Life on Land), indicator 15.1 only. <a href="#sdg-15" style="color:var(--green);font-weight:700">Open SDG 15</a>.</div>';
       return;
     }
     document.title = "MMSU on Life on Land | MMSU Sustainability";
     main.className = "main with-toc";
-    var toc = D.metrics.map(function (m) { return '<li><a href="#m' + m.code.replace(".", "-") + '" title="' + esc(m.heading) + '">' + esc(m.code + " " + (m.short || m.heading)) + '</a></li>'; }).join("");
+    var toc = D.metrics.map(function (m) { return '<li><a href="#" data-scroll="m' + m.code.replace(".", "-") + '" title="' + esc(m.heading) + '">' + esc(m.code + " " + (m.short || m.heading)) + '</a></li>'; }).join("");
     var secs = D.metrics.map(function (m, k) {
       return '<section class="section" id="m' + m.code.replace(".", "-") + '"><h2 class="sec">' + esc(m.group) + '</h2><ul class="ind">' +
         m.indicators.map(function (i) {
           var c = count(i.code);
-          return '<li><span class="code">' + esc(i.code) + '</span><a href="#/sdg/15/' + i.code + '">' + esc(i.title) + '</a>' +
+          return '<li><span class="code">' + esc(i.code) + '</span><a href="' + hrefInd(i.code) + '">' + esc(i.title) + '</a>' +
             '<span class="pill ' + (c ? "have" : "none") + '">' + (c ? c + (c === 1 ? " entry" : " entries") : "No entries yet") + '</span></li>';
         }).join("") + '</ul></section>';
     }).join("");
     main.innerHTML = '<div><div class="sdghead"><img src="' + IMG.sdg15 + '" alt="SDG 15 Life on Land"><div style="flex:1;min-width:260px"><h2>MMSU on Life on Land</h2><h3>MMSU\'s Commitment</h3><p>' + esc(D.sdg.commitment) + '</p></div></div>' + secs + '</div>' +
-      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#top-commit" onclick="window.scrollTo(0,0);return false">MMSU\'s Commitment</a></li>' + toc + '</ul></nav>';
+      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#" data-scroll="top">MMSU\'s Commitment</a></li>' + toc + '</ul></nav>';
   }
 
   function viewIndicator(code) {
     var ind = byCode[code];
     sideSdg(15);
-    if (!ind) { main.className = "main"; main.innerHTML = '<div class="empty">Indicator not found. <a href="#/sdg/15">Back to SDG 15</a></div>'; return; }
+    if (!ind) { main.className = "main"; main.innerHTML = '<div class="empty">Indicator not found. <a href="#sdg-15">Back to SDG 15</a></div>'; return; }
     document.title = code + " " + ind.title + " | MMSU Sustainability";
     main.className = "main with-toc";
     view = { q: "", type: "All" };
-    main.innerHTML = '<div><div class="crumbs"><a href="#/">Home</a> / <a href="#/sdg/15">SDG 15</a> / ' + esc(code) + '</div>' +
+    main.innerHTML = '<div><div class="crumbs"><a href="#home">Home</a> / <a href="#sdg-15">SDG 15</a> / ' + esc(code) + '</div>' +
       '<div class="indhead" id="overview"><h2><span class="code">' + esc(code) + '</span>' + esc(ind.title) + '</h2><p>' + esc(ind.question) + '</p></div>' +
       (ind.note ? '<div class="infobox"><b>How this indicator is scored.</b> ' + esc(ind.note) + '</div>' : '') +
       (code === "15.1" ? '' : '<div class="infobox"><b>Pilot.</b> Only indicator 15.1 is filled in this pilot. You can already add an entry here; it is saved in this browser and can be exported.</div>') +
       '<div class="tools" id="entries"><input type="search" id="q" placeholder="Search entries" aria-label="Search entries"><div class="chips" id="chips"></div>' +
-      '<span style="flex:1"></span><button class="btn" id="add">+ Add entry</button><button class="btn alt" id="export">Export added entries</button></div>' +
+      '<span style="flex:1"></span><button class="btn" id="add">+ Add entry</button><button class="btn alt" id="export">Share added entries</button></div>' +
       '<div class="count" id="count" aria-live="polite"></div><div id="list"></div></div>' +
-      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#overview" onclick="document.getElementById(\'overview\').scrollIntoView();return false">Overview</a></li><li><a href="#entries" onclick="document.getElementById(\'entries\').scrollIntoView();return false">Entries</a></li></ul></nav>';
+      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#" data-scroll="overview">Overview</a></li><li><a href="#" data-scroll="entries">Entries</a></li></ul></nav>';
     document.getElementById("q").addEventListener("input", function (e) { view.q = e.target.value; renderList(code); });
     document.getElementById("add").onclick = function () { openForm(code); };
     document.getElementById("export").onclick = function () { exportLocal(); };
@@ -238,12 +240,21 @@
     if (!saveLocal(o)) { err.textContent = "This browser blocked saving. Use a normal window, or export is unavailable."; return; }
     dlg.close(); renderList(curCode); toast("Entry added to " + curCode);
   });
+  var xdlg = document.createElement("dialog"); xdlg.setAttribute("aria-labelledby", "xt");
+  xdlg.innerHTML = '<form method="dialog" id="xf"><h2 id="xt">Added entries</h2><p class="hint">Copy this text and send it to the site team to add the entries for everyone.</p>' +
+    '<label for="x-text">Entries (JSON)</label><textarea id="x-text" readonly style="min-height:200px;font-family:ui-monospace,Menlo,monospace;font-size:13px"></textarea>' +
+    '<div class="actions"><button type="button" class="btn alt" id="x-copy">Copy</button><button type="submit" class="btn">Close</button></div></form>';
+  document.body.appendChild(xdlg);
+  document.getElementById("x-copy").onclick = function () {
+    var ta = document.getElementById("x-text");
+    var fallback = function () { ta.focus(); ta.select(); toast("Text selected: copy it with your device's Copy"); };
+    try { navigator.clipboard.writeText(ta.value).then(function () { toast("Copied"); }, fallback); } catch (e) { fallback(); }
+  };
   function exportLocal() {
     var o = loadLocal(), n = 0; Object.keys(o).forEach(function (k) { n += o[k].length; });
     if (!n) { toast("No added entries to export yet"); return; }
-    var blob = new Blob([JSON.stringify({ entries: o }, null, 2)], { type: "application/json" });
-    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "sdg15-added-entries.json";
-    document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 500);
+    document.getElementById("x-text").value = JSON.stringify({ entries: o }, null, 2);
+    if (xdlg.showModal) xdlg.showModal(); else xdlg.setAttribute("open", "");
   }
   function toast(msg) {
     var t = document.createElement("div"); t.className = "toast"; t.setAttribute("role", "status"); t.textContent = msg;
@@ -253,15 +264,19 @@
   /* ---------- router ---------- */
   function route() {
     if (timer) { clearInterval(timer); timer = null; }
-    var h = (location.hash || "#/").replace(/^#/, "");
-    var p = h.split("/").filter(Boolean);
-    if (p[0] === "sdg" && p[1]) {
-      var n = parseInt(p[1], 10);
-      if (n >= 1 && n <= 17) { if (p[2]) viewIndicator(p[2]); else viewSdg(n); window.scrollTo(0, 0); return; }
-    }
-    if (h && h !== "/" && h.charAt(0) === "m") return; /* in-page anchor on the SDG page */
+    var h = (location.hash || "").replace(/^#/, ""), m;
+    if ((m = /^sdg-(\d{1,2})$/.exec(h)) && +m[1] >= 1 && +m[1] <= 17) { viewSdg(+m[1]); window.scrollTo(0, 0); return; }
+    if ((m = /^ind-(\d+(?:-\d+){1,2})$/.exec(h))) { viewIndicator(m[1].replace(/-/g, ".")); window.scrollTo(0, 0); return; }
     viewHome(); window.scrollTo(0, 0);
   }
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[data-scroll]");
+    if (!a) return;
+    ev.preventDefault();
+    var id = a.getAttribute("data-scroll");
+    if (id === "top") { window.scrollTo(0, 0); return; }
+    var el = document.getElementById(id); if (el) el.scrollIntoView();
+  });
   window.addEventListener("hashchange", route);
   route();
 })();

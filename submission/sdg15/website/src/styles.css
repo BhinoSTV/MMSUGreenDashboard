@@ -9,11 +9,12 @@
   --z50: #FAFAFA; --z100: #F4F4F5; --z200: #E4E4E7; --z300: #D4D4D8;
   --z500: #71717A; --z600: #52525B; --z700: #3F3F46; --z900: #18181B;
   --sans: Figtree, ui-sans-serif, system-ui, sans-serif;
+  --bg: #fff; --fg: #000;
   --serif: "AGaramondPro-Regular", "EB Garamond", Garamond, "Times New Roman", serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; font-family: var(--sans); color: #000; background: #fff; line-height: 1.5; }
+body { margin: 0; font-family: var(--sans); color: var(--fg); background: var(--bg); line-height: 1.5; }
 a { color: inherit; }
 img { max-width: 100%; }
 .skip { position: absolute; left: -999px; top: 0; background: var(--yellow); color: var(--green); padding: 8px 14px; z-index: 50; }
@@ -22,7 +23,7 @@ img { max-width: 100%; }
 
 /* top bar */
 .govbar { background: var(--z100); }
-.govbar .in { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1500px; margin: 0 auto; padding: 10px 24px; }
+.govbar .in { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1500px; margin: 0 auto; padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .govbar .gov { font-weight: 600; font-size: 20px; color: var(--z700); text-decoration: none; letter-spacing: .5px; }
 .govbar ul { display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; }
 .govbar ul a { font-size: 13px; letter-spacing: 3.4px; text-transform: uppercase; color: var(--z600); text-decoration: none; }
@@ -42,7 +43,7 @@ img { max-width: 100%; }
 
 /* layout */
 .shell { display: grid; grid-template-columns: 360px minmax(0, 1fr); max-width: 1500px; margin: 0 auto; min-height: 70vh; }
-.side { padding: 40px 28px 40px 24px; border-right: 1px solid var(--z200); }
+.side { padding-block: 40px; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: 28px; border-right: 1px solid var(--z200); }
 .side .brand { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 26px; }
 .side .brand img { width: 190px; height: 190px; object-fit: contain; }
 .side .brand h2 { font-family: var(--serif); font-weight: 700; font-size: 30px; color: var(--green); margin: 14px 0 0; line-height: 1.15; }
@@ -54,7 +55,7 @@ img { max-width: 100%; }
 .contact { margin-top: 36px; border: 1px solid var(--z200); border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
 .contact h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 24px; color: var(--green); }
 .contact p { margin: 0 0 6px; font-size: 15px; color: var(--z700); }
-.main { padding: 40px 48px 64px; min-width: 0; }
+.main { padding-block: 40px 64px; padding-left: 48px; padding-right: max(48px, env(safe-area-inset-right, 0px)); min-width: 0; }
 .main.with-toc { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 40px; }
 .toc { position: sticky; top: 16px; align-self: start; font-size: 14px; }
 .toc h2 { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--z700); margin: 0 0 10px; font-weight: 600; }
@@ -155,7 +156,7 @@ dialog .actions { display: flex; justify-content: flex-end; gap: 10px; margin-to
 
 /* footer */
 .foot { background: var(--green); color: #fff; margin-top: 40px; }
-.foot .in { max-width: 1300px; margin: 0 auto; padding: 56px 28px 40px; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 40px; }
+.foot .in { max-width: 1300px; margin: 0 auto; padding-block: 56px 40px; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 40px; }
 .foot .id img { width: 140px; height: 140px; border-radius: 50%; }
 .foot .id h2 { font-family: var(--serif); font-weight: 400; text-transform: uppercase; font-size: 30px; line-height: 1.1; margin: 12px 0 18px; }
 .foot p { margin: 0 0 14px; font-size: 15px; }
@@ -164,21 +165,21 @@ dialog .actions { display: flex; justify-content: flex-end; gap: 10px; margin-to
 .foot a { color: #fff; text-decoration: none; font-size: 15px; }
 .foot a:hover { text-decoration: underline; }
 .foot .legal a { display: block; font-weight: 700; margin-bottom: 8px; }
-.foot .bar { background: var(--z100); color: var(--z600); font-size: 13px; padding: 14px 28px; text-align: center; }
+.foot .bar { background: var(--z100); color: var(--z600); font-size: 13px; padding-block: 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); text-align: center; }
 
 /* responsive */
 @media (max-width: 1100px) {
   .shell { grid-template-columns: 1fr; }
-  .side { border-right: 0; border-bottom: 1px solid var(--z200); padding: 24px 20px; }
+  .side { border-right: 0; border-bottom: 1px solid var(--z200); padding-block: 24px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .side ul { display: flex; flex-wrap: wrap; gap: 6px; }
   .side li + li { margin-top: 0; }
   .side a { padding: 9px 16px; font-size: 16px; }
   .side .brand img { width: 120px; height: 120px; }
   .contact { display: none; }
-  .main { padding: 28px 20px 48px; }
+  .main { padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .main.with-toc { grid-template-columns: 1fr; }
   .toc { display: none; }
-  .foot .in { grid-template-columns: 1fr; }
+  .foot .in { grid-template-columns: 1fr; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .goals { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {

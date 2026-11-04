@@ -60,5 +60,21 @@ ${app}
 </html>
 `;
   fs.writeFileSync(path.join(HERE, "index.html"), html);
+  // artifact.html: same page as a fragment (no html/head/body tags) for the claude.ai artifact host
+  const frag = `<title>MMSU Sustainability</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+${css}
+</style>
+<div id="app"></div>
+<script>window.SDG_DATA=${json(data)};window.SDG_ICONS=${json(icons)};window.SDG_IMG=${json(img)};</script>
+<script>
+${app}
+</script>
+`;
+  fs.writeFileSync(path.join(HERE, "artifact.html"), frag);
   console.log("wrote index.html", (html.length / 1024).toFixed(0) + " KB");
 })();
