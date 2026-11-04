@@ -95,8 +95,8 @@ function card(slide, x, y, w, h, name, fill) {
   // ---- 2. Where we stand
   pres.addSection({ title: "Status" });
   s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Status" });
-  s.addText("Ten of 14 questions have evidence; three have none", { placeholder: "title" });
-  s.addChart(pres.charts.DOUGHNUT, [{ name: "Indicators", labels: ["2025 evidence", "Pre-2025 policy only", "Draft only", "No evidence yet"], values: [7, 3, 1, 3] }], {
+  s.addText("Ten of 14 questions have evidence; two have none", { placeholder: "title" });
+  s.addChart(pres.charts.DOUGHNUT, [{ name: "Indicators", labels: ["2025 evidence", "Pre-2025 policy only", "Draft only", "No evidence yet"], values: [7, 3, 2, 2] }], {
     x: 0.6, y: 1.55, w: 5.2, h: 5.2, holeSize: 62, chartColors: [HEX.green, HEX.moss, HEX.gold, HEX.amber],
     showLegend: false, showTitle: false, showValue: true, showPercent: false, dataLabelColor: "FFFFFF", dataLabelFontSize: 16, dataLabelFontBold: true, dataLabelFontFace: "+mn-lt",
     dataBorder: { pt: 2, color: "FFFFFF" },
@@ -105,8 +105,8 @@ function card(slide, x, y, w, h, name, fill) {
   const rows = [
     ["7", "2025 evidence", "15.2.1, 15.2.3, 15.2.4, 15.2.5, 15.3.5, 15.4.1, 15.4.2", HEX.green],
     ["3", "Pre-2025 policy only", "15.3.1, 15.3.3, 15.4.3", HEX.moss],
-    ["1", "Draft only", "15.2.6: 2025 paddy art; no structured training yet", HEX.gold],
-    ["3", "No evidence yet", "15.2.2, 15.3.2, 15.3.4", HEX.amber],
+    ["2", "Draft only", "15.2.2 (no policy yet) and 15.2.6 (no structured training)", HEX.gold],
+    ["2", "No evidence yet", "15.3.2, 15.3.4", HEX.amber],
   ];
   rows.forEach((r, i) => {
     const y = 1.75 + i * 1.28;
@@ -177,7 +177,7 @@ function card(slide, x, y, w, h, name, fill) {
   txt(s, "2  Continuing implementation", { x: 0.9, y: 4.5, w: 5.1, h: 0.5, fontSize: 24, bold: true, color: C.background1, fontFace: "+mj-lt" });
   txt(s, "Policies still in force and 2024 to 2026 activity that shows the work is ongoing.", { x: 0.9, y: 5.15, w: 5.1, h: 0.9, fontSize: 18, color: C.background1 });
   const items = [
-    [I.file, "11 indicator PDFs", "One per indicator, written to stand alone. 15.2.6 is marked as a draft."],
+    [I.file, "12 indicator PDFs", "One per indicator, written to stand alone. 15.2.2 and 15.2.6 are marked as drafts."],
     [I.book, "46-page Word compendium", "Editable version with every photo and source, for the team to revise."],
     [I.check, "Checklist", "Facts to confirm before upload, and what each missing item would earn."],
   ];
@@ -275,7 +275,7 @@ function card(slide, x, y, w, h, name, fill) {
   s.addText("Four gaps and four risks to settle", { placeholder: "title" });
   const colX = [0.6, 6.85], colW = 5.85;
   [["Gaps", I.search, C.accent3, [
-    ["15.2.2", "Needs a policy on sustainably farmed campus food. Our farm practices do not replace it."],
+    ["15.2.2", "Needs a policy; the 2025 greenhouse training and Parambak are supporting practice only."],
     ["15.2.6", "2025 rice paddy art and the TALON project (Jan 2026); no structured community training yet."],
     ["15.3.2", "No threatened-species policy or register."],
     ["15.3.4", "No alien-species policy."],

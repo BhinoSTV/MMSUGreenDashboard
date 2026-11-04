@@ -75,9 +75,9 @@ Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebo
 - **15.4.3 and 15.4.1** gained **OP Memorandum No. 26-370 (30 Sep 2026)**, which adopts the University Environmental Compliance
   and Pollution Prevention Program and sets the PCB equipment procedure. Obtain the *full* Environmental Compliance Procedures
   from the SFT Office: only the PCB procedure was attached, so wastewater discharge standards (15.4.1) are not yet shown.
-- **15.2.2** (sustainably farmed food) asks for a policy. MMSU's SDG page has a "Sustainable Food Purchases" statement (priority to local
-  producers, student practicum and extension clients) but no dated policy, and the Food Services Unit page says nothing on sourcing.
-  Ask the Business Directorate for any sourcing memorandum or concession clause.
+- **15.2.2** (sustainably farmed food) asks for a policy. It is now a draft (`DRAFT_SDG15_15.2.2_…pdf`) holding the 13 May 2025
+  greenhouse training and Parambak 2025, placed there at the team's request. These are campus farming practice, not a policy.
+  MMSU's SDG page has a "Sustainable Food Purchases" statement but no dated policy; ask the Business Directorate for a sourcing memorandum.
 - **15.2.6** (tourism land-management outreach) is a draft (`DRAFT_SDG15_15.2.6_…pdf`). Its newest item is the **TALON farm tourism
   project** (MMSU News, 20 Jan 2026): a DOST-PCAARRD and UP-ISSI site visit on 15 Jan 2026 for a project approved by the PCAARRD Governing
   Council, to integrate agriculture, tourism and education. It is a project plan, not yet an outreach programme. Ask Dr. Eva Jean Viernes
@@ -95,7 +95,7 @@ Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebo
 
 | Link | What it is | Placed under |
 |---|---|---|
-| research.mmsu.edu.ph: RD personnel greenhouse operations training (13 May 2025) | Training of 18 MMSU researchers and farm workers on a new greenhouse | Not used: internal staff training, not community outreach on land. Better for SDG 2 or SDG 9 |
+| research.mmsu.edu.ph: RD personnel greenhouse operations training (13 May 2025) | Training of 18 MMSU researchers and farm workers on a new greenhouse | **15.2.2** draft (team decision); supporting practice only, as 15.2.2 asks for a policy |
 | Facebook: MMSU, Extension Directorate, Agriculture Currimao and Office of the CHED Chairperson posts on the 2025 rice paddy art | Same event as MMSU News of 8 Jul, 22 Aug and 12 Sep 2025 | **15.2.6** (2025 evidence), cited through the MMSU articles; keep the Facebook screenshots on file |
-| extension.mmsu.edu.ph: “Parambak” caps MMSU@47 (14 Feb 2025) | Extension technology showcase with 37 exhibitors, farmer scientists and LGUs | **15.2.5** (2025 evidence); could also support 15.2.1 |
-| Facebook: Menisa Antonio post thanking Leilanie Gaspar Adriano for awareness of indigenous species | Could not be read (login); no public match found | Pending. Possible 15.2.4 if it is a 2025 public awareness activity on wild or indigenous species; send a screenshot with the date |
+| extension.mmsu.edu.ph: “Parambak” caps MMSU@47 (14 Feb 2025) | Extension technology showcase with 37 exhibitors, farmer scientists and LGUs | **15.2.5**, **15.2.1** and the **15.2.2** draft (2025 evidence) |
+| Facebook (PNA, 6 Jun 2026): indigenous food plants propagated at the NRCMC botanical garden and shared with schools and communities (photos by Leilanie Adriano, PNA) | Public post, read directly | **15.2.3** and **15.2.4**, continuing implementation (2026) |

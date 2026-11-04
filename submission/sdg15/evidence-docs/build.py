@@ -894,6 +894,54 @@ for _d in DOCS:
     if _d["code"] == "15.2.5" and "parambak_2025" not in _d["stories"]:
         _d["stories"].insert(1, "parambak_2025")
 
+# ---------------------------------------------------------------- update 2026-11-04b: team placements (15.2.2, 15.2.1, 15.2.3, 15.2.4)
+PHOTOS.update({
+    "greenhouse_training_2025.jpg": "MMSU researchers and farm workers train on the new greenhouse at the RDE complex, 13 May 2025. (Photo: MMSU Research Directorate)",
+    "doc_pna_ifp_post_2026.jpg": "Capture: Philippine News Agency post of 6 June 2026 on indigenous food plants propagated at the MMSU NRCMC botanical garden (photos: Leilanie Adriano, PNA).",
+})
+SRC.update({
+    "greenhouse": ("MMSU Research Directorate, “MMSU RD personnel undergo greenhouse operations training,” 19 May 2025",
+                   "https://research.mmsu.edu.ph/news/details/mmsu-rd-personnel-undergo-greenhouse-operations-training"),
+    "pna_ifp": ("Philippine News Agency, Facebook post on indigenous food plants at the MMSU Natural Resources Conservation and Management Center botanical garden, 6 June 2026",
+                "https://www.facebook.com/pnagovph/posts/1411199747723142/"),
+})
+S["greenhouse_2025"] = dict(
+    title="New Research Greenhouse and Staff Training Support Controlled-Environment Crop Production on Campus",
+    tag="2025",
+    photos=["greenhouse_training_2025.jpg"],
+    paras=[
+        "On May 13, 2025, eighteen researchers and farm workers of Mariano Marcos State University took part in hands-on training on the operation and management of the newly constructed greenhouse in the university’s research, development and extension (RDE) complex. The training, facilitated by the project contractor as part of the turnover, covered the basic functions and systems of the greenhouse and crop-specific management strategies; a follow-up session on May 20, 2025 covered the preparation of planting solutions for soilless and hydroponic systems.",
+        "The Php 2.2-million facility measures 10 by 6 metres and 6.1 metres high, uses combined mechanical and natural ventilation, and has an integrated planting system in three bays for soilless cultivation, hydroponics and soil-based planting. It was built under the Higher Education Reform and Innovation Program (HERIP) to strengthen research in controlled-environment agriculture and to give students immersive learning.",
+    ],
+    sources=["greenhouse"],
+)
+S["ifp_pna_2026"] = dict(
+    title="Indigenous Food Plants Propagated at the MMSU Botanical Garden Are Shared with Schools and Communities",
+    tag="Continuing implementation · Philippine News Agency, 6 June 2026",
+    photos=["doc_pna_ifp_post_2026.jpg", "ifp_foodscape.jpg"],
+    paras=[
+        "On June 6, 2026, the Philippine News Agency reported that indigenous food plants such as sugod-sugod, alokon, buga and karot are being propagated at the botanical garden of the MMSU Natural Resources Conservation and Management Center in Batac City, Ilocos Norte. The planting materials are shared with schools and community stakeholders for the development of food gardens, to boost food security in the province and provide farmers with an additional source of income.",
+        "The botanical garden is part of the ex situ arm of MMSU’s Indigenous Food Plants Program, which in 2025 extended its community foodscapes and seedbanks to new partner barangays (see the 2025 evidence for this indicator).",
+    ],
+    sources=["pna_ifp"],
+)
+DRAFT_NOTE_152 = ("DRAFT. THE asks for a policy that food on campus is sustainably farmed. No dated MMSU policy was found; the items below are 2025 "
+                  "campus farming practices that support it. Attach the policy, or a Business Directorate sourcing memorandum, as the first item "
+                  "before submitting.")
+if not any(d["code"] == "15.2.2" for d in DOCS):
+    DOCS.append(dict(code="15.2.2", file="DRAFT_SDG15_15.2.2_Sustainably_farmed_food_on_campus", draft=True,
+                     title="Sustainably farmed food on campus (policy)",
+                     question="Have a policy that food on campus is sustainably farmed.",
+                     stories=["greenhouse_2025", "parambak_2025"], continuing=[], note=DRAFT_NOTE_152))
+DOCS.sort(key=lambda d: tuple(int(x) for x in d["code"].split(".")))
+for _d in DOCS:
+    if _d["code"] == "15.2.1" and "parambak_2025" not in _d["stories"]:
+        _d["stories"].insert(0, "parambak_2025")
+    if _d["code"] in ("15.2.3", "15.2.4"):
+        _d.setdefault("continuing", [])
+        if "ifp_pna_2026" not in _d["continuing"]:
+            _d["continuing"].insert(0, "ifp_pna_2026")
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""

@@ -240,7 +240,7 @@ const gaps = [
   h1("To complete before submission"),
   bullet("Free access: state that the 2025 mangrove seminar, alukon training, Pinili bamboo training and School-on-the-Air were free of charge, if true. THE gives full credit only to free programmes (15.2.4, 15.2.5)."),
   bullet("Policies: the land use, plastic and hazardous waste policies predate 2025 and appear under “Continuing implementation.” Confirm each is still in force, and issue or document a 2025 review or reiteration (for example the annual No Bottled Water memorandum for 2025), which adds the review point."),
-  bullet("Indicator 15.2.2 (sustainably farmed food) asks for a policy. None was found, so no section is included; the practices MMSU runs (vermicast, GAP training, indigenous food plant foodscapes) cannot replace it."),
+  bullet("Indicator 15.2.2 (sustainably farmed food) asks for a policy. None was found, so its section is a draft holding 2025 campus farming practice (the greenhouse training and Parambak); attach a policy or sourcing memorandum before submitting."),
   bullet("Indicator 15.2.6 is a draft: no 2025 community programme on land management for tourism was found."),
   bullet("Pasuquin agreement (signed 29 November 2025): attach a copy of the signed memorandum of agreement."),
   bullet("Confirm the date of the 2025 MMSU–DENR Region 1 dialogue at ILAARRDEC and add the Biodiversity Day photo contest announcement link."),

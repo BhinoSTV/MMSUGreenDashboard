@@ -212,6 +212,14 @@
   "parambak_2025.jpg": [
    1600,
    1067
+  ],
+  "greenhouse_training_2025.jpg": [
+   1200,
+   768
+  ],
+  "doc_pna_ifp_post_2026.jpg": [
+   1050,
+   780
   ]
  },
  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation.",
@@ -223,6 +231,7 @@
    "title": "Events about sustainable use of land",
    "question": "Support or organise events aimed to promote conservation and sustainable utilisation of the land, including forests and wild land.",
    "stories": [
+    "parambak_2025",
     "forest_planting",
     "wed_mangrove",
     "coconut_greenwall",
@@ -233,6 +242,19 @@
    "continuing": [
     "planting_continues"
    ]
+  },
+  {
+   "code": "15.2.2",
+   "file": "DRAFT_SDG15_15.2.2_Sustainably_farmed_food_on_campus",
+   "draft": true,
+   "title": "Sustainably farmed food on campus (policy)",
+   "question": "Have a policy that food on campus is sustainably farmed.",
+   "stories": [
+    "greenhouse_2025",
+    "parambak_2025"
+   ],
+   "continuing": [],
+   "note": "DRAFT. THE asks for a policy that food on campus is sustainably farmed. No dated MMSU policy was found; the items below are 2025 campus farming practices that support it. Attach the policy, or a Business Directorate sourcing memorandum, as the first item before submitting."
   },
   {
    "code": "15.2.3",
@@ -247,6 +269,7 @@
     "pinili_short"
    ],
    "continuing": [
+    "ifp_pna_2026",
     "nbs_launch",
     "bambusetum_2026",
     "hub"
@@ -263,7 +286,9 @@
     "vintar_caravan",
     "ifp_learning"
    ],
-   "continuing": []
+   "continuing": [
+    "ifp_pna_2026"
+   ]
   },
   {
    "code": "15.2.5",
@@ -958,6 +983,35 @@
    "sources": [
     "parambak"
    ]
+  },
+  "greenhouse_2025": {
+   "title": "New Research Greenhouse and Staff Training Support Controlled-Environment Crop Production on Campus",
+   "tag": "2025",
+   "photos": [
+    "greenhouse_training_2025.jpg"
+   ],
+   "paras": [
+    "On May 13, 2025, eighteen researchers and farm workers of Mariano Marcos State University took part in hands-on training on the operation and management of the newly constructed greenhouse in the university’s research, development and extension (RDE) complex. The training, facilitated by the project contractor as part of the turnover, covered the basic functions and systems of the greenhouse and crop-specific management strategies; a follow-up session on May 20, 2025 covered the preparation of planting solutions for soilless and hydroponic systems.",
+    "The Php 2.2-million facility measures 10 by 6 metres and 6.1 metres high, uses combined mechanical and natural ventilation, and has an integrated planting system in three bays for soilless cultivation, hydroponics and soil-based planting. It was built under the Higher Education Reform and Innovation Program (HERIP) to strengthen research in controlled-environment agriculture and to give students immersive learning."
+   ],
+   "sources": [
+    "greenhouse"
+   ]
+  },
+  "ifp_pna_2026": {
+   "title": "Indigenous Food Plants Propagated at the MMSU Botanical Garden Are Shared with Schools and Communities",
+   "tag": "Continuing implementation · Philippine News Agency, 6 June 2026",
+   "photos": [
+    "doc_pna_ifp_post_2026.jpg",
+    "ifp_foodscape.jpg"
+   ],
+   "paras": [
+    "On June 6, 2026, the Philippine News Agency reported that indigenous food plants such as sugod-sugod, alokon, buga and karot are being propagated at the botanical garden of the MMSU Natural Resources Conservation and Management Center in Batac City, Ilocos Norte. The planting materials are shared with schools and community stakeholders for the development of food gardens, to boost food security in the province and provide farmers with an additional source of income.",
+    "The botanical garden is part of the ex situ arm of MMSU’s Indigenous Food Plants Program, which in 2025 extended its community foodscapes and seedbanks to new partner barangays (see the 2025 evidence for this indicator)."
+   ],
+   "sources": [
+    "pna_ifp"
+   ]
   }
  },
  "photos": {
@@ -1014,7 +1068,9 @@
   "paddy_art_unveiling_2025.jpg": "Unveiling of the 2025 rice paddy art featuring CHED Chairperson Shirley C. Agrupis and her ACHIEVE agenda, MMSU Extension Demonstration Area, 22 August 2025. (Photo: MMSU STRATCOM)",
   "paddy_art_transplanting_2025.jpg": "Ceremonial transplanting of the eighth MMSU-PhilRice rice paddy art, Batac campus, 7 July 2025. (Photo: MMSU STRATCOM)",
   "dingras_paddy_art_2025.jpg": "Rice paddy art featuring Dingras as the Rice Granary of Ilocos Norte, MMSU Dingras Campus, unveiled 9 September 2025. (Photo: MMSU STRATCOM)",
-  "parambak_2025.jpg": "7th Parambak ditoy MMSU, in front of CAFSD, 14 February 2025. (Photo: MMSU STRATCOM)"
+  "parambak_2025.jpg": "7th Parambak ditoy MMSU, in front of CAFSD, 14 February 2025. (Photo: MMSU STRATCOM)",
+  "greenhouse_training_2025.jpg": "MMSU researchers and farm workers train on the new greenhouse at the RDE complex, 13 May 2025. (Photo: MMSU Research Directorate)",
+  "doc_pna_ifp_post_2026.jpg": "Capture: Philippine News Agency post of 6 June 2026 on indigenous food plants propagated at the MMSU NRCMC botanical garden (photos: Leilanie Adriano, PNA)."
  },
  "photo_source": {
   "forest_reserve_planting_2025.jpg": "MMSU News, 4 Jul 2025 (article 2468) or MMSU Public Affairs / CAFSD files",
@@ -1214,6 +1270,14 @@
   "parambak": {
    "label": "MMSU Extension Directorate, “‘Parambak’ caps MMSU@47 celebration,” February 2025",
    "url": "https://extension.mmsu.edu.ph/news/show/368/parambak-caps-mmsu-at-47-celebration"
+  },
+  "greenhouse": {
+   "label": "MMSU Research Directorate, “MMSU RD personnel undergo greenhouse operations training,” 19 May 2025",
+   "url": "https://research.mmsu.edu.ph/news/details/mmsu-rd-personnel-undergo-greenhouse-operations-training"
+  },
+  "pna_ifp": {
+   "label": "Philippine News Agency, Facebook post on indigenous food plants at the MMSU Natural Resources Conservation and Management Center botanical garden, 6 June 2026",
+   "url": "https://www.facebook.com/pnagovph/posts/1411199747723142/"
   }
  }
 }
