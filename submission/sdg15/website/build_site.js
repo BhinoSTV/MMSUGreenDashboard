@@ -85,5 +85,13 @@ ${app}
 </script>
 `;
   fs.writeFileSync(path.join(HERE, "artifact.html"), frag);
+  // One-page version: same page, but the SDG 15 tile opens a single page with every entry shown in full.
+  const flag = "<script>window.SDG_ALL=true;</script>\n";
+  const allHtml = html.replace("<title>MMSU Sustainability</title>", "<title>MMSU SDG 15 Entries</title>")
+    .replace("<script>window.SDG_DATA=", flag + "<script>window.SDG_DATA=");
+  fs.writeFileSync(path.join(HERE, "all.html"), allHtml);
+  const allFrag = frag.replace("<title>MMSU Sustainability</title>", "<title>MMSU SDG 15 Entries</title>")
+    .replace("<script>window.SDG_DATA=", flag + "<script>window.SDG_DATA=");
+  fs.writeFileSync(path.join(HERE, "artifact_all.html"), allFrag);
   console.log("wrote index.html", (html.length / 1024).toFixed(0) + " KB");
 })();

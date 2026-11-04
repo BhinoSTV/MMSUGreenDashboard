@@ -19,6 +19,7 @@
   var ALL = []; D.metrics.forEach(function (m) { m.indicators.forEach(function (i) { i.metric = m; ALL.push(i); }); });
   var byCode = {}; ALL.forEach(function (i) { byCode[i.code] = i; });
   var view = { q: "", type: "All" };
+  var ALLMODE = !!window.SDG_ALL, allView = { q: "", f: "All" };
   function hrefSdg(n) { return "#sdg-" + n; }
   function hrefEntry(code, id) { return "#entry-" + String(code).replace(/\./g, "-") + "-" + id; }
   function hrefInd(code) { return "#ind-" + String(code).replace(/\./g, "-"); }
@@ -128,6 +129,7 @@
       main.innerHTML = '<div class="crumbs"><a href="#home">Home</a> / SDG ' + n + '</div><h2 style="font-family:var(--serif);font-size:32px;color:var(--green);margin:0 0 10px">SDG ' + n + ': ' + esc(GOALS[n - 1][0]) + '</h2><div class="empty">This pilot covers SDG 15 (Life on Land), indicators 15.1 and 15.2 only. <a href="#sdg-15" style="color:var(--green);font-weight:700">Open SDG 15</a>.</div>';
       return;
     }
+    if (ALLMODE) { viewAll(); return; }
     document.title = "MMSU on Life on Land | MMSU Sustainability";
     main.className = "main with-toc";
     var toc = D.metrics.map(function (m) { return '<li><a href="#" data-scroll="m' + m.code.replace(".", "-") + '" title="' + esc(m.heading) + '">' + esc(m.code + " " + (m.short || m.heading)) + '</a></li>'; }).join("");
@@ -141,6 +143,95 @@
     }).join("");
     main.innerHTML = '<div><div class="sdghead"><img src="' + IMG.sdg15 + '" alt="SDG 15 Life on Land"><div style="flex:1;min-width:260px"><h2>MMSU on Life on Land</h2><h3>MMSU\'s Commitment</h3><p>' + esc(D.sdg.commitment) + '</p></div></div>' + secs + '</div>' +
       '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#" data-scroll="top">MMSU\'s Commitment</a></li>' + toc + '</ul></nav>';
+  }
+
+  /* ---------- one-page version: every entry on a single page ---------- */
+  function paraHtml(t) { return "<p>" + esc(t) + "</p>"; }
+  function fullEntry(code, e) {
+    var d = e.detail || {}, url = safeUrl(e.sourceUrl);
+    var photos = (d.photos || []).filter(function (p) { return IMG[p.img]; });
+    var body = "";
+    (d.sections || []).forEach(function (sec) {
+      if (sec.h && sec.h !== "About this entry") body += '<h4 class="sub">' + esc(sec.h) + "</h4>";
+      (sec.p || []).forEach(function (t) { body += paraHtml(t); });
+      if (sec.list) body += "<ul>" + sec.list.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>";
+      if (sec.items) body += sec.items.map(function (it) { return '<div class="study"><h4>' + esc(it.title) + "</h4>" + (it.people ? '<div class="meta">' + esc(it.people) + "</div>" : "") + "<p>" + esc(it.text) + "</p></div>"; }).join("");
+    });
+    if (!body && e.summary) body = paraHtml(e.summary);
+    var lead = d.lead && (d.sections || []).every(function (sec) { return !(sec.p || []).some(function (t) { return t.indexOf(d.lead.slice(0, 60)) === 0; }); }) ? '<p class="lead">' + esc(d.lead) + "</p>" : "";
+    var facts = (d.facts && !(d.sections || []).some(function (sec) { return sec.h === "About this entry"; })) ? '<dl class="facts">' + d.facts.map(function (f) { return "<dt>" + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd>"; }).join("") + "</dl>" : "";
+    var date = d.facts && d.facts[0] && d.facts[0][0] === "Date" ? d.facts[0][1] : e.years;
+    var srcs = d.sources && d.sources.length ? d.sources : (url ? [{ label: e.sourceLabel || url, url: url }] : []);
+    return '<article class="fe" id="e-' + code.replace(/\./g, "-") + "-" + esc(e.id) + '">' +
+      '<div class="tags"><span class="tag">' + esc(e.type) + '</span><span class="tag">' + esc(date) + "</span>" +
+      (e.status ? '<span class="tag ' + (/^Verified/.test(e.status) ? "ok" : "warn") + '">' + esc(e.status) + "</span>" : "") +
+      (e.continuing ? '<span class="tag">Continuing implementation</span>' : "") + (e.local ? '<span class="tag local">Added locally</span>' : "") + "</div>" +
+      "<h3>" + esc(e.title) + "</h3>" + (e.people ? '<div class="meta">' + esc(e.people) + "</div>" : "") + lead +
+      (photos.length ? '<div class="gallery">' + photos.map(function (p) { return '<figure><img loading="lazy" decoding="async" src="' + IMG[p.img] + '" alt="' + esc(p.caption) + '"><figcaption>' + esc(p.caption) + "</figcaption></figure>"; }).join("") + "</div>" : "") +
+      facts + body +
+      (e.note ? '<p class="fnote"><b>Note.</b> ' + esc(e.note) + "</p>" : "") +
+      ((d.also || []).length ? '<p class="also">Also listed under: ' + d.also.map(function (x) { return '<a href="#" data-scroll="e-' + x[0].replace(/\./g, "-") + "-" + esc(x[1]) + '">' + esc(x[0]) + "</a>"; }).join(", ") + "</p>" : "") +
+      (srcs.length ? '<ul class="srcs">' + srcs.map(function (x) { var u = safeUrl(x.url); return "<li>Source: " + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(x.label) + "</a>" : esc(x.label)) + "</li>"; }).join("") + "</ul>" : "") +
+      (e.local ? '<button class="rm" data-code="' + esc(code) + '" data-id="' + esc(e.id) + '">Remove this entry</button>' : "") + "</article>";
+  }
+  function entryMatches(e) {
+    if (allView.f === "2025" && (e.continuing || !/2025/.test(e.years))) return false;
+    if (allView.f === "Continuing" && !e.continuing) return false;
+    if (allView.f === "Local" && !e.local) return false;
+    var q = allView.q.trim().toLowerCase(); if (!q) return true;
+    var d = e.detail || {}, txt = [e.title, e.people, e.summary, e.type, e.years].concat((d.sections || []).map(function (sec) { return (sec.p || []).join(" ") + " " + (sec.list || []).join(" ") + " " + (sec.items || []).map(function (i) { return i.title + " " + i.text; }).join(" "); })).join(" ").toLowerCase();
+    return txt.indexOf(q) >= 0;
+  }
+  function renderAll() {
+    var filtering = allView.q.trim() || allView.f !== "All", total = 0, shown = 0, html = "", toc = "", jump = '<option value="">Jump to an indicator</option>';
+    D.metrics.forEach(function (m) {
+      var mid = "m" + m.code.replace(".", "-"), sec = "", mcount = 0;
+      m.indicators.forEach(function (i) {
+        var all = entriesFor(i.code), list = sorted(all.filter(entryMatches)); total += all.length; shown += list.length; mcount += list.length;
+        var iid = "i-" + i.code.replace(/\./g, "-");
+        toc += '<li><a href="#" data-scroll="' + iid + '"><b>' + esc(i.code) + "</b> " + esc(i.title) + " <span>" + (all.length ? list.length + (filtering ? "/" + all.length : "") : "–") + "</span></a></li>";
+        jump += '<option value="' + iid + '">' + esc(i.code + " " + i.title + " (" + list.length + ")") + "</option>";
+        if (filtering && !list.length) return;
+        sec += '<section class="isec" id="' + iid + '"><h3 class="ihead"><span class="code">' + esc(i.code) + "</span>" + esc(i.title) + '<span class="pill ' + (all.length ? "have" : "none") + '">' + (all.length ? list.length + (filtering ? " of " + all.length : "") + (all.length === 1 ? " entry" : " entries") : "No entries yet") + "</span></h3>" +
+          '<p class="q">' + esc(i.question) + "</p>" + (i.note ? '<div class="infobox"><b>' + esc(i.noteLabel || "How this indicator is scored") + ".</b> " + esc(i.note) + "</div>" : "") +
+          (list.length ? list.map(function (e) { return fullEntry(i.code, e); }).join("") : '<div class="empty">No entries yet for this indicator.</div>') + "</section>";
+      });
+      if (sec) html += '<section class="msec" id="' + mid + '"><h2 class="sec">' + esc(m.group) + "</h2>" + sec + "</section>";
+    });
+    document.getElementById("all").innerHTML = html || '<div class="empty">No entries match your search.</div>';
+    document.getElementById("count").textContent = shown + (shown === 1 ? " entry" : " entries") + (shown !== total ? " of " + total : "") + " on this page";
+    document.getElementById("tocList").innerHTML = toc;
+    document.getElementById("jump").innerHTML = jump;
+    Array.prototype.forEach.call(document.querySelectorAll("#all .rm"), function (b) {
+      b.onclick = function () {
+        var o = loadLocal(), c = b.getAttribute("data-code"); o[c] = (o[c] || []).filter(function (e) { return e.id !== b.getAttribute("data-id"); });
+        saveLocal(o); renderAll(); toast("Entry removed");
+      };
+    });
+  }
+  function viewAll(target) {
+    document.title = "MMSU SDG 15 Entries";
+    main.className = "main with-toc";
+    var chips = [["All", "All entries"], ["2025", "2025 evidence"], ["Continuing", "Continuing implementation"], ["Local", "Added locally"]];
+    main.innerHTML = '<div><div class="sdghead" id="top-all"><img src="' + IMG.sdg15 + '" alt="SDG 15 Life on Land"><div style="flex:1;min-width:260px"><h2>MMSU on Life on Land</h2><h3>MMSU\'s Commitment</h3><p>' + esc(D.sdg.commitment) + "</p></div></div>" +
+      '<div class="tools"><input type="search" id="q" placeholder="Search all entries" aria-label="Search all entries"><div class="chips" id="chips">' +
+      chips.map(function (c) { return '<button class="chip" aria-pressed="' + (c[0] === allView.f) + '" data-f="' + c[0] + '">' + c[1] + "</button>"; }).join("") + "</div>" +
+      '<span style="flex:1"></span><button class="btn" id="add">+ Add entry</button><button class="btn alt" id="export">Share added entries</button></div>' +
+      '<select id="jump" class="jump" aria-label="Jump to an indicator"></select><div class="count" id="count" aria-live="polite"></div><div id="all"></div></div>' +
+      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul id="tocList"></ul></nav>' +
+      '<button class="totop" id="totop" aria-label="Back to top">&#8593;</button>';
+    var q = document.getElementById("q"); q.value = allView.q;
+    q.addEventListener("input", function (e) { allView.q = e.target.value; renderAll(); });
+    Array.prototype.forEach.call(document.querySelectorAll("#chips .chip"), function (b) {
+      b.onclick = function () { allView.f = b.getAttribute("data-f"); Array.prototype.forEach.call(document.querySelectorAll("#chips .chip"), function (x) { x.setAttribute("aria-pressed", String(x === b)); }); renderAll(); };
+    });
+    document.getElementById("add").onclick = function () { openForm(null); };
+    document.getElementById("export").onclick = function () { exportLocal(); };
+    document.getElementById("totop").onclick = function () { window.scrollTo(0, 0); };
+    document.getElementById("jump").onchange = function (e) { var el = document.getElementById(e.target.value); if (el) el.scrollIntoView(); };
+    renderAll();
+    if (target) { var el = document.getElementById(target); if (el) { el.scrollIntoView(); return; } }
+    window.scrollTo(0, 0);
   }
 
   function viewIndicator(code) {
@@ -244,6 +335,7 @@
   /* ---------- add / export ---------- */
   var dlg = document.createElement("dialog"); dlg.setAttribute("aria-labelledby", "dlgt");
   dlg.innerHTML = '<form id="f" novalidate><h2 id="dlgt">Add an entry</h2><p class="hint" id="dlgh"></p>' +
+    '<div id="f-indwrap" hidden><label for="f-ind">Indicator *</label><select id="f-ind">' + ALL.map(function (i) { return '<option value="' + esc(i.code) + '">' + esc(i.code + " " + i.title) + "</option>"; }).join("") + '</select></div>' +
     '<label for="f-title">Title *</label><input id="f-title" required>' +
     '<div class="row"><div><label for="f-years">Year or period *</label><input id="f-years" placeholder="2025 or 2024 to 2026" required></div>' +
     '<div><label for="f-type">Type</label><select id="f-type"><option>Activity</option><option>Policy</option><option>Memorandum</option><option>Publication</option><option>Research project</option><option>Study</option><option>Award</option><option>News</option><option>Other</option></select></div></div>' +
@@ -258,7 +350,9 @@
   function openForm(code) {
     curCode = code;
     document.getElementById("f").reset(); document.getElementById("f-err").textContent = "";
-    document.getElementById("dlgh").textContent = "Indicator " + code + " · " + byCode[code].title + ". Saved in this browser; export to share.";
+    document.getElementById("f-indwrap").hidden = !ALLMODE;
+    if (ALLMODE) document.getElementById("f-ind").value = code || "15.1";
+    document.getElementById("dlgh").textContent = (code ? "Indicator " + code + " · " + byCode[code].title + ". " : "") + "Saved in this browser; share the text to add it for everyone.";
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
     document.getElementById("f-title").focus();
   }
@@ -272,9 +366,10 @@
     var m = v("f-years").match(/(19|20)\d{2}/g);
     var entry = { id: "l" + Date.now(), years: v("f-years"), sortYear: m ? +m[m.length - 1] : new Date().getFullYear(), type: v("f-type"), title: v("f-title"),
       people: v("f-people"), summary: v("f-summary"), sourceLabel: v("f-label"), sourceUrl: v("f-url"), status: v("f-status") };
+    if (ALLMODE) curCode = v("f-ind");
     var o = loadLocal(); (o[curCode] = o[curCode] || []).push(entry);
     if (!saveLocal(o)) { err.textContent = "This browser blocked saving. Use a normal window, or export is unavailable."; return; }
-    dlg.close(); renderList(curCode); toast("Entry added to " + curCode);
+    dlg.close(); if (ALLMODE) renderAll(); else renderList(curCode); toast("Entry added to " + curCode);
   });
   var xdlg = document.createElement("dialog"); xdlg.setAttribute("aria-labelledby", "xt");
   xdlg.innerHTML = '<form method="dialog" id="xf"><h2 id="xt">Added entries</h2><p class="hint">Copy this text and send it to the site team to add the entries for everyone.</p>' +
@@ -302,6 +397,8 @@
     if (timer) { clearInterval(timer); timer = null; }
     var h = (location.hash || "").replace(/^#/, ""), m;
     if ((m = /^sdg-(\d{1,2})$/.exec(h)) && +m[1] >= 1 && +m[1] <= 17) { viewSdg(+m[1]); window.scrollTo(0, 0); return; }
+    if (ALLMODE && (m = /^entry-((?:\d+-)+\d+)-([a-z][a-z0-9]*)$/.exec(h))) { sideSdg(15); viewAll("e-" + m[1] + "-" + m[2]); return; }
+    if (ALLMODE && (m = /^ind-(\d+(?:-\d+){1,2})$/.exec(h))) { sideSdg(15); viewAll("i-" + m[1]); return; }
     if ((m = /^entry-((?:\d+-)+\d+)-([a-z][a-z0-9]*)$/.exec(h))) { viewEntry(m[1].replace(/-/g, "."), m[2]); window.scrollTo(0, 0); return; }
     if ((m = /^ind-(\d+(?:-\d+){1,2})$/.exec(h))) { viewIndicator(m[1].replace(/-/g, ".")); window.scrollTo(0, 0); return; }
     viewHome(); window.scrollTo(0, 0);

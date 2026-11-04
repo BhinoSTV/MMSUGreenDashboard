@@ -32,3 +32,7 @@ optional `note`.
 ## Hosted copy
 
 `artifact.html` is the same page as a fragment for the claude.ai artifact host (hash routes `#sdg-15`, `#ind-15-1`; the entry export is a copyable text box because the host blocks downloads). Rebuild both files with `node build_site.js`. `index.html` is the standalone version for any static host, such as GitHub Pages or MMSU web hosting.
+
+## One-page version
+
+`all.html` (standalone) and `artifact_all.html` (hosted) show the same entries without the indicator-by-indicator drill-down: the SDG 15 tile opens one page with every entry in full, grouped by indicator, with search, filters and jump links. Built by the same `node build_site.js`; the page switches on `window.SDG_ALL`.
