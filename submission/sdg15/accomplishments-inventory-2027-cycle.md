@@ -279,3 +279,8 @@ Approved by the PCAARRD Governing Council; led by Dr. Eva Jean Viernes (CBEA-DTH
 
 Added the 2025 rice paddy art (Batac, 7 Jul and 22 Aug 2025; Dingras, 9 Sep 2025) to 15.2.6 and Parambak ditoy MMSU (14 Feb 2025) to 15.2.5.
 Greenhouse training (13 May 2025) not used for SDG 15. Indigenous-species Facebook post pending a screenshot.
+
+## Update (2026-11-04): 15.3.2 draft
+
+Built on the IFP Program (RDC Region 1 first adopted R&D initiative, per MMSU Research Directorate 29 Aug 2025), the 2003 Philstar report on the
+IUCN-criteria survey, and SEARCA Discussion Paper 2011-2 (Antonio et al.). ResearchGate copy of the SEARCA alumni book returned 403 (access restricted).

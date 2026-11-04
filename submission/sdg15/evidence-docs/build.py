@@ -942,6 +942,38 @@ for _d in DOCS:
         if "ifp_pna_2026" not in _d["continuing"]:
             _d["continuing"].insert(0, "ifp_pna_2026")
 
+# ---------------------------------------------------------------- update 2026-11-04c: 15.3.2 story (IFP Program adopted by RDC Region 1)
+SRC.update({
+    "searca2011": ("Antonio, M. A., Utrera, R. T., Agustin, E. O., Jamias, D. L., Badar, A. J. and Pascua, M. E. (2011), “Survey and Characterization of Indigenous Food Plants in Ilocos Norte, Philippines,” SEARCA Agriculture and Development Discussion Paper No. 2011-2, 61 pp.",
+                   "https://www.searca.org/pubs/discussion-papers?pid=130"),
+    "philstar2003": ("The Philippine Star, “MMSU researchers identify vanishing plant species,” 14 September 2003",
+                     "https://philstar.com/business/2003/09/14/220344/mmsu-researchers-identify-vanishing-plant-species"),
+    "ifp_award": ("MMSU Research Directorate, “MMSU research on indigenous food plants wins best paper at SUC-ACAP 2025 Conference,” 29 August 2025",
+                  "https://research.mmsu.edu.ph/news/details/mmsu-research-on-indigenous-food-plants-wins-best-paper-at-suc-acap-2025-conference"),
+})
+S["ifp_threatened"] = dict(
+    title="From Vanishing Plants to Regional Policy: MMSU Identifies, Conserves and Monitors Threatened Indigenous Food Plants",
+    tag="2025, with continuing implementation since 2003",
+    photos=["alukon_training_2025.jpg", "ifp_foodscape.jpg"],
+    paras=[
+        "Mariano Marcos State University has long identified the plants of Ilocos Norte that are at risk of disappearing. In 2003, MMSU researchers, among them Dr. Miriam Pascua, Ms. Menisa Antonio and Dr. Dionisio Bucao, surveyed Laoag City, Batac, Pasuquin, San Nicolas and Dingras to document plants that elders perceived to be vanishing. Of the 124 plants named, 77 were validated as vanishing by the university’s agronomists and horticulturists using criteria of the International Union for Conservation of Nature (IUCN): 45 were classified as endangered and 32 as vulnerable, among them sugod-sugod (Momordica cochinchinensis), kapas-kapas and bignay (Antidesma bunius).",
+        "In 2011, the Southeast Asian Regional Center for Graduate Study and Research in Agriculture (SEARCA) published a study by MMSU researchers, “Survey and Characterization of Indigenous Food Plants in Ilocos Norte, Philippines” by Menisa A. Antonio, Rodel T. Utrera, Epifania O. Agustin, Dionisio L. Jamias, Araceli J. Badar and Miriam E. Pascua. Warning that indigenous food plants are disappearing at an alarming rate, the study documented 46 indigenous food plants from 27 plant families in seven upland and remote municipalities of Ilocos Norte, most of them wild species, recorded their identity, uses and locations, and reported that MMSU collects their germplasm and maintains it as living plants and seeds.",
+        "This work grew into MMSU’s Indigenous Food Plants (IFP) Program, led by Dr. Menisa A. Antonio of the Research Directorate, which documents IFP species in Ilocos Norte and protects them through a triad of conservation approaches: the IFP Botanical Garden (ex situ), a himbabao (alukon) genebank at the MMSU Forest Reserve, circa situ cultivation of the wild yams kamangeg and dolian, and the integration of indigenous food plants into community foodscapes. The program is also advancing omics-based molecular characterization to support their conservation and use. In 2025 it trained 64 farmers and local officials in Sarrat on the propagation of alukon (May 2, 2025) and extended its community seedbanks and foodscapes to new partner barangays in Vintar (October 2025), and its paper “From wild foods to policy innovation: MMSU’s indigenous food plants program as a model for sustainable and inclusive agriculture” won Best Paper at the 2025 SUC-ACAP Biennial Conference (August 27–29, 2025).",
+        "The IFP Program is the first research and development initiative adopted by the Regional Development Council (RDC) of Region 1, providing input for policy advocacy on the conservation and use of these species. Implementation continues: on June 6, 2026, the Philippine News Agency reported that indigenous food plants such as sugod-sugod, alokon, buga and karot are propagated at the botanical garden of the MMSU Natural Resources Conservation and Management Center and shared with schools and communities for food gardens.",
+    ],
+    sources=["philstar2003", "searca2011", "ifp_award", "alukon", "ifp_seedbank", "pna_ifp"],
+)
+DRAFT_NOTE_1532 = ("DRAFT. THE asks for a policy to identify, monitor and protect IUCN Red List and national-list species in areas affected by "
+                   "university operations. This section shows the IFP Program, adopted by RDC Region 1, conserving locally threatened plants. "
+                   "The 2003 classification applied IUCN criteria locally; it is not the IUCN Red List. Attach the RDC resolution and any MMSU "
+                   "policy or species register before submitting.")
+if not any(d["code"] == "15.3.2" for d in DOCS):
+    DOCS.append(dict(code="15.3.2", file="DRAFT_SDG15_15.3.2_Monitoring_IUCN_and_national_list_species", draft=True,
+                     title="Monitoring IUCN and other conservation species (policy)",
+                     question="Have a policy to ensure that IUCN Red List species and national conservation list species with habitats in areas affected by university operations are identified, monitored and protected.",
+                     stories=["ifp_threatened"], continuing=["ifp_pna_2026"], note=DRAFT_NOTE_1532))
+DOCS.sort(key=lambda d: tuple(int(x) for x in d["code"].split(".")))
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""

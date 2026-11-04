@@ -82,8 +82,11 @@ Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebo
   project** (MMSU News, 20 Jan 2026): a DOST-PCAARRD and UP-ISSI site visit on 15 Jan 2026 for a project approved by the PCAARRD Governing
   Council, to integrate agriculture, tourism and education. It is a project plan, not yet an outreach programme. Ask Dr. Eva Jean Viernes
   (CBEA Department of Tourism and Hospitality Management) for any training, field day or tour for communities, with dates, attendance and free access.
-- **15.3.2** (IUCN and national-list species policy): only research was found (dipterocarp resource assessments 2012–2023, a 2003 IUCN-based
-  classification of vanishing Ilocos plants), not a policy. The SDG 15 page lists a tree inventory for Payao and Dingras (Oct–Dec 2023) with no file.
+- **15.3.2** (IUCN and national-list species policy) is now a draft (`DRAFT_SDG15_15.3.2_…pdf`) built on the IFP Program: 2003 survey using
+  IUCN criteria (77 vanishing plants, 45 endangered, 32 vulnerable), the 2011 SEARCA discussion paper (46 IFPs), the triad conservation
+  (botanical garden, alukon genebank, circa situ yams, foodscapes), 2025 activities, and adoption as RDC Region 1's first R&D initiative.
+  Still needed: the RDC resolution (number and date), an MMSU policy or species register, and the threat status of planted species under
+  DENR DAO 2026-20 (which replaced DAO 2017-11 in March 2026). The ResearchGate book (page 100) could not be opened from this session.
 - **15.3.4** (alien species policy): nothing found.
 - **15.3.1, 15.3.3**: only pre-2025 policies (continuing); no 2025 review found.
 - **Facebook:** posts are behind a login, so they were not searched. Team members with access should check the MMSU, SFT, CAFSD,
