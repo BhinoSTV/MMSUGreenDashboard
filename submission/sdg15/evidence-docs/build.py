@@ -974,6 +974,20 @@ if not any(d["code"] == "15.3.2" for d in DOCS):
                      stories=["ifp_threatened"], continuing=["ifp_pna_2026"], note=DRAFT_NOTE_1532))
 DOCS.sort(key=lambda d: tuple(int(x) for x in d["code"].split(".")))
 
+# ---------------------------------------------------------------- update 2026-11-04d: details merged back from the 13 October edition
+S["pasuquin"]["paras"][1] = ("A mangrove planting followed the signing at the degraded two-hectare National Greening Program site in Barangay Davila: about 110 "
+    "volunteers, including members of the MMSU College of Industrial Technology, DENR-CENRO Bangui, the Municipal Environment and Natural Resources "
+    "Office and residents, planted 1,750 seedlings, and the partners will plant 3,500 seedlings of the native mangrove species lapis-lapis and arinaya "
+    "over two years. TMPF President Jose Maria Aligada described the partnership as shared stewardship to restore native mangrove species, rehabilitate "
+    "coastal systems and boost community resilience to climate-related hazards. Former MMSU College of Industrial Technology Dean Cesario Pacis was "
+    "recognized as one of the initiators of the MMSU–Toyota partnership.")
+S["water"]["paras"] = [S["water"]["paras"][0],
+    "Mean pH from February to December 2024 ranged from 6.75 to 7.69, within the 6.5–8.5 guideline of the national drinking water standards. Small campus "
+    "reservoirs also collect rainwater, reduce flooding and recharge groundwater."]
+S["nbs_launch"]["paras"].insert(1, "The project addresses the poor hydrological conditions that keep young mangrove propagules from surviving, using "
+    "technology-assisted plantations and locally available, ecologically friendly materials, including bamboo-engineered structures that protect young "
+    "mangroves and improve their survival.")
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""
