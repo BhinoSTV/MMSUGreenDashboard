@@ -2,8 +2,9 @@
 
 `index.html` is one self-contained file (open it in a browser, or host it on any static server).
 Flow: **Home** (SDG tiles) → click **SDG 15** → indicator list → click **15.1** → entries.
-Only **15.1 Research on land ecosystems** is filled in this pilot; the other 14 indicators open
-with "No entries yet".
+**15.1** (14 hand-written entries) and **15.2.1 to 15.2.6** (36 entries generated from the compendium) are filled in;
+the remaining indicators open with "No entries yet". Regenerate the 15.2 entries after changing the compendium:
+`python3 import_entries.py && node build_site.js`.
 
 ## Design standard followed
 Taken from mmsu.edu.ph's SDG pages: Figtree text and Garamond headings, dark green `#0C4B05`,

@@ -32,8 +32,9 @@
     var loc = (loadLocal()[code] || []).map(function (e) { return Object.assign({}, e, { local: true }); });
     return loc.concat(base);
   }
-  function groupLabel(e) { return e.years === "Ongoing" ? "Ongoing" : String(e.sortYear); }
-  function sorted(list) { return list.slice().sort(function (a, b) { return (b.sortYear || 0) - (a.sortYear || 0); }); }
+  function groupLabel(e) { return e.years === "Ongoing" ? "Ongoing" : e.continuing ? "Continuing implementation" : String(e.sortYear); }
+  function rank(e) { return e.years === "Ongoing" ? 0 : e.continuing ? 2 : 1; }
+  function sorted(list) { return list.slice().sort(function (a, b) { return rank(a) - rank(b) || (b.sortYear || 0) - (a.sortYear || 0); }); }
 
   /* ---------- shell ---------- */
   var app = document.getElementById("app");
@@ -124,7 +125,7 @@
     if (n !== D.sdg.number) {
       document.title = "SDG " + n + " | MMSU Sustainability";
       main.className = "main";
-      main.innerHTML = '<div class="crumbs"><a href="#home">Home</a> / SDG ' + n + '</div><h2 style="font-family:var(--serif);font-size:32px;color:var(--green);margin:0 0 10px">SDG ' + n + ': ' + esc(GOALS[n - 1][0]) + '</h2><div class="empty">This pilot covers SDG 15 (Life on Land), indicator 15.1 only. <a href="#sdg-15" style="color:var(--green);font-weight:700">Open SDG 15</a>.</div>';
+      main.innerHTML = '<div class="crumbs"><a href="#home">Home</a> / SDG ' + n + '</div><h2 style="font-family:var(--serif);font-size:32px;color:var(--green);margin:0 0 10px">SDG ' + n + ': ' + esc(GOALS[n - 1][0]) + '</h2><div class="empty">This pilot covers SDG 15 (Life on Land), indicators 15.1 and 15.2 only. <a href="#sdg-15" style="color:var(--green);font-weight:700">Open SDG 15</a>.</div>';
       return;
     }
     document.title = "MMSU on Life on Land | MMSU Sustainability";
@@ -151,8 +152,8 @@
     view = { q: "", type: "All" };
     main.innerHTML = '<div><div class="crumbs"><a href="#home">Home</a> / <a href="#sdg-15">SDG 15</a> / ' + esc(code) + '</div>' +
       '<div class="indhead" id="overview"><h2><span class="code">' + esc(code) + '</span>' + esc(ind.title) + '</h2><p>' + esc(ind.question) + '</p></div>' +
-      (ind.note ? '<div class="infobox"><b>How this indicator is scored.</b> ' + esc(ind.note) + '</div>' : '') +
-      (code === "15.1" ? '' : '<div class="infobox"><b>Pilot.</b> Only indicator 15.1 is filled in this pilot. You can already add an entry here; it is saved in this browser and can be exported.</div>') +
+      (ind.note ? '<div class="infobox"><b>' + esc(ind.noteLabel || "How this indicator is scored") + '.</b> ' + esc(ind.note) + '</div>' : '') +
+      (entriesFor(code).length ? '' : '<div class="infobox"><b>Pilot.</b> No entries yet for this indicator. You can add one here; it is saved in this browser and can be shared as text.</div>') +
       '<div class="tools" id="entries"><input type="search" id="q" placeholder="Search entries" aria-label="Search entries"><div class="chips" id="chips"></div>' +
       '<span style="flex:1"></span><button class="btn" id="add">+ Add entry</button><button class="btn alt" id="export">Share added entries</button></div>' +
       '<div class="count" id="count" aria-live="polite"></div><div id="list"></div></div>' +
@@ -190,10 +191,11 @@
       (d.facts ? '<section class="dsec" id="sf"><h3>Key facts</h3><dl class="facts">' + d.facts.map(function (f) { return "<dt>" + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd>"; }).join("") + "</dl></section>" : (e.summary && d.lead ? '<section class="dsec"><h3>Summary</h3><p>' + esc(e.summary) + "</p></section>" : "")) +
       secs +
       (e.note ? '<section class="dsec"><h3>Note</h3><p>' + esc(e.note) + "</p></section>" : "") +
+      ((d.also || []).length ? '<section class="dsec" id="sa"><h3>Also listed under</h3><ul class="rel">' + d.also.map(function (a) { var t = byCode[a[0]] ? byCode[a[0]].title : ""; return '<li><a href="' + hrefEntry(a[0], a[1]) + '">' + esc(a[0]) + '</a> <span>' + esc(t) + '</span></li>'; }).join("") + "</ul></section>" : "") +
       (related.length ? '<section class="dsec" id="sr"><h3>Related entries</h3><ul class="rel">' + related.map(function (r) { return '<li><a href="' + (r.detail ? hrefEntry(code, r.id) : hrefInd(code)) + '">' + esc(r.title) + "</a> <span>" + esc(r.years) + " · " + esc(r.type) + "</span></li>"; }).join("") + "</ul></section>" : "") +
       (srcs.length ? '<section class="dsec" id="ss"><h3>Sources</h3><ul class="srcs">' + srcs.map(function (s) { var u = safeUrl(s.url); return "<li>" + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(s.label) + "</a>" : esc(s.label)) + "</li>"; }).join("") + "</ul></section>" : "") +
       '<p><a class="btn alt" style="text-decoration:none;display:inline-block" href="' + hrefInd(code) + '">Back to ' + esc(code) + " entries</a></p></div>" +
-      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#" data-scroll="top-entry">Summary</a></li>' + (d.facts ? '<li><a href="#" data-scroll="sf">Key facts</a></li>' : "") + toc + (related.length ? '<li><a href="#" data-scroll="sr">Related entries</a></li>' : "") + (srcs.length ? '<li><a href="#" data-scroll="ss">Sources</a></li>' : "") + "</ul></nav>";
+      '<nav class="toc" aria-label="On this page"><h2>On this page</h2><ul><li><a href="#" data-scroll="top-entry">Summary</a></li>' + (d.facts ? '<li><a href="#" data-scroll="sf">Key facts</a></li>' : "") + toc + ((d.also || []).length ? '<li><a href="#" data-scroll="sa">Also listed under</a></li>' : "") + (related.length ? '<li><a href="#" data-scroll="sr">Related entries</a></li>' : "") + (srcs.length ? '<li><a href="#" data-scroll="ss">Sources</a></li>' : "") + "</ul></nav>";
   }
 
   function renderList(code) {
@@ -225,7 +227,7 @@
         (e.people ? '<div class="meta">' + esc(e.people) + '</div>' : '') +
         (e.summary ? '<p>' + esc(e.summary) + '</p>' : '') +
         '<div class="tags">' + (e.status ? '<span class="tag ' + (/^Verified/.test(e.status) ? "ok" : "warn") + '">' + esc(e.status) + '</span>' : '') +
-        (e.local ? '<span class="tag local">Added locally</span>' : '') +
+        (e.continuing ? '<span class="tag">Continuing implementation</span>' : '') + (e.local ? '<span class="tag local">Added locally</span>' : '') +
         (e.note ? '<span class="tag">' + esc(e.note) + '</span>' : '') +
         (inner ? '<a class="more" href="' + inner + '">Read the full entry</a>' : '') + (url ? '<span class="src">Source: <a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(e.sourceLabel || url) + '</a></span>' : '') +
         (e.local ? '<button class="rm" data-id="' + esc(e.id) + '">Remove</button>' : '') + '</div></div></article>';
