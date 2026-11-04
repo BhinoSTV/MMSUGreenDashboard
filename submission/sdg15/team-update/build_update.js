@@ -276,7 +276,7 @@ function card(slide, x, y, w, h, name, fill) {
   const colX = [0.6, 6.85], colW = 5.85;
   [["Gaps", I.search, C.accent3, [
     ["15.2.2", "Needs a policy on sustainably farmed campus food. Our farm practices do not replace it."],
-    ["15.2.6", "No 2025 community programme on land management for tourism."],
+    ["15.2.6", "Only a planned project: TALON farm tourism, approved January 2026. No community programme yet."],
     ["15.3.2", "No threatened-species policy or register."],
     ["15.3.4", "No alien-species policy."],
   ]], ["Risks", I.warn, C.accent4, [

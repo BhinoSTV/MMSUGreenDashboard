@@ -819,6 +819,34 @@ for _d in DOCS:
     if _d["code"] == "15.4.1":
         _d["continuing"] = ["pcb_memo", "water_policy"]
 
+# ---------------------------------------------------------------- update 2026-11-04: TALON farm tourism project (15.2.6)
+PHOTOS.update({
+    "doc_talon_article_p1.jpg": "Capture: MMSU News, 20 January 2026, “DOST-PCAARRD, UP-ISSI visit proposed MMSU farm tourism project site” (headline and opening paragraphs).",
+    "doc_talon_article_p2.jpg": "Capture: the same article, on Project 3 TALON and the approval of the PCAARRD Governing Council.",
+})
+SRC.update({
+    "talon": ("MMSU News, “DOST-PCAARRD, UP-ISSI visit proposed MMSU farm tourism project site,” 20 January 2026",
+              "https://www.mmsu.edu.ph/article/news/2869/dost-pcaarrd-up-issi-visit-proposed-mmsu-farm-tourism-project-site"),
+})
+S["talon"] = dict(
+    title="DOST-PCAARRD and UP-ISSI Assess MMSU’s Proposed TALON Farm Tourism Project",
+    tag="Continuing implementation · site visit of January 15, 2026",
+    photos=["doc_talon_article_p1.jpg", "doc_talon_article_p2.jpg"],
+    paras=[
+        "On January 15, 2026, officials of the Department of Science and Technology–Philippine Council for Agriculture, Aquatic and Natural Resources Research and Development (DOST-PCAARRD) and the University of the Philippines–Institute for Small-Scale Industries (UP-ISSI) visited the MMSU Crops Research Laboratory to assess a proposed farm tourism project under the Science for the Convergence of Agriculture and Tourism (SciCAT) Expansion Program. The delegation, led by UP-ISSI Director and SciCAT Program Leader Asst. Prof. Melanie Moraga-Leaño, was welcomed by MMSU President Virgilio Julius P. Manzano Jr. and guided through an on-site technical walkthrough by MMSU’s Vice President for Research, Development and Innovation, the Director for Research, Innovation and Technology, the dean of the College of Business, Economics and Accountancy, and project members from its Department of Tourism and Hospitality Management led by Dr. Eva Jean Viernes. Planners of the Physical Planning and Development Office and the Ilocos Agriculture, Aquatic and Natural Resources Research and Development Consortium (ILAARRDEC) also took part.",
+        "The project, “Project 3. TALON: A Farm Tourism Model for Sustainable Development at MMSU,” is designed to integrate agriculture, tourism and education. It aims to boost the rural economy, provide an alternative income source for local farmers, and offer educational and recreational benefits to visitors by showcasing modern farming practices and technologies. The project has the endorsement of the PCAARRD Directors’ Council and the approval of the PCAARRD Governing Council through an Ad Referendum resolution, and its implementation, led by Dr. Viernes, is subject to the memorandum of agreement between DOST-PCAARRD and MMSU. MMSU is among the select institutions developing science-and-technology-based agri-tourism hubs under SciCAT, which turns farms into tourism sites to promote innovation, entrepreneurship and community development.",
+    ],
+    sources=["talon"],
+)
+S["talon"]["paras"] = S["talon"]["paras"]
+DRAFT_NOTE_2 = ("DRAFT. No 2025 community training on sustainable land management for tourism was found. The newest item is the January 2026 "
+                "approval and site visit for the TALON farm tourism project, which is a project plan, not yet an outreach programme. "
+                "Add its educational activities (dates, audience, free access) once they run, or submit it as the approved project plan.")
+for _d in DOCS:
+    if _d["code"] == "15.2.6":
+        _d["continuing"] = ["talon", "hub", "kpnp"]
+        _d["note"] = DRAFT_NOTE_2
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""

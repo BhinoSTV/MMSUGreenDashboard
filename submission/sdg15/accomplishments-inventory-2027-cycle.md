@@ -268,3 +268,9 @@ Mailbox (memos, special orders): found OP Memo 26-370 (30 Sep 2026, Environmenta
 and PCB equipment procedure) and OP SO 26-257 (29 Jun 2026, Chief for Green Transformation). The 2024 memos 24-075 and 24-088 ask staff to bring
 tumblers. No mailbox record for 15.2.2, 15.2.6, 15.3.2 or 15.3.4. Web: MMSU SDG pages give a local-sourcing statement for food but no dated policy;
 wildlife items are research only (dipterocarp assessments 2012-2023). Facebook posts are login-walled and were not searched.
+
+## Update (2026-11-04): 15.2.6
+
+Added the TALON farm tourism project (Project 3 under the DOST-PCAARRD and UP-ISSI SciCAT Expansion Program): site visit 15 Jan 2026 at the MMSU Crops Research
+Laboratory, article dated 20 Jan 2026 (https://www.mmsu.edu.ph/article/news/2869/dost-pcaarrd-up-issi-visit-proposed-mmsu-farm-tourism-project-site).
+Approved by the PCAARRD Governing Council; led by Dr. Eva Jean Viernes (CBEA-DTHM). A project plan, so 15.2.6 stays a draft until a community education activity is documented.

@@ -78,8 +78,10 @@ Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebo
 - **15.2.2** (sustainably farmed food) asks for a policy. MMSU's SDG page has a "Sustainable Food Purchases" statement (priority to local
   producers, student practicum and extension clients) but no dated policy, and the Food Services Unit page says nothing on sourcing.
   Ask the Business Directorate for any sourcing memorandum or concession clause.
-- **15.2.6** (tourism land-management outreach) is a draft (`DRAFT_SDG15_15.2.6_…pdf`): it holds only the Biodiversity Conservation
-  Learning Center and the KPNP role. A February 2026 UP AIT visit named a proposed Batac agritourism trail, which is a plan, not a programme.
+- **15.2.6** (tourism land-management outreach) is a draft (`DRAFT_SDG15_15.2.6_…pdf`). Its newest item is the **TALON farm tourism
+  project** (MMSU News, 20 Jan 2026): a DOST-PCAARRD and UP-ISSI site visit on 15 Jan 2026 for a project approved by the PCAARRD Governing
+  Council, to integrate agriculture, tourism and education. It is a project plan, not yet an outreach programme. Ask Dr. Eva Jean Viernes
+  (CBEA Department of Tourism and Hospitality Management) for any training, field day or tour for communities, with dates, attendance and free access.
 - **15.3.2** (IUCN and national-list species policy): only research was found (dipterocarp resource assessments 2012–2023, a 2003 IUCN-based
   classification of vanishing Ilocos plants), not a policy. The SDG 15 page lists a tree inventory for Payao and Dingras (Oct–Dec 2023) with no file.
 - **15.3.4** (alien species policy): nothing found.
