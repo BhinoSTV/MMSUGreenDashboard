@@ -284,3 +284,9 @@ Greenhouse training (13 May 2025) not used for SDG 15. Indigenous-species Facebo
 
 Built on the IFP Program (RDC Region 1 first adopted R&D initiative, per MMSU Research Directorate 29 Aug 2025), the 2003 Philstar report on the
 IUCN-criteria survey, and SEARCA Discussion Paper 2011-2 (Antonio et al.). ResearchGate copy of the SEARCA alumni book returned 403 (access restricted).
+
+## Final edition (2026-11-04)
+
+All 14 indicators now appear in the compendium with a status: 2025 evidence (15.2.1, 15.2.3, 15.2.4, 15.2.5, 15.3.5, 15.4.1, 15.4.2), continuing only
+(15.3.1, 15.3.3, 15.4.3), draft (15.2.2, 15.2.6, 15.3.2) and no entry yet (15.3.4, shown as its own section). OP Memos 24-075 and 24-088 (2024 tumbler
+instructions) added to 15.4.2 as continuing implementation.

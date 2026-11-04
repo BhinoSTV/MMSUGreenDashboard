@@ -220,6 +220,14 @@
   "doc_pna_ifp_post_2026.jpg": [
    1050,
    780
+  ],
+  "doc_memo_24-088.jpg": [
+   960,
+   685
+  ],
+  "doc_memo_24-075.jpg": [
+   960,
+   690
   ]
  },
  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation.",
@@ -241,7 +249,8 @@
    ],
    "continuing": [
     "planting_continues"
-   ]
+   ],
+   "status": "2025 evidence"
   },
   {
    "code": "15.2.2",
@@ -254,7 +263,8 @@
     "parambak_2025"
    ],
    "continuing": [],
-   "note": "DRAFT. THE asks for a policy that food on campus is sustainably farmed. No dated MMSU policy was found; the items below are 2025 campus farming practices that support it. Attach the policy, or a Business Directorate sourcing memorandum, as the first item before submitting."
+   "note": "DRAFT. THE asks for a policy that food on campus is sustainably farmed. No dated MMSU policy was found; the items below are 2025 campus farming practices that support it. Attach the policy, or a Business Directorate sourcing memorandum, as the first item before submitting.",
+   "status": "Draft"
   },
   {
    "code": "15.2.3",
@@ -273,7 +283,8 @@
     "nbs_launch",
     "bambusetum_2026",
     "hub"
-   ]
+   ],
+   "status": "2025 evidence"
   },
   {
    "code": "15.2.4",
@@ -288,7 +299,8 @@
    ],
    "continuing": [
     "ifp_pna_2026"
-   ]
+   ],
+   "status": "2025 evidence"
   },
   {
    "code": "15.2.5",
@@ -305,7 +317,8 @@
     "pshs_visit",
     "soil_health"
    ],
-   "continuing": []
+   "continuing": [],
+   "status": "2025 evidence"
   },
   {
    "code": "15.2.6",
@@ -321,7 +334,8 @@
     "hub",
     "kpnp"
    ],
-   "note": "DRAFT. The 2025 evidence is MMSU’s rice paddy art, a farm-tourism attraction on university demonstration fields with student guides, and the TALON farm tourism project was approved in January 2026. Neither is yet a structured training for communities. Add visitor or tour numbers and any briefing given to visitors before submitting."
+   "note": "DRAFT. The 2025 evidence is MMSU’s rice paddy art, a farm-tourism attraction on university demonstration fields with student guides, and the TALON farm tourism project was approved in January 2026. Neither is yet a structured training for communities. Add visitor or tour numbers and any briefing given to visitors before submitting.",
+   "status": "Draft"
   },
   {
    "code": "15.3.1",
@@ -331,7 +345,8 @@
    "stories": [],
    "continuing": [
     "landuse_policy"
-   ]
+   ],
+   "status": "Continuing only"
   },
   {
    "code": "15.3.2",
@@ -345,7 +360,8 @@
    "continuing": [
     "ifp_pna_2026"
    ],
-   "note": "DRAFT. THE asks for a policy to identify, monitor and protect IUCN Red List and national-list species in areas affected by university operations. This section shows the IFP Program, adopted by RDC Region 1, conserving locally threatened plants. The 2003 classification applied IUCN criteria locally; it is not the IUCN Red List. Attach the RDC resolution and any MMSU policy or species register before submitting."
+   "note": "DRAFT. THE asks for a policy to identify, monitor and protect IUCN Red List and national-list species in areas affected by university operations. This section shows the IFP Program, adopted by RDC Region 1, conserving locally threatened plants. The 2003 classification applied IUCN criteria locally; it is not the IUCN Red List. Attach the RDC resolution and any MMSU policy or species register before submitting.",
+   "status": "Draft"
   },
   {
    "code": "15.3.3",
@@ -355,7 +371,19 @@
    "stories": [],
    "continuing": [
     "sirmata"
-   ]
+   ],
+   "status": "Continuing only"
+  },
+  {
+   "code": "15.3.4",
+   "file": "NO_ENTRY_SDG15_15.3.4_Alien_species_impact_reduction",
+   "none": true,
+   "title": "Alien species impact reduction (policy)",
+   "question": "Have a policy to reduce the impact of alien species on campus.",
+   "stories": [],
+   "continuing": [],
+   "note": "NO ENTRY YET. THE asks for a policy to reduce the impact of alien species on campus. Nothing was found in MMSU’s public sources, the focal person’s mailbox or the links supplied by the team. A memorandum from the Office of the President requiring native species in campus planting and the control of invasive species would answer it.",
+   "status": "No entry yet"
   },
   {
    "code": "15.3.5",
@@ -373,7 +401,8 @@
    "continuing": [
     "nbs_launch",
     "kpnp"
-   ]
+   ],
+   "status": "2025 evidence"
   },
   {
    "code": "15.4.1",
@@ -386,7 +415,8 @@
    "continuing": [
     "pcb_memo",
     "water_policy"
-   ]
+   ],
+   "status": "2025 evidence"
   },
   {
    "code": "15.4.2",
@@ -398,8 +428,10 @@
     "cleanup"
    ],
    "continuing": [
-    "plastic"
-   ]
+    "plastic",
+    "tumbler_memos"
+   ],
+   "status": "2025 evidence"
   },
   {
    "code": "15.4.3",
@@ -410,7 +442,8 @@
    "continuing": [
     "pcb_memo",
     "hazardous"
-   ]
+   ],
+   "status": "Continuing only"
   }
  ],
  "supporting": null,
@@ -1050,6 +1083,23 @@
     "ifp_seedbank",
     "pna_ifp"
    ]
+  },
+  "tumbler_memos": {
+   "title": "University Memoranda Ask Employees to Bring Their Own Tumblers",
+   "tag": "Continuing implementation · February 2024",
+   "photos": [
+    "doc_memo_24-088.jpg",
+    "doc_memo_24-075.jpg"
+   ],
+   "paras": [
+    "The practice behind the No Bottled Water policy appears in the university’s own memoranda. Office of the President Memorandum No. 24-088 of February 29, 2024, sent to all employees for the National Women’s Month kick-off parade and fitness activity, asked participants to “bring your own water bottle/tumbler for hydration.” Memorandum No. 24-075 of February 16, 2024, calling newly hired faculty to training on the MVLE and MMSU e-systems, asked them to “bring your own tumbler/mug.”",
+    "In October 2024 the College of Agriculture, Food and Sustainable Development went further and banned plastic bottled water in its auxiliary building, encouraging students and staff to bring reusable tumblers instead."
+   ],
+   "sources": [
+    "memo24088",
+    "memo24075",
+    "cafsd_waste"
+   ]
   }
  },
  "photos": {
@@ -1108,7 +1158,9 @@
   "dingras_paddy_art_2025.jpg": "Rice paddy art featuring Dingras as the Rice Granary of Ilocos Norte, MMSU Dingras Campus, unveiled 9 September 2025. (Photo: MMSU STRATCOM)",
   "parambak_2025.jpg": "7th Parambak ditoy MMSU, in front of CAFSD, 14 February 2025. (Photo: MMSU STRATCOM)",
   "greenhouse_training_2025.jpg": "MMSU researchers and farm workers train on the new greenhouse at the RDE complex, 13 May 2025. (Photo: MMSU Research Directorate)",
-  "doc_pna_ifp_post_2026.jpg": "Capture: Philippine News Agency post of 6 June 2026 on indigenous food plants propagated at the MMSU NRCMC botanical garden (photos: Leilanie Adriano, PNA)."
+  "doc_pna_ifp_post_2026.jpg": "Capture: Philippine News Agency post of 6 June 2026 on indigenous food plants propagated at the MMSU NRCMC botanical garden (photos: Leilanie Adriano, PNA).",
+  "doc_memo_24-088.jpg": "Document: Office of the President Memorandum No. 24-088, 29 February 2024, to all employees: “Please bring your own water bottle/tumbler for hydration.”",
+  "doc_memo_24-075.jpg": "Document: Office of the President Memorandum No. 24-075, 16 February 2024, item 4: “Please bring your own tumbler/mug…”"
  },
  "photo_source": {
   "forest_reserve_planting_2025.jpg": "MMSU News, 4 Jul 2025 (article 2468) or MMSU Public Affairs / CAFSD files",
@@ -1324,6 +1376,14 @@
   "philstar2003": {
    "label": "The Philippine Star, “MMSU researchers identify vanishing plant species,” 14 September 2003",
    "url": "https://philstar.com/business/2003/09/14/220344/mmsu-researchers-identify-vanishing-plant-species"
+  },
+  "memo24088": {
+   "label": "MMSU Office of the President, Memorandum No. 24-088, “Participation in National Women’s Month Celebration Kick-Off Activity,” 29 February 2024",
+   "url": null
+  },
+  "memo24075": {
+   "label": "MMSU Office of the President, Memorandum No. 24-075, “Attendance to the Training on the Use of MVLE and MMSU E-Systems,” 16 February 2024",
+   "url": null
   }
  }
 }

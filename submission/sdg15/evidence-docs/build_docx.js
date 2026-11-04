@@ -195,18 +195,22 @@ const cover = [
     transformation: { width: 1.6 * EMU_IN, height: 1.6 * EMU_IN }, altText: { title: "SDG 15", description: "SDG 15 Life on Land", name: "sdg15" } }),
     { spacing: { before: 1600, after: 300 } }),
   para(run("SDG 15 Life on Land", { bold: true, color: DARK, size: 56 })),
-  para(run("Evidence Compendium 2025", { bold: true, color: DARK, size: 56 }), { spacing: { after: 200 } }),
+  para(run("Evidence Compendium 2025", { bold: true, color: DARK, size: 56 }), { spacing: { after: 120 } }),
+  para(run("Final consolidated edition, 4 November 2026", { bold: true, color: DARK, size: 28 }), { spacing: { after: 200 } }),
   para(run("Mariano Marcos State University · THE Sustainability Impact Ratings 2027", { bold: true, color: GREEN, size: 26 }), { spacing: { after: 500 } }),
   para(run("Compiled from MMSU, DOST-PCAARRD and news sources for the 2027 data submission (due 9 November 2026). Each section corresponds to one THE SDG 15 indicator and lists the 2025 evidence first, then the policies and programmes that continue from earlier years and into 2026.", { size: 19, color: MUTED })),
-  para(run("Draft for validation, updated 30 October 2026. Photos marked “PHOTO TO INSERT” and the items on the last pages must be completed before submission.", { size: 19, color: MUTED, italics: true }), { spacing: { before: 120 } }),
+  para(run("All entries gathered in this project are consolidated here by indicator. Sections marked DRAFT or NO ENTRY YET, and the items on the last pages, must be completed before submission.", { size: 19, color: MUTED, italics: true }), { spacing: { before: 120 } }),
   para(new PageBreak()),
 ];
 
 const contents = [
   h1("Contents by indicator"),
-  simpleTable(["Indicator", "THE question", "Evidence in this compendium"],
-    allDocs.map((d) => [d.code, d.title + (d.draft ? " (DRAFT)" : ""),
-      d.stories.map((k) => C.stories[k].title).concat((d.continuing || []).map((k) => "Continuing: " + C.stories[k].title)).join("\n")]), [1200, 3300, CONTENT - 4500]),
+  simpleTable(["Indicator", "THE question", "Status", "Evidence in this compendium"],
+    allDocs.map((d) => [d.code, d.title, d.status || "",
+      (d.stories.length || (d.continuing || []).length)
+        ? d.stories.map((k) => C.stories[k].title).concat((d.continuing || []).map((k) => "Continuing: " + C.stories[k].title)).join("\n")
+        : "NO ENTRY YET"]), [1000, 2700, 1300, CONTENT - 5000]),
+  body("Status: “2025 evidence” has dated 2025 items; “Continuing only” rests on policies from before 2025 or from 2026; “Draft” has supporting items but not what THE asks for; “No entry yet” has nothing.", { size: 17, color: MUTED }),
   para(new PageBreak()),
 ];
 
@@ -225,25 +229,24 @@ const lessons = [
 // ---------------------------------------------------------------- back matter
 const gaps = [
   para(new PageBreak()),
-  h1("Indicators still without public evidence"),
-  body("The questions below have no 2025 MMSU evidence online. Where a pre-2025 policy exists it is listed under “Continuing implementation” in the indicator’s section. Peer universities answer them with dated policies or programmes; MMSU should retrieve or issue the equivalent documents. MMSU’s SDG 15 page also lists “Number of Seedlings Planted from 2018 to 2024,” “Summary of Tree Inventory for Payao and Dingras, October–December 2023” and “Sustainable Use of Land,” but no file is attached to those links; adding them would strengthen 15.2.3, 15.3.1 and 15.3.2."),
-  simpleTable(["Indicator", "What peers submit", "What MMSU should produce"], [
-    ["15.2.2 Sustainably farmed food on campus", "Campus farm statement or food sourcing policy", "2025 memorandum on sourcing campus food from MMSU farms and local sustainable growers"],
-    ["15.2.6 Tourism land-management outreach", "Training for tourism operators or eco-park stewards", "Draft section only. Find a community programme linked to the Biodiversity Conservation Learning Center or eco-sites; do not submit the site description alone."],
-    ["15.3.1 Land conservation policy", "Board-approved tree or forest policy (VSU, 2025)", "Covered by the 2021 land use policy (continuing). Add a 2025 Board resolution or review for the review point."],
-    ["15.3.2 IUCN and national-list species policy", "Species monitoring policy with a register", "Policy plus a register for the forest reserves"],
-    ["15.3.3 Biodiversity in planning", "Planning that consults biodiversity data", "Covered by Sirmata 2040 (continuing). A 2025 project record applying its protected-land rules would strengthen it."],
-    ["15.3.4 Alien species policy", "Alien species policy", "Native-species planting and invasive-species control policy"],
-    ["15.4.3 Hazardous waste policy", "Dated memorandum and EMB seminar (CarSU, 2024)", "Covered by the IPWMP (revised 2020, continuing). Confirm the 2020 date falls inside THE’s policy-review window; if not, a 2025 review is needed."],
-], [2600, 3200, CONTENT - 5800]),
+  h1("Indicators without entries, and drafts"),
+  body("Of the 14 SDG 15 evidence questions, 7 have dated 2025 evidence, 3 rest on policies from before 2025 or from 2026, 3 are drafts, and 1 has no entry yet."),
+  simpleTable(["Indicator", "Status", "What is missing"], [
+    ["15.3.4 Alien species policy", "NO ENTRY YET", "A policy or memorandum requiring native species in campus planting and controlling invasive species."],
+    ["15.2.2 Sustainably farmed food on campus", "Draft", "A policy or Business Directorate sourcing memorandum. The greenhouse training and Parambak (2025) are supporting practice only."],
+    ["15.2.6 Tourism land-management outreach", "Draft", "A community training or guided programme with dates, audience and free access. The 2025 rice paddy art and the TALON project (2026) support it."],
+    ["15.3.2 IUCN and national-list species policy", "Draft", "The RDC Region 1 resolution adopting the IFP Program, an MMSU species policy or register, and DAO 2026-20 status of planted species."],
+    ["15.3.1 Land conservation policy", "Continuing only", "A 2025 Board resolution or review of the 2021 land use policy (adds the review point)."],
+    ["15.3.3 Biodiversity in planning", "Continuing only", "A 2025 project record applying the Sirmata 2040 protected-land rules."],
+    ["15.4.3 Hazardous waste policy", "Continuing only", "Confirm whether Memorandum No. 26-370 (30 September 2026) and the IPWMP (2020) fall inside THE’s policy window."],
+  ], [2600, 1500, CONTENT - 4100]),
   para(run(""), { spacing: { after: 120 } }),
   h1("To complete before submission"),
   bullet("Free access: state that the 2025 mangrove seminar, alukon training, Pinili bamboo training and School-on-the-Air were free of charge, if true. THE gives full credit only to free programmes (15.2.4, 15.2.5)."),
-  bullet("Policies: the land use, plastic and hazardous waste policies predate 2025 and appear under “Continuing implementation.” Confirm each is still in force, and issue or document a 2025 review or reiteration (for example the annual No Bottled Water memorandum for 2025), which adds the review point."),
-  bullet("Indicator 15.2.2 (sustainably farmed food) asks for a policy. None was found, so its section is a draft holding 2025 campus farming practice (the greenhouse training and Parambak); attach a policy or sourcing memorandum before submitting."),
-  bullet("Indicator 15.2.6 is a draft: no 2025 community programme on land management for tourism was found."),
+  bullet("Policies: confirm that the land use, water, plastic and hazardous waste policies are still in force, and obtain the 2024 and 2025 reiterations of the No Bottled Water memorandum and the full Environmental Compliance Procedures under Memorandum No. 26-370."),
   bullet("Pasuquin agreement (signed 29 November 2025): attach a copy of the signed memorandum of agreement."),
   bullet("Confirm the date of the 2025 MMSU–DENR Region 1 dialogue at ILAARRDEC and add the Biodiversity Day photo contest announcement link."),
+  bullet("Facebook: screenshot, with dates, the posts cited on MMSU’s SDG pages (CCIS SipSmart, BioCircle refilling station, hydration stations) and any 2025 posts for the drafts."),
   bullet("Confirm the 2027 data year with THE before upload, and upload one file per indicator rather than this compendium. THE rejects evidence that is mainly a list of links."),
 ];
 

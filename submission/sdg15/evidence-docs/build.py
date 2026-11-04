@@ -988,6 +988,47 @@ S["nbs_launch"]["paras"].insert(1, "The project addresses the poor hydrological 
     "technology-assisted plantations and locally available, ecologically friendly materials, including bamboo-engineered structures that protect young "
     "mangroves and improve their survival.")
 
+# ---------------------------------------------------------------- final edition 2026-11-04: all 14 indicators, status labels
+PHOTOS.update({
+    "doc_memo_24-088.jpg": "Document: Office of the President Memorandum No. 24-088, 29 February 2024, to all employees: “Please bring your own water bottle/tumbler for hydration.”",
+    "doc_memo_24-075.jpg": "Document: Office of the President Memorandum No. 24-075, 16 February 2024, item 4: “Please bring your own tumbler/mug…”",
+})
+SRC.update({
+    "memo24088": ("MMSU Office of the President, Memorandum No. 24-088, “Participation in National Women’s Month Celebration Kick-Off Activity,” 29 February 2024", None),
+    "memo24075": ("MMSU Office of the President, Memorandum No. 24-075, “Attendance to the Training on the Use of MVLE and MMSU E-Systems,” 16 February 2024", None),
+})
+S["tumbler_memos"] = dict(
+    title="University Memoranda Ask Employees to Bring Their Own Tumblers",
+    tag="Continuing implementation · February 2024",
+    photos=["doc_memo_24-088.jpg", "doc_memo_24-075.jpg"],
+    paras=[
+        "The practice behind the No Bottled Water policy appears in the university’s own memoranda. Office of the President Memorandum No. 24-088 of February 29, 2024, sent to all employees for the National Women’s Month kick-off parade and fitness activity, asked participants to “bring your own water bottle/tumbler for hydration.” Memorandum No. 24-075 of February 16, 2024, calling newly hired faculty to training on the MVLE and MMSU e-systems, asked them to “bring your own tumbler/mug.”",
+        "In October 2024 the College of Agriculture, Food and Sustainable Development went further and banned plastic bottled water in its auxiliary building, encouraging students and staff to bring reusable tumblers instead.",
+    ],
+    sources=["memo24088", "memo24075", "cafsd_waste"],
+)
+for _d in DOCS:
+    if _d["code"] == "15.4.2" and "tumbler_memos" not in _d.get("continuing", []):
+        _d["continuing"] = list(_d.get("continuing", [])) + ["tumbler_memos"]
+NONE_NOTE_1534 = ("NO ENTRY YET. THE asks for a policy to reduce the impact of alien species on campus. Nothing was found in MMSU’s public sources, "
+                  "the focal person’s mailbox or the links supplied by the team. A memorandum from the Office of the President requiring native "
+                  "species in campus planting and the control of invasive species would answer it.")
+if not any(d["code"] == "15.3.4" for d in DOCS):
+    DOCS.append(dict(code="15.3.4", file="NO_ENTRY_SDG15_15.3.4_Alien_species_impact_reduction", none=True,
+                     title="Alien species impact reduction (policy)",
+                     question="Have a policy to reduce the impact of alien species on campus.",
+                     stories=[], continuing=[], note=NONE_NOTE_1534))
+DOCS.sort(key=lambda d: tuple(int(x) for x in d["code"].split(".")))
+for _d in DOCS:
+    if _d.get("none"):
+        _d["status"] = "No entry yet"
+    elif _d.get("draft"):
+        _d["status"] = "Draft"
+    elif _d["stories"]:
+        _d["status"] = "2025 evidence"
+    else:
+        _d["status"] = "Continuing only"
+
 # ---------------------------------------------------------------- rendering
 def font_css():
     """Reuse the self-hosted Montserrat and Work Sans faces from the dashboard."""
@@ -1148,12 +1189,13 @@ def build_doc(doc):
 
 def build_compendium():
     rows = "".join(
-        f'<tr><td><b>{esc(d["code"])}</b></td><td>{esc(d["title"])}</td><td>'
+        f'<tr><td><b>{esc(d["code"])}</b></td><td>{esc(d["title"])}<br><i>{esc(d.get("status",""))}</i></td><td>'
+        + ("<b>No entry yet</b>" if not d["stories"] and not d.get("continuing") else "")
         + "<br>".join(esc(S[k]["title"]) for k in d["stories"])
         + ("<br><i>Continuing:</i> " + "<br>".join(esc(S[k]["title"]) for k in d["continuing"]) if d.get("continuing") else "")
         + "</td></tr>"
         for d in DOCS + ([SUPPORTING] if SUPPORTING else []))
-    cover = (f'<div class="cover">{SDG_TILE}<div class="big">SDG 15 Life on Land<br>Evidence Compendium 2025</div>'
+    cover = (f'<div class="cover">{SDG_TILE}<div class="big">SDG 15 Life on Land<br>Evidence Compendium 2025</div><div class="sub">Final consolidated edition, 4 November 2026</div>'
              f'<div class="sub">Mariano Marcos State University · THE Sustainability Impact Ratings 2027</div>'
              f'<div class="note">Compiled from MMSU, DOST-PCAARRD and news sources for the 2027 data submission '
              f'(due 9 November 2026). Each section corresponds to one THE SDG 15 indicator: 2025 evidence first, then policies and programmes '

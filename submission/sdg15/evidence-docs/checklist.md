@@ -102,3 +102,8 @@ Sweep of 1 November 2026 (focal person's mailbox, MMSU sites, web search; Facebo
 | Facebook: MMSU, Extension Directorate, Agriculture Currimao and Office of the CHED Chairperson posts on the 2025 rice paddy art | Same event as MMSU News of 8 Jul, 22 Aug and 12 Sep 2025 | **15.2.6** (2025 evidence), cited through the MMSU articles; keep the Facebook screenshots on file |
 | extension.mmsu.edu.ph: “Parambak” caps MMSU@47 (14 Feb 2025) | Extension technology showcase with 37 exhibitors, farmer scientists and LGUs | **15.2.5**, **15.2.1** and the **15.2.2** draft (2025 evidence) |
 | Facebook (PNA, 6 Jun 2026): indigenous food plants propagated at the NRCMC botanical garden and shared with schools and communities (photos by Leilanie Adriano, PNA) | Public post, read directly | **15.2.3** and **15.2.4**, continuing implementation (2026) |
+
+## 6. Final edition (4 November 2026)
+
+- **15.3.4** has its own section marked **NO ENTRY YET** (`NO_ENTRY_SDG15_15.3.4_…pdf`). Do not upload it; replace it with a policy if one is issued.
+- OP Memoranda 24-075 and 24-088 (February 2024, bring-your-own tumbler) were added to 15.4.2 under continuing implementation.
