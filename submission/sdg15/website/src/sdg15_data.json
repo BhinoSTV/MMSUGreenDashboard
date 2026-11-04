@@ -1,0 +1,298 @@
+{
+ "sdg": {
+  "number": 15,
+  "name": "Life on Land",
+  "color": "#56C02B",
+  "titleColor": "#3FF500",
+  "commitment": "Take an active role in protecting and promoting sustainable use of terrestrial ecosystems, responsible land use, and biodiversity conservation."
+ },
+ "metrics": [
+  {
+   "code": "15.1",
+   "heading": "Research on land ecosystems",
+   "group": "RESEARCH ON LAND ECOSYSTEMS",
+   "indicators": [
+    {
+     "code": "15.1",
+     "title": "Research on land ecosystems",
+     "question": "Scholarly research on terrestrial ecosystems, forests, biodiversity, soils and land degradation.",
+     "note": "THE takes the research metrics for SDG 15 from Scopus bibliometric data. Institutions do not upload documents for this metric, so the entries below are MMSU's research record on land ecosystems, kept for the team and for checking author affiliations. They are not submitted to THE."
+    }
+   ],
+   "short": "Research"
+  },
+  {
+   "code": "15.2",
+   "heading": "Supporting land ecosystems through education",
+   "group": "PROJECTS AND ACTIVITIES: SUPPORTING LAND ECOSYSTEMS THROUGH EDUCATION",
+   "indicators": [
+    {
+     "code": "15.2.1",
+     "title": "Events about sustainable use of land",
+     "question": "Support or organise events aimed to promote conservation and sustainable utilisation of the land, including forests and wild land."
+    },
+    {
+     "code": "15.2.2",
+     "title": "Sustainably farmed food on campus (policy)",
+     "question": "Have a policy that food on campus is sustainably farmed."
+    },
+    {
+     "code": "15.2.3",
+     "title": "Maintain and extend current ecosystems' biodiversity",
+     "question": "Work directly to maintain and extend existing ecosystems and their biodiversity, of both plants and animals, especially ecosystems under threat."
+    },
+    {
+     "code": "15.2.4",
+     "title": "Educational programmes on ecosystems",
+     "question": "Offer educational programmes on ecosystems (looking at wild flora and fauna) for local or national communities."
+    },
+    {
+     "code": "15.2.5",
+     "title": "Sustainable management of land for agriculture (educational outreach)",
+     "question": "Offer educational programme/outreach for local or national communities on sustainable management of land for agriculture."
+    },
+    {
+     "code": "15.2.6",
+     "title": "Sustainable management of land for tourism (educational outreach)",
+     "question": "Offer educational programme/outreach for local or national communities on sustainable management of land for tourism."
+    }
+   ],
+   "short": "Education"
+  },
+  {
+   "code": "15.3",
+   "heading": "Supporting land ecosystems through action",
+   "group": "SUPPORTING LAND ECOSYSTEMS THROUGH ACTION",
+   "indicators": [
+    {
+     "code": "15.3.1",
+     "title": "Sustainable use, conservation and restoration of land (policy)",
+     "question": "Have a policy to ensure the conservation, restoration and sustainable use of terrestrial ecosystems associated with the university, in particular forests, mountains and drylands."
+    },
+    {
+     "code": "15.3.2",
+     "title": "Monitoring IUCN and other conservation species (policy)",
+     "question": "Have a policy to ensure that IUCN Red List species and national conservation list species with habitats in areas affected by university operations are identified, monitored and protected."
+    },
+    {
+     "code": "15.3.3",
+     "title": "Local biodiversity included in planning and development",
+     "question": "Include local biodiversity into any planning and development process (e.g. construction of new buildings)."
+    },
+    {
+     "code": "15.3.4",
+     "title": "Alien species impact reduction (policy)",
+     "question": "Have a policy to reduce the impact of alien species on campus."
+    },
+    {
+     "code": "15.3.5",
+     "title": "Collaboration for shared land ecosystems",
+     "question": "Collaborate with the local community to maintain shared land ecosystems."
+    }
+   ],
+   "short": "Action"
+  },
+  {
+   "code": "15.4",
+   "heading": "Land-sensitive waste disposal",
+   "group": "LAND SENSITIVE WASTE DISPOSAL",
+   "indicators": [
+    {
+     "code": "15.4.1",
+     "title": "Water discharge guidelines and standards",
+     "question": "Have water quality standards and guidelines for water discharges (to uphold water quality in order to protect ecosystems, wildlife, and human health and welfare)."
+    },
+    {
+     "code": "15.4.2",
+     "title": "Policy on plastic waste reduction",
+     "question": "Have a policy on reducing plastic waste on campus."
+    },
+    {
+     "code": "15.4.3",
+     "title": "Policy on hazardous waste disposal",
+     "question": "Have a policy, process or practice on waste disposal covering hazardous materials."
+    }
+   ],
+   "short": "Waste disposal"
+  }
+ ],
+ "entries": {
+  "15.1": [
+   {
+    "id": "e01",
+    "years": "2025",
+    "sortYear": 2025,
+    "type": "Award",
+    "title": "From wild foods to policy innovation: MMSU's indigenous food plants program as a model for sustainable and inclusive agriculture",
+    "people": "Menisa A. Antonio, Ma. Concepcion Birginias, Josefa Pugat, Maingeline Vivit, Ruby Rose Tamayo",
+    "summary": "Best Paper, sustainable and smart agri-aquaculture and climate resilience category, 2025 SUC-ACAP Biennial Conference and General Assembly (27 to 29 August 2025, Tagbilaran City, Bohol). The paper covers conservation of wild food plants through in situ, ex situ and circa situ approaches and the adoption of the program by the Regional Development Council of Region 1.",
+    "sourceLabel": "MMSU Research Directorate, 29 August 2025",
+    "sourceUrl": "https://research.mmsu.edu.ph/news/details/mmsu-research-on-indigenous-food-plants-wins-best-paper-at-suc-acap-2025-conference",
+    "status": "Verified on the source page",
+    "note": "Conference paper; Scopus indexing not checked."
+   },
+   {
+    "id": "e02",
+    "years": "2024 to 2026",
+    "sortYear": 2026,
+    "type": "Research project",
+    "title": "Nature-based Solutions (NbS) for Sustainable Mangrove Management and Resilient Coastal Communities Through Innovative Green Engineering Approach",
+    "people": "Dr. Arlene L. Gonzales (Project Leader), with DENR-PENRO Ilocos Norte, the Provincial Government and the LGUs of Badoc and Currimao",
+    "summary": "DOST-PCAARRD-funded project (1 May 2024 to 30 April 2026) in Badoc and Currimao, Ilocos Norte. It addresses the poor hydrological conditions that keep young mangrove propagules from surviving, using technology-assisted plantations and bamboo-engineered structures.",
+    "sourceLabel": "DOST-PCAARRD, 7 August 2024",
+    "sourceUrl": "https://www.pcaarrd.dost.gov.ph/index.php/quick-information-dispatch-qid-articles/dost-pcaarrd-mmsu-launch-nature-based-solutions-project-on-mangrove-management-in-ilocos-norte",
+    "status": "Verified on the source page",
+    "note": "Coastal ecosystem; the team may weigh it under SDG 14 as well."
+   },
+   {
+    "id": "e03",
+    "years": "2025",
+    "sortYear": 2025,
+    "type": "Research project",
+    "title": "Enhancing the productivity of rice-based cropping systems through soil health management (Project SLaM 2023/146)",
+    "people": "Dr. Janet Villamor (MMSU project lead), with Griffith University, ACIAR and DOST-PCAARRD",
+    "summary": "MMSU joined a five-year program to develop soil knowledge and capacity for more productive and sustainable cropping systems. It evaluates nutrient management and develops yield-calibrated soil health indices for rice-garlic, rice-rice and rice-onion systems in Ilocos Norte, Tarlac and Bataan.",
+    "sourceLabel": "MMSU News, 31 March and 3 July 2025",
+    "sourceUrl": "https://www.mmsu.edu.ph/news/mmsu-tapped-as-key-partner-in-enhancing-ph-cropping-systems-through-soil-health-management",
+    "status": "Verified on the source page",
+    "note": "Agricultural soil research; confirm it falls under THE's land-ecosystems keywords."
+   },
+   {
+    "id": "e04",
+    "years": "2023",
+    "sortYear": 2023,
+    "type": "Study",
+    "title": "Characterization and Evaluation of Indigenous Food Plant Species",
+    "people": "Menisa A. Antonio, Bjorn S. Santos, Maria Concepcion Birginias, Jomel Agreda, Bella Gervacio",
+    "summary": "Study under the parent project \"Strengthening the Resilience of Iloco Crop Diversity Through Complementary Conservation Approach\", with related studies on ex situ conservation facilities and community foodscapes and seedbanks. Status: extended.",
+    "sourceLabel": "MMSU Research portal, record 801",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/801",
+    "status": "Verified on the source page"
+   },
+   {
+    "id": "e05",
+    "years": "2022 to 2023",
+    "sortYear": 2023,
+    "type": "Study",
+    "title": "Documentation of Dipterocarp Species in Second Growth Forest of Ilocos Norte",
+    "people": "Bonne Jovi J. Orteza",
+    "summary": "Expected outputs: a handbook of dipterocarp species in Ilocos Norte and a map of dipterocarp forest. Status: extended.",
+    "sourceLabel": "MMSU Research portal, record 691",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/691",
+    "status": "Verified on the source page"
+   },
+   {
+    "id": "e06",
+    "years": "2017 to 2021",
+    "sortYear": 2021,
+    "type": "Study",
+    "title": "Assessment and selection of suitable indigenous timber species under denuded hilly areas in Ilocos Norte",
+    "people": "Charito Samsam, Sergia Garma, Joselito Rosario, Roseller Ayson",
+    "summary": "Completed study under the parent project on species-site suitability of indigenous timber species in denuded areas, with a related performance evaluation of promising species under different management strategies on hilly denuded land.",
+    "sourceLabel": "MMSU Research portal, records 493 and 494",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/493",
+    "status": "Verified on the source page"
+   },
+   {
+    "id": "e07",
+    "years": "2019",
+    "sortYear": 2019,
+    "type": "Award",
+    "title": "Phenology of Broussonetia luzonica (Blanco) Bur.: A Promising Indigenous Vegetable",
+    "people": "Menisa A. Antonio, Evangeline S. Galacgac, Rodel T. Utrera",
+    "summary": "Best Poster, 2019 Plant Biology Forum, University of the Philippines Los Baños (29 to 30 April 2019). The study characterised alukon (himbabao) trees in four ecological zones of Ilocos Norte: morphology, reproductive characters, growth stages and flowering habit.",
+    "sourceLabel": "MMSU News",
+    "sourceUrl": "https://www.mmsu.edu.ph/news/mmsu-savants-win-in-2019-plant-bio-forum",
+    "status": "Verified on the source page",
+    "note": "Poster; Scopus indexing not checked."
+   },
+   {
+    "id": "e08",
+    "years": "2012 to 2017",
+    "sortYear": 2017,
+    "type": "Research project",
+    "title": "Resource Assessment and Evaluation of Dipterocarps and Premium Indigenous Timber Species in Ilocos Norte",
+    "people": "Joselito Rosario, Charito Samsam",
+    "summary": "Completed project that located and documented superior mother trees of dipterocarps and other indigenous timber species in Ilocos Norte and evaluated their phenotypic qualities and phenology.",
+    "sourceLabel": "MMSU Research portal, record 101",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/101",
+    "status": "Verified on the source page"
+   },
+   {
+    "id": "e09",
+    "years": "2012 to 2015",
+    "sortYear": 2015,
+    "type": "Study",
+    "title": "Documentation of Dipterocarp Species in Second Growth Forest in Selected Municipalities of Ilocos Norte",
+    "people": "Charlie Batin, Roseller Ayson, Dionisio Jamias, Erle Stanley Damaso, Mary Ann Gorospe",
+    "summary": "Documentation of dipterocarp trees dominating second-growth forests in Nueva Era, Pasuquin, Vintar, Adams and Pagudpud, with diameter, species and stocking data. Status: deferred.",
+    "sourceLabel": "MMSU Research portal, record 111",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/111",
+    "status": "Verified on the source page"
+   },
+   {
+    "id": "e10",
+    "years": "2011 to 2014",
+    "sortYear": 2014,
+    "type": "Research project",
+    "title": "Resource Assessment of Existing Potential Biofuel-Source Species in Ilocos Norte",
+    "people": "Joselito Rosario, Charito Samsam, Dionisio Jamias, Sergia Garma",
+    "summary": "Completed project that built a database of energy-producing tree species in Region I through exploration, identification, abundance and phenology studies, with DENR, DA and local governments.",
+    "sourceLabel": "MMSU Research portal, record 107",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/107",
+    "status": "Verified on the source page",
+    "note": "Related; energy-tree species rather than conservation."
+   },
+   {
+    "id": "e11",
+    "years": "2011",
+    "sortYear": 2011,
+    "type": "Publication",
+    "title": "Survey and Characterization of Indigenous Food Plants in Ilocos Norte, Philippines",
+    "people": "Menisa A. Antonio, Rodel T. Utrera, Epifania O. Agustin, Dionisio L. Jamias, Araceli J. Badar, Miriam E. Pascua",
+    "summary": "SEARCA Agriculture and Development Discussion Paper No. 2011-2 (61 pages). Documented 46 indigenous food plants from 27 families in seven upland and remote municipalities, most of them wild species, and reported that MMSU maintains their germplasm as living plants and seeds.",
+    "sourceLabel": "SEARCA Discussion Papers",
+    "sourceUrl": "https://www.searca.org/pubs/discussion-papers?pid=130",
+    "status": "Verified on the source page",
+    "note": "Discussion paper; Scopus indexing not checked."
+   },
+   {
+    "id": "e12",
+    "years": "2008 to 2010",
+    "sortYear": 2010,
+    "type": "Research project",
+    "title": "Survey and characterization of indigenous food plants in Ilocos Norte, Philippines",
+    "people": "Menisa Antonio, Rodel T. Utrera, Epifania O. Agustin",
+    "summary": "Completed program (1 November 2008 to 20 June 2010) that produced the 2011 SEARCA discussion paper.",
+    "sourceLabel": "MMSU Research portal, record 766",
+    "sourceUrl": "https://research.mmsu.edu.ph/research/details/766",
+    "status": "Verified on the source page"
+   },
+   {
+    "id": "e13",
+    "years": "2003",
+    "sortYear": 2003,
+    "type": "News",
+    "title": "MMSU researchers identify vanishing plant species",
+    "people": "Dr. Miriam Pascua, Menisa Antonio, Dionisio Bucao and colleagues",
+    "summary": "Survey of Laoag City, Batac, Pasuquin, San Nicolas and Dingras: of 124 plants that elders perceived to be vanishing, 77 were validated as such using IUCN criteria, 45 classified as endangered and 32 as vulnerable.",
+    "sourceLabel": "The Philippine Star, 14 September 2003",
+    "sourceUrl": "https://philstar.com/business/2003/09/14/220344/mmsu-researchers-identify-vanishing-plant-species",
+    "status": "Verified on the source page",
+    "note": "The classification applied IUCN criteria locally; it is not the IUCN Red List."
+   },
+   {
+    "id": "e14",
+    "years": "Ongoing",
+    "sortYear": 2027,
+    "type": "Research centre",
+    "title": "Natural Resources Conservation and Management Center (NRCMC)",
+    "people": "Center Chief: Mae Ann R. Batuyong",
+    "summary": "MMSU's research hub for the conservation of flora and fauna in the Ilocos Region. It leads R&D on plant genetic resources characterization, conservation of plants, animals and water resources, forest resource conservation and fishery resource management.",
+    "sourceLabel": "MMSU Research Directorate, centers",
+    "sourceUrl": "https://research.mmsu.edu.ph/centers/nrcmc",
+    "status": "Verified on the source page"
+   }
+  ]
+ }
+}
