@@ -42,3 +42,15 @@ NODE_PATH=$(npm root -g) node render.js /tmp/sb-html ../sdg15   # Chromium -> PD
 `content.py` holds the hand-written beats, key figures, per-indicator "lens" lines, draft comments and
 to-confirm lists. Captions, photos, tags and source lines come straight from the compendium.
 Lines marked *Proposed* or *Illustrative* (e.g. the 15.3.4 frames) are suggestions, not compendium content.
+
+## Story edition (`sdg15-stories/`)
+
+13 further PDFs tell the same activities as a plain narrative of MMSU's work on land: chapters by theme,
+no indicator numbers, status labels, draft comments or to-do lists. Each has a cover, one frame per activity
+(2025 or ongoing programme), and a closing page with what the activities add up to and the sources.
+Chapter 15.3.4 (alien species) has no activities yet, so it has no story chapter.
+
+```bash
+python3 -I build_story.py /tmp/story-html
+NODE_PATH=$(npm root -g) node render.js /tmp/story-html ../sdg15-stories
+```
