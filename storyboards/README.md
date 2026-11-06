@@ -91,3 +91,7 @@ cd storyboards/src && python3 -I build_article_formal.py <template.docx> ../sdg1
 In the formal edition the Introduction is a direct answer to the indicator's question, at most 1,000 characters
 (`storyboards/src/intro.py`, 837–975 characters each). Where the record has a gap (15.2.2, 15.2.6, 15.3.2, 15.3.4)
 the statement says so.
+
+The team's `SDG-15_1.docx` (write-ups and links for 15.2.2, 15.2.6, 15.3.2 and 15.3.4) is folded into the formal articles:
+the 15.3.2 and 15.3.4 write-ups are new first items in the Body and are condensed into their opening statements;
+the Facebook posts are added as resources on the matching items. Tracking codes were stripped from the links.

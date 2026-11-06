@@ -16,6 +16,25 @@ from docx.shared import Inches
 from docx.table import Table
 from PIL import Image
 
+
+# ---- additions from the team's SDG-15_1.docx (write-ups and links; tracking codes removed)
+WRITEUP_3_2 = ("The Mariano Marcos State University (MMSU), in collaboration with local government units (LGUs) and other stakeholders, implements policies adopted by the Regional Development Council (RDC) to promote the conservation and sustainable utilization of indigenous food plants (IFPs). RDC Resolution No. 7, Series of 2017, promotes habitat protection for endemic and rare species, establishment of community seedbanks, and integration of IFPs into local greening initiatives. The MMSU\u2013SEARCA inventory of 46 IFPs in Ilocos Norte identifies priority conservation species, including Sphaeropteris glauca (pusa-pusa), classified as Endangered in the Philippine national list, and Dillenia philippinensis (palali), assessed as Near Threatened by the IUCN. In support of these policies, MMSU has conducted alokon propagation training in Sarrat, established community gardens and seedbanks with LGUs and elementary schools, promoted alokon planting in urban gardens, including Quezon City, and maintained the Indigenous Food Plants Botanical Garden (IFPBG) for germplasm conservation and research. These initiatives translate regional policies into concrete actions for the identification, monitoring, propagation, and protection of indigenous plant species and their habitats.")
+WRITEUP_3_4 = ("The Mariano Marcos State University (MMSU), while guided by its existing University Environmental Policies, University Research and Development Agenda (URDA) 2024\u20132028, and the goals and objectives of the Natural Resources Conservation and Management Center (NRCMC), continues to strengthen its commitment to biodiversity protection and sustainable natural resource management. These institutional frameworks serve as guiding principles for addressing the potential impacts of alien and invasive species on campus ecosystems. Specifically, the NRCMC aims to sustain natural resource health and ecosystem services and establish in situ and ex situ conservation initiatives for Ilocos flora and fauna through interdisciplinary, multisectoral, and interagency collaboration. In support of SDG 15.3.4, these directions provide the technical basis for biodiversity assessment, identification and monitoring of alien and potentially invasive species, appropriate management interventions, and promotion of native species in campus landscaping and rehabilitation to minimize ecological impacts and protect native biodiversity.")
+EXTRA_ITEMS = {
+ '15.3.2': [dict(title='Regional Policy and Priority Species for Indigenous Food Plants', section='continuing', tag='Ongoing programme \u00b7 RDC Resolution No. 7, Series of 2017', images=[], paras=[WRITEUP_3_2],
+                 sources=['Philippine Daily Inquirer, \u201cIlocos Norte farmers step up preservation of indigenous plants\u201d https://newsinfo.inquirer.net/2081767/ilocos-norte-farmers-step-up-preservation-of-indigenous-plants',
+                          'MMSU Research and Development, Facebook post. https://www.facebook.com/MMSU.RD.Official/posts/pfbid0Ku2MrGU25FiYuxsUcfe2D3j13ohv7QwefDuaZPbUBhS472ATFfGzTXiNfcKMiYf7l'])],
+ '15.3.4': [dict(title='Institutional Frameworks that Guide the Management of Alien and Invasive Species', section='continuing', tag='Ongoing programme \u00b7 University Research and Development Agenda 2024\u20132028', images=[], paras=[WRITEUP_3_4],
+                 sources=['MMSU, Institutional Profile. https://www.mmsu.edu.ph/page/3/1/institutional-profile',
+                          'MMSU Research Directorate, Natural Resources Conservation and Management Center (NRCMC). https://research.mmsu.edu.ph/centers/nrcmc'])],
+}
+EXTRA_SOURCES = {
+ ('15.2.2', 'greenhouse'): ['MMSU Research Directorate, Facebook post, \u201cRD personnel undergo greenhouse training\u201d https://www.facebook.com/share/p/18mfoUpkDM/'],
+ ('15.2.2', 'parambak'): ['MMSU College of Teacher Education, Facebook post, \u201cHappening now: Parambak Ditoy MMSU 2025\u201d https://www.facebook.com/MMSUCTeacherEducation/posts/\U0001d407\U0001d400\U0001d40f\U0001d40f\U0001d404\U0001d40d\U0001d408\U0001d40d\U0001d406-\U0001d40d\U0001d40e\U0001d416-\U0001d40f\U0001d41a\U0001d42b\U0001d41a\U0001d426\U0001d41b\U0001d41a\U0001d424-\U0001d403\U0001d422\U0001d42d\U0001d428\U0001d432-\U0001d40c\U0001d40c\U0001d412\U0001d414-\U0001d7d0\U0001d7ce\U0001d7d0\U0001d7d3the-mmsu-college-of-teacher-education-led-/1172901604836051/'],
+ ('15.2.6', 'paddy'): ['Facebook photo post on the 2025 rice paddy art, Batac. https://www.facebook.com/photo/?fbid=2304367663341474&set=pcb.2304369626674611'],
+}
+A.CH['15.3.4']['close'] = ('These frameworks set the direction. A memorandum from the Office of the President requiring native species in campus planting and the control of invasive species would turn that direction into a written rule; the native planting already under way in the forest reserves, the mangroves and the Learning Center would then sit under it.')
+
 W = nsdecls('w')
 GREEN, GOLD, BRONZE, INK, GREY, MIST, CREAM, LINK = '1B4D3E', 'C9A227', '8A6A12', '2B2B28', '5B5B57', 'EAF2EE', 'FAF6E8', '2F6F86'
 
@@ -31,8 +50,8 @@ def r2(text, b=False, i=False, color=None, sz=None, sp=None, caps=False):
     return f'<w:r>{"<w:rPr>" + pr + "</w:rPr>" if pr else ""}<w:t xml:space="preserve">{escape(text)}</w:t></w:r>'
 
 
-def p2(runs='', before=0, after=120, line=288, jc=None, keep=False, bottom=None, left=None, shd=None, ind=None, hanging=None, pad=None):
-    ppr = '<w:keepNext/>' if keep else ''
+def p2(runs='', before=0, after=120, line=288, jc=None, keep=False, bottom=None, left=None, shd=None, ind=None, hanging=None, pad=None, lines=False):
+    ppr = ('<w:keepNext/>' if keep else '') + ('<w:keepLines/>' if lines else '')
     b = ''
     if bottom: b += f'<w:bottom w:val="single" w:sz="{bottom[1]}" w:space="5" w:color="{bottom[0]}"/>'
     if left: b += f'<w:left w:val="single" w:sz="{left[1]}" w:space="{pad or 8}" w:color="{left[0]}"/>'
@@ -115,22 +134,24 @@ def build(ind):
             if k == key: return i + 1
         res.append((key, R.src_line(A.neu(s)))); return len(res)
     order = [s for s in ind['stories'] if s['section'] != 'continuing'] + [s for s in ind['stories'] if s['section'] == 'continuing']
+    for st_ in order: st_['sources'] = st_['sources'] + EXTRA_SOURCES.get((code, R.C.skey(st_['title'])), [])
+    order = EXTRA_ITEMS.get(code, []) + order
     if not order: add(p2(r2('No items yet.', i=True, color=GREY, sz=21), after=100))
     for n, st in enumerate(order, 1):
-        key = R.C.skey(st['title'])
+        key = st.get('key') or ''
         add(p2(r2(f'2.{n}', b=True, color=BRONZE, sz=24, sp=6) + r2('   ' + A.neu(st['title']), b=True, color=GREEN, sz=24), before=300, after=70, keep=True, jc='center', line=264))
         if st['section'] == 'continuing' and st['tag']:
             add(p2(r2(A.neu(st['tag']), i=True, color=GREY, sz=16), after=90, keep=True, jc='center', line=252))
         if st['images']:
             add(photos(doc, st['images'])); add(p2('', after=80, line=240))
-        rows = A.facts(key)
+        rows = A.facts(R.C.skey(st['title']) if not st.get('paras') or st in ind['stories'] else '')
         if rows: add(facts_table(rows)); add(p2('', after=80, line=240))
         for t in st['paras']: add(p2(r2(A.neu(t), sz=20), jc='both'))
         ids = sorted({rid(s) for s in st['sources']})
         if ids: add(p2(r2('Resources  ', b=True, color=BRONZE, sz=15, sp=12, caps=True) + r2(', '.join(map(str, ids)), b=True, color=GREEN, sz=16), before=40, after=100, line=252, bottom=('D9D9D4', 4)))
 
     add(heading('3', 'Conclusion'))
-    add(p2(r2(M['close'], sz=21, color=INK), after=120, line=300, jc='both', left=(GREEN, 36), shd=MIST, ind=200, pad=12))
+    add(p2(r2(M['close'], sz=21, color=INK), after=120, line=300, jc='both', left=(GREEN, 36), shd=MIST, ind=200, pad=12, lines=True))
 
     add(heading('4', 'Resources'))
     if res:
