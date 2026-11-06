@@ -22,7 +22,7 @@ CH['15.3.4'] = dict(
     story='No item is recorded yet for this question.',
     close='A memorandum from the Office of the President requiring native species in campus planting and the control of invasive species would answer it. The native planting already under way in the forest reserves, the mangroves and the Learning Center would then sit under a written policy.')
 REPL = [('Continuing implementation', 'Ongoing programme'), ('Continuing role', 'Ongoing role'), ('SDG 15 evidence page', 'SDG 15 page'),
-        (' (see the 2025 frame)', ''), (' The 2025 activities are shown in the 15.2.3 and 15.2.4 frames.', ''), (' · date to confirm', '')]
+        (' (see the 2025 frame)', ''), (' (see the 2025 evidence for this indicator)', ''), (' The 2025 activities are shown in the 15.2.3 and 15.2.4 frames.', ''), (' · date to confirm', '')]
 
 
 def neu(s):
