@@ -37,7 +37,7 @@ def facts(key):
     rows = []
     for lab, v in zip(labels, R.RECORD[key]):
         v = re.sub(r'\s*(Last reviewed|Revision|Board approval):\s*\[to add\]\.?', '', v)
-        v = v.split(' The 2026 form')[0].strip().rstrip(';')
+        v = v.split(' The 2026 form')[0].replace(' (compendium)', '').strip().rstrip(';')
         if not v or '[to add]' in v: continue
         rows.append([R.txt(lab, b=True), v])
     return rows
