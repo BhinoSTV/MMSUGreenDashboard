@@ -7,6 +7,7 @@ from xml.sax.saxutils import escape
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import build_article as A      # content, helpers (also imports build_report as R)
+from intro import INTRO        # opening statements: answers of at most 1,000 characters
 import build_report as R
 import docx
 from docx.oxml import parse_xml
@@ -101,7 +102,10 @@ def build(ind):
     add(p2(r2(ind['wording'], i=True, color=INK, sz=22), after=200, line=300, left=(GOLD, 28), shd=CREAM, ind=160, pad=10))
 
     add(heading('1', 'Introduction'))
-    add(p2(r2(A.COMMIT + ' ' + M['story'], sz=21), jc='both'))
+    stmt = INTRO[code]
+    lead = 'Yes.' if stmt.startswith('Yes. ') else None
+    runs = (r2('Yes.', b=True, color=GREEN, sz=21) + r2(stmt[4:], sz=21)) if lead else r2(stmt, sz=21)
+    add(p2(runs, jc='both'))
 
     add(heading('2', 'Body'))
     res = []

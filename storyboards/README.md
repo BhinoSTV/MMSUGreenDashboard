@@ -87,3 +87,7 @@ orange for labels. Cover, footer, page set-up and the Arial typeface are the tem
 ```bash
 cd storyboards/src && python3 -I build_article_formal.py <template.docx> ../sdg15-articles-formal
 ```
+
+In the formal edition the Introduction is a direct answer to the indicator's question, at most 1,000 characters
+(`storyboards/src/intro.py`, 837–975 characters each). Where the record has a gap (15.2.2, 15.2.6, 15.3.2, 15.3.4)
+the statement says so.
