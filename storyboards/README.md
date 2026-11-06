@@ -54,3 +54,16 @@ Chapter 15.3.4 (alien species) has no activities yet, so it has no story chapter
 python3 -I build_story.py /tmp/story-html
 NODE_PATH=$(npm root -g) node render.js /tmp/story-html ../sdg15-stories
 ```
+
+## Evidence-report edition (`sdg15-evidence-reports/`)
+
+14 Word reports (+ PDF copies), one per indicator, following the *MMSU SDG Evidence Compendium TEMPLATE*:
+cover and team block, 1 Sites and platforms explored, Not yet explored, 2 Indicators to report, 3 Optional peers
+(only where the compendium links a peer to that indicator), 4 Evidence by indicator (submission pick, items with photos,
+narrative and sources; policy record tables for policies), 5 Before submission checklist and open items.
+Built on the template file itself, so its styles and footer carry over. Orange brackets mark facts still to add.
+
+```bash
+cd storyboards/src
+python3 -I build_report.py <template.docx> ../sdg15-evidence-reports   # then: soffice --headless --convert-to pdf *.docx
+```
