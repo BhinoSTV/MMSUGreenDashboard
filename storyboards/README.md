@@ -77,3 +77,13 @@ peer or checklist pages, and no placeholders. 15.3.4 has no items yet and says s
 ```bash
 cd storyboards/src && python3 -I build_article.py <template.docx> ../sdg15-articles   # then convert to PDF with soffice
 ```
+
+## Formal article edition (`sdg15-articles-formal/`)
+
+Same 14 articles with refined typography: larger, more open justified text, gold hairlines under numbered headings,
+a shaded question box and conclusion panel, numbered resources with muted-blue links, and a deeper bronze in place of
+orange for labels. Cover, footer, page set-up and the Arial typeface are the template's own.
+
+```bash
+cd storyboards/src && python3 -I build_article_formal.py <template.docx> ../sdg15-articles-formal
+```
