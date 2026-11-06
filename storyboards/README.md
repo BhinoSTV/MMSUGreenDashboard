@@ -67,3 +67,13 @@ Built on the template file itself, so its styles and footer carry over. Orange b
 cd storyboards/src
 python3 -I build_report.py <template.docx> ../sdg15-evidence-reports   # then: soffice --headless --convert-to pdf *.docx
 ```
+
+## Article edition (`sdg15-articles/`)
+
+14 short Word articles (+ PDF) in the template look, one per indicator: cover, the question, 1 Introduction,
+2 Body (itemised, with photos and numbered resource references), 3 Conclusion, 4 Resources. No sites-searched,
+peer or checklist pages, and no placeholders. 15.3.4 has no items yet and says so.
+
+```bash
+cd storyboards/src && python3 -I build_article.py <template.docx> ../sdg15-articles   # then convert to PDF with soffice
+```
