@@ -1,0 +1,140 @@
+{
+ "reference": "Pandora #219 (not-assured)",
+ "target": "ERA5 TCWV (Open-Meteo point)",
+ "chosen": "scale",
+ "coefficients": {
+  "factor": 0.9520893114941943,
+  "factor_ci95": [
+   0.949143607158562,
+   0.9549780807930838
+  ]
+ },
+ "domain_hours": [
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16
+ ],
+ "n_pairs": 4282,
+ "selection_rule": "simplest model within 2 % of best leave-one-month-out RMSE",
+ "cv_table": [
+  {
+   "model": "none (raw ERA5)",
+   "n_params": 0,
+   "lomo_rmse": 3.144,
+   "lomo_rmse_lo": 3.007,
+   "lomo_rmse_hi": 3.281,
+   "lomo_mae": 2.468,
+   "lomo_bias": 2.096,
+   "lomo_r": 0.979,
+   "train2025_test2026_rmse": 3.301,
+   "train2025_test2026_bias": 2.185,
+   "dry_to_wet_rmse": 3.62,
+   "wet_to_dry_rmse": 2.642
+  },
+  {
+   "model": "offset",
+   "n_params": 1,
+   "lomo_rmse": 2.358,
+   "lomo_rmse_lo": 2.269,
+   "lomo_rmse_hi": 2.454,
+   "lomo_mae": 1.827,
+   "lomo_bias": -0.004,
+   "lomo_r": 0.979,
+   "train2025_test2026_rmse": 2.479,
+   "train2025_test2026_bias": 0.162,
+   "dry_to_wet_rmse": 2.666,
+   "wet_to_dry_rmse": 2.476
+  },
+  {
+   "model": "scale",
+   "n_params": 1,
+   "lomo_rmse": 2.202,
+   "lomo_rmse_lo": 2.108,
+   "lomo_rmse_hi": 2.284,
+   "lomo_mae": 1.699,
+   "lomo_bias": -0.088,
+   "lomo_r": 0.979,
+   "train2025_test2026_rmse": 2.314,
+   "train2025_test2026_bias": 0.378,
+   "dry_to_wet_rmse": 2.359,
+   "wet_to_dry_rmse": 2.101
+  },
+  {
+   "model": "scale by season",
+   "n_params": 2,
+   "lomo_rmse": 2.197,
+   "lomo_rmse_lo": 2.093,
+   "lomo_rmse_hi": 2.291,
+   "lomo_mae": 1.689,
+   "lomo_bias": -0.06,
+   "lomo_r": 0.979,
+   "train2025_test2026_rmse": 2.314,
+   "train2025_test2026_bias": 0.378,
+   "dry_to_wet_rmse": 2.359,
+   "wet_to_dry_rmse": 2.101
+  },
+  {
+   "model": "scale by hour",
+   "n_params": 3,
+   "lomo_rmse": 2.169,
+   "lomo_rmse_lo": 2.08,
+   "lomo_rmse_hi": 2.264,
+   "lomo_mae": 1.678,
+   "lomo_bias": -0.088,
+   "lomo_r": 0.98,
+   "train2025_test2026_rmse": 2.306,
+   "train2025_test2026_bias": 0.353,
+   "dry_to_wet_rmse": 2.317,
+   "wet_to_dry_rmse": 2.095
+  },
+  {
+   "model": "scale by season\u00d7hour",
+   "n_params": 6,
+   "lomo_rmse": 2.162,
+   "lomo_rmse_lo": 2.069,
+   "lomo_rmse_hi": 2.26,
+   "lomo_mae": 1.667,
+   "lomo_bias": -0.056,
+   "lomo_r": 0.98,
+   "train2025_test2026_rmse": 2.303,
+   "train2025_test2026_bias": 0.355,
+   "dry_to_wet_rmse": 2.359,
+   "wet_to_dry_rmse": 2.101
+  },
+  {
+   "model": "linear",
+   "n_params": 2,
+   "lomo_rmse": 2.174,
+   "lomo_rmse_lo": 2.083,
+   "lomo_rmse_hi": 2.26,
+   "lomo_mae": 1.674,
+   "lomo_bias": -0.0,
+   "lomo_r": 0.979,
+   "train2025_test2026_rmse": 2.312,
+   "train2025_test2026_bias": 0.703,
+   "dry_to_wet_rmse": 2.293,
+   "wet_to_dry_rmse": 2.054
+  },
+  {
+   "model": "quantile mapping",
+   "n_params": 99,
+   "lomo_rmse": 2.19,
+   "lomo_rmse_lo": 2.094,
+   "lomo_rmse_hi": 2.277,
+   "lomo_mae": 1.683,
+   "lomo_bias": 0.001,
+   "lomo_r": 0.979,
+   "train2025_test2026_rmse": 2.316,
+   "train2025_test2026_bias": 0.553,
+   "dry_to_wet_rmse": 2.456,
+   "wet_to_dry_rmse": 2.444
+  }
+ ]
+}
