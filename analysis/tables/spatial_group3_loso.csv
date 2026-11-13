@@ -1,0 +1,4 @@
+target,factor_from_other_two,raw_rmse,cal_rmse,raw_bias,cal_bias,cal_rmse_pct
+Ilocos,0.953,3.144,2.196,2.096,-0.035,5.049
+Palawan,0.953,3.232,2.201,2.28,-0.027,4.706
+Cebu,0.952,3.571,2.794,2.09,-0.311,5.786

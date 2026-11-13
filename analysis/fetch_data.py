@@ -17,6 +17,7 @@ environment is honoured. Existing files are kept unless --force is given.
 import argparse
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 LAT, LON = 18.0582, 120.5451  # PGN site "Ilocos" (Mariano Marcos State University)
@@ -25,15 +26,29 @@ PGN = "https://api.pandonia-global-network.org/v1/download/bulk_l2"
 EVENT_TIME = "2025-09-22T10:00:00Z"  # IMERG frame at peak rain, see weather_understanding.py
 
 
+# Philippine PGN network (water vapour only) for the spatial-transfer analysis
+NETWORK = {  # name: (pan_id, lat, lon, alt_m)
+    "Ilocos": (219, 18.0582, 120.5451, 34),
+    "QuezonCity": (224, 14.635, 121.078, 63),
+    "Palawan": (221, 9.7915, 118.734, 56),
+    "Cebu": (225, 10.3551, 123.9111, 67),
+}
+
+
 def get(url, dest, force, timeout=600):
     if dest.exists() and dest.stat().st_size > 0 and not force:
         print(f"  keep   {dest.name}")
         return
     print(f"  fetch  {dest.name}")
-    r = subprocess.run(["curl", "-sS", "-f", "-m", str(timeout), "-o", str(dest), url])
-    if r.returncode != 0:
-        dest.unlink(missing_ok=True)
-        sys.exit(f"download failed: {url}")
+    for attempt, wait in enumerate((0, 30, 90, 180, 300)):    # back off on HTTP 429 (API rate limits)
+        if wait:
+            print(f"  retry in {wait}s (attempt {attempt + 1})")
+            time.sleep(wait)
+        r = subprocess.run(["curl", "-sS", "-f", "-m", str(timeout), "-o", str(dest), url])
+        if r.returncode == 0:
+            return
+    dest.unlink(missing_ok=True)
+    sys.exit(f"download failed: {url}")
 
 
 def main():
@@ -69,6 +84,17 @@ def main():
         f"latitude={LAT}&longitude={LON}&start_date={s}&end_date={e}"
         "&hourly=nitrogen_dioxide,ozone,aerosol_optical_depth,pm2_5,dust&timezone=UTC",
         out / "cams.json", a.force)
+
+    # other Philippine Pandora sites + ERA5 TCWV/cloud at each site (for spatial_calibration.py)
+    for name, (pan, lat, lon, _) in NETWORK.items():
+        if name != "Ilocos":
+            get(f"{PGN}?start_datetime={s}T00:00:00&end_datetime={e}T00:00:00"
+                f"&pan_id={pan}&location={name}&spectrometer=1&code=rwvt1",
+                out / f"pgn_rwvt1_{name}.txt", a.force)
+        get("https://archive-api.open-meteo.com/v1/archive?"
+            f"latitude={lat}&longitude={lon}&start_date={s}&end_date={e}"
+            "&hourly=total_column_integrated_water_vapour,cloud_cover,precipitation&timezone=UTC",
+            out / f"era5_{name}.json", a.force)
 
     wms = ("https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&REQUEST=GetMap"
            "&VERSION=1.1.1&SRS=EPSG:4326&BBOX=114,10,128,24&WIDTH=1120&HEIGHT=1120"

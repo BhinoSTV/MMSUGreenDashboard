@@ -1,0 +1,37 @@
+site,split,group,n,factor
+Ilocos,hwin,"[10, 13)",1400,0.9606
+Ilocos,hwin,"[13, 17)",1578,0.9414
+Ilocos,hwin,"[6, 10)",1304,0.9561
+Ilocos,cwin,"(-1, 30]",1666,0.961
+Ilocos,cwin,"(30, 70]",864,0.9472
+Ilocos,cwin,"(70, 101]",1752,0.9493
+Ilocos,half,2025H1,1258,0.9573
+Ilocos,half,2025H2,1095,0.9565
+Ilocos,half,2026H1,1075,0.9549
+Ilocos,half,2026H2,854,0.9385
+QuezonCity,hwin,"[10, 13)",1223,0.9948
+QuezonCity,hwin,"[13, 17)",1369,0.984
+QuezonCity,hwin,"[6, 10)",1298,0.9841
+QuezonCity,cwin,"(-1, 30]",749,1.0036
+QuezonCity,cwin,"(30, 70]",963,0.9912
+QuezonCity,cwin,"(70, 101]",2178,0.983
+QuezonCity,half,2025H1,1095,0.9879
+QuezonCity,half,2025H2,779,0.984
+QuezonCity,half,2026H1,1318,0.9957
+QuezonCity,half,2026H2,698,0.9817
+Palawan,hwin,"[10, 13)",1375,0.9453
+Palawan,hwin,"[13, 17)",1553,0.9613
+Palawan,hwin,"[6, 10)",1393,0.9505
+Palawan,cwin,"(-1, 30]",612,0.9656
+Palawan,cwin,"(30, 70]",909,0.9508
+Palawan,cwin,"(70, 101]",2800,0.9512
+Palawan,half,2025H1,1039,0.9614
+Palawan,half,2025H2,1039,0.9534
+Palawan,half,2026H1,1375,0.9489
+Palawan,half,2026H2,868,0.9462
+Cebu,hwin,"[10, 13)",274,0.9667
+Cebu,hwin,"[13, 17)",371,0.9507
+Cebu,hwin,"[6, 10)",300,0.9535
+Cebu,cwin,"(30, 70]",182,0.953
+Cebu,cwin,"(70, 101]",638,0.9553
+Cebu,half,2025H1,882,0.9538

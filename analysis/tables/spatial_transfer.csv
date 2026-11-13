@@ -1,0 +1,5 @@
+target,n,raw_rmse,raw_bias,raw_rmse_pct,own_factor,own_rmse,loso_factor,loso_rmse,loso_bias,loso_rmse_pct,ilocos_factor_rmse,ilocos_factor_bias,ilocos_factor_rmse_pct
+Ilocos,4282,3.144,2.096,7.23,0.952,2.195,0.967,2.309,0.607,5.309,,,
+QuezonCity,3890,2.028,0.52,4.308,0.987,1.934,0.953,2.569,-1.728,5.458,2.591,-1.76,5.504
+Palawan,4321,3.232,2.28,6.91,0.953,2.201,0.968,2.332,0.712,4.986,2.201,-0.07,4.706
+Cebu,945,3.571,2.09,7.394,0.956,2.787,0.963,2.81,0.244,5.82,2.795,-0.324,5.788

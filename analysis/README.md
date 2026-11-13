@@ -11,6 +11,7 @@ python3 fetch_data.py --out data          # ~160 MB, kept out of git
 python3 weather_understanding.py --data data --out .   # writes figures/ and metrics.json
 python3 agreement_stats.py --data data --out .         # writes tables/, agreement_stats.json, fig7
 python3 calibrate_era5.py --data data --out .          # writes calibration.json, calibrated series, fig8
+python3 spatial_calibration.py --data data --out .     # four-site transfer/gradient tests, fig9
 ```
 
 ## What Pandora can and cannot tell you about weather
@@ -128,7 +129,7 @@ test-2026 and dry ↔ wet season transfer). The simplest model within 2 % of the
 | Linear (2) | 2.17 | 0.00 | 2.31 | 2.29 | 2.05 |
 | Quantile mapping (99) | 2.19 | 0.00 | 2.32 | 2.46 | 2.44 |
 
-**Calibrated ERA5 = 0.952 × ERA5** (95 % CI 0.949–0.955, day-block bootstrap). Held-out RMSE falls from 3.14 to
+**Calibrated ERA5 = 0.952 × ERA5** at Ilocos (95 % CI 0.949–0.955, day-block bootstrap; spatial validity: see next section). Held-out RMSE falls from 3.14 to
 2.20 mm (−30 %) and bias from +2.10 to −0.09 mm. Richer models are statistically indistinguishable from the
 single factor, so the one-parameter form is retained; it also transfers best across seasons and years.
 
@@ -155,6 +156,67 @@ Outputs: `calibration.json` (model, coefficient and CI, full CV table), `tables/
 * Pandora samples clear-sun conditions only, so the factor is calibrated for those and applied to cloudy and
   rainy hours by extrapolation. The sensitivity of the factor to sky condition could not be tested directly.
 
+### Can the calibration be used for spatial variability? (Fig 9, `spatial_calibration.py`)
+A scale factor fitted at one point only rescales ERA5's spatial pattern; it cannot repair it. So the
+calibration was tested across the four Philippine Pandoras (Ilocos 18.1°N, Quezon City 14.6°N, Palawan 9.8°N,
+Cebu 10.4°N), all `rwvt1` p1-8, all not-assured, 2025–2026. Two tests: **transfer** (does a factor work at a site
+it never saw?) and **gradients** (does ERA5 reproduce the differences *between* sites that Pandora measures?).
+
+**Site factors** (Pandora ≈ factor × ERA5; day-block bootstrap 95 % CI):
+
+| Site | Hours | ERA5 bias, mm | Raw RMSE, mm | Factor |
+|---|---|---|---|---|
+| Ilocos | 4,282 | +2.10 | 3.14 | 0.952 [0.949, 0.955] |
+| Palawan | 4,321 | +2.28 | 3.23 | 0.953 [0.950, 0.955] |
+| Cebu (to Nov 2025) | 945 | +2.09 | 3.57 | 0.956 [0.950, 0.962] |
+| **Quezon City** | 3,890 | **+0.52** | 2.03 | **0.987** [0.985, 0.989] |
+
+**Transfer to an unseen site (RMSE vs Pandora, mm):**
+
+| Target | Raw | Ilocos factor | Leave-one-site-out factor | Own factor (best case) |
+|---|---|---|---|---|
+| Palawan | 3.23 | **2.20** | 2.33 | 2.20 |
+| Cebu | 3.57 | **2.80** | 2.81 | 2.79 |
+| Quezon City | **2.03** | 2.59 (worse) | 2.57 (worse) | 1.93 |
+
+* **The factor transfers across ~900 km to Palawan and Cebu**, and reaches the own-site optimum. The three sites
+  Ilocos, Palawan and Cebu form a consistent group: pooled factor **0.953**, and leave-one-site-out inside the group
+  gives RMSE 3.14 → 2.20 (Ilocos), 3.23 → 2.20 (Palawan), 3.57 → 2.79 (Cebu), with residual biases of −0.04, −0.03
+  and −0.31 mm.
+* **It does not transfer to Quezon City**, where it increases the error (bias −1.8 mm). A single uniform factor
+  is therefore **not** justified for all four sites.
+* **The Quezon City difference is real, not a sampling artefact** (`tables/spatial_diagnostics.csv`): its factor
+  stays 0.98–1.00 in every hour-of-day window, ERA5 cloud class and half-year, while the other three stay 0.94–0.97.
+  On the same 2,727 simultaneous hours, ERA5 − Pandora is +0.46 mm at Quezon City and +2.00 mm at Ilocos. This data
+  cannot say whether ERA5 or the Quezon City instrument is the outlier.
+
+**Gradients between sites** (hourly differences, `tables/spatial_gradients.csv`; calibration uses a factor fitted
+only on sites outside the pair):
+
+| Pair | n | Pandora Δ, mm | ERA5 Δ, mm | ERA5 bias in Δ | r | RMSE raw → calibrated |
+|---|---|---|---|---|---|---|
+| Ilocos − Palawan | 2,829 | −4.0 | −4.3 | −0.30 | 0.95 | 3.27 → 3.20 |
+| Ilocos − Quezon City | 2,727 | −3.1 | −1.5 | +1.54 | 0.92 | 3.44 → 3.36 |
+| Quezon City − Palawan | 2,730 | −0.0 | −1.7 | −1.67 | 0.92 | 3.51 → 3.41 |
+
+* ERA5 captures the hour-to-hour spatial contrast well (r = 0.92–0.95), and the mean Ilocos–Palawan contrast is
+  right to 0.3 mm.
+* **Calibration with a uniform factor barely improves gradients** (RMSE −2 to −3 %). It scales every difference
+  by ~0.95 but cannot fix site-specific offsets, and the remaining ≈ 3.2–3.5 mm is close to the floor expected from two
+  independent ~2.2 mm errors (√2 × 2.2 ≈ 3.1 mm).
+* Contrasts involving Quezon City are biased by ~1.5–1.7 mm in ERA5 relative to Pandora.
+* Regression slopes of 0.85–0.91 (Pandora Δ on ERA5 Δ) hint that ERA5 slightly exaggerates contrasts, but
+  noise in the regressor attenuates OLS slopes, so this is not established.
+* Weak signs of drift: the factor falls from 0.961 to 0.946 (Palawan, four half-years) and from 0.957 to 0.938 (Ilocos,
+  2026H2), while Quezon City is flat. Worth monitoring; could be instrument or reanalysis.
+
+**Recommendation for spatial use.** Use **0.953** (±0.003) outside the Metro Manila area, where three independent sites
+spanning 18.1°N to 9.8°N agree. Do **not** apply it near Quezon City: raw ERA5 beats the corrected field there, and
+the zone of influence of that site is unknown. Treat the calibration as improving absolute values, not
+spatial gradients. A site-specific bias *field* needs more sites and an independent reference (AERONET precipitable
+water, GNSS) to establish whether the Quezon City instrument or ERA5 is the outlier. Not done here: gridded ERA5
+maps, which need CDS credentials (the Open-Meteo API returned HTTP 429 even for four point requests).
+
 ## Limitations that matter
 
 1. **All Pandora data from this instrument are "not-assured"** (QA flags 10/11/12; none are 0–2).
@@ -180,7 +242,8 @@ Outputs: `calibration.json` (model, coefficient and CI, full CV table), `tables/
 * `weather_understanding.py`: screening, statistics, figures, `metrics.json`.
 * `agreement_stats.py`: full Pandora-vs-ERA5 agreement statistics with day-block bootstrap CIs, strata, `fig7`.
 * `calibrate_era5.py`: calibrates ERA5 TCWV to Pandora with cross-validated model selection, `fig8`.
-* `figures/fig1…fig8*.png`, `metrics.json`, `agreement_stats.json`, `calibration.json`, `tables/*.csv`: outputs.
+* `spatial_calibration.py`: four-site transfer and gradient tests for spatial use of the calibration, `fig9`.
+* `figures/fig1…fig9*.png`, `metrics.json`, `agreement_stats.json`, `calibration.json`, `spatial_calibration.json`, `tables/*.csv`: outputs.
 
 Note: PGN's legacy download tree (`data.pandonia-global-network.org`) was retired on 8 Sep 2026; this
 code uses the new API (`api.pandonia-global-network.org`). Follow the PGN data-use guidelines when publishing.
