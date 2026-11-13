@@ -9,6 +9,7 @@ atmospheric state, Jan 2025 – Nov 2026.
 pip install pandas numpy matplotlib scipy
 python3 fetch_data.py --out data          # ~160 MB, kept out of git
 python3 weather_understanding.py --data data --out .   # writes figures/ and metrics.json
+python3 agreement_stats.py --data data --out .         # writes tables/, agreement_stats.json, fig7
 ```
 
 ## What Pandora can and cannot tell you about weather
@@ -36,8 +37,9 @@ but GIBS keeps only ~1 month of it, so it cannot support a historical case; IMER
 ## Findings
 
 ### 1. Pandora water vapour is physically credible and tracks independent products (Fig 1)
-Against ERA5 (4,282 hourly matches): **r = 0.978, bias −1.9 mm (−4 %), RMSE 3.1 mm**, slope 0.92.
-The bias is always negative (−0.8 to −3.7 mm per month) and somewhat larger in 2026 and in wet months.
+Against ERA5 (4,282 hourly matches, 524 days): **r = 0.979, bias −2.1 mm (−4.6 %), RMSE 3.1 mm**,
+OLS slope 0.92 (full statistics in the next section). The bias is always negative (−0.9 to −4.1 mm per month)
+and somewhat larger in 2026 and in wet months.
 It is a stable dry offset rather than noise; correct or flag it before using absolute values.
 
 ### 2. It resolves the monsoon cycle (Fig 2)
@@ -73,6 +75,42 @@ rain on the day (NASA POWER independently: 155 mm). The IMERG frame puts the rai
 it had dropped to ~42 mm. Across the 15 days with ≥ 50 mm rain there is **no useful moistening lead signal**
 (`event_composite` in `metrics.json`: anomaly ≈ −1 mm at days −3/−2, +2.8 mm only the day after).
 
+### Agreement statistics: Pandora vs ERA5 (Fig 7, `agreement_stats.py`)
+Pandora = test, ERA5 = reference, d = Pandora − ERA5, units mm. Hourly Pandora medians (≥ 5 samples)
+are matched to ERA5 at the window centre (hh:30). 95 % CIs come from a **day-block bootstrap** (2,000
+resamples), because hourly errors are autocorrelated.
+
+| Metric | Hourly (n = 4,282) | Daily mean (n = 486) |
+|---|---|---|
+| Bias (MBE) | **−2.10** [−2.24, −1.95] (−4.6 %) | −2.09 [−2.24, −1.94] |
+| MAE / median AE | 2.47 [2.35, 2.58] / 2.02 | 2.23 / 1.91 |
+| RMSE (relative) | **3.14** [3.00, 3.27] (6.9 %) | 2.69 (5.8 %) |
+| Unbiased RMSE (SD of d) | 2.34 | 1.69 |
+| 90th-percentile abs. error | 5.1 | 4.3 |
+| Pearson r / R² / Spearman ρ | 0.979 [0.976, 0.982] / 0.959 / 0.978 | 0.990 / 0.980 / 0.989 |
+| OLS slope, intercept | 0.921 [0.911, 0.932], +1.50 | 0.936, +0.87 |
+| Orthogonal (Deming) slope, intercept | 0.939, +0.67 | 0.945, +0.45 |
+| Lin's CCC / Willmott d / KGE | 0.960 / 0.980 / 0.922 | 0.971 / 0.985 / 0.929 |
+| Bland–Altman limits (±1.96 SD) | −6.7 to +2.5 | −5.4 to +1.2 |
+| Within ±3 mm / ±5 mm / ±10 % | 68 % / 89 % / 88 % | 72 % / 95 % / 93 % |
+
+Reading the numbers:
+* **Precision is excellent, accuracy shows a stable offset.** Correlation is 0.98 and unbiased RMSE is
+  2.3 mm, but the bias (−4.6 %) is statistically distinct from zero. The offset is partly **proportional**:
+  the Bland–Altman slope is −0.06 mm per mm (p < 0.001) and the regression slope is 0.92–0.94.
+* **Sensitivity to collocation:** matching ERA5 at the top of the hour instead of the window centre
+  gives bias −1.9 mm and RMSE 3.09 mm (see `tables/agreement_overall.csv`, column `hourlabel`). Report the
+  collocation rule with the statistics.
+* **By regime** (`tables/agreement_strata.csv`): bias −1.5 mm (dry) vs −2.7 mm (wet), but relative RMSE
+  stays at 6–8 % everywhere, so the error is roughly multiplicative. Afternoon (13–17 h) is worst
+  (bias −2.6 mm, RMSE 3.7 mm = 8.0 %, only 83 % within ±10 %), consistent with ERA5 having a larger diurnal
+  amplitude than Pandora's clear-sky-sampled data. 2026 is somewhat worse than 2025 (RMSE 7.9 % vs 6.2 %),
+  but the two years have different seasonal mixes, so do not read it as drift without a seasonally matched test.
+* **Caution for the narrow moisture bin (40–50 mm):** r drops to 0.78 and the orthogonal slope to 1.37 purely
+  from range restriction, not because the instrument misbehaves there. Do not interpret slopes within narrow
+  strata.
+* These are *agreement* statistics against a model product, not Pandora accuracy.
+
 ## Limitations that matter
 
 1. **All Pandora data from this instrument are "not-assured"** (QA flags 10/11/12; none are 0–2).
@@ -96,7 +134,8 @@ it had dropped to ~42 mm. Across the 15 days with ≥ 50 mm rain there is **no u
 * `fetch_data.py`: downloads all inputs (PGN API, POWER, ERA5, CAMS, GIBS).
 * `pgn_load.py`: parser for PGN L2 bulk files (BlickP p1-8 column layout).
 * `weather_understanding.py`: screening, statistics, figures, `metrics.json`.
-* `figures/fig1…fig6*.png`, `metrics.json`: outputs.
+* `agreement_stats.py`: full Pandora-vs-ERA5 agreement statistics with day-block bootstrap CIs, strata, `fig7`.
+* `figures/fig1…fig7*.png`, `metrics.json`, `agreement_stats.json`, `tables/*.csv`: outputs.
 
 Note: PGN's legacy download tree (`data.pandonia-global-network.org`) was retired on 8 Sep 2026; this
 code uses the new API (`api.pandonia-global-network.org`). Follow the PGN data-use guidelines when publishing.

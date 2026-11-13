@@ -101,7 +101,10 @@ def local(idx):
 def fig_validation(wv, E, out, M):
     ph = wv.pwv.resample("1h").median()
     cnt = wv.pwv.resample("1h").count()
-    e = E.total_column_integrated_water_vapour
+    e0 = E.total_column_integrated_water_vapour
+    # ERA5 is instantaneous at hh:00; the Pandora hourly median covers hh:00-hh:59, so use the
+    # mean of the bracketing ERA5 hours (= value at the window centre, hh:30)
+    e = (e0 + e0.shift(-1, freq="1h").reindex(e0.index)) / 2
     j = pd.concat([ph.rename("p"), e.rename("e"), cnt.rename("n")], axis=1, sort=True).dropna()
     j = j[j.n >= 5]
     M["val_hourly_era5"] = stat(j.p, j.e)
@@ -125,7 +128,7 @@ def fig_validation(wv, E, out, M):
     ax[1].axhline(0, color=INK2, lw=1)
     ax[1].set_xticks(xs[::2], [k.strftime("%b\n%Y") if k.month == 1 or i == 0 else k.strftime("%b")
                                 for i, k in enumerate(mb.index)][::2])
-    ax[1].set(ylabel="Pandora − ERA5 (mm)", title="Monthly bias: always dry (−0.8 to −3.7 mm), larger in 2026")
+    ax[1].set(ylabel="Pandora − ERA5 (mm)", title="Monthly bias: always dry (−0.9 to −4.1 mm), larger in 2026")
     ax[1].grid(axis="x", visible=False)
     fig.tight_layout()
     fig.savefig(out / "fig1_validation.png", dpi=170)
