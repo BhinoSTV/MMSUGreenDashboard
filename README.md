@@ -25,9 +25,32 @@ four international ranking systems:
   > Replace them in the `DATA` block of `units.html` with each unit's actual
   > self-assessment or audit results.
 
+- `laoag3d.html` — **Laoag City 3D urban model** built only from free data: ~59,000
+  building footprints extruded to height (MapLibre GL JS `fill-extrusion`), plus roads,
+  rivers/canals, land use and 10 m land cover. Colour buildings by height, by *height
+  basis* (surveyed / floor count / estimated) or by source dataset; click a building to
+  inspect it; pin for MMSU Campus 2.
+
+  > ⚠️ Free datasets give a surveyed height or floor count for only ~0.3% of buildings. The
+  > rest use **assumed** heights from footprint size and class (rules are listed on the page
+  > under *Method & limitations*). Treat the model as form/density context, not measurement.
+  > Swap in UAV/LiDAR/inventory heights to improve it.
+
+  Free sources: [Overture Maps](https://overturemaps.org/) (buildings = OpenStreetMap +
+  Microsoft + Google; roads; water; land use; places) and
+  [ESA WorldCover 2021](https://esa-worldcover.org/) (10 m land cover).
+  Rebuild with the scripts in `tools/` (needs `duckdb`, `shapely`, `rasterio`, and the
+  MapLibre GL JS 4.x `dist/` files):
+
+  ```bash
+  python3 -I tools/fetch_laoag_overture.py raw          # buildings, roads, water, land use, places
+  python3 -I tools/fetch_worldcover.py raw              # land cover (needs raw/meta.json from the step above)
+  python3 -I tools/build_laoag3d.py raw maplibre_dist laoag3d.html
+  ```
+
 ## Viewing
 
-Each page is one dependency-free file — open `index.html` or `units.html` in any
+Each page is one dependency-free file — open `index.html`, `units.html` or `laoag3d.html` in any
 browser, or serve them with GitHub Pages (Settings → Pages → deploy from branch,
 root folder). Everything, including the official MMSU seal and display typeface,
 is inlined as data URIs, so the pages work offline with no external requests.
